@@ -1,5 +1,5 @@
 # Porthub
-![Logo](https://www.dropbox.com/s/s9pcr1abkx2ws3e/logo.png?dl=0)
+![Logo](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/logo.png)
 ## Team
 ### Members
 | Name | Email | Github Username|
