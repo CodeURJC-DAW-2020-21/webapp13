@@ -22,10 +22,10 @@ To keep track on the updates that we made to the project we are going to use __G
 
 ### Entities
 The system has 4 entities:
--__User:__ Represents an user profile having it´s whole data.
--__Portfolio:__ Contains the representation of an user experience and knowledge about a particular occupation.
--__Message:__ It is the minimun unit of communication between users, composed by the emisor, the receiver, the content and the time in which it was sent and received.
--__Sale:__ Models a concrete product sale by the id of the portfolio, the purchaser and the price.
+- __User:__ Represents an user profile having it´s whole data.
+- __Portfolio:__ Contains the representation of an user experience and knowledge about a particular occupation.
+- __Message:__ It is the minimun unit of communication between users, composed by the emisor, the receiver, the content and the time in which it was sent and received.
+- __Sale:__ Models a concrete product sale by the id of the portfolio, the purchaser and the price.
 
 ### User permission
 The system has 3 user modes:
