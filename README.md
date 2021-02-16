@@ -18,7 +18,7 @@ To keep track on the updates that we made to the project we are going to use __G
 | Aitor Ortega Pacheco | a.ortega.2018@alumnos.urjc.es | aitorortega03 |
 | Álvaro López Río | a.rio.2017@alumnos.urjc.es | sdfdsf |
 
-## Info about the project
+## Phase 0
 
 ### Entities
 The system has 4 entities:
@@ -55,7 +55,7 @@ For the complementary technology we will use a Web Socket to implement a chat be
 ### Advanced queries
 We will implement an algorithm that rocommends users which have similar interests or types of work.
 
-## Phase 0
+
 ## Phase 1
 ## Phase 2
 ## Phase 3
