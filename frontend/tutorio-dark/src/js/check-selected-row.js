@@ -1,0 +1,1 @@
+import 'tutorio/src/js/check-selected-row'

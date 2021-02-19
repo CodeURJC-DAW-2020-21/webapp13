@@ -1,0 +1,68 @@
+{% import '_teacher-card.html' as teacher %}
+{% macro component(
+  pager=false,
+  control=true,
+  col_class='col-sm-6 col-md-4 col-xl-3',
+  card_class='',
+  items=[{
+    name: 'Julian Bailey',
+    avatar: 'assets/images/people/110/guy-1.jpg',
+    title: 'React, Redux Framework',
+    students: '31,468',
+    courses: '8'
+  }, {
+    name: 'Milton Moody',
+    avatar: 'assets/images/people/110/guy-2.jpg',
+    title: 'Web Development, Redis',
+    students: '28,245',
+    courses: '16'
+  }, {
+    name: 'Mina Bennett',
+    avatar: 'assets/images/people/110/woman-1.jpg',
+    title: 'Engineering, DevOps',
+    students: '19,765',
+    courses: '12'
+  }, {
+    name: 'Brett Murray',
+    avatar: 'assets/images/people/110/guy-3.jpg',
+    title: 'PHP, WordPress',
+    students: '12,892',
+    courses: '5'
+  }]
+) %}
+<div class="position-relative carousel-card">
+  <div 
+    class="js-mdk-carousel row d-block" 
+    id="carousel-teachers">
+    {% if control %}
+    <a 
+      class="carousel-control-next js-mdk-carousel-control mt-n24pt" 
+      href="#carousel-teachers" 
+      role="button" 
+      data-slide="next">
+      <span 
+        class="carousel-control-icon material-icons" 
+        aria-hidden="true">keyboard_arrow_right</span>
+      <span class="sr-only">Next</span>
+    </a>
+    {% endif %}
+    <div class="mdk-carousel__content">
+      {% for item in items %}
+      <div class="col-12 {{ col_class }}">
+        {{ teacher.component(
+          name=item.name, 
+          avatar=item.avatar, 
+          title=item.title, 
+          students=item.students, 
+          courses=item.courses,
+          class=card_class) }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% if pager %}
+{% include 'layouts/_pager.html' %}
+{% endif %}
+{% endmacro %}
+{{ component() }}

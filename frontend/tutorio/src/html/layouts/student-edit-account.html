@@ -1,0 +1,30 @@
+{% extends 'layouts/student.html' %}
+
+{% block beforePage %}
+  {% include 'layouts/_website-account-submenu.html' %}
+{% endblock %}
+
+{% block page %}
+<div class="{{ containerClass or 'container' }}">
+  <form action="{{ prefix or '' }}student-edit-account.html">
+    <div class="row">
+      <div class="col-lg-9">
+        {{ super() }}
+      </div>
+      <div class="col-lg-3 page-nav">
+        <div class="page-section pt-lg-112pt">
+          <nav class="nav page-nav__menu">
+            <a class="nav-link{% if slug === 'student-edit-account' %} active{% endif %}" href="{{ prefix or '' }}student-edit-account.html">Basic Information</a>
+            <a class="nav-link{% if slug === 'student-edit-account-profile' %} active{% endif %}" href="{{ prefix or '' }}student-edit-account-profile.html">Profile &amp; Privacy</a>
+            <a class="nav-link{% if slug === 'student-edit-account-notifications' %} active{% endif %}" href="{{ prefix or '' }}student-edit-account-notifications.html">Email Notifications</a>
+            <a class="nav-link{% if slug === 'student-edit-account-password' %} active{% endif %}" href="{{ prefix or '' }}student-edit-account-password.html">Change Password</a>
+          </nav>
+          <div class="page-nav__content">
+            <button type="submit" class="btn btn-accent">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% macro component(
+  title='About this course', 
+  desc='<p class="text-70">This course will teach you the fundamentals o*f working with Angular 2. You *will learn everything you need to know to create complete applications including: components, services, directives, pipes, routing, HTTP, and even testing.</p><p>This course will teach you the fundamentals o*f working with Angular 2. You *will learn everything you need to know to create complete applications including: components, services, directives, pipes, routing, HTTP, and even testing.</p>') %}
+<div class="page-separator-mask page-section pb-0 js-read-more">
+  <div class="{{ containerClass or 'container' }}">
+    <div class="row">
+      <div class="col-md-7">
+        <h4>{{ title }}</h4>
+        {{ desc | safe }}
+      </div>
+      <div class="col-md-5">
+        <h4>What you’ll learn</h4>
+        <ul class="list-unstyled">
+          <li class="d-flex align-items-center">
+            <span class="material-icons text-50 mr-8pt">check</span>
+            <span class="text-70">Fundamentals of working with Angular</span>
+          </li>
+          <li class="d-flex align-items-center">
+            <span class="material-icons text-50 mr-8pt">check</span>
+            <span class="text-70">Create complete Angular applications</span>
+          </li>
+          <li class="d-flex align-items-center">
+            <span class="material-icons text-50 mr-8pt">check</span>
+            <span class="text-70">Working with the Angular CLI</span>
+          </li>
+          <li class="d-flex align-items-center">
+            <span class="material-icons text-50 mr-8pt">check</span>
+            <span class="text-70">Understanding Dependency Injection</span>
+          </li>
+          <li class="d-flex align-items-center">
+            <span class="material-icons text-50 mr-8pt">check</span>
+            <span class="text-70">Testing with Angular</span>
+          </li>
+          <li class="d-flex align-items-center">
+            <span class="material-icons text-50 mr-8pt">check</span>
+            <span class="text-70">Testing with Angular</span>
+          </li>
+          <li class="d-flex align-items-center">
+            <span class="material-icons text-50 mr-8pt">check</span>
+            <span class="text-70">Testing with Angular</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="page-separator-mask__content">
+    <div class="page-separator-mask__top"></div>
+    <div class="page-separator-mask__bottom"></div>
+    <div class="page-separator">
+      <a href="#" class="page-separator__text link-text">read more <i class="material-icons">keyboard_arrow_down</i></a>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+{{ component() }}

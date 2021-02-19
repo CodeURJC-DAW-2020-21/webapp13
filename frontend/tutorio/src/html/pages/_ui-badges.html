@@ -1,0 +1,48 @@
+{% import 'components/hljs.html' as hljs %}
+
+<div class="{{ containerClass }}">
+  <ol class="breadcrumb m-0">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item">Components</li>
+    <li class="breadcrumb-item active">Alerts</li>
+  </ol>
+</div>
+
+<div class="{{ containerClass }} page-section">
+  <h4>Default</h4>
+  <div class="card">
+    <div class="card-body">
+      <span class="badge badge-accent">Accent</span>
+      <span class="badge badge-primary">Primary</span>
+      <span class="badge badge-secondary">Secondary</span>
+      <!-- <span class="badge badge-success">Success</span>
+      <span class="badge badge-info">Info</span>
+      <span class="badge badge-warning">Warning</span>
+      <span class="badge badge-danger">Danger</span> -->
+    </div>
+    <div class="card-footer">
+{% call hljs.component() -%}
+<span class="badge badge-primary">Primary</span>
+{%- endcall %}
+    </div>
+  </div>
+
+  <h4>Pills</h4>
+  <div class="card">
+    <div class="card-body">
+      <span class="badge badge-pill badge-light">Default</span>
+      <span class="badge badge-pill badge-accent">Accent</span>
+      <span class="badge badge-pill badge-primary">Primary</span>
+      <span class="badge badge-pill badge-secondary">Secondary</span>
+      <!-- <span class="badge badge-pill badge-success">Success</span>
+      <span class="badge badge-pill badge-info">Info</span>
+      <span class="badge badge-pill badge-warning">Warning</span>
+      <span class="badge badge-pill badge-danger">Danger</span> -->
+    </div>
+    <div class="card-footer">
+{% call hljs.component() -%}
+<span class="badge badge-pill badge-primary">Primary</span>
+{%- endcall %}
+    </div>
+  </div>
+</div>

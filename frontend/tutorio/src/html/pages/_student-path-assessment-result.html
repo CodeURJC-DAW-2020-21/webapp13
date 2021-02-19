@@ -1,0 +1,68 @@
+<div class="page-section {{ alt_bg }} border-bottom-2">
+  <div class="{{ containerClass }}">
+    <div class="row">
+      <div class="col-lg-6 mb-24pt mb-sm-0">
+        <div class="border-left-3 border-left-primary pl-24pt pl-md-32pt">
+          <h4 class="mb-8pt">Assessment details</h4>
+          <p class="text-70 mb-24pt">Based on your skill level we recommend you take the Intermediate level Angular courses.</p>
+        </div>
+      </div>
+      <div class="col-lg-6 d-flex align-items-center">
+        <div class="page-num-timeline d-flex flex-column flex-sm-row align-items-center justify-content-center flex">
+          <a href="" data-toggle="tooltip" data-placement="top" data-title="Beginner" class="page-num-timeline__item">
+            <span class="page-num-timeline__item-tip"></span>
+            <span class="page-num">1</span>
+          </a>
+          <a href="" data-toggle="tooltip" data-placement="top" data-title="Your current level: Intermediate" class="page-num-timeline__item page-num-timeline__item-current">
+            <span class="page-num-timeline__item-tip"></span>
+            <span class="page-num"><i class="material-icons">person</i></span>
+          </a>
+          <a href="" data-toggle="tooltip" data-placement="top" data-title="Advanced" class="page-num-timeline__item">
+            <span class="page-num-timeline__item-tip"></span>
+            <span class="page-num">3</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% import '_courses.carousel.html' as courses %}
+
+<div class="{{ containerClass }}">
+  <div class="border-left pl-32pt page-section">
+    <div class="d-flex align-items-center page-num-container">
+      <div class="page-num">2</div>
+      <h4>Recommended: Intermediate</h4>
+    </div>
+    <p class="text-70 mb-lg-32pt">Once you have the basics using the Angular framework, you will continue to build on your existing knowledge and, with these intermediate courses you will have a deeper understanding into features like services, routing and testing.</p>
+    {{ courses.component(
+      pager=false, 
+      control=true,
+      items=[{
+        title: 'Angular Unit Testing',
+        image: 'angular_testing',
+        avatar: 'angular',
+        position: 'left'
+      }, {
+        title: 'Angular Routing In-Depth',
+        image: 'angular_routing',
+        avatar: 'angular',
+        position: 'left'
+      }, {
+        title: 'Angular Services',
+        image: 'angular_services',
+        avatar: 'angular',
+        position: 'left'
+      }, {
+        title: 'Angular Patterns',
+        image: 'angular_patterns',
+        avatar: 'angular'
+      }]) }}
+
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-start mt-8pt">
+        <a href="{{ prefix }}path.html" class="btn btn-accent w-100 w-sm-auto mb-8pt mb-md-0 mr-sm-16pt">Begin Angular Intermediate</a>
+        <a href="{{ prefix }}student-path-assessment.html" class="btn btn-outline-secondary w-100 w-sm-auto mb-8pt mb-sm-0">Explore other Angular paths</a>
+      </div>
+  </div>
+</div>

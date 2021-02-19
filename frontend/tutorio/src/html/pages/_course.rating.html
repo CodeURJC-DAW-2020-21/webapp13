@@ -1,0 +1,162 @@
+<div class="pt-32pt pt-lg-64pt pb-16pt pb-lg-32pt">
+  <div class="{{ containerClass or 'container' }}">
+    <h4>Student Feedback</h4>
+    <div class="row">
+      <div class="col-md-3 mb-32pt mb-md-0">
+        <div class="display-1">4.7</div>
+        <div class="rating rating-32">
+          <span class="rating__item"><span class="material-icons">star</span></span>
+          <span class="rating__item"><span class="material-icons">star</span></span>
+          <span class="rating__item"><span class="material-icons">star</span></span>
+          <span class="rating__item"><span class="material-icons">star</span></span>
+          <span class="rating__item"><span class="material-icons">star_border</span></span>
+        </div>
+        <p class="text-muted mb-0">20 ratings</p>
+      </div>
+      <div class="col-md-9">
+        
+        <div class="row align-items-center mb-8pt">
+          <div class="col-md-9 col-sm-6">
+            <div class="progress">
+              <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="75" style="width: 75%" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 d-none d-sm-flex align-items-center">
+            <div class="rating rating-24 mr-8pt">
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star</span></span>
+            </div>
+            <span class="text-muted">75%</span>
+            <span class="material-icons icon-16pt ml-8pt">close</span>
+          </div>
+        </div>
+        <div class="row align-items-center mb-8pt">
+          <div class="col-md-9 col-sm-6">
+            <div class="progress">
+              <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="16" style="width: 16%" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 d-none d-sm-flex align-items-center">
+            <div class="rating rating-24 mr-8pt">
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star_border</span></span>
+            </div>
+            <p class="text-muted mb-0">16%</p>
+          </div>
+        </div>
+        <div class="row align-items-center mb-8pt">
+          <div class="col-md-9 col-sm-6">
+            <div class="progress">
+              <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="12" style="width: 12%" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 d-none d-sm-flex align-items-center">
+            <div class="rating rating-24 mr-8pt">
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star_border</span></span>
+              <span class="rating__item"><span class="material-icons">star_border</span></span>
+            </div>
+            <p class="text-muted mb-0">12%</p>
+          </div>
+        </div>
+        <div class="row align-items-center mb-8pt">
+          <div class="col-md-9 col-sm-6">
+            <div class="progress">
+              <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="9" style="width: 9%" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 d-none d-sm-flex align-items-center">
+            <div class="rating rating-24 mr-8pt">
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star_border</span></span>
+              <span class="rating__item"><span class="material-icons">star_border</span></span>
+              <span class="rating__item"><span class="material-icons">star_border</span></span>
+            </div>
+            <p class="text-muted mb-0">9%</p>
+          </div>
+        </div>
+        <div class="row align-items-center mb-8pt">
+          <div class="col-md-9 col-sm-6">
+            <div class="progress">
+              <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 d-none d-sm-flex align-items-center">
+            <div class="rating rating-24 mr-8pt">
+              <span class="rating__item"><span class="material-icons">star</span></span>
+              <span class="rating__item"><span class="material-icons">star_border</span></span>
+              <span class="rating__item"><span class="material-icons">star_border</span></span>
+              <span class="rating__item"><span class="material-icons">star_border</span></span>
+              <span class="rating__item"><span class="material-icons">star_border</span></span>
+            </div>
+            <p class="text-muted mb-0">0%</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pt-16pt pt-lg-32pt">
+  <div class="page-separator-mask js-read-more">
+    <div class="{{ containerClass or 'container' }}">
+
+      {% set items = [{
+        avatar: 'assets/images/people/110/guy-1.jpg',
+        date: '2 days ago',
+        name: 'Laza Bogdan'
+      }, {
+        avatar: 'assets/images/people/110/guy-1.jpg',
+        date: '2 days ago',
+        name: 'Laza Bogdan'
+      }, {
+        avatar: 'assets/images/people/110/guy-1.jpg',
+        date: '2 days ago',
+        name: 'Laza Bogdan'
+      }] %}
+
+      {% for item in items %}
+      <div class="mb-16pt pb-16pt border-bottom row{% if loop.index === 2 %} page-separator-mask__item{% endif %}">
+        <div class="col-md-3 mb-16pt mb-md-0">
+          <div class="d-flex">
+            <a href="{{ prefix }}student-profile.html" class="avatar avatar-sm mr-16pt">
+              <img src="{{ item.avatar }}" alt="avatar" class="avatar-img rounded-circle">
+            </a>
+            <div class="flex"> 
+              <p class="text-muted m-0">{{ item.date }}</p>
+              <p class="mb-0"><a href="{{ prefix }}student-profile.html" class="text-body">{{ item.name }}</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="rating mb-8pt">
+            <span class="rating__item"><span class="material-icons">star</span></span>
+            <span class="rating__item"><span class="material-icons">star</span></span>
+            <span class="rating__item"><span class="material-icons">star</span></span>
+            <span class="rating__item"><span class="material-icons">star</span></span>
+            <span class="rating__item"><span class="material-icons">star_border</span></span>
+          </div>
+          <p class="text-70 mb-0">This course is absolutely amazing, Bryan goes* out of his way to really expl*ain things clearly I couldn't be happier, so glad I made this purchase!</p>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+    <div class="page-separator-mask__content">
+      <div class="page-separator-mask__top"></div>
+      <div class="page-separator-mask__bottom bg-body"></div>
+      <div class="page-separator">
+        <a href="#" class="page-separator__text link-text">read more <i class="material-icons">keyboard_arrow_down</i></a>
+      </div>
+    </div>
+  </div>
+</div>

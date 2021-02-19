@@ -1,0 +1,78 @@
+{% macro component(id, active, courses=[], paths=[], prefix) %}
+<div id="courses-{{ id }}" class="tab-pane{% if active %} show active{% endif %}">
+  <div class="row no-gutters">
+    <div class="col-md-6 p-0">
+      <div class="p-24pt d-flex h-100 flex-column">
+        <div class="flex">
+          <h5 class="text-black-100">Courses</h5>
+          <ul class="nav flex-column mb-24pt">
+            {% for item in courses %}
+            <li class="nav-item">
+              <a class="nav-link px-0" href="{{ prefix }}library.html">{{ item }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div>
+          <a href="{{ prefix or '' }}library.html" class="btn btn-block text-center btn-secondary">Library</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 p-0">
+      <div class="p-24pt d-flex h-100 flex-column">
+        <div class="flex">
+          <h5 class="text-black-100">Learning Paths</h5>
+          <div class="mb-16pt">
+            <a href="{{ prefix or '' }}path.html" class="media text-black-100">
+              <img src="assets/images/paths/angular_40x40@2x.png" width="40" height="40" alt="Angular" class="media-left rounded">
+              <span class="media-body">
+                <span class="card-title d-block mb-0">Angular</span>
+                <span class="text-muted text-black-70 d-flex lh-1">24 courses</span>
+              </span>
+            </a>
+          </div>
+          <div class="mb-16pt">
+            <a href="{{ prefix or '' }}path.html" class="media text-black-100">
+              <img src="assets/images/paths/swift_40x40@2x.png" width="40" height="40" alt="Swift" class="media-left rounded">
+              <span class="media-body">
+                <span class="card-title d-block mb-0">Swift</span>
+                <span class="text-muted text-black-70 d-flex lh-1">22 courses</span>
+              </span>
+            </a>
+          </div>
+          <div class="mb-16pt">
+            <a href="{{ prefix or '' }}path.html" class="media text-black-100">
+              <img src="assets/images/paths/react_40x40@2x.png" width="40" height="40" alt="React Native" class="media-left rounded">
+              <span class="media-body">
+                <span class="card-title d-block mb-0">React Native</span>
+                <span class="text-muted text-black-70 d-flex lh-1">18 courses</span>
+              </span>
+            </a>
+          </div>
+          <div class="mb-16pt">
+            <a href="{{ prefix or '' }}path.html" class="media text-black-100">
+              <img src="assets/images/paths/wordpress_40x40@2x.png" width="40" height="40" alt="WordPress" class="media-left rounded">
+              <span class="media-body">
+                <span class="card-title d-block mb-0">WordPress</span>
+                <span class="text-muted text-black-70 d-flex lh-1">13 courses</span>
+              </span>
+            </a>
+          </div>
+          <div class="mb-24pt">
+            <a href="{{ prefix or '' }}path.html" class="media text-black-100">
+              <img src="assets/images/paths/devops_40x40@2x.png" width="40" height="40" alt="Development Tools" class="media-left rounded">
+              <span class="media-body">
+                <span class="card-title d-block mb-0">Development Tools</span>
+                <span class="text-muted text-black-70 d-flex lh-1">5 courses</span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <a href="{{ prefix or '' }}paths.html" class="btn btn-block text-center btn-outline-secondary">Learning Paths</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}

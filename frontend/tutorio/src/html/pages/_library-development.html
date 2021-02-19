@@ -1,0 +1,154 @@
+<div class="mdk-box mdk-box--bg-gradient-primary bg-dark js-mdk-box mb-0" 
+  data-effects="parallax-background blend-background">
+  <div class="mdk-box__bg">
+    <div class="mdk-box__bg-front" style="background-image: url(assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg);"></div>
+  </div>
+  <div class="mdk-box__content">
+    <div class="hero {{ containerClass }} py-64pt py-md-112pt text-center text-sm-left">
+      <h1 class="text-white mb-24pt">Development</h1>
+
+      <p class="lead measure-hero-lead text-white mb-24pt">Get the Technology and Creative Skills you need to launch your career by learning from our industry experts.</p>
+
+      <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start">
+        <a href="{{ prefix or '' }}pricing.html" class="btn btn-lg btn--raised btn-white mb-16pt mb-sm-0 mr-sm-16pt">Start a trial</a>
+        <a href="{{ prefix or '' }}library-filters-development.html" class="btn btn-lg btn-outline-white">Explore Development</a>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+<div class="page-section {{ alt_bg }} border-bottom-2">
+  <div class="{{ containerClass or 'container' }}">
+    <h4>Learning Paths</h4>
+
+    <div class="row">
+      <div class="col-md-3 col-i8-6 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/angular_40x40@2x.png" width="40" height="40" alt="Angular" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">Angular</span>
+            <span class="text-muted d-flex lh-1">24 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-md-3 col-i8-6 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/react_40x40@2x.png" width="40" height="40" alt="React Native" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">React Native</span>
+            <span class="text-muted d-flex lh-1">18 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-md-3 col-i8-6 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/swift_40x40@2x.png" width="40" height="40" alt="Swift" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">Swift</span>
+            <span class="text-muted d-flex lh-1">22 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-md-3 col-i8-6 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/wordpress_40x40@2x.png" width="40" height="40" alt="WordPress" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">WordPress</span>
+            <span class="text-muted d-flex lh-1">13 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-md-3 col-i8-6 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/swift_40x40@2x.png" width="40" height="40" alt="Swift" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">Swift</span>
+            <span class="text-muted d-flex lh-1">22 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-md-3 col-i8-6 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/wordpress_40x40@2x.png" width="40" height="40" alt="WordPress" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">WordPress</span>
+            <span class="text-muted d-flex lh-1">13 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-md-3 col-i8-6 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/devops_40x40@2x.png" width="40" height="40" alt="Development Tools" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">Development Tools</span>
+            <span class="text-muted d-flex lh-1">5 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-md-3 col-i8-6 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/react_40x40@2x.png" width="40" height="40" alt="React Native" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">React Native</span>
+            <span class="text-muted d-flex lh-1">18 courses</span>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="pt-8pt">
+      <a href="{{ prefix or '' }}paths.html" class="btn btn-outline-secondary">Browse Learning Paths</a>
+    </div>
+  </div>
+</div>
+
+{% import '_courses.carousel.html' as courses %}
+
+<div class="page-section">
+  <div class="{{ containerClass or 'container' }}">
+    <div class="page-heading">
+      <h4>Top Development Courses</h4>
+      <a href="{{ prefix }}library-filters-development.html" class="ml-sm-auto text-underline">More Development Courses</a>
+    </div>
+    <div class="pb-8pt pb-lg-40pt">
+      {% include '_courses.carousel.html' %}
+    </div>
+
+    <div class="page-heading">
+      <h4>Trending Development Courses</h4>
+      <a href="{{ prefix }}library-filters-development.html" class="ml-sm-auto text-underline">More Trending Development Courses</a>
+    </div>
+    <div class="pb-8pt pb-lg-40pt">
+      {{ courses.component(
+        id="2",
+        pager=false, 
+        control=true,
+        items=[{
+          title: 'Angular Unit Testing',
+          image: 'angular_testing',
+          avatar: 'angular',
+          position: 'left'
+        }, {
+          title: 'Angular Routing In-Depth',
+          image: 'angular_routing',
+          avatar: 'angular',
+          position: 'left'
+        }, {
+          title: 'Angular Services',
+          image: 'angular_services',
+          avatar: 'angular',
+          position: 'left'
+        }, {
+          title: 'Angular Patterns',
+          image: 'angular_patterns',
+          avatar: 'angular'
+        }]) 
+      }}
+    </div>
+
+    <h4>Top Teachers in Development</h4>
+    {% import '_teachers.carousel.html' as teachers %}
+    {{ teachers.component() }}
+  </div>
+</div>

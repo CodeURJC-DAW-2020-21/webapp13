@@ -1,0 +1,9 @@
+{% macro component(name, avatar, title, students, courses, class='') %}
+<div class="card card--elevated card-body text-center d-flex flex-column align-items-center justify-content-center {{ class }}">
+  <a href="" class="mb-16pt"><img src="{{ avatar }}" class="rounded-circle" width="64" alt="{{ name }}"></a>
+  <a href="" class="card-title text-body m-0">{{ name }}</a>
+  <small class="text-50 mb-24pt">{{ title }}</small>
+  <small class="text-70"><strong>{{ students }}</strong> students</small>
+  <small class="text-70"><strong>{{ courses }}</strong> courses</small>
+</div>
+{% endmacro %}

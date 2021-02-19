@@ -1,0 +1,92 @@
+{% set messages = [{
+  avatar: 'assets/images/people/110/woman-5.jpg',
+  name: 'Michelle',
+  date: '5 minutes ago',
+  message: 'Clients loved the new design.',
+  unread: true
+}, {
+  avatar: 'assets/images/people/110/woman-5.jpg',
+  name: 'Michelle',
+  date: '5 minutes ago',
+  message: '🔥 Superb job..',
+  unread: true
+}] %}
+
+{% set notifications = [{
+  created_at: '3 minutes ago',
+  icon_class: 'text-danger',
+  icon: 'account_circle',
+  message: 'Your profile information has not been synced correctly.',
+  important: true
+}, {
+  created_at: '5 hours ago',
+  icon_class: 'text-success',
+  icon: 'group_add',
+  name: 'Adrian. D',
+  message: 'Wants to join your private group.'
+}, {
+  created_at: '1 day ago',
+  icon_class: 'text-warning',
+  icon: 'storage',
+  message: 'Your deploy was successful.'
+}] %}
+
+<!-- Notifications dropdown -->
+<li class="nav-item dropdown dropdown-notifications dropdown-menu-sm-full">
+  <button class="nav-link btn-flush dropdown-toggle" type="button" data-toggle="dropdown" data-dropdown-disable-document-scroll data-caret="false">
+    <i class="material-icons">notifications</i>
+    <span class="badge badge-notifications badge-danger">2</span>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+    <div data-perfect-scrollbar class="position-relative">
+      <div class="dropdown-header"><strong>Messages</strong></div>
+      <div class="list-group list-group-flush mb-0">
+        {% for item in messages %}
+        <a href="javascript:void(0);" class="list-group-item list-group-item-action{% if item.unread %} unread{% endif %}">
+          <span class="d-flex align-items-center mb-1">
+            <small class="text-black-50">{{ item.date }}</small>
+            {% if item.unread %}
+            <span class="ml-auto unread-indicator bg-accent"></span>
+            {% endif %}
+          </span>
+          <span class="d-flex">
+            <span class="avatar avatar-xs mr-2">
+              <img src="{{ item.avatar }}" alt="people" class="avatar-img rounded-circle">
+            </span>
+            <span class="flex d-flex flex-column">
+              <strong>{{ item.name }}</strong>
+              <span class="text-black-70">{{ item.message }}</span>
+            </span>
+          </span>
+        </a>
+        {% endfor %}
+      </div>
+
+      <div class="dropdown-header"><strong>System notifications</strong></div>
+      <div class="list-group list-group-flush mb-0">
+        {% for item in notifications %}
+        <a href="javascript:void(0);" class="list-group-item list-group-item-action{% if item.unread %} unread{% endif %}{% if item.important %} border-left-3 border-left-danger{% endif %}">
+          <span class="d-flex align-items-center mb-1">
+            <small class="text-black-50">{{ item.created_at }}</small>
+            {% if item.unread %}
+            <span class="ml-auto unread-indicator bg-accent"></span>
+            {% endif %}
+          </span>
+          <span class="d-flex">
+            <span class="avatar avatar-xs mr-2">
+              <span class="avatar-title rounded-circle bg-light">
+                <i class="material-icons font-size-16pt {{ item.icon_class }}">{{ item.icon }}</i>
+              </span>
+            </span>
+            <span class="flex d-flex flex-column">
+              {% if item.name %}<strong>{{ item.name }}</strong>{% endif %}
+              <span class="text-black-70">{{ item.message }}</span>
+            </span>
+          </span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</li>
+<!-- // END Notifications dropdown -->

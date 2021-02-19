@@ -1,0 +1,111 @@
+<div class="navbar navbar-expand-sm navbar-mini navbar-dark fixed-bottom bg-dark d-none d-md-flex p-0" id="demo-navbar">
+  <div class="{{ navbarContainerClass or containerClass }}">
+
+    <!-- Main Navigation -->
+    <ul class="nav navbar-nav flex-nowrap">
+      <li class="nav-item dropup{% if catalog_menu %} active{% endif %}">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Catalog</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item{% if slug === 'home' %} active{% endif %}" href="{{ prefix }}index.html">Home page</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'library' %} active{% endif %}" href="{{ prefix }}library.html">Library</a>
+          <a class="dropdown-item{% if slug === 'library-featured' %} active{% endif %}" href="{{ prefix }}library-featured.html">Featured</a>
+          <a class="dropdown-item{% if slug === 'library-development' %} active{% endif %}" href="{{ prefix }}library-development.html">Development</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'library-filters' %} active{% endif %}" href="{{ prefix }}library-filters.html">Explore</a>
+          <a class="dropdown-item{% if slug === 'library-filters-list' %} active{% endif %}" href="{{ prefix }}library-filters-list.html">Explore List</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'paths' %} active{% endif %}" href="{{ prefix }}paths.html">Learning Paths</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'course' %} active{% endif %}" href="{{ prefix }}course.html">Course Details</a>
+          <a class="dropdown-item{% if slug === 'lesson' %} active{% endif %}" href="{{ prefix }}lesson.html">Lesson Details</a>
+          <a class="dropdown-item{% if slug === 'path' %} active{% endif %}" href="{{ prefix }}path.html">Path Details</a>
+        </div>
+      </li>
+      <li class="nav-item dropup{% if student_menu %} active{% endif %}">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Student</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item{% if slug === 'student-dashboard' %} active{% endif %}" href="{{ prefix }}student-dashboard.html">Dashboard</a>
+          <a class="dropdown-item{% if slug === 'student-my-courses' %} active{% endif %}" href="{{ prefix }}student-my-courses.html">My Courses</a>
+          <a class="dropdown-item{% if slug === 'student-take-course' %} active{% endif %}" href="{{ prefix }}student-take-course.html">Take Course</a>
+          <a class="dropdown-item{% if slug === 'student-take-lesson' %} active{% endif %}" href="{{ prefix }}student-take-lesson.html">Take Lesson</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'student-take-quiz' %} active{% endif %}" href="{{ prefix }}student-take-quiz.html">Take Quiz</a>
+          <a class="dropdown-item{% if slug === 'student-quiz-result-details' %} active{% endif %}" href="{{ prefix }}student-quiz-result-details.html">Quiz Result</a>
+          <a class="dropdown-item{% if slug === 'student-quiz-results' %} active{% endif %}" href="{{ prefix }}student-quiz-results.html">My Quizzes</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'student-path-assessment' %} active{% endif %}" href="{{ prefix }}student-path-assessment.html">Skill Assessment</a>
+          <a class="dropdown-item{% if slug === 'student-path-assessment-result' %} active{% endif %}" href="{{ prefix }}student-path-assessment-result.html">Skill Result</a>
+        </div>
+      </li>
+      <li class="nav-item dropup{% if instructor_menu %} active{% endif %}">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Instructor</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item{% if slug === 'instructor-dashboard' %} active{% endif %}" href="{{ prefix }}instructor-dashboard.html">Dashboard</a>
+          <a class="dropdown-item{% if slug === 'instructor-courses' %} active{% endif %}" href="{{ prefix }}instructor-courses.html">Courses</a>
+          <a class="dropdown-item{% if slug === 'instructor-quizzes' %} active{% endif %}" href="{{ prefix }}instructor-quizzes.html">Quizzes</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'instructor-edit-course' %} active{% endif %}" href="{{ prefix }}instructor-edit-course.html">Edit Course</a>
+          <a class="dropdown-item{% if slug === 'instructor-edit-quiz' %} active{% endif %}" href="{{ prefix }}instructor-edit-quiz.html">Edit Quiz</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'instructor-earnings' %} active{% endif %}" href="{{ prefix }}instructor-earnings.html">Earnings</a>
+          <a class="dropdown-item{% if slug === 'instructor-statement' %} active{% endif %}" href="{{ prefix }}instructor-statement.html">Statement</a>
+        </div>
+      </li>
+      <li class="nav-item dropup{% if community_menu %} active{% endif %}">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Community</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item{% if slug === 'student-discussions' %} active{% endif %}" href="{{ prefix }}student-discussions.html">Discussions</a>
+          <a class="dropdown-item{% if slug === 'student-discussion' %} active{% endif %}" href="{{ prefix }}student-discussion.html">Discussion Details</a>
+          <a class="dropdown-item{% if slug === 'student-discussions-ask' %} active{% endif %}" href="{{ prefix }}student-discussions-ask.html">Ask Question</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'student-profile' %} active{% endif %}" href="{{ prefix }}student-profile.html">Student Profile</a>
+          <a class="dropdown-item{% if slug === 'instructor-profile' %} active{% endif %}" href="{{ prefix }}instructor-profile.html">Instructor Profile</a>
+        </div>
+      </li>
+      <li class="nav-item dropup{% if account_menu %} active{% endif %}">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Account</a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item{% if slug === 'pricing' %} active{% endif %}" href="{{ prefix }}pricing.html">Pricing</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'login' %} active{% endif %}" href="{{ prefix }}login.html">Login</a>
+          <a class="dropdown-item{% if slug === 'signup' %} active{% endif %}" href="{{ prefix }}signup.html">Signup</a>
+          <a class="dropdown-item{% if slug === 'signup-payment' %} active{% endif %}" href="{{ prefix }}signup-payment.html">Payment</a>
+          <a class="dropdown-item{% if slug === 'reset-password' %} active{% endif %}" href="{{ prefix }}reset-password.html">Reset Password</a>
+          <a class="dropdown-item{% if slug === 'change-password' %} active{% endif %}" href="{{ prefix }}change-password.html">Change Password</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'student-edit-account' %} active{% endif %}" href="{{ prefix }}student-edit-account.html">Edit Account</a>
+          <a class="dropdown-item{% if slug === 'student-edit-account-profile' %} active{% endif %}" href="{{ prefix }}student-edit-account-profile.html">Profile &amp; Privacy</a>
+          <a class="dropdown-item{% if slug === 'student-edit-account-notifications' %} active{% endif %}" href="{{ prefix }}student-edit-account-notifications.html">Email Notifications</a>
+          <a class="dropdown-item{% if slug === 'student-edit-account-password' %} active{% endif %}" href="{{ prefix }}student-edit-account-password.html">Account Password</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item{% if slug === 'student-billing' %} active{% endif %}" href="{{ prefix }}student-billing.html">Subscription</a>
+          <a class="dropdown-item{% if slug === 'student-billing-upgrade' %} active{% endif %}" href="{{ prefix }}student-billing-upgrade.html">Upgrade Account</a>
+          <a class="dropdown-item{% if slug === 'student-billing-payment' %} active{% endif %}" href="{{ prefix }}student-billing-payment.html">Payment Information</a>
+          <a class="dropdown-item{% if slug === 'student-billing-history' %} active{% endif %}" href="{{ prefix }}student-billing-history.html">Payment History</a>
+          <a class="dropdown-item{% if slug === 'student-billing-invoice' %} active{% endif %}" href="{{ prefix }}student-billing-invoice.html">Invoice</a>
+        </div>
+      </li>
+      <li class="nav-item dropup{% if components_menu %} active{% endif %}">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Components</a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item{% if slug === 'ui-buttons' %} active{% endif %}" href="{{ prefix }}ui-buttons.html">Buttons</a>
+          <a class="dropdown-item{% if slug === 'ui-charts' %} active{% endif %}" href="{{ prefix }}ui-charts.html">Charts</a>
+          <a class="dropdown-item{% if slug === 'ui-avatars' %} active{% endif %}" href="{{ prefix }}ui-avatars.html">Avatars</a>
+          <a class="dropdown-item{% if slug === 'ui-forms' %} active{% endif %}" href="{{ prefix }}ui-forms.html">Forms</a>
+          <a class="dropdown-item{% if slug === 'ui-loaders' %} active{% endif %}" href="{{ prefix }}ui-loaders.html">Loaders</a>
+          <a class="dropdown-item{% if slug === 'ui-tables' %} active{% endif %}" href="{{ prefix }}ui-tables.html">Tables</a>
+          <a class="dropdown-item{% if slug === 'ui-cards' %} active{% endif %}" href="{{ prefix }}ui-cards.html">Cards</a>
+          <a class="dropdown-item{% if slug === 'ui-icons' %} active{% endif %}" href="{{ prefix }}ui-icons.html">Icons</a>
+          <a class="dropdown-item{% if slug === 'ui-tabs' %} active{% endif %}" href="{{ prefix }}ui-tabs.html">Tabs</a>
+          <a class="dropdown-item{% if slug === 'ui-alerts' %} active{% endif %}" href="{{ prefix }}ui-alerts.html">Alerts</a>
+          <a class="dropdown-item{% if slug === 'ui-badges' %} active{% endif %}" href="{{ prefix }}ui-badges.html">Badges</a>
+          <a class="dropdown-item{% if slug === 'ui-progress' %} active{% endif %}" href="{{ prefix }}ui-progress.html">Progress</a>
+          <a class="dropdown-item{% if slug === 'ui-pagination' %} active{% endif %}" href="{{ prefix }}ui-pagination.html">Pagination</a>
+        </div>
+      </li>
+    </ul>
+    <!-- // END Main Navigation -->
+
+  </div>
+</div>

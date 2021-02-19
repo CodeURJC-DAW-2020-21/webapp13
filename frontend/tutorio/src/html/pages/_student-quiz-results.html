@@ -1,0 +1,49 @@
+{% import 'components/my-quizzes.html' as quizzes %}
+
+<div class="{{ containerClass or 'container' }} page-section">
+  
+  {{ quizzes.component(
+    course={
+      title: 'Angular Fundamentals',
+      avatar: 'assets/images/paths/angular_64x64.png'
+    }, 
+    items=[{
+      title: 'Fundamentals of Working with Angular',
+      date: '12 min ago',
+      score: '5.8'
+    }, {
+      title: 'Working with the Angular CLI',
+      date: '2 hrs ago',
+      score: '10'
+    }, {
+      title: 'Understanding Dependency Injection',
+      date: '3 hrs ago',
+      score: '2.8'
+    }], 
+    prefix=prefix) 
+  }}
+  <br>
+
+  {{ quizzes.component(
+    course={
+      title: 'Build an iOS Application in Swift',
+      avatar: 'assets/images/paths/swift_40x40@2x.png'
+    }, 
+    items=[{
+      title: 'Your First iOS App',
+      date: '1 day ago',
+      score: '5.8'
+    }, {
+      title: 'Programming in Swift',
+      date: '2 days ago',
+      score: '10'
+    }, {
+      title: 'Beginning Table Views',
+      date: '3 days ago',
+      score: '2.8'
+    }], 
+    prefix=prefix)
+  }}
+
+  {% include 'layouts/_pagination.html' %}
+</div>

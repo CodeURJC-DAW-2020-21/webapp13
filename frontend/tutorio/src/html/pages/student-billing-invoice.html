@@ -1,0 +1,50 @@
+---
+title: Student | Billing | Invoice 
+slug: student-billing-invoice
+---
+{% extends "layouts/student-billing.html" %}
+
+{% block pageHeader %}
+  <nav class="navbar bg-gradient-primary navbar-dark-white">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <a href="{{ prefix or '' }}student-billing-history.html" class="nav-link"><i class="material-icons icon--left">keyboard_backspace</i> Back to Payment History</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block beforePage %}
+  <div class="page-section bg-white border-bottom-2">
+    <div class="{{ containerClass or 'container' }}">
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="row">
+            <div class="col-md-6 mb-24pt mb-lg-0">
+              <p class="text-black-70 mb-0"><strong>Prepared for</strong></p>
+              <h2>Alexander Watson</h2>
+              <p class="text-black-50">640 Joy Bypass Suite 448<br>Germany</p>
+            </div>
+            <div class="col-md-6">
+              <p class="text-black-70 mb-0"><strong>Prepared by</strong></p>
+              <h2>{{ brand }} Inc.</h2>
+              <p class="text-black-50">32 Noah Cliffs Suite 626, Romania<br>Tax ID RO18880609</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 text-lg-right d-flex flex-lg-column mb-24pt mb-lg-0 border-bottom border-lg-0 pb-16pt pb-lg-0">
+          <div class="flex">
+            <p class="text-black-70 mb-8pt"><strong>Invoice</strong></p>
+            <p class="text-black-50">
+              15 Mar 2018<br>
+              10003578
+            </p>
+          </div>
+          <div><button class="btn btn-accent">Download <i class="material-icons icon--right">file_download</i></button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

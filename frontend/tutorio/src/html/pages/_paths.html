@@ -1,0 +1,102 @@
+<div class="navbar navbar-expand-sm {{ navbar_submenu_class }} h-auto p-0">
+  <div class="{{ containerClass }} flex-column flex-sm-row">
+
+    <h4 class="flex mb-0 mr-sm-24pt d-none d-sm-block">Featured</h4>
+    <div class="d-flex flex-wrap">
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/angular_40x40@2x.png" width="40" alt="Angular" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/devops_40x40@2x.png" width="40" alt="Dev Ops" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/react_40x40@2x.png" width="40" alt="React Native" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/redis_40x40@2x.png" width="40" alt="Redis" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/swift_40x40@2x.png" width="40" alt="Swift" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/wordpress_40x40@2x.png" width="40" alt="WordPress" class="rounded">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="navbar navbar-expand-sm {{ navbar_class }} p-sm-0">
+  <div class="{{ containerClass }}">
+    
+    <!-- Navbar toggler -->
+    <button class="navbar-toggler ml-n16pt" type="button" data-toggle="collapse" data-target="#navbar-submenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse bg-transparent" id="navbar-submenu">
+      <div class="navbar-collapse__content">
+        <ul class="nav navbar-nav">
+          <li class="nav-item active">
+            <a href="" class="nav-link">Development</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Design</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Photography</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">More</a>
+            <div class="dropdown-menu">
+              <a href="" class="dropdown-item">Marketing</a>
+              <a href="" class="dropdown-item">Business</a>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Top Learning Paths</a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="" class="dropdown-item active">Display Top Learning Paths</a>
+              <a href="" class="dropdown-item">Display Newest Learning Paths</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="{{ containerClass or 'container' }} py-32pt py-lg-64pt">
+
+  {% import '_path-card.html' as path %}
+
+  <div class="page-headline page-headline--title text-center">
+    <h2>Top Development Paths</h2>
+  </div>
+
+  <div class="row mb-16pt">
+    <div class="col-sm-6 col-xxl-3">
+      {{ path.component(title='Angular', image='angular', free=true) }}
+    </div>
+    <div class="col-sm-6 col-xxl-3">
+      {{ path.component(title='Swift', image='swift', favorite=true) }}
+    </div>
+    <div class="col-sm-6 col-xxl-3">
+      {{ path.component(title='WordPress', image='wordpress') }}
+    </div>
+    <div class="col-sm-6 col-xxl-3">
+      {{ path.component(title='React Native', image='react', position='left') }}
+    </div>
+    <div class="col-sm-6 col-xxl-3">
+      {{ path.component(title='Redis', image='redis') }}
+    </div>
+    <div class="col-sm-6 col-xxl-3">
+      {{ path.component(title='Typescript', image='typescript', position='left') }}
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  {% include 'layouts/_pagination.html' %}
+</div>

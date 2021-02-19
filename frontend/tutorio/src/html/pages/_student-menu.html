@@ -1,0 +1,26 @@
+<li class="nav-item{% if slug === 'student-dashboard' %} active{% endif %}">
+  <a href="student-dashboard.html" class="nav-link">Dashboard</a>
+</li>
+<li class="nav-item dropdown{% if slug === 'student-my-courses' or slug === 'student-my-paths' %} active{% endif %}">
+  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Courses</a>
+  <div class="dropdown-menu">
+    <a class="dropdown-item{% if slug === 'student-my-courses' %} active{% endif %}" href="{{ prefix or '' }}student-my-courses.html">My Courses</a>
+    <a class="dropdown-item{% if slug === 'student-my-paths' %} active{% endif %}" href="{{ prefix or '' }}student-my-paths.html">My Paths</a>
+  </div>
+</li>
+<li class="nav-item dropdown{% if slug === 'student-quiz-results' or slug === 'student-take-quiz' %} active{% endif %}">
+  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Quizzes</a>
+  <div class="dropdown-menu">
+    <a class="dropdown-item{% if slug === 'student-quiz-results' %} active{% endif %}" href="{{ prefix or '' }}student-quiz-results.html">Quiz Results</a>
+    <a class="dropdown-item{% if slug === 'student-take-quiz' %} active{% endif %}" href="{{ prefix or '' }}student-take-quiz.html">Take Quiz</a>
+  </div>
+</li>
+<li class="flex"></li>
+<li class="nav-item dropdown{% if slug === 'student-edit-account' or slug === 'student-billing' or slug === 'student-change-password' %} active{% endif %}">
+  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Account</a>
+  <div class="dropdown-menu dropdown-menu-right">
+    <a class="dropdown-item{% if slug === 'student-edit-account' %} active{% endif %}" href="{{ prefix or '' }}student-edit-account.html">Edit Account</a>
+    <a class="dropdown-item{% if slug === 'student-billing' %} active{% endif %}" href="{{ prefix or '' }}student-billing.html">Billing</a>
+    <a class="dropdown-item{% if slug === 'student-change-password' %} active{% endif %}" href="{{ prefix or '' }}student-change-password.html">Change Password</a>
+  </div>
+</li>

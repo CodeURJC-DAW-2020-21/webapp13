@@ -1,0 +1,41 @@
+<div class="position-relative carousel-card">
+  <div class="row d-block js-mdk-carousel" id="carousel-feedback">
+    <a 
+      class="carousel-control-next js-mdk-carousel-control mt-n24pt" 
+      href="#carousel-feedback" 
+      role="button" 
+      data-slide="next">
+      <span 
+        class="carousel-control-icon material-icons" 
+        aria-hidden="true">keyboard_arrow_right</span>
+      <span class="sr-only">Next</span>
+    </a>
+    <div class="mdk-carousel__content">
+      {% for item in [1,2] %}
+      <div class="col-12 col-md-6">
+        <div class="card card--elevated card-body">
+          <blockquote class="mb-0">
+            <p class="text-70">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia distinctio reiciendis iusto id, doloribus optio soluta laborum nobis dolor tempore velit porro maiores eveniet voluptas officia ipsa magnam aliquam. Perferendis?</p>
+             
+           <div class="media">
+              <div class="media-left">
+                <img src="assets/images/people/110/guy-{{ item }}.jpg" width="40" alt="avatar" class="rounded-circle">
+              </div>
+              <div class="media-body media-middle"> 
+                <p class="mb-0"><a href="" class="text-body"><strong>Umberto Kass</strong></a></p>
+                <div class="rating">
+                  <span class="rating__item"><span class="material-icons">star</span></span>
+                  <span class="rating__item"><span class="material-icons">star</span></span>
+                  <span class="rating__item"><span class="material-icons">star</span></span>
+                  <span class="rating__item"><span class="material-icons">star</span></span>
+                  <span class="rating__item"><span class="material-icons">star_border</span></span>
+                </div>
+              </div>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

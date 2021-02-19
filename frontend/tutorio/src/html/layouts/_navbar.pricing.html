@@ -1,0 +1,30 @@
+<div data-primary class="navbar navbar-expand-sm navbar-dark {{ navbarClass or '' }} p-0" id="default-navbar">
+  <div class="container">
+
+    <!-- Navbar Brand -->
+    <a href="index.html" class="navbar-brand">
+      <img class="navbar-brand-icon" src="assets/images/logo/white-100@2x.png" width="30" alt="{{ brand }}">
+      <span class="d-none d-md-block">{{ brand }}</span>
+    </a>
+
+    <!-- Main Navigation -->
+    <ul class="nav navbar-nav ml-auto d-none d-sm-flex">
+      <li class="nav-item{% if (slug === 'pricing') %} active{% endif %}">
+        <a href="pricing.html" class="nav-link">Pricing</a>
+      </li>
+      <li class="nav-item{% if (slug === 'signup') %} active{% endif %}">
+        <a href="signup.html" class="nav-link">Signup</a>
+      </li>
+      <li class="nav-item{% if (slug === 'login') %} active{% endif %}">
+        <a href="login.html" class="nav-link">Login</a>
+      </li>
+    </ul>
+    <!-- // END Main Navigation -->
+
+    <!-- Navbar toggler -->
+    <button class="navbar-toggler navbar-toggler-right d-block d-md-none" type="button" data-toggle="sidebar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</div>

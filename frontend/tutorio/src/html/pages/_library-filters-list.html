@@ -1,0 +1,16 @@
+<div class="page-heading">
+  <h4>Courses</h4>
+  <p class="ml-sm-auto text-70 mb-0"><strong>2,000</strong> results in All categories</p>
+</div>
+
+{% import '_course-list-item.html' as course %}
+
+{{ course.component(title='Learn Angular fundamentals', image='angular', free=true) }}
+{{ course.component(title='Build an iOS Application in Swift', image='swift', favorite=true) }}
+{{ course.component(title='Build a WordPress Website', image='wordpress') }}
+{{ course.component(title='Become a React Native Developer', image='react', position='left') }}
+{{ course.component(title='Become a Redis Developer', image='redis') }}
+{{ course.component(title='Introduction to Typescript', image='typescript', position='left') }}
+{{ course.component(title='Angular Unit Testing', image='angular_testing', position='left') }}
+{{ course.component(title='Angular Routing In-Depth', image='angular_routing', position='left') }}
+{{ course.component(title='Become a DevOps Engineer', image='devops') }}

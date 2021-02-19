@@ -1,0 +1,28 @@
+{% macro component(course={}, items=[], prefix) %}
+<a href="{{ prefix or '' }}student-take-course.html" class="mb-heading d-flex align-items-center text-body">
+  <span class="mr-16pt">
+    <img src="{{ course.avatar }}" width="40" alt="{{ course.title }}" class="rounded">
+  </span>
+  <span class="d-flex flex-column flex">
+    <span class="h4 d-block m-0">{{ course.title }}</span>
+    <span class="text-70">View course</span>
+  </span>
+</a>
+<div class="card stack">
+  <div class="list-group list-group-flush">
+    {% for item in items %}
+    <div class="list-group-item d-flex align-items-center px-16pt">
+      <div class="flex d-flex flex-column">
+        <a class="text-body" href="{{ prefix or '' }}student-quiz-result-details.html">{{ item.title }}</a>
+        <small class="text-muted">{{ item.date }}</small>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <span class="lead lh-1">{{ item.score }}</span>
+        <small class="text-muted text-uppercase">Score</small>
+      </div>
+      <a href="{{ prefix or '' }}student-quiz-result-details.html" class="text-muted ml-8pt"><i class="material-icons">chevron_right</i></a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}

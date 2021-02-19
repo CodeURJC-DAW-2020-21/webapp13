@@ -1,0 +1,262 @@
+<!-- drawer -->
+<div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+  <div class="mdk-drawer__content">
+    <div class="sidebar sidebar-dark sidebar-left" data-perfect-scrollbar>
+      <div class="sidebar-p-a sidebar-b-b sidebar-m-b pt-0">
+
+        <!-- Brand -->
+        <a href="{{ prefix }}index.html" class="sidebar-brand">
+          <img class="sidebar-brand-icon" src="assets/images/logo/white-100.svg" width="30" alt="{{ brand }}">
+          <span>{{ brand }}</span>
+        </a>
+        <!-- // END Brand -->
+        
+        <!-- Search -->
+        <form action="{{ prefix or ''}}library-filters.html" class="search-form search-form--black">
+          <input type="text" class="form-control" placeholder="Search">
+          <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
+        </form>
+
+      </div>
+
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item{% if slug === 'home' %} active{% endif %}">
+          <a class="sidebar-menu-button" href="{{ prefix }}index.html">Home Page</a>
+        </li>
+        <li class="sidebar-menu-item{% if catalog_menu %} active open{% endif %}">
+          <a class="sidebar-menu-button" data-toggle="collapse" href="#catalog_menu">
+            Catalog
+            <span class="ml-auto sidebar-menu-toggle-icon"></span>
+          </a>
+          <ul class="sidebar-submenu collapse{% if catalog_menu %} show{% endif %} sm-indent" id="catalog_menu">
+            <li class="sidebar-menu-item{% if slug === 'library' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}library.html">Library</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'library-featured' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}library-featured.html">Featured</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'library-development' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}library-development.html">Development</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'library-filters' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}library-filters.html">Explore</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'library-filters-list' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}library-filters-list.html">Explore List</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'paths' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}paths.html">Learning Paths</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'course' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}course.html">Course Details</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'lesson' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}lesson.html">Lesson Details</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'path' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}path.html">Path Details</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="sidebar-heading">Pages</div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item{% if student_menu %} active open{% endif %}">
+          <a class="sidebar-menu-button" data-toggle="collapse" href="#student_menu">
+            Student
+            <span class="ml-auto sidebar-menu-toggle-icon"></span>
+          </a>
+          <ul class="sidebar-submenu collapse{% if student_menu %} show{% endif %} sm-indent" id="student_menu">
+            <li class="sidebar-menu-item{% if slug === 'student-dashboard' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-dashboard.html">Dashboard</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-my-courses' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-my-courses.html">My Courses</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-quiz-results' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-quiz-results.html">My Quizzes</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-take-course' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-take-course.html">Take Course</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-take-lesson' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-take-lesson.html">Take Lesson</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-take-quiz' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-take-quiz.html">Take Quiz</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-quiz-result-details' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-quiz-result-details.html">Quiz Result</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-path-assessment' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-path-assessment.html">Skill Assessment</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-path-assessment-result' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-path-assessment-result.html">Skill Result</a>
+            </li>
+          </ul>
+        </li>
+        <li class="sidebar-menu-item{% if instructor_menu %} active open{% endif %}">
+          <a class="sidebar-menu-button" data-toggle="collapse" href="#instructor_menu">
+            Instructor
+            <span class="ml-auto sidebar-menu-toggle-icon"></span>
+          </a>
+          <ul class="sidebar-submenu collapse{% if instructor_menu %} show{% endif %} sm-indent" id="instructor_menu">
+            <li class="sidebar-menu-item{% if slug === 'instructor-dashboard' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}instructor-dashboard.html">Dashboard</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'instructor-courses' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}instructor-courses.html">Manage Courses</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'instructor-quizzes' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}instructor-quizzes.html">Manage Quizzes</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'instructor-edit-course' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}instructor-edit-course.html">Edit Course</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'instructor-edit-quiz' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}instructor-edit-quiz.html">Edit Quiz</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'instructor-earnings' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}instructor-earnings.html">Earnings</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'instructor-statement' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}instructor-statement.html">Statement</a>
+            </li>
+          </ul>
+        </li>
+        <li class="sidebar-menu-item{% if account_menu %} active open{% endif %}">
+          <a class="sidebar-menu-button" data-toggle="collapse" href="#account_menu">
+            Account
+            <span class="sidebar-menu-badge badge badge-primary badge-notifications ml-auto">2</span>
+            <span class="sidebar-menu-toggle-icon"></span>
+          </a>
+          <ul class="sidebar-submenu collapse{% if account_menu %} show{% endif %} sm-indent" id="account_menu">
+            <li class="sidebar-menu-item{% if slug === 'pricing' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}pricing.html">Pricing</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'login' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}login.html">Login</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'signup' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}signup.html">Signup</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'signup-payment' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}signup-payment.html">Payment</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'reset-password' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}reset-password.html">Reset Password</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'change-password' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}change-password.html">Change Password</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-edit-account' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-edit-account.html">Edit Account</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-edit-account-profile' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-edit-account-profile.html">Profile &amp; Privacy</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-edit-account-notifications' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-edit-account-notifications.html">Email Notifications</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-edit-account-password' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-edit-account-password.html">Account Password</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-billing' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-billing.html">Subscription</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-billing-upgrade' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-billing-upgrade.html">Upgrade Account</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-billing-payment' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-billing-payment.html">Payment Information</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-billing-history' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-billing-history.html">Payment History</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-billing-invoice' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-billing-invoice.html">Invoice</a>
+            </li>
+          </ul>
+        </li>
+        <li class="sidebar-menu-item{% if community_menu %} active open{% endif %}">
+          <a class="sidebar-menu-button" data-toggle="collapse" href="#community_menu">
+            Community
+            <span class="ml-auto sidebar-menu-toggle-icon"></span>
+          </a>
+          <ul class="sidebar-submenu collapse{% if community_menu %} show{% endif %} sm-indent" id="community_menu">
+            <li class="sidebar-menu-item{% if slug === 'student-discussions' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-discussions.html">Discussions</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-discussion' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-discussion.html">Discussion Details</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-discussions-ask' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-discussions-ask.html">Ask Question</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'student-profile' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}student-profile.html">Student Profile</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'instructor-profile' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}instructor-profile.html">Instructor Profile</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="sidebar-heading">Components</div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item{% if components_menu %} active open{% endif %}">
+          <a class="sidebar-menu-button" data-toggle="collapse" href="#components_menu">
+            Components
+            <span class="ml-auto sidebar-menu-toggle-icon"></span>
+          </a>
+          <ul class="sidebar-submenu collapse{% if components_menu %} show{% endif %} sm-indent" id="components_menu">
+            <li class="sidebar-menu-item{% if slug === 'ui-buttons' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-buttons.html">Buttons</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-charts' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-charts.html">Charts</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-avatars' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-avatars.html">Avatars</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-forms' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-forms.html">Forms</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-loaders' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-loaders.html">Loaders</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-tables' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-tables.html">Tables</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-cards' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-cards.html">Cards</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-icons' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-icons.html">Icons</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-tabs' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-tabs.html">Tabs</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-alerts' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-alerts.html">Alerts</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-badges' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-badges.html">Badges</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-progress' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-progress.html">Progress</a>
+            </li>
+            <li class="sidebar-menu-item{% if slug === 'ui-pagination' %} active{% endif %}">
+              <a class="sidebar-menu-button" href="{{ prefix }}ui-pagination.html">Pagination</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+<!-- // END drawer -->

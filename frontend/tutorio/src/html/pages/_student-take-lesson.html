@@ -1,0 +1,99 @@
+<div class="navbar navbar-list {{ navbar_submenu_class }} border-0 navbar-expand-sm" style="white-space: nowrap;">
+  <div class="container flex-column flex-sm-row">
+    <nav class="nav navbar-nav navbar-list__item">
+      <div class="nav-item">
+        <div class="media flex-nowrap">
+          <div class="media-left mr-16pt">
+            <a href="{{ prefix or '' }}student-take-course.html"><img src="assets/images/paths/angular_64x64.png" width="40" alt="Angular" class="rounded"></a>
+          </div>
+          <div class="media-body">
+            <a href="{{ prefix or '' }}student-take-course.html" class="card-title text-body mb-0">Angular Fundamentals</a>
+            <p class="lh-1 d-flex align-items-center mb-0">
+              <span class="text-50 small font-weight-bold mr-8pt">Elijah Murray</span>
+              <span class="text-50 small">Software Engineer and Developer</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <ul class="navbar-list__item nav navbar-nav ml-sm-auto align-items-center align-items-sm-end">
+      <li class="nav-item active ml-sm-16pt">
+        <a href="" class="nav-link">Video</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link">Downloads</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link">Notes</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link">Discussions</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="bg-gradient-primary pb-lg-64pt py-32pt">
+  <div class="container">
+    <nav class="course-nav">
+      <a href="" data-toggle="tooltip" data-placement="bottom" data-title="Getting Started with Angular: Introduction"><span class="material-icons text-primary">check_circle</span></a>
+      <a data-toggle="tooltip" data-placement="bottom" data-title="Getting Started with Angular: Introduction to TypeScript" class="active" href=""><span class="material-icons">account_circle</span></a>
+      <a data-toggle="tooltip" data-placement="bottom" data-title="Getting Started with Angular: Comparing Angular to AngularJS" href=""><span class="material-icons">play_circle_outline</span></a>
+      <a data-toggle="tooltip" data-placement="bottom" data-title="Quiz: Getting Started with Angular" href="{{ prefix }}student-take-quiz.html"><span class="material-icons">hourglass_empty</span></a>
+    </nav>
+    <div class="js-player embed-responsive embed-responsive-16by9 mb-32pt">
+      <div class="player embed-responsive-item">
+        <div class="player__content">
+          <div class="player__image" style="--player-image: url(assets/images/illustration/player.svg)"></div>
+          <a href="" class="player__play">
+            <span class="material-icons">play_arrow</span>
+          </a>
+        </div>
+        <div class="player__embed d-none">
+          <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" allowfullscreen=""></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap align-items-end mb-16pt">
+      <h1 class="text-white flex m-0">Introduction to TypeScript</h1>
+      <p class="h1 text-white-50 font-weight-light m-0">50:13</p>
+    </div>
+
+    <p class="hero__lead measure-hero-lead text-white-50 mb-24pt">JavaScript is now used to power backends, create hybrid mobile applications, architect cloud solutions, design neural networks and even control robots. Enter TypeScript: a superset of JavaScript for scalable, secure, performant and feature-rich applications.</p>
+
+    <a href="" class="btn btn-white">Resume lesson</a>
+  </div>
+</div>
+{% include 'pages/_course.navbar.html' %}
+
+{% import 'components/discussions.html' as discussions %}
+
+<div class="page-section {{ alt_bg }}">
+  <div class="{{ containerClass or 'container' }}">
+
+    <div class="d-flex align-items-center mb-heading">
+      <h4 class="m-0">Discussions</h4>
+      <a 
+        href="{{ prefix or '' }}student-discussions-ask.html" 
+        class="text-underline ml-auto">Ask a Question</a>
+    </div>
+
+    <div class="border-top">
+      {{ discussions.component(items=[{
+        avatar: 'assets/images/people/110/guy-1.jpg',
+        date: '2 days ago',
+        name: 'Laza Bogdan',
+        title: 'Using Angular HttpClientModule instead of HttpModule',
+        chips: ['Angular fundamentals']
+      }, {
+        avatar: 'assets/images/people/110/guy-2.jpg',
+        date: '3 days ago',
+        name: 'Adam Curtis',
+        title: 'Why am I getting an error when trying to install angular/http@2.4.2'
+      }]) }}
+    </div>
+
+    <a href="{{ prefix or '' }}student-discussions.html" class="btn btn-outline-secondary">See all discussions for this lesson</a>
+
+  </div>
+</div>

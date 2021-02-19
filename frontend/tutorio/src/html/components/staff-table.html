@@ -1,0 +1,116 @@
+{% macro component(
+  id="staff",
+  checkboxes=true, 
+  avatar=true, 
+  employer=true, 
+  projects=true, 
+  pagination=true, 
+  search=false,
+  items=[{
+    selected: true,
+    avatar: "assets/images/people/256/256_rsz_nicolas-horn-689011-unsplash.jpg",
+    name: "Kalum Atherton",
+    employer: "Google",
+    projects: "10",
+    last_active: "3 days ago",
+    earnings: "12,402"
+  }, {
+    selected: false,
+    avatar: "assets/images/people/256/256_rsz_sharina-mae-agellon-377466-unsplash.jpg",
+    name: "Helen Mcdaniel",
+    employer: "Facebook",
+    projects: "23",
+    last_active: "2 days ago",
+    earnings: "48,108"
+  }, {
+    selected: false,
+    avatar: "assets/images/people/256/256_rsz_karl-s-973833-unsplash.jpg",
+    name: "Karim Hicks",
+    employer: "Dribbble",
+    projects: "12",
+    last_active: "1 hour ago",
+    earnings: "11,802"
+  }, {
+    selected: false,
+    avatar: "assets/images/people/256/256_rsz_90-jiang-640827-unsplash.jpg",
+    name: "Clifford Burgess",
+    employer: "Google",
+    projects: "32",
+    last_active: "2 hours ago",
+    earnings: "84,401"
+  }]) %}
+<div class="table-responsive" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
+  {% if search %}
+  <div class="search-form search-form--light mb-3">
+    <input type="text" class="form-control search" placeholder="Search">
+    <button class="btn" type="button" role="button"><i class="material-icons">search</i></button>
+  </div>
+  {% endif %}
+  <table class="table table-flush">
+    <thead>
+      <tr>
+        {% if checkboxes %}
+        <th style="width: 18px;">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input js-toggle-check-all" data-target="#{{ id }}" id="customCheckAll">
+            <label class="custom-control-label" for="customCheckAll"><span class="text-hide">Toggle all</span></label>
+          </div>
+        </th>
+        {% endif %}
+        <th>Employee</th>
+        {% if employer %}<th style="width: 150px;">Employer</th>{% endif %}
+        {% if projects %}<th style="width: 48px;">Projects</th>{% endif %}
+        <th style="width: 100px;">Active</th>
+        <th style="width: 51px;">Earnings</th>
+        <th style="width: 24px;"></th>
+      </tr>
+    </thead>
+    <tbody class="list" id="{{ id }}">
+      {% for item in items %}
+      <tr{% if checkboxes and item.selected %} class="selected"{% endif %}>
+        {% if checkboxes %}
+        <td>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input js-check-selected-row" {% if item.selected %}checked=""{% endif %} id="customCheck1_{{ loop.index }}">
+            <label class="custom-control-label" for="customCheck1_{{ loop.index }}"><span class="text-hide">Check</span></label>
+          </div>
+        </td>
+        {% endif %}
+        <td>
+          {% if avatar %}
+          <div class="media align-items-center">
+            <div class="avatar avatar-sm mr-3">
+              <img src="{{ item.avatar }}" alt="Avatar" class="avatar-img rounded-circle">
+            </div>
+            <div class="media-body">
+              {% endif %}
+              <span class="js-lists-values-employee-name">{{ item.name }}</span>
+              {% if avatar %}
+            </div>
+          </div>
+          {% endif %}
+        </td>
+        {% if employer %}
+        <td>
+          <div class="media align-items-center">
+            <a href="">{{ item.employer }}</a>
+            <i class="material-icons icon-muted ml-2">star</i>
+          </div>
+        </td>
+        {% endif %}
+        {% if projects %}<td>{{ item.projects }}</td>{% endif %}
+        <td><small class="text-muted">{{ item.last_active }}</small></td>
+        <td>&dollar;{{ item.earnings }}</td>
+        <td><a href="" class="text-muted"><i class="material-icons">more_vert</i></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% if pagination %}
+<div class="card-body text-right">
+  15 <span class="text-muted">of 1,430</span> <i class="material-icons icon-muted ml-1">arrow_forward</i>
+</div>
+{% endif %}
+{% endmacro %}
+{{ component() }}

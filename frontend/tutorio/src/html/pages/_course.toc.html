@@ -1,0 +1,74 @@
+{% macro component(tocListClass='', prefix) %}
+<ul class="accordion accordion--boxed js-accordion {{ tocListClass or '' }}" id="course-toc">
+  <li class="accordion__item open">
+    <a class="accordion__toggle" data-toggle="collapse" data-parent="#course-toc" href="#course-toc-1">
+      <span class="flex">Course Overview</span>
+      <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
+    </a>
+    <div class="accordion__menu">
+      <ul class="list-unstyled collapse show" id="course-toc-1">
+        <li class="accordion__menu-link active">
+          <span class="material-icons icon-16pt icon--left text-primary">play_circle_outline</span>
+          <a class="flex" href="{{ prefix or '' }}lesson.html">Watch Trailer</a>
+          <span class="text-muted">1m 10s</span>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li class="accordion__item open">
+    <a class="accordion__toggle" data-toggle="collapse" data-parent="#course-toc" href="#course-toc-2">
+      <span class="flex">Getting Started with Angular</span>
+      <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
+    </a>
+    <div class="accordion__menu">
+      <ul class="list-unstyled collapse show" id="course-toc-2">
+        <li class="accordion__menu-link">
+          <span class="material-icons icon-16pt icon--left text-muted">lock</span>
+          <a class="flex" href="{{ prefix or '' }}lesson.html">Introduction</a>
+          <span class="text-muted">8m 42s</span>
+        </li>
+        <li class="accordion__menu-link">
+          <span class="material-icons icon-16pt icon--left text-muted">lock</span>
+          <a class="flex" href="{{ prefix or '' }}lesson.html">Introduction to TypeScript</a>
+          <span class="text-muted">50m 13s</span>
+        </li>
+        <li class="accordion__menu-link">
+          <span class="material-icons icon-16pt icon--left text-muted">lock</span>
+          <a class="flex" href="{{ prefix or '' }}lesson.html">Comparing Angular to AngularJS</a>
+          <span class="text-muted">12m 10s</span>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li class="accordion__item">
+    <a class="accordion__toggle" data-toggle="collapse" data-parent="#course-toc" href="#course-toc-3">
+      <span class="flex">Creating and Communicating Between Angular Components</span>
+      <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
+    </a>
+    <div class="accordion__menu">
+      <ul class="list-unstyled collapse" id="course-toc-3">
+        <li class="accordion__menu-link">
+          <span class="material-icons icon-16pt icon--left text-muted">lock</span>
+          <a class="flex" href="{{ prefix or '' }}lesson.html">Angular Components</a>
+          <span class="text-muted">04:23</span>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li class="accordion__item">
+    <a class="accordion__toggle" data-toggle="collapse" data-parent="#course-toc" href="#course-toc-4">
+      <span class="flex">Exploring the Angular Template Syntax</span>
+      <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
+    </a>
+    <div class="accordion__menu">
+      <ul class="list-unstyled collapse" id="course-toc-4">
+        <li class="accordion__menu-link">
+          <span class="material-icons icon-16pt icon--left text-muted">lock</span>
+          <a class="flex" href="{{ prefix or '' }}lesson.html">Template Syntax</a>
+          <span class="text-muted">04:23</span>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
+{% endmacro %}

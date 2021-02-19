@@ -1,0 +1,61 @@
+<div class="px-24pt mb-24pt mb-md-48pt filter-section">
+  <ul class="accordion js-accordion m-0" id="library-category">
+    <li class="accordion__item open">
+      <a class="accordion__toggle" data-toggle="collapse" data-parent="#library-category" href="#library-all">
+        <span class="flex">Category</span>
+        <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
+      </a>
+      <nav class="accordion__menu collapse show" id="library-all">
+        <a class="accordion__menu-link{% if 'development' not in slug %} active{% endif %}" href="{{ prefix or '' }}library-filters.html">All categories</a>
+        <div{% if 'development' in slug %} class="open"{% endif %}>
+          <a class="accordion__menu-link{% if 'development' in slug %} active{% endif %}" href="#library-development" data-toggle="collapse">Development</a>
+          <div class="collapse{% if 'development' in slug %} show{% endif %}" id="library-development">
+            <nav class="accordion__submenu">
+              <a{% if 'development' in slug %} class="active"{% endif %} href="{{ prefix or '' }}library-filters-development.html">All Development</a>
+              <a href="{{ prefix or '' }}library-filters-development.html">Web Development</a>
+              <a href="{{ prefix or '' }}library-filters-development.html">JavaScript</a>
+              <a href="{{ prefix or '' }}library-filters-development.html">HTML</a>
+              <a href="{{ prefix or '' }}library-filters-development.html">CSS</a>
+              <a href="{{ prefix or '' }}library-filters-development.html">WordPress</a>
+              <a href="{{ prefix or '' }}library-filters-development.html">PHP</a>
+              <a href="{{ prefix or '' }}library-filters-development.html">Ruby</a>
+              <a href="{{ prefix or '' }}library-filters-development.html">iOS Development</a>
+            </nav>
+          </div>
+        </div>
+        <a class="accordion__menu-link" href="{{ prefix or '' }}library-filters-development.html">Design</a>
+        <a class="accordion__menu-link" href="{{ prefix or '' }}library-filters-development.html">Photography</a>
+        <a class="accordion__menu-link" href="{{ prefix or '' }}library-filters-development.html">Business</a>
+      </nav>
+    </li>
+  </ul>
+</div>
+
+<div class="px-24pt filter-section">
+  <ul class="accordion js-accordion mb-24pt mb-md-48pt" id="library-difficulty">
+    <li class="accordion__item open">
+      <a class="accordion__toggle" data-toggle="collapse" data-parent="#library-difficulty" href="#library-difficulty-all">
+        <span class="flex">Difficulty</span>
+        <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
+      </a>
+      <nav class="accordion__menu collapse show" id="library-difficulty-all">
+        <form action="#">
+          <div class="form-group custom-controls-stacked">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" checked id="difficulty-beginner">
+              <label class="custom-control-label" for="difficulty-beginner">Beginner</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="difficulty-intermediate">
+              <label class="custom-control-label" for="difficulty-intermediate">Intermediate</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="difficulty-advanced">
+              <label class="custom-control-label" for="difficulty-advanced">Advanced</label>
+            </div>
+          </div>
+        </form>
+      </nav>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+.home-macbook {
+  @include media-breakpoint-up(md) {
+    margin-left: -37px;
+  }
+  @include media-breakpoint-down(sm) {
+    @include img-fluid;
+  }
+}

@@ -1,0 +1,1 @@
+import 'tutorio/src/js/page.instructor-dashboard'

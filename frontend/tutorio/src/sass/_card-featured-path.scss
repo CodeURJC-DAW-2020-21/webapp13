@@ -1,0 +1,41 @@
+////////////////////////
+// FEATURED PATH CARD //
+////////////////////////
+
+.card-featured-path {
+  display: block;
+  position: relative;
+
+  &__content {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    @include border-radius($card-border-radius);
+    transform: translateZ(0);
+  }
+
+  .overlay__action  .material-icons {
+    font-size: 4rem;
+  }
+
+  .overlay__content {
+    background-color: rgba($primary, .5);
+    color: #fff;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.overlay--show {
+    .overlay__content {
+      background-color: rgba($primary, .95);
+    }
+  }
+
+  .card-title {
+    line-height: 1.25;
+    margin-bottom: 0;
+  }
+}

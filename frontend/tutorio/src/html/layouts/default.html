@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{{ title }}</title>
+
+  {% include 'layouts/_header.html' %}
+
+  {% block head %}
+    {% include 'pages/_' + slug + '.head.html' ignore missing %}
+  {% endblock %}
+
+</head>
+<body class="layout-navbar-mini-fixed-bottom">
+
+  {% set brand = 'Tutorio' %}
+  {% set prefix = '' %}
+  {% set containerClass = 'container page__container' %}
+  {% set navbarContainerClass = navbarContainerClass or 'container-fluid' %}
+  {% set navbarClass = 'bg-dark' %}
+  {% set footer_bg = 'bg-white' %}
+  {% set footer_heading_class = 'text-70' %}
+  {% set unlock_bg = 'bg-gradient-purple' %}
+  {% set alt_bg = 'bg-white' %}
+  {% set navbar_class = 'navbar-light' %}
+  {% set navbar_submenu_class = 'navbar-submenu navbar-light' %}
+  {% set search_form = 'search-form--light' %}
+  {% set footer_logo = 'assets/images/logo/black-70@2x.png' %}
+  {% set theme_blue_light = 'http://tutorio-bootstrap.frontendmatter.com' %}
+  {% set theme_blue_dark = 'http://tutorio-dark.frontendmatter.com' %}
+  {% set theme_teal_light = 'http://tutorio-teal.frontendmatter.com' %}
+  {% set theme_teal_dark = 'http://tutorio-teal-dark.frontendmatter.com' %}
+
+  {% set role = '' %}
+  {% if 'student' in slug %}
+    {% set role = 'student' %}
+  {% endif %}
+  {% if 'instructor' in slug %}
+    {% set role = 'instructor' %}
+  {% endif %}
+
+  {% set catalog_menu = slug === 'home' or 'library' in slug or slug === 'courses' or slug === 'paths' or slug === 'course' or slug === 'lesson' or slug === 'path' %}
+  {% set courses_menu = 'library' in slug or slug === 'courses' or slug === 'course' or slug === 'lesson' %}
+  {% set community_menu = 'discussion' in slug or '-profile' in slug %}
+  {% set instructor_menu = 'instructor' in slug and not community_menu %}
+  {% set account_menu = slug === 'login' or 'signup' in slug  or slug === 'reset-password' or slug === 'change-password' or 'student-edit-account' in slug or 'student-billing' in slug or slug === 'pricing' %}
+  {% set student_menu = 'student' in slug and slug !== 'student-profile' and slug !== 'student-edit-account' and slug !== 'student-billing' and slug !== 'student-payments' and slug !== 'student-invoice' and not community_menu and not account_menu %}
+  {% set shop_menu = 'shop' in slug %}
+  {% set support_menu = 'support' in slug %}
+  {% set components_menu = 'ui-' in slug %}
+
+  {% include 'layouts/_preloader.html' %}
+
+  <!-- Header Layout -->
+  <div class="mdk-header-layout js-mdk-header-layout">
+
+    <!-- Header -->
+    {% block header %}
+      <div id="header" class="mdk-header bg-dark js-mdk-header {{ headerClass or 'mb-0' }}" 
+        data-effects="waterfall blend-background" data-fixed data-condenses>
+        <div class="mdk-header__content">
+          {% block navbar %}
+            {% include 'layouts/_navbar.html' %}
+          {% endblock %}
+        </div>
+      </div>
+    {% endblock %}
+    <!-- // END Header -->
+
+    <!-- Header Layout Content -->
+    <div class="mdk-header-layout__content page-content {{ pageContentClass or '' }}">
+      {% block pageHeader %}
+        {% if heading %}
+          <div class="bg-gradient-primary">
+            
+            {% if subnav %}
+              {% include 'pages/_' + subnav + '.html' ignore missing %}
+            {% endif %}
+
+            <div class="py-32pt">
+              <div class="container{% if center %} text-center{% endif %}">
+                <h1 class="text-white mb-8pt">{{ heading }}</h1>
+                {% if subheading %}
+                  <p class="lead measure-lead text-white-50{% if center %} mx-auto text-center{% endif %}">{{ subheading }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endblock %}
+
+      {% block submenu %}
+        {% if submenu %}
+          {% include 'pages/_' + submenu + '.submenu.html' ignore missing %}
+        {% else %}
+          {% include 'pages/_' + slug + '.submenu.html' ignore missing %}
+        {% endif %}
+      {% endblock %}
+      
+      {% block beforePage %}
+        {% if beforePage %}
+          {% include 'pages/_' + beforePage + '.beforePage.html' ignore missing %}
+        {% else %}
+          {% include 'pages/_' + slug + '.beforePage.html' ignore missing %}
+        {% endif %}
+      {% endblock %}
+
+      {% block page %}
+        {% include 'pages/_' + slug + '.html' ignore missing %}
+      {% endblock %}
+      {% block afterPage %}{% endblock %}
+
+      {% include 'layouts/_website-footer.html' %}
+
+    </div>
+    <!-- // END Header Layout Content -->
+
+  </div>
+  <!-- // END Header Layout -->
+
+  {% include 'layouts/_navbar-demo.html' %}
+  {% include 'layouts/_website-drawer.html' %}
+  {% include 'layouts/_app-settings.html' %}
+  {% include 'layouts/_footer.html' %}
+
+  {% block footer %}
+    {% include 'pages/_' + slug + '.footer.html' ignore missing %}
+  {% endblock %}
+</body>
+</html>

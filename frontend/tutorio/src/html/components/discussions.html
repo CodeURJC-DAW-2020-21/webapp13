@@ -1,0 +1,33 @@
+{% macro component(items=[], prefix) %}
+<div class="list-group list-group-flush">
+  {% for item in items %}
+  <div class="list-group-item p-3">
+    <div class="row align-items-center">
+      <div class="col-md-3 mb-8pt mb-md-0">
+        <div class="media">
+          <div class="media-left mr-16pt">
+            <a href="{{ prefix or '' }}student-profile.html"><img src="{{ item.avatar }}" width="40" alt="avatar" class="rounded-circle"></a>
+          </div>
+          <div class="media-body media-middle"> 
+            <p class="text-muted m-0">{{ item.date }}</p>
+            <p class="m-0"><a href="{{ prefix or '' }}student-profile.html" class="text-body">{{ item.name }}</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-8pt mb-md-0">
+        <p class="mb-{% if item.chips %}8pt{% else %}0{% endif %}"><a href="{{ prefix or '' }}student-discussion.html" class="text-body"><strong>{{ item.title }}</strong></a></p>
+        {% if item.chips %}
+          {% for chip in item.chips %}
+          <a href="{{ prefix or '' }}student-discussion.html" class="chip chip-outline-secondary">{{ chip }}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="col-auto d-flex flex-column align-items-center justify-content-center">
+        <h5 class="m-0">{{ item.answers or '1' }}</h5>
+        <p class="lh-1 mb-0"><small class="text-70">answers</small></p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}

@@ -1,0 +1,13 @@
+{% macro component(title, image, selected, prefix, position='center') %}
+<a href="{{ prefix or '' }}path.html" class="card stack stack--hidden-hover card-featured-path overlay js-overlay">
+  <span class="card-featured-path__content">
+    <span data-position="{{ position }}" class="js-image" data-height="96">
+      <img src="assets/images/paths/{{ image }}_430x168.png" alt="course">
+    </span>
+    <span class="overlay__content">
+      <span class="overlay__action card-title mb-0">{{ title }}</span>
+    </span>
+  </span>
+</a>
+{% endmacro %}
+{{ component() }}

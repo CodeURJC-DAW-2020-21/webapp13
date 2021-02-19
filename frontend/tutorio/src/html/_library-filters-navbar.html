@@ -1,0 +1,44 @@
+<div class="navbar navbar-expand-sm navbar-list {{ navbar_submenu_class }} p-0 m-0">
+  <div class="container-fluid align-items-start align-items-sm-center">
+    <div class="navbar-list__item">
+      <nav class="nav nav-links nav--flush">
+        <a data-toggle="sidebar" data-target="#filters-drawer" class="active nav-link d-flex align-items-center"><span class="material-icons mx-4pt">close</span> Filter &amp; Refine</a>
+      </nav>
+    </div>
+    <div class="navbar-list__item d-none d-md-flex ml-md-auto mr-sm-24pt">
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/angular_40x40@2x.png" width="40" height="40" alt="Angular" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/devops_40x40@2x.png" width="40" height="40" alt="Dev Ops" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/react_40x40@2x.png" width="40" height="40" alt="React Native" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/redis_40x40@2x.png" width="40" height="40" alt="Redis" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/swift_40x40@2x.png" width="40" height="40" alt="Swift" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/wordpress_40x40@2x.png" width="40" height="40" alt="WordPress" class="rounded">
+      </a>
+    </div>
+    <div class="navbar-list__item d-flex align-items-center">
+      <nav class="nav nav-links nav--flush mr-24pt">
+        <a href="{{ prefix or '' }}{{ slug.replace('-list', '') }}.html" class="mr-4pt nav-link{% if '-list' not in slug %} active{% endif %}"><i class="material-icons">view_module</i></a>
+        <a href="{{ prefix or '' }}{{ slug.replace('-list', '') }}-list.html" class="nav-link{% if '-list' in slug %} active{% endif %}"><i class="material-icons icon--left">list</i></a>
+      </nav>
+      <div class="ml-auto custom-select-icon">
+        <select name="sort" class="custom-select custom-select-sm custom-select-icon__select">
+          <option>Newest first</option>
+          <option>Oldest first</option>
+          <option>Title (a-z)</option>
+          <option>Title (z-a)</option>
+        </select>
+        <span class="material-icons custom-select-icon__icon">sort</span>
+      </div>
+    </div>
+  </div>
+</div>

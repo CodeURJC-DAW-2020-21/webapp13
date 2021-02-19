@@ -1,0 +1,142 @@
+{% import '_course-card.html' as course %}
+
+<div class="mdk-box mdk-box--bg-gradient-primary bg-dark js-mdk-box mb-0" 
+  data-effects="parallax-background blend-background">
+  <div class="mdk-box__bg">
+    <div class="mdk-box__bg-front" style="background-image: url(assets/images/1280_writing-down-goals_4460x4460.jpg);"></div>
+  </div>
+  <div class="mdk-box__content">
+    <div class="hero {{ containerClass }} py-64pt py-md-112pt text-center text-sm-left">
+      <h1 class="text-white mb-24pt">Library</h1>
+      
+      <!-- <div class="col-lg-6 mb-24pt p-0">
+        <form class="search-form search-form--light input-group-lg" action="">
+          <input type="text" class="form-control" placeholder="Search">
+          <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
+        </form>
+      </div> -->
+
+      <p class="lead measure-hero-lead text-white mb-24pt">Business, Technology and Creative Skills taught by industry experts. Explore a wide range of skills with our professional tutorials.</p>
+
+      <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start">
+        <a href="{{ prefix or '' }}pricing.html" class="btn btn-lg btn--raised btn-white mb-16pt mb-sm-0 mr-sm-16pt">Start a trial</a>
+        <a href="{{ prefix or '' }}library-filters.html" class="btn btn-lg btn-outline-white">Explore Library</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar navbar-expand-sm {{ navbar_submenu_class }} h-auto h-sm-64 p-sm-0">
+  <div class="container flex-column flex-sm-row">
+
+    <h4 class="mb-0 d-none d-sm-block mr-sm-24pt flex">Featured</h4>
+    <div class="d-flex flex-wrap">
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/angular_40x40@2x.png" width="40" height="40" alt="Angular" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/devops_40x40@2x.png" width="40" height="40" alt="Dev Ops" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/react_40x40@2x.png" width="40" height="40" alt="React Native" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/redis_40x40@2x.png" width="40" height="40" alt="Redis" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/swift_40x40@2x.png" width="40" height="40" alt="Swift" class="rounded">
+      </a>
+      <a href="{{ prefix or '' }}path.html" class="m-8pt">
+        <img src="assets/images/paths/wordpress_40x40@2x.png" width="40" height="40" alt="WordPress" class="rounded">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="page-section">
+  <div class="{{ containerClass or 'container' }}">
+    <div class="page-headline text-center">
+      <h2>Development</h2>
+      <p class="lead text-70 measure-lead mx-auto">Get the Technology and Creative Skills you need to launch a career by learning from industry experts.</p>
+    </div>
+
+    <div class="page-heading">
+      <h4>Top Development Courses</h4>
+      <a href="#" class="ml-sm-auto text-underline">See Development Courses</a>
+    </div>
+    <div class="row">
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Learn Angular fundamentals', image='angular', free=true) }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Build an iOS Application in Swift', image='swift', favorite=true) }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Build a WordPress Website', image='wordpress') }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Become a React Native Developer', image='react', position='left') }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Become a Redis Developer', image='redis') }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Introduction to Typescript', image='typescript', position='left') }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Angular Unit Testing', image='angular_testing', position='left', avatar='angular') }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Angular Routing In-Depth', image='angular_routing', position='left', avatar='angular') }}
+      </div>
+    </div>
+  </div>
+
+  <div class="page-separator mt-lg-16pt">
+    <a href="" class="page-separator__text">show more <span class="material-icons">keyboard_arrow_down</span></a>
+  </div>
+</div>
+
+<div class="page-section pt-0">
+  <div class="{{ containerClass or 'container' }}">
+    <div class="page-headline text-center">
+      <h2>Design</h2>
+      <p class="lead text-70 measure-lead mx-auto">Design beautiful user interfaces with confidence and replace talent with a practical framework of knowledge for real world projects.</p>
+    </div>
+
+    <div class="page-heading">
+      <h4>Top Design Courses</h4>
+      <a href="" class="ml-sm-auto text-underline">See Design Courses</a>
+    </div>
+    <div class="row">
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Learn Sketch', image='sketch', free=true) }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Learn Flinto', image='flinto', favorite=true) }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Learn Photoshop', image='photoshop') }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Newsletter Design', image='mailchimp') }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Learn Figma', image='figma') }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Adobe XD', image='xd') }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='inVision App', image='invision') }}
+      </div>
+      <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-md-6' }}">
+        {{ course.component(title='Craft by inVision', image='craft') }}
+      </div>
+    </div>
+  </div>
+
+  <div class="page-separator mt-lg-16pt">
+    <a href="" class="page-separator__text">show more <span class="material-icons">keyboard_arrow_down</span></a>
+  </div>
+</div>

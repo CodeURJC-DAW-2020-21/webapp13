@@ -1,0 +1,12 @@
+<div class="page-section page-section--mb page-section--dark bg-primary {{ pageSectionClass or '' }}">
+  <div class="container d-flex flex-column flex-sm-row align-items-sm-center{% if center %} text-center{% endif %}">
+    <div class="flex">
+      <h1 class="page-section__heading m-0">{{ heading }}</h1>
+      {% if subheading %}
+        <h5 class="page-section__subheading">{{ subheading }}</h5>
+      {% endif %}
+    </div>
+    <p class="d-sm-none"></p>
+    <a href="{{ prefix or '' }}{{ role }}-edit-account.html" class="btn btn-outline-white">My Account</a>
+  </div>
+</div>

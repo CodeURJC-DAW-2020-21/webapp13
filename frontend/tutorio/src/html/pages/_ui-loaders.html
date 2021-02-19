@@ -1,0 +1,85 @@
+{% import 'components/hljs.html' as hljs %}
+
+<div class="{{ containerClass }}">
+  <ol class="breadcrumb m-0">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item">Components</li>
+    <li class="breadcrumb-item active">Loaders</li>
+  </ol>
+</div>
+
+<div class="{{ containerClass }} page-section">
+  <h4>Sizes</h4>
+  <div class="card mb-32pt">
+    <div class="card-body">
+      <p class="text-70">A simple yet versatile animated spinner component. Add <code>.loader-[sm|lg]</code> or <code>.is-loading-[sm|lg]</code> to create loaders at different sizes.</p>
+      <div class="loader-list">
+        <div class="loader loader-lg"></div>
+        <div class="loader"></div>
+        <div class="loader loader-sm"></div>
+      </div>
+    </div>
+    <div class="card-footer">
+      {% call hljs.component() -%}
+<div class="loader loader-lg"></div>
+<div class="loader"></div>
+<div class="loader loader-sm"></div>
+      {%- endcall %}
+    </div>
+  </div>
+
+  <h4>Colors</h4>
+  <div class="card mb-32pt">
+    <div class="card-body">
+      <p class="text-70">Using Bootstrap’s typical naming structure i.e. <code>.loader-primary</code>, you can create colored loaders depending on your needs.</p>
+
+      <div class="loader-list">
+        <div class="loader loader-primary"></div>
+        <div class="loader loader-secondary"></div>
+        <div class="loader loader-success"></div>
+        <div class="loader loader-danger"></div>
+        <div class="loader loader-warning"></div>
+        <div class="loader loader-info"></div>
+        <div class="loader loader-dark"></div>
+        <div class="loader loader-light"></div>
+      </div>
+    </div>
+    <div class="card-footer">
+      {% call hljs.component() -%}
+        <div class="loader loader-primary"></div>
+      {%- endcall %}
+    </div>
+  </div>
+
+  <h4>Loader Helper</h4>
+  <div class="card">
+    <div class="card-body">
+      <p class="text-70 m-0">Indicate loading state of nearly any component with an <code>.is-loading</code> modifier.</p>
+    </div>
+    <div class="card-body p-24pt is-loading is-loading-lg">
+      Loading content
+    </div>
+  </div>
+
+  <div class="button-list mb-32pt">
+    <a href="#" class="btn btn-lg btn-primary is-loading">Button</a>
+    <a href="#" class="btn btn-outline-primary is-loading is-loading-sm">Button</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      {% call hljs.component() -%}
+{{'<!-- Buttons -->' | safe }}
+<a href="#" class="btn btn-lg btn-primary is-loading">Button</a>
+<a href="#" class="btn btn-outline-primary is-loading is-loading-sm">Button</a>
+
+{{'<!-- Loading card -->' | safe }}
+<div class="card">
+  <div class="card-body is-loading is-loading-lg">
+    Loading content
+  </div>
+</div>
+      {%- endcall %}
+    </div>
+  </div>
+</div>

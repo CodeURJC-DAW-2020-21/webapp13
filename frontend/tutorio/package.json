@@ -1,0 +1,44 @@
+{
+  "name": "tutorio",
+  "version": "1.3.2",
+  "private": true,
+  "scripts": {
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "serve": "lite-server -c node_modules/theme-mix/bs-config.json ./dist",
+    "deploy": "surge --project ./dist --domain tutorio.dev.frontendmatter.com",
+    "html-validator-server": "java -cp node_modules/vnu-jar/build/dist/vnu.jar nu.validator.servlet.Main 8888"
+  },
+  "author": "FrontendMatter <contact@frontendmatter.com> (http://themeforest.net/user/frontendmatter/portfolio)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "admindash-style-guide": "gitlab:FrontendMatter/admindash-style-guide#v3.3.2",
+    "bootstrap-custom-checkbox-toggle": "^1.0.0",
+    "bootstrap-touchspin": "^4.2.5",
+    "corner-ribbon": "^1.0.0",
+    "fix-footer": "^1.0.0",
+    "fm-app-settings": "^4.2.0",
+    "fm-avatar": "^1.0.0",
+    "fm-loader": "^1.0.0",
+    "fm-plugin-chartjs": "^1.0.2",
+    "fm-plugin-flatpickr": "^1.0.1",
+    "fm-plugin-listjs": "^1.0.2",
+    "fm-plugin-quill": "^1.0.1",
+    "highlight.js": "^9.13.1",
+    "jquery-mask-plugin": "^1.14.15",
+    "moment": "^2.22.2",
+    "moment-range": "^2.2.0",
+    "moment-timezone": "^0.5.21",
+    "sass-math": "^1.0.0",
+    "sass-strip-unit": "^1.0.0",
+    "vue-icons-demo-app": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "cross-env": "^5.2.0",
+    "lite-server": "^2.4.0",
+    "surge": "^0.20.1",
+    "theme-mix": "^1.2.0"
+  }
+}

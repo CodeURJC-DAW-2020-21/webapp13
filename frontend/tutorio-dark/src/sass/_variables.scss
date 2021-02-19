@@ -1,0 +1,137 @@
+$secondary:                         #868e96 !default;
+$dark:                              #1D2126 !default;
+$light:                             #333940 !default; // card
+
+/////////////
+// general //
+/////////////
+
+$body-bg:                           #1D2126 !default;
+$border-color:                      #171B1F !default;
+$link-color:                        rgba($secondary, .7) !default; // secondary
+
+////////////
+// footer //
+////////////
+
+$footer-bg:                         #292E33 !default;
+
+//////////
+// type //
+//////////
+
+$white:                             #F7FBFF !default;
+$black:                             #303840 !default;
+$body-color:                        $white !default;
+$headings-color:                    $white !default;
+
+///////////
+// forms //
+///////////
+
+$input-bg:                          #292E33 !default;
+$input-placeholder-color:           #868E96 !default;
+
+////////////
+// navbar //
+////////////
+
+$header-shadow-base-color:          darken($dark, 5%) !default;
+$navbar-submenu-bg:                 $dark !default;
+
+//////////
+// card //
+//////////
+
+$card-bg:                           #333940 !default;
+$card-cap-bg:                       $card-bg !default;
+$enable-card-shadow:                false !default;
+$card-shadow-base-color:            darken($dark, 5%) !default;
+
+//////////////
+// dropdown //
+//////////////
+
+$dropdown-box-shadow-base-color:    darken($dark, 5%) !default;
+
+////////////////
+// pagination //
+////////////////
+
+$pagination-border-color:           $border-color !default;
+$pagination-hover-bg:               rgba($dark, 2%) !default;
+$pagination-hover-border-color:     rgba($border-color, .9) !default;
+$pagination-disabled-color:         rgba($body-color, .2) !default;
+$pagination-disabled-border-color:  rgba($body-color, .2) !default;
+
+/////////
+// mdk //
+/////////
+
+$mdk-reveal-partial-mask-bg:        linear-gradient(to bottom, rgba($card-bg, 0) 60%, rgba($card-bg, 0.95) 80%, $card-bg 100%) !default;
+$mdk-reveal-content-bg:             $card-bg !default;
+
+//////////////////
+// stack effect //
+//////////////////
+
+$stack-bg:                          #262D33 !default;
+$stack-box-shadow:                  0 2px 0 rgba(0, 0, 0, .07), 0 2px 0 rgba(0, 0, 0, .07) inset !default;
+
+////////////////////
+// page separator //
+////////////////////
+
+$page-separator-mask-color:         $body-bg !default;
+
+//////////////
+// progress //
+//////////////
+
+$progress-bg:                       $input-bg !default;
+
+/////////////////////
+// progression bar //
+/////////////////////
+
+$progression-bar-text-bg:           $dark !default;
+$progression-bar-color:             $secondary !default;
+$progression-bar-bg:                $border-color !default;
+$progression-bar-icon-border:       $border-color !default;
+$progression-bar-complete-bg:       lighten($border-color, 10%) !default;
+$progression-bar-complete-color:    rgba($secondary, .7) !default;
+
+/////////////
+// tooltip //
+/////////////
+
+$tooltip-color:                     $black !default;
+
+////////////////
+// course nav //
+////////////////
+
+$course-nav-active-bg:              transparent !default;
+
+///////////////////
+// courses modal //
+///////////////////
+
+$courses-modal-nav-link:            rgba($white, .7) !default;
+$courses-modal-active-nav-link:     rgba($black, .7) !default;
+
+//////////////
+// page num //
+//////////////
+
+$page-num-tip-bg:                   $body-bg !default;
+$page-num-tip-border-color:         lighten($card-bg, 10%) !default;
+$page-num-border-color:             $border-color !default;
+
+////////////////
+// list group //
+////////////////
+
+$list-group-bg:                     $card-bg !default;
+
+@import 'tutorio/src/sass/variables';

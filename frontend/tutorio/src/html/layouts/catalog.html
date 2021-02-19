@@ -1,0 +1,7 @@
+{% set pageContentClass = 'pb-0' %}
+{% extends 'layouts/default.html' %}
+
+{% block afterPage %}
+  {% import '_unlock.html' as unlock %}
+  {{ unlock.component(class='border-top-2', containerClass=containerClass, unlock_bg=unlock_bg) }}
+{% endblock %}

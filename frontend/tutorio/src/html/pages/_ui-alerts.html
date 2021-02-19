@@ -1,0 +1,139 @@
+{% import 'components/hljs.html' as hljs %}
+
+<div class="{{ containerClass }}">
+  <ol class="breadcrumb m-0">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item">Components</li>
+    <li class="breadcrumb-item active">Alerts</li>
+  </ol>
+</div>
+
+<div class="{{ containerClass }} page-section">
+  
+  <h4>Light</h4>
+  <div class="card mb-32pt">
+    <div class="card-body">
+      <div class="alert alert-light border-1 border-left-4 border-left-accent" role="alert">
+        <div class="d-flex flex-wrap align-items-center">
+          <i class="material-icons text-50 mr-8pt">access_time</i>
+          <div class="media-body" style="min-width: 180px">
+            Your subscription ends on <strong>25 February 2015</strong>
+          </div>
+          <div class="ml-8pt mt-2 mt-sm-0">
+            <a href="#">Upgrade</a>
+          </div>
+        </div>
+        <!-- <strong>Well done!</strong> You successfully read this important alert message. -->
+      </div>
+      <div class="alert alert-light border-1 border-left-4 border-left-primary" role="alert">
+        <strong>Oh snap!</strong> Change a few things up and try submitting again.
+      </div>
+      <div class="alert alert-light border-1 border-left-4 border-left-secondary mb-0" role="alert">
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+      </div>
+
+    </div>
+    <div class="card-footer">
+{% call hljs.component() -%}
+<div class="alert alert-light border-1 border-left-4 border-left-accent" role="alert">
+  <strong>Well done!</strong>
+  You successfully read this important alert message.
+</div>
+{%- endcall %}
+    </div>
+  </div>
+
+  <h4>Soft background</h4>
+  <div class="card mb-32pt">
+    <div class="card-body">
+      <p class="text-70">For a soft background, use one of the eight contextual classes i.e. <code>.alert-success</code>.</p>
+
+      <div class="alert alert-accent" role="alert">
+        <strong>Well done!</strong> You successfully read this important alert message.
+      </div>
+      <div class="alert alert-primary" role="alert">
+        <strong>Oh snap!</strong> Change a few things up and try submitting again.
+      </div>
+      <div class="alert alert-secondary mb-0" role="alert">
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+      </div>
+
+    </div>
+    <div class="card-footer">
+{% call hljs.component() -%}
+<div class="alert alert-accent" role="alert">
+  <strong>Well done!</strong>
+  You successfully read this important alert message.
+</div>
+{%- endcall %}
+    </div>
+  </div>
+
+  <h4>Strong background</h4>
+  <div class="card mb-32pt">
+    <div class="card-body">
+      <p>For a stronger background color use the <code>.bg-*</code> classes and <code>.text-white.border-0</code>.</p>
+
+      <div class="alert bg-accent text-white border-0" role="alert">
+        <strong>Well done!</strong> You successfully read this important alert message.
+      </div>
+
+      <div class="alert bg-primary text-white border-0" role="alert">
+        <strong>Oh snap!</strong> Change a few things up and try submitting again.
+      </div>
+
+      <div class="alert bg-secondary text-white border-0 mb-0" role="alert">
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+      </div>
+
+    </div>
+    <div class="card-footer">
+{% call hljs.component() -%}
+<div class="alert bg-primary text-white border-0" role="alert">
+  <strong>Heads up!</strong>
+  This alert needs your attention, but it's not super important.
+</div>
+{%- endcall %}
+    </div>
+  </div>
+
+  <h4>Dismissible Alerts</h4>
+  <div class="card mb-0">
+    <div class="card-body">
+      <p>Add a button and the <code>.alert-dismissible</code> class, which adds extra padding to the right of the alert and positions the <code>.close</code> button.</p>
+
+      <div class="alert alert-dismissible bg-accent text-white border-0 fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Success - </strong> A simple success alert - check it out!
+      </div>
+
+      <div class="alert alert-dismissible bg-primary text-white border-0 fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Primary - </strong> A simple primary alert - check it out!
+      </div>
+
+      <div class="alert alert-dismissible bg-secondary text-white border-0 fade show mb-0" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Secondary - </strong> A simple secondary alert - check it out!
+      </div>
+
+    </div>
+    <div class="card-footer">
+{% call hljs.component() -%}
+<div class="alert alert-dismissible bg-primary text-white border-0 fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Primary - </strong> A simple primary alert - check it out!
+</div>
+{%- endcall %}
+    </div>
+  </div>
+
+</div>

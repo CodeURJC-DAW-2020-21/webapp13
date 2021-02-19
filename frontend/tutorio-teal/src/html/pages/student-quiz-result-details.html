@@ -1,0 +1,25 @@
+---
+title: Quiz Result 
+slug: student-quiz-result-details
+---
+{% extends "layouts/website-account.html" %}
+
+{% block pageHeader %}{% endblock %}
+
+{% block beforePage %}
+  {% include 'pages/_back-to-course.navbar.html' %}
+  <div 
+    class="mdk-box bg-dark mdk-box--bg-gradient-primary js-mdk-box mb-0" 
+    data-effects="blend-background">
+    <div class="mdk-box__content">
+      <div class="py-64pt text-center text-sm-left">
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+          <p class="lead text-white-50 measure-lead-max mb-0">Submited on 02 Jan 2019</p>
+          <h1 class="text-white mb-24pt">Your Score: 350</h1>
+          <a href="{{ prefix or '' }}student-take-quiz.html" class="btn btn-outline-white">Restart quiz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'pages/_navbar-quiz-result.html' %}
+{% endblock %}

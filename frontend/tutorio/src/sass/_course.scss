@@ -1,0 +1,84 @@
+/////////////////
+// COURSE CARD //
+/////////////////
+
+.card-course,
+.card-path,
+.course-list-item {
+  user-select: none;
+
+  .overlay__action  .material-icons {
+    font-size: 4rem;
+  }
+
+  .overlay__content:not(.overlay__content-transparent) {
+    background-color: rgba($primary, .5);
+    color: #fff;
+    pointer-events: none;
+  }
+
+  &.overlay--show .overlay__content {
+    background-color: rgba($primary, .95);
+  }
+}
+
+.card-course {
+  &.overlay--show .overlay__action {
+    transform: translate3d(0, -30px, 0);
+  }
+
+  .card-title {
+    line-height: 1.25;
+    margin-bottom: 0;
+  }
+  .card-body {
+    padding: 0.625rem 0.75rem;
+  }
+
+  &__icon-favorite {
+    margin-top: -2px;
+  }
+
+  &[data-opened] {
+    @include mdc-elevation(5, $card-shadow-base-color);
+  }
+}
+
+.card-path {
+  .card-title {
+    line-height: 1.25;
+    margin-bottom: 0;
+  }
+  .card-body {
+    padding: .5rem;
+  }
+
+  &[data-opened] {
+    @include mdc-elevation(5, $body-color);
+  }
+}
+
+.course-list-item {
+  .media__thumbnail {
+    margin-bottom: 0;
+  }
+  @include media-breakpoint-up(sm) {
+    .media__thumbnail {
+      width: 200px;
+    }
+  }
+  .card-body {
+    padding: 1rem;
+  }
+  &__excerpt {
+    max-height: 3rem;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+.popover-course {
+  .card-title {
+    line-height: 1.25;
+  }
+}

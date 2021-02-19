@@ -1,0 +1,211 @@
+<div class="mdk-box mdk-box--bg-gradient-primary bg-dark js-mdk-box position-relative overflow-hidden mb-0" 
+  data-effects="parallax-background blend-background">
+  <div class="mdk-box__bg">
+    <div class="mdk-box__bg-front" style="background-image: url(assets/images/1280_work-station-straight-on-view.jpg);"></div>
+  </div>
+  <div class="mdk-box__content">
+    <div class="{{ containerClass }} py-64pt py-md-112pt">
+      <div class="row align-items-center text-center text-md-left">
+        <div class="col-md-6 col-lg-5 order-1 order-md-0">
+          <h1 class="text-white">Learn <span class="d-block d-md-inline-block text-scramble js-text-scramble">Development</span></h1>
+          <p class="lead mb-32pt mb-lg-48pt text-white">Business, Technology and Creative Skills taught by industry experts. Explore a wide range of skills with our professional tutorials.</p>
+          <a href="{{ prefix or '' }}library.html" class="btn btn-lg btn-white btn--raised mb-16pt">Browse Courses</a>
+          <p class="mb-0"><a href="" class="text-white-70 text-underline"><strong>Are you a teacher?</strong></a></p>
+        </div>
+        <div class="col-md-6 col-lg-7 order-0 order-md-1 text-center mb-32pt mb-md-0">
+          <img src="assets/images/macbook.png" alt="macbook" class="home-macbook">
+        </div>
+      </div>
+    </div>
+    <!-- <div class="hero container text-center py-112pt">
+      <h1 class="text-white">Learn to Code</h1>
+      <p class="lead measure-hero-lead mx-auto mb-48pt text-white">Business, Technology and Creative Skills taught by industry experts. Explore a wide range of skills with our professional tutorials.</p>
+      <a href="{{ prefix or '' }}library.html" class="btn btn-lg btn-outline-white">Browse Courses</a>
+    </div> -->
+  </div>
+</div>
+
+<div class="bg-white border-bottom-2 py-16pt py-sm-24pt py-md-32pt {{ submenuClass or '' }}">
+  <div class="{{ containerClass or 'container' }}">
+    <div class="row align-items-center">
+      <div class="d-flex col-md align-items-center border-bottom border-md-0 mb-16pt mb-md-0 pb-16pt pb-md-0">
+        <div class="rounded-circle bg-primary w-64 h-64 d-inline-flex align-items-center justify-content-center mr-16pt">
+          <i class="material-icons text-primary-light">subscriptions</i>
+        </div>
+        <div class="flex">
+          <p class="mb-0"><strong>8,000+ Courses</strong></p>
+          <p class="text-black-70 mb-0">Explore a wide range of skills.</p>
+        </div>
+      </div>
+      <div class="d-flex col-md align-items-center border-bottom border-md-0 mb-16pt mb-md-0 pb-16pt pb-md-0">
+        <div class="rounded-circle bg-primary w-64 h-64 d-inline-flex align-items-center justify-content-center mr-16pt">
+          <i class="material-icons text-primary-light">verified_user</i>
+        </div>
+        <div class="flex">
+          <p class="mb-0"><strong>By Industry Experts</strong></p>
+          <p class="text-black-70 mb-0">Professional development from the best people.</p>
+        </div>
+      </div>
+      <div class="d-flex col-md align-items-center">
+        <div class="rounded-circle bg-primary w-64 h-64 d-inline-flex align-items-center justify-content-center mr-16pt">
+          <i class="material-icons text-primary-light">update</i>
+        </div>
+        <div class="flex">
+          <p class="mb-0"><strong>Unlimited Access</strong></p>
+          <p class="text-black-70 mb-0">Unlock Library and learn any topic with one subscription.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-section border-bottom-2">
+  <div class="{{ containerClass or 'container' }}">
+    <div class="row align-items-end mb-16pt mb-md-32pt">
+      <div class="col-md-auto mb-32pt mb-md-0">
+        <div class="page-headline page-headline--title text-center text-md-left p-0">
+          <h2>Top Courses</h2>
+        </div>
+      </div>
+      <div class="col-md text-center text-md-right d-flex justify-content-md-end align-items-center flex-wrap" style="white-space: nowrap;">
+        <h5 class="mr-24pt mb-md-0 d-md-inline-block">Popular topics</h5>
+        <a href="{{ prefix }}library-development.html" class="chip mb-16pt mb-md-0 chip-secondary">Development</a>
+        <a href="{{ prefix }}library-development.html" class="chip mb-16pt mb-md-0 chip-outline-secondary">Design</a>
+        <a href="{{ prefix }}library-development.html" class="chip mb-16pt mb-md-0 chip-outline-secondary">Photography</a>
+        <a href="{{ prefix }}library-development.html" class="chip mb-16pt mb-md-0 chip-outline-secondary d-md-none d-lg-inline-flex">Business</a>
+      </div>
+    </div>
+
+    {% import '_course-card.html' as course %}
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        {{ course.component(title='Learn Angular fundamentals', image='angular', free=true) }}
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        {{ course.component(title='Build an iOS Application in Swift', image='swift', favorite=true) }}
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        {{ course.component(title='Build a WordPress Website', image='wordpress') }}
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        {{ course.component(title='Become a React Native Developer', image='react', position='left') }}
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        {{ course.component(title='Become a Redis Developer', image='redis') }}
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        {{ course.component(title='Introduction to Typescript', image='typescript', position='left') }}
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        {{ course.component(title='Become a DevOps Engineer', image='devops') }}
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        {{ course.component(title='Angular Unit Testing', image='angular_testing', position='left', avatar='angular') }}
+      </div>
+    </div>
+    <div class="pt-md-16pt text-center">
+      <a href="{{ prefix or '' }}library.html" class="btn btn-outline-secondary">Browse Courses</a>
+    </div>
+  </div>
+</div>
+
+<div class="page-section bg-white border-bottom-2">
+  <div class="{{ containerClass or 'container' }}">
+    <div class="page-headline text-center">
+      <h2>Learning Paths</h2>
+      <p class="lead text-black-70 measure-lead mx-auto">Stop guessing what to learn next and start making progress faster based on your current skill level and experience.</p>
+    </div>
+
+    {% include 'pages/_paths.carousel.html' %}
+
+    <div class="row mt-16pt mt-lg-32pt">
+      <div class="col-i8-6 col-md-3 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/angular_40x40@2x.png" width="40" height="40" alt="Angular" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">Angular</span>
+            <span class="text-muted d-flex lh-1">24 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-i8-6 col-md-3 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/react_40x40@2x.png" width="40" height="40" alt="React Native" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">React Native</span>
+            <span class="text-muted d-flex lh-1">18 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-i8-6 col-md-3 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/swift_40x40@2x.png" width="40" height="40" alt="Swift" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">Swift</span>
+            <span class="text-muted d-flex lh-1">22 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-i8-6 col-md-3 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/wordpress_40x40@2x.png" width="40" height="40" alt="WordPress" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">WordPress</span>
+            <span class="text-muted d-flex lh-1">13 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-i8-6 col-md-3 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/swift_40x40@2x.png" width="40" height="40" alt="Swift" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">Swift</span>
+            <span class="text-muted d-flex lh-1">22 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-i8-6 col-md-3 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/wordpress_40x40@2x.png" width="40" height="40" alt="WordPress" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">WordPress</span>
+            <span class="text-muted d-flex lh-1">13 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-i8-6 col-md-3 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/devops_40x40@2x.png" width="40" height="40" alt="Development Tools" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">Development Tools</span>
+            <span class="text-muted d-flex lh-1">5 courses</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-i8-6 col-md-3 mb-16pt">
+        <a href="{{ prefix or '' }}path.html" class="media">
+          <img src="assets/images/paths/react_40x40@2x.png" width="40" height="40" alt="React Native" class="media-left rounded">
+          <span class="media-body">
+            <span class="card-title text-body d-block mb-0">React Native</span>
+            <span class="text-muted d-flex lh-1">18 courses</span>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="pt-8pt pt-md-32pt text-center">
+      <a href="{{ prefix or '' }}paths.html" class="btn btn-outline-secondary">Browse Learning Paths</a>
+    </div>
+  </div>
+</div>
+
+<div class="page-section">
+  <div class="{{ containerClass or 'container' }}">
+    <div class="page-headline text-center">
+      <h2>Feedback</h2>
+      <p class="lead measure-lead mx-auto text-black-70">What other students turned professionals have to say about us after learning with us and reaching their goals.</p>
+    </div>
+
+    {% include 'pages/_feedback.carousel.html' %}
+  </div>
+</div>

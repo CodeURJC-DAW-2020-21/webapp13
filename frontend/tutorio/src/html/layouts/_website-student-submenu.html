@@ -1,0 +1,52 @@
+<div class="navbar navbar-expand-sm navbar-dark-white bg-gradient-primary p-sm-0 {{ submenuClass }}">
+  <div class="{{ containerClass }}">
+    
+    <!-- Navbar toggler -->
+    <button class="navbar-toggler ml-n16pt" type="button" data-toggle="collapse" data-target="#navbar-submenu2">
+      <span class="material-icons">people_outline</span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-submenu2">
+      <div class="navbar-collapse__content pb-16pt pb-sm-0">
+        <ul class="nav navbar-nav">
+          {% if 'student' in slug %}
+            <li class="nav-item{% if slug === 'student-dashboard' %} active{% endif %}">
+              <a href="{{ prefix or '' }}student-dashboard.html" class="nav-link">Dashboard</a>
+            </li>
+            <li class="nav-item{% if slug === 'student-my-courses' %} active{% endif %}">
+              <a href="{{ prefix or '' }}student-my-courses.html" class="nav-link">Courses</a>
+            </li>
+            <li class="nav-item{% if slug === 'student-discussions' %} active{% endif %}">
+              <a href="{{ prefix or '' }}student-discussions.html" class="nav-link">Discussions</a>
+            </li>
+          {% elseif 'instructor' in slug %}
+            <li class="nav-item{% if slug === 'instructor-dashboard' %} active{% endif %}">
+              <a href="{{ prefix or '' }}instructor-dashboard.html" class="nav-link">Dashboard</a>
+            </li>
+            <li class="nav-item dropdown{% if slug === 'instructor-courses' or slug === 'instructor-quizzes' or slug === 'instructor-quizzes' or slug === 'instructor-edit-course' or slug === 'instructor-edit-quiz' %} active{% endif %}">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Manage</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item{% if slug === 'instructor-courses' %} active{% endif %}" href="{{ prefix or '' }}instructor-courses.html">Courses</a>
+                <a class="dropdown-item{% if slug === 'instructor-quizzes' %} active{% endif %}" href="{{ prefix or '' }}instructor-quizzes.html">Quizzes</a>
+                <a class="dropdown-item{% if slug === 'instructor-edit-course' %} active{% endif %}" href="{{ prefix or '' }}instructor-edit-course.html">Edit Course</a>
+                <a class="dropdown-item{% if slug === 'instructor-edit-quiz' %} active{% endif %}" href="{{ prefix or '' }}instructor-edit-quiz.html">Edit Quiz</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown{% if slug === 'instructor-earnings' or slug === 'instructor-statement' %} active{% endif %}">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Reports</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item{% if slug === 'instructor-earnings' %} active{% endif %}" href="{{ prefix or '' }}instructor-earnings.html">Earnings</a>
+                <a class="dropdown-item{% if slug === 'instructor-statement' %} active{% endif %}" href="{{ prefix or '' }}instructor-statement.html">Statement</a>
+              </div>
+            </li>
+          {% endif %}
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item{% if slug === 'student-profile' or slug === 'instructor-profile' %} active{% endif %}">
+            <a href="{{ prefix or '' }}{{ role }}-profile.html" class="nav-link">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

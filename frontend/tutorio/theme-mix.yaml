@@ -1,0 +1,45 @@
+runTasks:
+  clean: true
+  js: true
+  copy: true
+  sass: true
+  html: true
+enableCssThemes: false
+enableCssRTL: true
+copyCwd: node_modules
+copyDest: dist/assets/vendor
+copy:
+  - jquery/dist/jquery.min.js
+  - bootstrap/dist/js/bootstrap.min.*
+  - popper.js/dist/umd/popper.min.*
+  - dom-factory/dist/*
+  - fix-footer/dist/*
+  - material-design-kit/dist/material-design-kit.js
+  - bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js
+  - chart.js/dist/Chart.min.js
+  - jquery.fancytree/dist/jquery.fancytree-all.min.js
+  - moment/min/moment.min.js
+  - moment-range/dist/moment-range.min.js
+  - flatpickr/dist/flatpickr.min.{js,css}: dist/assets/vendor/flatpickr
+  - flatpickr/dist/themes/airbnb.css: dist/assets/vendor/flatpickr
+  - jquery-mask-plugin/dist/jquery.mask.min.js
+  - quill/dist/quill.min.js
+  - perfect-scrollbar/css/*
+  - perfect-scrollbar/dist/*.min.js
+  - material-design-icons-iconfont/dist/fonts/*.{eot,ttf,woff,woff2}: dist/assets/fonts/material-icons
+  - '@fortawesome/fontawesome-free/webfonts/*': dist/assets/fonts/fontawesome-free
+  - vue-icons-demo-app/dist/assets/data/material-icons: dist/assets/data/material-icons
+  - highlight.js/styles/vs2015.css: dist/assets/vendor/highlight.js
+  - list.js/dist/list.min.js
+  - vue/dist/vue.min.js
+clean:
+  - dist/**/*.html
+  - dist/assets/{css,fonts,js,vendor}
+sassSrc: src/sass/**/*.scss
+cssDest: dist/assets/css
+jsSrc: src/js/**/**.{js,vue}
+jsDest: dist/assets/js
+htmlDest: dist/[path][name].html
+htmllint: false
+laravelMixOptions:
+  processCssUrls: false

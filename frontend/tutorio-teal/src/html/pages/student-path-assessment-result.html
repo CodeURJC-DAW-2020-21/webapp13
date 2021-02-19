@@ -1,0 +1,26 @@
+---
+title: Path Assessment Result 
+slug: student-path-assessment-result
+submenuClass: m-0
+---
+{% extends "layouts/website-account.html" %}
+
+{% block pageHeader %}{% endblock %}
+
+{% block beforePage %}
+  {% include 'pages/_path-assessment.path-navbar.html' %}
+  <div 
+    class="mdk-box bg-dark mdk-box--bg-gradient-primary js-mdk-box mb-0" 
+    data-effects="blend-background">
+    <div class="mdk-box__content">
+      <div class="py-64pt text-center text-sm-left">
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+          <p class="lead text-white-50 measure-lead-max mb-0">Your skill level</p>
+          <h1 class="text-white mb-24pt">Angular: Intermediate</h1>
+          <a href="{{ prefix or '' }}student-path-assessment.html" class="btn btn-outline-white">Restart assessment</a>
+        </div>
+      </div>
+      {% include 'pages/_path-assessment-result.navbar.html' %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,104 @@
+<div class="page-section {{ alt_bg }} border-bottom-2">
+  <div class="{{ containerClass or 'container' }}">
+    <div class="card">
+      <img src="assets/images/paths/typescript_892x286.png" alt="TypeScript" class="card-img" style="max-height: 100%; width: initial;">
+      <div class="fullbleed bg-primary" style="opacity: .5;"></div>
+      <img src="assets/images/paths/typescript_64x64.svg" width="64" alt="Instruduction to TypeScript" class="rounded position-absolute" style="right: 1rem; top: 1rem;">
+      <div class="card-body d-flex align-items-center justify-content-center fullbleed">
+        <div>
+          <h2 class="text-white mb-16pt">Introduction to TypeScript</h2>
+          <div class="d-flex align-items-center mb-16pt justify-content-center">
+            <div class="d-flex align-items-center mr-16pt">
+              <span class="material-icons icon-16pt text-white-50 mr-4pt">access_time</span>
+              <p class="flex text-white-50 lh-1 mb-0">50 minutes left</p>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="material-icons icon-16pt text-white-50 mr-4pt">play_circle_outline</span>
+              <p class="flex text-white-50 lh-1 mb-0">12 lessons</p>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-center">
+            <a href="{{ prefix or '' }}student-take-lesson.html" class="btn btn-white mr-8pt">Resume</a>
+            <a href="{{ prefix or '' }}student-take-course.html" class="btn btn-outline-white ml-0">Start over</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap align-items-start">
+      <div class="d-flex mr-24pt">
+        <a href="{{ prefix or '' }}student-take-course.html" class="mr-16pt">
+          <img src="assets/images/paths/angular_40x40.svg" alt="Angular" class="rounded">
+        </a>
+        <div class="flex">
+          <a class="text-body" href="{{ prefix or '' }}student-take-course.html"><strong>Angular Fundamentals</strong></a><br>
+          <p class="lh-1 mb-0">
+            <span class="text-50 small">with</span>
+            <span class="text-50 small">Elijah Murray</span>
+          </p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center py-4pt" style="white-space: nowrap;">
+        <small class="text-50 mr-8pt">Your rating</small>
+        <div class="rating mr-8pt">
+          <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+          <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+          <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+          <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+          <span class="rating__item"><span class="material-icons text-primary">star_border</span></span>
+        </div>
+        <small class="text-50">4/5</small>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="{{ containerClass or 'container' }}">
+  <div class="page-section">
+    
+    <div class="page-heading">
+      <h4>Learning Paths</h4>
+      <a 
+        href="" 
+        class="text-underline ml-sm-auto">All my learning paths</a>
+    </div>
+
+    {% import '_account-path-card.html' as path %}
+
+    <div class="row mb-lg-8pt">
+      <div class="col-sm-6">
+        {{ path.component(class='', title='Angular', image='angular', free=true) }}
+      </div>
+      <div class="col-sm-6">
+        {{ path.component(class='', title='Swift', image='swift', favorite=true) }}
+      </div>
+      <div class="col-sm-6">
+        {{ path.component(class='', title='WordPress', image='wordpress') }}
+      </div>
+      <div class="col-sm-6">
+        {{ path.component(class='', title='React Native', image='react', position='left') }}
+      </div>
+    </div>
+
+    <div class="page-heading">
+      <h4>Courses</h4>
+      <a 
+        href="" 
+        class="text-underline ml-sm-auto">All my courses</a>
+    </div>
+
+    {% import '_courses.carousel.html' as carousel %}
+    <div class="mb-lg-8pt">
+      {{ carousel.component(control=true, account=true) }}
+    </div>
+
+    <div class="page-heading">
+      <h4>Achievements</h4>
+      <a 
+        href="" 
+        class="text-underline ml-sm-auto">My achievements</a>
+    </div>
+
+    {% include 'components/achievements.carousel.multi.html' %}
+
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<!-- Modal -->
+<div class="modal courses-modal" id="courses" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-i8-plus bg-body pr-0">
+            <div class="py-16pt pl-16pt menu">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#courses-development" data-toggle="tab">Development</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#courses-design" data-toggle="tab">Design</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#courses-photography" data-toggle="tab">Photography</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#courses-marketing" data-toggle="tab">Marketing</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#courses-business" data-toggle="tab">Business</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-8 col-sm-6 col-i8-plus-auto tab-content">
+            {% import '_courses.modal-tab-pane.html' as tab %}
+            {{ tab.component(id='development', active=true, courses=[
+              'Web Development',
+              'JavaScript',
+              'HTML',
+              'CSS',
+              'WordPress',
+              'PHP',
+              'iOS Development'
+            ], paths=[], prefix=prefix) }}
+            {{ tab.component(id='design', courses=[
+              'Illustration', 
+              'Design Skills',
+              'Design Techniques',
+              'Page Layout',
+              'Projects',
+              'Drawing',
+              'Typography'
+            ], paths=[], prefix=prefix) }}
+            {{ tab.component(id='photography', courses=[
+              'Cameras',
+              'Raw Processing',
+              'Masking',
+              'Compositing',
+              'Portraits',
+              'Photo Management',
+              'Lighting'
+            ], paths=[], prefix=prefix) }}
+            {{ tab.component(id='marketing', courses=[
+              'Small Business',
+              'Marketing',
+              'Enterprise Marketing',
+              'Content Marketing',
+              'Online Marketing',
+              'Social Media Marketing',
+              'Advertising'
+            ], paths=[], prefix=prefix) }}
+            {{ tab.component(id='business', courses=[
+              'Business Skills',
+              'Productivity',
+              'Communication',
+              'Leadership',
+              'Management',
+              'Career Development',
+              'Spreadsheets'
+            ], paths=[], prefix=prefix) }}
+          </div>
+        </div>
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

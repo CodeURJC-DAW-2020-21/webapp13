@@ -1,0 +1,16 @@
+<div class="row d-block js-mdk-carousel">
+  <div class="mdk-carousel__content">
+    {% import '_featured-path-card.html' as path %}
+
+    <div class="col-12 col-sm-6 col-md-4">
+      {{ path.component(title='Angular', image='angular') }}
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+      {{ path.component(title='React Native', image='react', position='left') }}
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+      {{ path.component(title='Swift', image='swift') }}
+    </div>
+
+  </div>
+</div>

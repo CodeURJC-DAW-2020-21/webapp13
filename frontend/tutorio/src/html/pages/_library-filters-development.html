@@ -1,0 +1,39 @@
+{% import '_course-card.html' as course %}
+
+<div class="page-heading">
+  <h4>Courses</h4>
+  <p class="ml-sm-auto text-black-70 mb-0"><strong>630</strong> results in <a href="{{ prefix or '' }}library-filters.html" class="text-underline">All categories</a> / Development <a href="{{ prefix or '' }}library-filters.html" class="ml-16pt text-underline">Clear all</a></p>
+</div>
+
+<div class="row">
+  <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-sm-6' }}">
+    {{ course.component(title='Learn Angular fundamentals', image='angular', free=true) }}
+  </div>
+  <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-sm-6' }}">
+    {{ course.component(title='Build an iOS Application in Swift', image='swift', favorite=true) }}
+  </div>
+  <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-sm-6' }}">
+    {{ course.component(title='Build a WordPress Website', image='wordpress') }}
+  </div>
+  <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-sm-6' }}">
+    {{ course.component(title='Angular Services', image='angular_services', avatar='angular', position='left') }}
+  </div>
+  <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-sm-6' }}">
+    {{ course.component(title='Become a React Native Developer', image='react', position='left') }}
+  </div>
+  <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-sm-6' }}">
+    {{ course.component(title='Become a Redis Developer', image='redis') }}
+  </div>
+  <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-sm-6' }}">
+    {{ course.component(title='Introduction to Typescript', image='typescript', position='left') }}
+  </div>
+  <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-sm-6' }}">
+    {{ course.component(title='Angular Unit Testing', image='angular_testing', position='left', avatar='angular') }}
+  </div>
+  <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-sm-6' }}">
+    {{ course.component(title='Angular Routing In-Depth', image='angular_routing', position='left', avatar='angular') }}
+  </div>
+  <div class="{{ gridClass or 'col-lg-4 col-xl-3 col-sm-6' }}">
+    {{ course.component(title='Become a DevOps Engineer', image='devops') }}
+  </div>
+</div>

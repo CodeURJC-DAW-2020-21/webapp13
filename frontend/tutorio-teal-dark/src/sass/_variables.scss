@@ -1,0 +1,142 @@
+$primary:                           #1EA69B !default;
+$primary-gradient:                  linear-gradient(128deg, #00897C 0%, #1EA69B 100%) !default;
+$primary-light:                     #8AE6DE !default;
+$accent:                            #E43E44 !default;
+$secondary:                         #869695 !default;
+$dark:                              #1D2625 !default;
+$light:                             #33403E !default;
+
+/////////////
+// general //
+/////////////
+
+$body-bg:                           #1D2625 !default;
+$border-color:                      #171F1E !default;
+$link-color:                        rgba(173, 255, 244, .7) !default;
+
+////////////
+// footer //
+////////////
+
+$footer-bg:                         #293332 !default;
+
+//////////
+// type //
+//////////
+
+$white:                             #F7FFFE !default;
+$black:                             #30403E !default;
+$body-color:                        $white !default;
+$headings-color:                    $white !default;
+
+///////////
+// forms //
+///////////
+
+$input-placeholder-color:           #869695 !default;
+$input-bg:                          #293331 !default;
+
+////////////
+// navbar //
+////////////
+
+$header-shadow-base-color:          darken($dark, 5%) !default;
+$navbar-dark-color:                 #859493 !default;
+$navbar-submenu-bg:                 $dark !default;
+
+//////////
+// card //
+//////////
+
+$card-bg:                           #33403E !default;
+$card-cap-bg:                       $card-bg !default;
+$enable-card-shadow:                false !default;
+$card-shadow-base-color:            darken($dark, 5%) !default;
+
+//////////////
+// dropdown //
+//////////////
+
+$dropdown-box-shadow-base-color:    darken($dark, 5%) !default;
+
+////////////////
+// pagination //
+////////////////
+
+$pagination-border-color:           $border-color !default;
+$pagination-hover-bg:               rgba($dark, 2%) !default;
+$pagination-hover-border-color:     rgba($border-color, .9) !default;
+$pagination-disabled-color:         rgba($body-color, .2) !default;
+$pagination-disabled-border-color:  rgba($body-color, .2) !default;
+
+/////////
+// mdk //
+/////////
+
+$mdk-reveal-partial-mask-bg:        linear-gradient(to bottom, rgba($card-bg, 0) 60%, rgba($card-bg, 0.95) 80%, $card-bg 100%) !default;
+$mdk-reveal-content-bg:             $card-bg !default;
+
+//////////////////
+// stack effect //
+//////////////////
+
+$stack-bg:                          #263332 !default;
+$stack-box-shadow:                  0 2px 0 rgba(0, 0, 0, .07), 0 2px 0 rgba(0, 0, 0, .07) inset !default;
+
+////////////////////
+// page separator //
+////////////////////
+
+$page-separator-mask-color:         $body-bg !default;
+
+//////////////
+// progress //
+//////////////
+
+$progress-bg:                       $input-bg !default;
+
+/////////////////////
+// progression bar //
+/////////////////////
+
+$progression-bar-text-bg:           $dark !default;
+$progression-bar-color:             $secondary !default;
+$progression-bar-bg:                $border-color !default;
+$progression-bar-icon-border:       $border-color !default;
+$progression-bar-complete-bg:       lighten($border-color, 10%) !default;
+$progression-bar-complete-color:    rgba($secondary, .7) !default;
+
+/////////////
+// tooltip //
+/////////////
+
+$tooltip-color:                     $black !default;
+
+////////////////
+// course nav //
+////////////////
+
+$course-nav-active-bg:              transparent !default;
+
+///////////////////
+// courses modal //
+///////////////////
+
+$courses-modal-nav-link:            rgba($white, .7) !default;
+$courses-modal-active-nav-link:     rgba($black, .7) !default;
+
+//////////////
+// page num //
+//////////////
+
+$page-num-tip-bg:                   $body-bg !default;
+$page-num-tip-border-color:         lighten($card-bg, 10%) !default;
+$page-num-border-color:             $border-color !default;
+
+////////////////
+// list group //
+////////////////
+
+$list-group-bg:                     $card-bg !default;
+
+@import 'tutorio/src/sass/variables';

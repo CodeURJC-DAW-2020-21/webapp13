@@ -1,0 +1,120 @@
+<div class="{{ containerClass or 'container' }} page-section">
+
+  <div class="card">
+    <div class="card-header d-flex align-items-center">
+      <div class="flex">
+        <h4 class="card-title">Earnings</h4>
+        <p class="card-subtitle">This Year</p>
+      </div>
+      <div>
+        <select class="custom-select">
+          <option selected>2015</option>
+          <option value="1">2014</option>
+          <option value="2">2013</option>
+          <option value="3">2012</option>
+        </select>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="chart" style="height: 300px;">
+        <canvas id="earningsChart"></canvas>
+      </div>
+    </div>
+
+    <div
+      data-toggle="lists" 
+      data-lists-values='[
+        "js-lists-values-course", 
+        "js-lists-values-revenue",
+        "js-lists-values-fees"
+      ]'
+      data-lists-sort-by="js-lists-values-revenue"
+      data-lists-sort-desc="true"
+      class="table-responsive">
+      <table class="table table-nowrap table-flush">
+        <thead>
+          <tr class="text-uppercase small">
+            <th>
+              <a 
+                href="javascript:void(0)" 
+                class="sort"
+                data-sort="js-lists-values-course">Course</a>
+            </th>
+            <th class="text-center" style="width:130px">
+              <a 
+                href="javascript:void(0)" 
+                class="sort"
+                data-sort="js-lists-values-fees">Fees</a>
+            </th>
+            <th class="text-center" style="width:130px">
+              <a 
+                href="javascript:void(0)" 
+                class="sort"
+                data-sort="js-lists-values-revenue">Revenue</a>
+            </th>
+          </tr>
+        </thead>
+
+        {% set earnings = [{
+          course: "Angular Routing In-Depth",
+          image: "assets/images/paths/angular_routing_200x168.png",
+          revenue: "8,737",
+          sales: "34",
+          fees: "120"
+        }, {
+          course: "Angular Unit Testing",
+          image: "assets/images/paths/angular_testing_200x168.png",
+          revenue: "2,521",
+          sales: "38"
+        }, {
+          course: "Introduction to TypeScript",
+          image: "assets/images/paths/typescript_200x168.png",
+          revenue: "1,413",
+          sales: "8"
+        }, {
+          course: "Learn Angular Fundamentals",
+          image: "assets/images/paths/angular_200x168.png",
+          revenue: "1,234",
+          sales: "31"
+        }] %}
+
+        <tbody class="list">
+          {% for item in earnings %}
+          <tr>
+            <td>
+              <div class="media flex-nowrap align-items-center">
+                <a href="{{ prefix or '' }}instructor-edit-course.html" class="avatar avatar-4by3 avatar-sm mr-3">
+                  <img src="{{ item.image }}" alt="course" class="avatar-img rounded">
+                </a>
+                <div class="media-body">
+                  <a class="text-body js-lists-values-course" href="{{ prefix or '' }}instructor-edit-course.html"><strong>{{ item.course }}</strong></a>
+                  <div class="text-muted small">{{ item.sales }} Sales</div>
+                </div>
+              </div>
+            </td>
+            <td class="text-center text-black-70">
+              {% if item.fees %}
+              &dollar;<span class="js-lists-values-fees">{{ item.fees }}</span> USD
+              {% else %}
+              <span class="js-lists-values-fees sr-only">0</span>
+              <i class="material-icons text-muted">remove</i>
+              {% endif %}
+            </td>
+            <td class="text-center text-black-70">
+              &dollar;<span class="js-lists-values-revenue">{{ item.revenue }}</span> USD
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot class="text-right">
+          <tr>
+            <td colspan="3">Total <i class="material-icons text-muted">remove</i> <strong>&dollar;6,129 USD</strong></td>
+          </tr>
+        </tfoot> 
+      </table>
+    </div>
+  </div>
+
+  {% include 'layouts/_pagination.html' %}
+
+</div>

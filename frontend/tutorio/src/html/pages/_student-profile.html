@@ -1,0 +1,65 @@
+<div class="page-section {{ top_bg or 'bg-gradient-primary' }}">
+  <div class="{{ containerClass or 'container' }}">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header d-flex align-items-center">
+            <div class="h2 mb-0 mr-3 text-accent">116</div>
+            <div class="flex">
+              <p class="mb-0"><strong>Angular</strong></p>
+              <p class="text-50 mb-0 mt-n1">Best score</p>
+            </div>
+            <div class="dropdown">
+              <a href="#" class="dropdown-toggle text-70" data-toggle="dropdown">Popular Topics</a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a href="" class="dropdown-item">Popular Topics</a>
+                <a href="" class="dropdown-item">Web Design</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-24pt">
+            <div class="chart" style="height: 344px;">
+              <canvas id="topicIqChart" class="chart-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        {% include 'components/achievements.carousel.html' %}
+        <div class="card">
+          <div class="card-header d-flex align-items-center border-0">
+            <div class="h2 mb-0 mr-3 text-accent">432</div>
+            <div class="flex">
+              <p class="mb-0"><strong>Experience IQ</strong></p>
+              <p class="text-50 mb-0 mt-n1">4 days streak this week</p>
+            </div>
+            <i class="material-icons text-muted ml-2">trending_up</i>
+          </div>
+          <div class="card-body pt-0">
+            <div class="chart" style="height: 128px;">
+              <canvas id="iqChart" class="chart-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-section {{ alt_bg }}">
+  <div class="{{ containerClass or 'container' }}">
+    <div class="row">
+      <div class="col-md-6">
+        <h4>About me</h4>
+        <p class="text-70">Fueled by my passion for understanding the nuances of cross-cultural advertising, I consider myself a forever student, eager to both build on my academic foundations in psychology and sociology and stay in tune with the latest digital marketing strategies through continued coursework.</p>
+      </div>
+      <div class="col-md-6">
+        <h4>Connect</h4>
+        <p class="text-70">I’m currently working as a freelance marketing director and always interested in a challenge. Here’s how to reach out and connect.</p>
+        <div class="d-flex align-items-center">
+          <a href="" class="text-accent fab fa-facebook-square font-size-24pt mr-8pt"></a>
+          <a href="" class="text-accent fab fa-twitter-square font-size-24pt"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

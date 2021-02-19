@@ -1,0 +1,265 @@
+{% import 'components/samples/charts.html' as samples %}
+
+<div class="{{ containerClass }}">
+  <ol class="breadcrumb m-0">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item">Components</li>
+    <li class="breadcrumb-item active">Charts</li>
+  </ol>
+</div>
+
+<div class="{{ containerClass }} page-section">
+  <div class="card mb-32pt">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4 class="card-title">Line</h4>
+          <p class="text-70">A line chart is a way of plotting data points on a line. Often, it is used to show trend data, or the comparison of two data sets.</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="chart">
+            <canvas id="performanceChart" class="chart-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="nav nav-tabs nav-tabs-card">
+      <li class="nav-item">
+        <a class="nav-link active" href="#line-init" data-toggle="tab">Init</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#line-options" data-toggle="tab">Options</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#line-data" data-toggle="tab">Data</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#line-scripts" data-toggle="tab">Scripts</a>
+      </li>
+    </ul>
+    <div class="card-footer tab-content">
+      <div class="tab-pane active" id="line-init">
+        {{ samples.charts_line_init() }}
+      </div>
+      <div class="tab-pane" id="line-options">
+        {{ samples.charts_line_options() }}
+      </div>
+      <div class="tab-pane" id="line-data">
+        {{ samples.charts_line_data() }}
+      </div>
+      <div class="tab-pane" id="line-scripts">
+        {{ samples.charts_scripts() }}
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-32pt">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4 class="card-title">Area</h4>
+          <p class="text-70">An area chart or area graph displays graphically quantitative data. It is based on the line chart.</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="chart">
+            <canvas id="performanceAreaChart" class="chart-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="nav nav-tabs nav-tabs-card">
+      <li class="nav-item">
+        <a class="nav-link active" href="#area-init" data-toggle="tab">Init</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#area-options" data-toggle="tab">Options</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#area-data" data-toggle="tab">Data</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#area-scripts" data-toggle="tab">Scripts</a>
+      </li>
+    </ul>
+    <div class="card-footer tab-content">
+      <div class="tab-pane active" id="area-init">
+        {{ samples.charts_line_init() }}
+      </div>
+      <div class="tab-pane" id="area-options">
+        {{ samples.charts_line_options(area=true) }}
+      </div>
+      <div class="tab-pane" id="area-data">
+        {{ samples.charts_line_data() }}
+      </div>
+      <div class="tab-pane" id="area-scripts">
+        {{ samples.charts_scripts() }}
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-32pt">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4 class="card-title">Doughnut</h4>
+          <p class="text-70">Excellent at showing the relational proportions between data.</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="chart">
+            <canvas id="devicesChart" class="chart-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="nav nav-tabs nav-tabs-card">
+      <li class="nav-item">
+        <a class="nav-link active" href="#doughnut-init" data-toggle="tab">Init</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#doughnut-options" data-toggle="tab">Options</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#doughnut-data" data-toggle="tab">Data</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#doughnut-scripts" data-toggle="tab">Scripts</a>
+      </li>
+    </ul>
+    <div class="card-footer tab-content">
+      <div class="tab-pane active" id="doughnut-init">
+        {{ samples.charts_doughnut_init() }}
+      </div>
+      <div class="tab-pane" id="doughnut-options">
+        {{ samples.charts_doughnut_options() }}
+      </div>
+      <div class="tab-pane" id="doughnut-data">
+        {{ samples.charts_doughnut_data() }}
+      </div>
+      <div class="tab-pane" id="doughnut-scripts">
+        {{ samples.charts_scripts() }}
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-32pt">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4 class="card-title">Bar</h4>
+          <p class="text-70">A bar chart provides a way of showing data values represented as vertical bars. It is sometimes used to show trend data, and the comparison of multiple data sets side by side.</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="chart">
+            <canvas id="ordersChart" class="chart-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="nav nav-tabs nav-tabs-card">
+      <li class="nav-item">
+        <a class="nav-link active" href="#bar-init" data-toggle="tab">Init</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#bar-options" data-toggle="tab">Options</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#bar-data" data-toggle="tab">Data</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#bar-scripts" data-toggle="tab">Scripts</a>
+      </li>
+    </ul>
+    <div class="card-footer tab-content">
+      <div class="tab-pane active" id="bar-init">
+        {{ samples.charts_bar_init() }}
+      </div>
+      <div class="tab-pane" id="bar-options">
+        {{ samples.charts_bar_options() }}
+      </div>
+      <div class="tab-pane" id="bar-data">
+        {{ samples.charts_bar_data() }}
+      </div>
+      <div class="tab-pane" id="bar-scripts">
+        {{ samples.charts_scripts(rounded_bar=true) }}
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-32pt">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4 class="card-title">Switch Toggle</h4>
+          <p class="text-70">Easily toggle an additional set of data with a simple interface based on the <code>data</code> attributes.</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="form-group">
+            <label class="form-label" for="chart-switch-toggle">Show affiliate:</label>
+            <div class="custom-control custom-checkbox-toggle">
+              <input 
+                id="chart-switch-toggle" 
+                type="checkbox" 
+                checked="" 
+                aria-checked="true"
+                class="custom-control-input"
+                role="switch"
+                data-toggle="chart" data-target="#ordersChartSwitch" 
+                data-add='{"data":{"datasets":[{"data":[15,10,20,12,7,0,8,16,18,16,10,22],"backgroundColor":"#f75c7f","label":"Affiliate"}]}}'>
+              <label class="custom-control-label" for="chart-switch-toggle"><span class="sr-only">Show affiliate</span></label>
+            </div>
+          </div>
+          <div class="chart">
+            <canvas id="ordersChartSwitch" class="chart-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      {{ samples.charts_custom_checkbox_toggle() }}
+    </div>
+  </div>
+
+  <div class="card mb-0">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4 class="card-title">Radar</h4>
+          <p class="text-70">A radar chart provides a way of showing multiple data points and the variation between them. They are often useful for comparing the points of two or more different data sets.</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="chart">
+            <canvas id="topicIqChart" class="chart-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="nav nav-tabs nav-tabs-card">
+      <li class="nav-item">
+        <a class="nav-link active" href="#radar-init" data-toggle="tab">Init</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#radar-options" data-toggle="tab">Options</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#radar-data" data-toggle="tab">Data</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#radar-scripts" data-toggle="tab">Scripts</a>
+      </li>
+    </ul>
+    <div class="card-footer tab-content">
+      <div class="tab-pane active" id="radar-init">
+        {{ samples.charts_radar_init() }}
+      </div>
+      <div class="tab-pane" id="radar-options">
+        {{ samples.charts_radar_options() }}
+      </div>
+      <div class="tab-pane" id="radar-data">
+        {{ samples.charts_radar_data() }}
+      </div>
+      <div class="tab-pane" id="radar-scripts">
+        {{ samples.charts_scripts() }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+// library filters layout
+
+[data-target="#filters-drawer"].active .material-icons {
+  content: 'tune';
+}
+
+.mdk-drawer-layout {
+  #filters-drawer {
+    &[data-persistent] .mdk-drawer__content {
+      position: absolute;
+    }
+    @include media-breakpoint-down(sm) {
+      .mdk-drawer__content {
+        background: $body-bg;
+      }
+      .mdk-drawer__inner {
+        height: 100%;
+      }
+    }
+  }
+  .filter-section {
+    @include mdc-elevation(1, $card-shadow-base-color);
+    background-color: $card-bg;
+  }
+}

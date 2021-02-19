@@ -1,0 +1,28 @@
+<div class="navbar navbar-expand {{ navbar_submenu_class }} p-sm-0">
+  <div class="{{ containerClass }} px-sm-24pt">
+    
+    <!-- Navbar toggler -->
+    <button class="navbar-toggler ml-n16pt" type="button" data-toggle="collapse" data-target="#navbar-submenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-submenu">
+      <div class="navbar-collapse__content">
+        <ul class="nav navbar-nav">
+          {% if 'student' in slug %}
+            <li class="nav-item{% if 'student-edit-account' in slug %} active{% endif %}">
+              <a href="{{ prefix or '' }}student-edit-account.html" class="nav-link">Edit Account</a>
+            </li>
+            <li class="nav-item{% if 'student-billing' in slug %} active{% endif %}">
+              <a href="{{ prefix or '' }}student-billing.html" class="nav-link">Billing</a>
+            </li>
+          {% elseif 'instructor' in slug %}
+            <li class="nav-item{% if slug === 'instructor-dashboard' %} active{% endif %}">
+              <a href="{{ prefix or '' }}instructor-dashboard.html" class="nav-link">PENDING</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

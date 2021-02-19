@@ -1,0 +1,24 @@
+{% macro component(item, prefix) %}
+<a class="card mb-0" href="{{ prefix or '' }}">
+  <img src="{{ item.image }}" alt="{{ item.title }}" class="card-img" style="max-height: 100%; width: initial;">
+  <div class="fullbleed bg-primary" style="opacity: .5;"></div>
+  <span class="card-body fullbleed">
+    <span class="row">
+      <span class="col-5 text-center">
+        <span class="h5 text-white text-uppercase font-weight-normal m-0 d-block">Achievement</span>
+        <span class="text-white-60 d-block mb-16pt">{{ item.date }}</span>
+        <img src="assets/images/illustration/achievement/128/white.png" alt="achievement">
+      </span>
+      <span class="col-7 d-flex flex-column">
+        <span class="text-right flex">
+          <img src="{{ item.logo }}" width="64" alt="{{ item.title }}" class="rounded">
+        </span>
+        <span>
+          <span class="h4 text-white m-0 d-block">{{ item.title }}</span>
+          <span class="text-white-60">{{ item.description }}</span>
+        </span>
+      </span>
+    </span>
+  </span>
+</a>
+{% endmacro %}

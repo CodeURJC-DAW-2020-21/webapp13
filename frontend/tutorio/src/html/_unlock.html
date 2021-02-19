@@ -1,0 +1,17 @@
+{% macro component(class='', prefix, containerClass, unlock_bg) %}
+  <div class="page-section {{ unlock_bg }} {{ class }}">
+    <div class="{{ containerClass or 'container' }} p-0-xs">
+      <div class="row col-lg-9 mx-auto">
+        <div class="col-sm-6 text-center d-flex flex-column justify-content-center">
+          <h4 class="text-white mb-8pt">Unlock Library</h4>
+          <p class="text-white-70 mb-24pt mb-sm-0">Get access to 1.000+ lessons taught by industry experts.</p>
+        </div>
+        <div class="col-sm-6 d-flex flex-column align-items-center justify-content-center">
+          <a href="{{ prefix or '' }}pricing.html" class="btn btn-outline-white mb-8pt">Watch all courses for $9/mo</a>
+          <p class="text-white-70 mb-0">Have an account? <a href="{{ prefix or '' }}login.html" class="text-white text-underline">Login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+{{ component() }}

@@ -1,0 +1,35 @@
+{% set submenu = 'library' %}
+{% extends "layouts/catalog.html" %}
+
+{% block page %}
+{% include '_library-filters-navbar.html' %}
+
+<div class="mdk-drawer-layout js-mdk-drawer-layout" data-responsive-width="768px" data-push>
+
+  <!-- content -->
+  <div class="mdk-drawer-layout__content">
+    <div class="page-section">
+      <div class="{{ containerClass or 'container' }}">
+        {% include 'pages/_' + slug + '.html' ignore missing %}
+        {% include 'layouts/_pagination.html' %}
+      </div>
+    </div>
+  </div>
+
+  <!-- drawer -->
+  <div class="mdk-drawer js-mdk-drawer" id="filters-drawer">
+    <div class="mdk-drawer__content">
+      <div class="mdk-drawer__inner" 
+        data-perfect-scrollbar
+        data-perfect-scrollbar-wheel-propagation="true">
+        <div class="pt-md-32pt pt-lg-64pt">
+          {% include '_library-filters-drawer.html' %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- // END drawer-layout -->
+
+{% endblock %}

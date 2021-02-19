@@ -1,0 +1,70 @@
+{% import '_course-card.html' as course %}
+<div class="page-section">
+  <div class="{{ containerClass }}">
+    <div class="row">
+      <div class="col-md-4">
+        {{ course.component(title='Learn Angular fundamentals', image='angular', free=true) }}
+      </div>
+      <div class="col-md-4">
+        {{ course.component(title='Build an iOS Application in Swift', image='swift', favorite=true) }}
+      </div>
+      <div class="col-md-4">
+        {{ course.component(title='Build a WordPress Website', image='wordpress') }}
+      </div>
+      <div class="col-md-4">
+        {{ course.component(title='Become a React Native Developer', image='react', position='left') }}
+      </div>
+      <div class="col-md-4">
+        {{ course.component(title='Become a Redis Developer', image='redis') }}
+      </div>
+      <div class="col-md-4">
+        {{ course.component(title='Introduction to Typescript', image='typescript', position='left') }}
+      </div>
+      <div class="col-md-4">
+        {{ course.component(title='Angular Routing In-Depth', image='angular_routing', position='left', avatar='angular') }}
+      </div>
+      <div class="col-md-4">
+        {{ course.component(title='Angular Unit Testing', image='angular_testing', position='left', avatar='angular') }}
+      </div>
+      <div class="col-md-4">
+        {{ course.component(title='Become a DevOps Engineer', image='devops') }}
+      </div>
+    </div>
+  </div>
+  <div class="page-separator mt-lg-16pt">
+    <a href="" class="page-separator__text">more recently updated courses <i class="material-icons">keyboard_arrow_down</i></a>
+  </div>
+</div>
+<div class="page-section bg-primary text-center text-white">
+  <div class="container">
+    <h1 class="mb-8pt">Trending</h1>
+    <p class="lead measure-lead mx-auto text-white-50">Feel like binging on something? Try these curated courses.</p>
+  </div>
+</div>
+<div class="page-section">
+  <div class="{{ containerClass }}">
+    <div class="row">
+      
+      <div class="col-md-6">
+        {{ course.component(title='Figma', image='figma', free=true) }}
+      </div>
+      <div class="col-md-6">
+        {{ course.component(title='inVision App', image='invision') }}
+      </div>
+      
+      <div class="col-lg-3 col-md-4">
+        {{ course.component(title='Craft by inVision', image='craft') }}
+      </div>
+      <div class="col-lg-3 col-md-4">
+        {{ course.component(title='Sketch', image='sketch') }}
+      </div>
+
+      <div class="col-lg-6 col-md-4">
+        {{ course.component(title='Create your first newsletter in MailChimp', image='mailchimp') }}
+      </div>
+    </div>
+  </div>
+  <div class="page-separator mt-lg-16pt">
+    <a href="" class="page-separator__text">more trending courses <i class="material-icons">keyboard_arrow_down</i></a>
+  </div>
+</div>

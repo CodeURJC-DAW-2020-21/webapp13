@@ -1,0 +1,31 @@
+{% extends 'layouts/student.html' %}
+
+{% block beforePage %}
+  {% include 'layouts/_website-account-submenu.html' %}
+{% endblock %}
+
+{% block page %}
+<div class="{{ containerClass or 'container' }}">
+  <form action="{{ prefix or '' }}student-edit-account.html">
+    <div class="row">
+      <div class="col-lg-9">
+        {{ super() }}
+      </div>
+      <div class="col-lg-3 page-nav">
+        <div class="page-section pt-lg-112pt">
+          <nav class="nav page-nav__menu">
+            <a class="nav-link{% if slug === 'student-billing' %} active{% endif %}" href="{{ prefix or '' }}student-billing.html">Subscription</a>
+            <a class="nav-link{% if slug === 'student-billing-upgrade' %} active{% endif %}" href="{{ prefix or '' }}student-billing-upgrade.html">Upgrade Account</a>
+            <a class="nav-link{% if slug === 'student-billing-payment' %} active{% endif %}" href="{{ prefix or '' }}student-billing-payment.html">Payment Information</a>
+            <a class="nav-link{% if slug === 'student-billing-history' %} active{% endif %}" href="{{ prefix or '' }}student-billing-history.html">Payment History</a>
+            <a class="nav-link{% if slug === 'student-billing-invoice' %} active{% endif %}" href="{{ prefix or '' }}student-billing-invoice.html">Invoice</a>
+          </nav>
+          <!-- <div class="page-nav__content">
+            <button type="submit" class="btn btn-accent">Save changes</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

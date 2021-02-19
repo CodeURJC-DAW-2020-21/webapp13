@@ -1,0 +1,189 @@
+{% import 'components/hljs.html' as hljs %}
+{% import '_account-path-card.html' as path %}
+{% import '_course-card.html' as course %}
+
+<div class="{{ containerClass }}">
+  <ol class="breadcrumb m-0">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item">Components</li>
+    <li class="breadcrumb-item active">Cards</li>
+  </ol>
+</div>
+
+{% set items = [{
+  title: 'Learn Angular fundamentals',
+  image: 'angular',
+  free: true
+}, {
+  title: 'Build an iOS Application in Swift',
+  image: 'swift',
+  favorite: true
+}, {
+  title: 'Build a WordPress Website',
+  image: 'wordpress'
+}, {
+  title: 'Become a React Native Developer',
+  image: 'react',
+  position: 'left'
+}] %}
+
+<div class="{{ containerClass }} page-section">
+
+  <h4>Courses</h4>
+  <div class="row align-items-center mb-8pt">
+    {% for item in items %}
+      <div class="col-sm-6 col-md-4 col-xl-3">
+        {{ course.component(
+          title=item.title, 
+          image=item.image, 
+          avatar=(item.avatar or item.image), 
+          free=item.free,
+          favorite=item.favorite,
+          position=item.position) 
+        }}
+      </div>
+    {% endfor %}
+  </div>
+
+  <h4>Learning Paths</h4>
+  <div class="row mb-lg-8pt">
+    <div class="col-sm-6">
+      {{ path.component(class='', title='Angular', image='angular', free=true) }}
+    </div>
+    <div class="col-sm-6">
+      {{ path.component(class='', title='Swift', image='swift', favorite=true) }}
+    </div>
+    <div class="col-sm-6">
+      {{ path.component(class='', title='WordPress', image='wordpress') }}
+    </div>
+    <div class="col-sm-6">
+      {{ path.component(class='', title='React Native', image='react', position='left') }}
+    </div>
+  </div>
+
+  <div class="row align-items-center mb-8pt">
+    <div class="col-md-6">
+      <div class="card card--raised">
+        <div class="card-header d-flex align-items-center">
+          <div class="flex">
+            <h4 class="card-title">Raised</h4>
+            <p class="card-subtitle">Subtitle goes here</p>
+          </div>
+          <div class="dropdown">
+            <a href="#" class="dropdown-toggle" data-caret="false" data-toggle="dropdown">
+              <i class="material-icons">more_horiz</i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="text-70">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-accent">Get started</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Footer</h4>
+          <p class="card-subtitle mb-3">Titles can go in body as well</p>
+
+          <p class="text-70">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-outline-secondary">Get started</a>
+        </div>
+        <div class="card-footer d-flex align-items-center">
+          <div class="text-muted flex">2 days ago</div>
+          <div class="dropup">
+            <a href="#" class="dropdown-toggle" data-caret="false" data-toggle="dropdown">
+              <i class="material-icons">more_horiz</i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-group mb-32pt">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Card title</h4>
+        <p class="text-70">This is a wider card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.</p>
+        <p class="text-70">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Card title</h4>
+        <p class="text-70">This is a wider card with supporting text below as a natural lead-in to
+            additional content. This card has even longer content than the first to show that equal
+            height action.</p>
+        <p class="text-70">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <h4>Custom borders</h4>
+
+  <div class="card border-left-4 border-left-accent card-sm mb-lg-32pt">
+    <div class="card-body pl-16pt">
+      <div class="media flex-wrap align-items-center">
+        <div class="media-left">
+          <i class="material-icons text-50">access_time</i>
+        </div>
+        <div class="media-body" style="min-width: 180px">
+          Your subscription ends on <strong>25 February 2015</strong>
+        </div>
+        <div class="media-right mt-2 mt-sm-0">
+          <a class="btn btn-link text-secondary" href="{{ prefix or '' }}student-billing.html">Upgrade</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card border-left-4 border-left-primary">
+        <div class="card-body text-70">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid eos hic magni mollitia pariatur possimus quidem quis quo sunt?
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card border-left-4 border-left-success">
+        <div class="card-body text-70">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid eos hic magni mollitia pariatur possimus quidem quis quo sunt?
+        </div>
+      </div>    
+    </div>
+    <div class="col-md-6">
+      <div class="card border-left-4 border-left-warning">
+        <div class="card-body text-70">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid eos hic magni mollitia pariatur possimus quidem quis quo sunt?
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card border-left-4 border-left-danger">
+        <div class="card-body text-70">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid eos hic magni mollitia pariatur possimus quidem quis quo sunt?
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

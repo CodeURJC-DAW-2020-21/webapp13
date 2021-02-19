@@ -1,0 +1,12 @@
+<!-- App Settings FAB -->
+<div id="app-settings"> 
+  <app-settings
+    theme-active="blue-light"
+    :theme-location="{
+      'blue-light': '{{ theme_blue_light }}/{% if slug === 'home' %}index.html{% else %}{{ slug }}.html{% endif %}',
+      'blue-dark': '{{ theme_blue_dark }}/{% if slug === 'home' %}index.html{% else %}{{ slug }}.html{% endif %}',
+      'teal-light': '{{ theme_teal_light }}/{% if slug === 'home' %}index.html{% else %}{{ slug }}.html{% endif %}',
+      'teal-dark': '{{ theme_teal_dark }}/{% if slug === 'home' %}index.html{% else %}{{ slug }}.html{% endif %}'
+    }"
+    sidebar-variant="bg-transparent border-0"></app-settings>
+</div>

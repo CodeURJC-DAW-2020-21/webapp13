@@ -1,0 +1,31 @@
+<div class="nav-item dropdown d-none d-sm-flex ml-16pt">
+  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+    <img width="32" height="32" class="rounded-circle" src="assets/images/people/50/guy-3.jpg" alt="student" />
+  </a>
+  <div class="dropdown-menu dropdown-menu-right">
+    {% if 'student' in slug %}
+      <div class="dropdown-header"><strong>Student</strong></div>
+      <a class="dropdown-item{% if slug === 'student-dashboard' %} active{% endif %}" href="{{ prefix or '' }}student-dashboard.html">Dashboard</a>
+      <a class="dropdown-item{% if slug === 'student-my-courses' %} active{% endif %}" href="{{ prefix or '' }}student-my-courses.html">My Courses</a>
+      <a class="dropdown-item{% if slug === 'student-quiz-results' %} active{% endif %}" href="{{ prefix or '' }}student-quiz-results.html">Quiz Results</a>
+      <div class="dropdown-divider"></div>
+      <div class="dropdown-header"><strong>Account</strong></div>
+      <a class="dropdown-item{% if slug === 'student-edit-account' %} active{% endif %}" href="{{ prefix or '' }}student-edit-account.html">Edit Account</a>
+      <a class="dropdown-item{% if slug === 'student-billing' %} active{% endif %}" href="{{ prefix or '' }}student-billing.html">Billing</a>
+      <a class="dropdown-item{% if slug === 'student-billing-history' %} active{% endif %}" href="{{ prefix or '' }}student-billing-history.html">Payments</a>
+      <a class="dropdown-item" href="{{ prefix or '' }}login.html">Logout</a>
+    {% endif %}
+    {% if 'instructor' in slug %}
+      <div class="dropdown-header"><strong>Instructor</strong></div>
+      <a class="dropdown-item" href="{{ prefix or '' }}instructor-dashboard.html">Dashboard</a>
+      <a class="dropdown-item" href="{{ prefix or '' }}instructor-courses.html">Courses</a>
+      <a class="dropdown-item" href="{{ prefix or '' }}instructor-quizzes.html">Quizzes</a>
+      <div class="dropdown-divider"></div>
+      <div class="dropdown-header"><strong>Account</strong></div>
+      <a class="dropdown-item" href="{{ prefix or '' }}student-edit-account.html">Edit Account</a>
+      <a class="dropdown-item" href="{{ prefix or '' }}student-billing-history.html">Billing</a>
+      <a class="dropdown-item" href="{{ prefix or '' }}login.html">Logout</a>
+    {% endif %}
+  </div>
+</div>
+{% include "layouts/_navbar.notifications.html" %}

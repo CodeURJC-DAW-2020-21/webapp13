@@ -1,0 +1,70 @@
+{% macro component(title, image, open, favorite, prefix, position='center', class='mb-16pt') %}
+<div class="card card-path js-overlay stack stack--1 {{ class }}" 
+{% if open %} data-overlay-onload-show data-popover-onload-show{% endif %}
+data-toggle="popover" data-trigger="click">
+  <div class="card-body">
+    <div class="d-flex align-items-center">
+      <div class="flex">
+        <div class="d-flex align-items-center">
+          <div class="rounded mr-16pt z-0 o-hidden">
+            <div class="overlay">
+              <img src="assets/images/paths/{{ image }}_40x40@2x.png" width="40" height="40" alt="Angular" class="rounded">
+              <span class="overlay__content overlay__content-transparent">
+                <span class="overlay__action d-flex flex-column text-center lh-1">
+                  <small class="h6 small text-white mb-0" style="font-weight: 500;">80%</small>
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="card-title text-body mb-0">{{ title }}</div>
+            <div class="text-muted d-flex lh-1">24 courses</div>
+          </div>
+        </div>
+      </div>
+      <a href="{{ prefix or '' }}path.html" class="ml-4pt btn btn-link text-secondary{% if favorite %} border-1 border-secondary{% endif %}">Resume</a>
+    </div>
+  </div>
+</div>
+<div class="popoverContainer d-none">
+  <div class="media">
+    <div class="media-left">
+      <img src="assets/images/paths/{{ image }}_40x40@2x.png" width="40" height="40" alt="Angular" class="rounded">
+    </div>
+    <div class="media-body">
+      <div class="card-title mb-0">{{ title }}</div>
+      <span class="text-black-50 d-flex lh-1">18 courses</span>
+    </div>
+  </div>
+
+  <div class="my-32pt">
+    <div class="d-flex align-items-center mb-8pt justify-content-center">
+      <div class="d-flex align-items-center mr-8pt">
+        <span class="material-icons icon-16pt text-black-50 mr-4pt">access_time</span>
+        <p class="flex text-black-50 lh-1 mb-0"><small>50 minutes left</small></p>
+      </div>
+      <div class="d-flex align-items-center">
+        <span class="material-icons icon-16pt text-black-50 mr-4pt">play_circle_outline</span>
+        <p class="flex text-black-50 lh-1 mb-0"><small>12 lessons</small></p>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+      <a href="{{ prefix or '' }}path.html" class="btn btn-primary mr-8pt">Resume</a>
+      <a href="{{ prefix or '' }}path.html" class="btn btn-outline-secondary ml-0">Start over</a>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center">
+    <small class="text-black-50 mr-8pt">Your rating</small>
+    <div class="rating mr-8pt">
+      <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+      <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+      <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+      <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+      <span class="rating__item"><span class="material-icons text-primary">star_border</span></span>
+    </div>
+    <small class="text-black-50">4/5</small>
+  </div>
+</div>
+{% endmacro %}
+{{ component() }}

@@ -1,0 +1,6 @@
+{% macro component(type="html") %}
+{% set code -%}
+  {{- caller() -}}
+{%- endset %}
+<code class="highlight {{ type }} bg-transparent">{{- code | e | replace(" ", "&nbsp;") | nl2br -}}</code>
+{% endmacro %}

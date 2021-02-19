@@ -1,0 +1,91 @@
+{% import 'components/hljs.html' as hljs %}
+
+<div class="{{ containerClass }}">
+  <ol class="breadcrumb m-0">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item">Components</li>
+    <li class="breadcrumb-item active">Tabs</li>
+  </ol>
+</div>
+
+<div class="{{ containerClass }} page-section">
+  <div class="card mb-32pt">
+    <ul class="nav nav-tabs nav-tabs-card">
+      <li class="nav-item">
+        <a class="nav-link active" href="#first" data-toggle="tab">First</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#second" data-toggle="tab">Second</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#third" data-toggle="tab">Third</a>
+      </li>
+    </ul>
+    <div class="card-body tab-content text-70">
+      <div class="tab-pane active" id="first">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quae ratione vitae obcaecati rem non unde odio vel recusandae? Ipsa assumenda officiis repudiandae quam porro quasi officia, sint consectetur nam.</div>
+      <div class="tab-pane" id="second">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat aperiam, aspernatur laborum, nam earum excepturi fugiat facere nisi corporis eum itaque corrupti eaque, placeat quaerat accusantium eveniet? Reprehenderit, ratione voluptatem!</div>
+      <div class="tab-pane" id="third">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolores ipsa id possimus fugit veritatis ullam natus aliquid, suscipit et? Dolore id, recusandae. Officia laborum soluta ad ab esse blanditiis?</div>
+    </div>
+    <div class="card-footer">
+      {% call hljs.component() -%}
+<div class="card">
+  <ul class="nav nav-tabs nav-tabs-card">
+    <li class="nav-item">
+      <a class="nav-link active" href="#first" data-toggle="tab">First</a>
+    </li>
+  </ul>
+  <div class="card-body tab-content">
+    <div class="tab-pane active" id="first">
+      ...
+    </div>
+  </div>
+</div>
+      {%- endcall %}
+    </div>
+  </div>
+
+  <h4>Tab with Dropdown</h4>
+  <div class="card mb-32pt">
+    <ul class="nav nav-tabs nav-tabs-card">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+      </li>
+    </ul>
+    <div class="card-body tab-content text-70">
+      <div class="tab-pane active">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum commodi ullam, quaerat unde sint hic sit. Ipsam minima expedita doloribus quos, praesentium. Molestiae itaque eveniet, totam excepturi fugiat veniam architecto?</div>
+    </div>
+  </div>
+
+  <h4>Pills</h4>
+  <div class="card mb-0">
+    <div class="card-body">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Another link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <div class="tab-content mt-3 text-70">
+        <div class="tab-pane active">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum commodi ullam, quaerat unde sint hic sit. Ipsam minima expedita doloribus quos, praesentium. Molestiae itaque eveniet, totam excepturi fugiat veniam architecto?</div>
+      </div>
+    </div>
+  </div>
+</div>

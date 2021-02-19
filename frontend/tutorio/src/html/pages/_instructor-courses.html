@@ -1,0 +1,38 @@
+{% import '_instructor-course-card.html' as course %}
+
+<div class="{{ containerClass or 'container' }} page-section">
+  <div class="mb-heading d-flex align-items-center">
+    <h4 class="flex m-0">Manage Courses</h4>
+    <a href="{{ prefix or '' }}instructor-edit-course.html" class="btn btn-accent">Add Course</a>
+  </div>
+  <div class="row">
+    
+    {% set items=[{
+      title: 'Learn Angular fundamentals',
+      image: 'angular',
+      free: true
+    }, {
+      title: 'Build an iOS Application in Swift',
+      image: 'swift',
+      favorite: true
+    }, {
+      title: 'Build a WordPress Website',
+      image: 'wordpress'
+    }, {
+      title: 'Become a React Native Developer',
+      image: 'react',
+      position: 'left'
+    }] %}
+
+    {% for item in items %}
+    <div class="col-sm-6 col-md-4 col-xl-3">
+      {{ course.component(
+        title=item.title, 
+        image=item.image, 
+        avatar=(item.avatar or item.image),
+        position=item.position) }}
+    </div>
+    {% endfor %}
+  </div>
+  {% include 'layouts/_pagination.html' %}
+</div>

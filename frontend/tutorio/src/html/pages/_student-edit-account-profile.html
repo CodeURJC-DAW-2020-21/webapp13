@@ -1,0 +1,52 @@
+<div class="page-section">
+  <h4>Profile &amp; Privacy</h4>
+  <div class="list-group list-group-form">
+    <div class="list-group-item">
+      <div class="form-group row mb-0">
+        <label class="col-form-label col-sm-3">Your photo</label>
+        <div class="col-sm-9 media align-items-center">
+          <a href="" class="media-left mr-16pt">
+            <img src="assets/images/people/110/guy-3.jpg" alt="people" width="56" class="rounded-circle" />
+          </a>
+          <div class="media-body">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01">
+              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list-group-item">
+      <div class="form-group row mb-0">
+        <label class="col-form-label col-sm-3">{{ brand }} profile name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" value="{{ brand }}.com/alexander" placeholder="Your profile name ...">
+          <small class="form-text text-muted">Your profile name will be used as part of your public profile URL address.</small>
+        </div>
+      </div>
+    </div>
+    <div class="list-group-item">
+      <div class="form-group row mb-0">
+        <label class="col-form-label col-sm-3">About you</label>
+        <div class="col-sm-9">
+          <textarea rows="3" class="form-control" placeholder="About you ..."></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="list-group-item">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" checked id="customCheck1">
+        <label class="custom-control-label" for="customCheck1">Display your real name on your profile</label>
+        <small class="form-text text-muted">If unchecked, your profile name will be displayed instead of your full name.</small>
+      </div>
+    </div>
+    <div class="list-group-item">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" checked id="customCheck2">
+        <label class="custom-control-label" for="customCheck2">Allow everyone to see your profile</label>
+        <small class="form-text text-muted">If unchecked, your profile will be private and no one except you will be able to view it.</small>
+      </div>
+    </div>
+  </div>
+</div>

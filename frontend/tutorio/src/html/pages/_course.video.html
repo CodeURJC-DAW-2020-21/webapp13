@@ -1,0 +1,15 @@
+{% macro component(item=1, item_free=true, item_selected=true, flush, prefix) %}
+<div class="card card-course card-course--large card-overlay js-ld-card-overlay{% if item_selected %} card-overlay--selected{% endif %}{% if flush %} card-flush{% endif %}">
+  <a href="{{ prefix or '' }}course.html">
+    <span class="card__image fullbleed" style="background-image: url('assets/images/courses/{{ item }}_668x290.jpeg');"></span>
+    <span class="card-overlay__content">
+      <span class="card-overlay__action">
+        <i class="material-icons">play_circle_outline</i>
+      </span>
+    </span>
+  </a>
+  {% if item_free %}
+  <span class="corner-ribbon corner-ribbon--default-right-top corner-ribbon--shadow corner-ribbon--success">FREE</span>
+  {% endif %}
+</div>
+{% endmacro %}
