@@ -16,7 +16,6 @@ To keep track on the updates that we made to the project we are going to use __G
 | José Justo Tena Agudo | jj.tena.2018@alumnos.urjc.es | jj-tena |
 | José Manuel Aguado Gala | jm.aguado.2018@alumnos.urjc.es | JMAguado |
 | Aitor Ortega Pacheco | a.ortega.2018@alumnos.urjc.es | aitorortega03 |
-| Álvaro López Río | a.rio.2017@alumnos.urjc.es | sdfdsf |
 
 ## Phase 0
 
@@ -38,25 +37,21 @@ The portfolio reflects your work and experience in a particular knowledge field.
 The portfolio shall contain the user´s name, email, occupation and examples of its work. Also it may have pictures of itself and its work.
 
 ### Portfolio item
+Portfolio item's represents a single project. You can have more than one portfolio item to show your different projects. A portfolio item has a tittle, a photo, a description and some useful information about the project.
 
 ### Images
-The user may be able to upload pictures of itself and examples of its work in the portfolio, in order to make the portfolio look cleaner and being easily recognizable.
+The user may be able to upload pictures of itself and examples of its work in the portfolio, in order to make the portfolio looks cleaner and being easily recognizable.
 The user´s profile can contain a picture of the user.
 
 ### Charts
-
-#### Registered users
-This chart shows the relation between the users register and the days in which the accounts were made.
-
-### Most valuable templates
-This chart shows the most valuables templates rated by the users.
+- __Registered users__: This chart shows the relation between the users register and the days in which the accounts were made.
+- __Most valuable templates__: This chart shows the most valuables templates rated by the users.
 
 ### Complementary technologies
-For the complementary technology we will use a Web Socket to implement a chat between the users of our system.
+For the complementary technology we will use Web Sockets to implement a chat between the users of our system.
 
 ### Advanced queries
-We will implement an algorithm that rocommends users which have similar interests or types of work.
-
+We will implement an algorithm that recommends users which have similar interests or types of work.
 
 ## Phase 1
 ## Phase 2
