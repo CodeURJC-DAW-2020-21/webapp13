@@ -69,14 +69,14 @@
                     </a>
 
                     <ul class="nav navbar-nav mr-16pt d-none d-md-flex">
-                        <li class="nav-item active">
-                            <a href="#" class="nav-link"><i class="fas fa-search fa-sm mr-4pt d-flex align-items-center"></i>Explorar</a>
+                        <li class="nav-item">
+                            <a href="search.html" class="nav-link"><i class="fas fa-search fa-sm mr-4pt d-flex align-items-center"></i>Explorar</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
+                            <a href="student-edit-account.html" class="nav-link"><i class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="fas fa-shopping-bag mr-4pt d-flex align-items-center"></i></i>Tienda</a>
+                            <a href="shop.html" class="nav-link"><i class="fas fa-shopping-bag mr-4pt d-flex align-items-center"></i></i>Tienda</a>
                         </li>
                     </ul>
 
@@ -195,6 +195,47 @@
 
     </div>
     <!-- // END Header Layout -->
+
+    <!-- DRAWER (MOBILE NAVBAR) -->
+    <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+        <div class="mdk-drawer__content">
+            <div class="sidebar sidebar-dark sidebar-left" data-perfect-scrollbar>
+                <div class="sidebar-p-a sidebar-b-b sidebar-m-b pt-0">
+
+                    <!-- Brand -->
+                    <a href="index.html" class="sidebar-brand">
+                        <img class="sidebar-brand-icon" src="assets/images/logo/white-100.svg" width="30" alt="Tutorio">
+                        <span>PortHub</span>
+                    </a>
+                    <!-- // END Brand -->
+
+                    <!-- Search -->
+                    <form action="library-filters.html" class="search-form search-form--black">
+                        <input type="text" class="form-control" placeholder="Búsqueda">
+                        <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
+                    </form>
+
+                </div>
+
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="index.html">Inicio</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="search.html">Explorar</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="student-edit-account.html">Perfil</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="shop.html">Tienda</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- // END drawer -->
 
     <!-- jQuery -->
     <script src="assets/vendor/jquery.min.js"></script>
