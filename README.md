@@ -54,6 +54,11 @@ For the complementary technology we will use Web Sockets to implement a chat bet
 We will implement an algorithm that recommends users which have similar interests or types of work.
 
 ## Phase 1
+
+During this phase we have worked defining the frontend of our web application, as a result of this work we can show you an example of the screens of our system.
+### Home Page
+![Home](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/index.png)
+
 ## Phase 2
 ## Phase 3
 ## Phase 4
