@@ -1,5 +1,5 @@
 # Porthub
-![Logo](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/logo.png)
+![Logo](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/logo.png)
 
 ## Description
 Porthub is a social network about sharing your personal portfolios to meet profesionals from many different ambits. 
@@ -62,37 +62,37 @@ During this phase we have worked defining the frontend of our web application, a
 ### Home Page
 The initial page where you have a general overview of the system.
 
-![Home](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/index.png)
+![Home](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/index.png)
 
 
 ### Sign Page
 The screen used to register a new user on our system.
 
-![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/sign.png)
+![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/sign.png)
 
 
 ### Login Page
 The screen used to login an existing user on the system.
 
-![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/login.png)
+![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/login.png)
 
 
 ### Configuration Page
 
 This screen allows the user to modify the data which appears on its Template.
-![Configuration](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/configuration.png)
+![Configuration](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configuration.png)
 
 
 ### Search Page
 
 The screen used to find new users, filtered by categories, which you can talk to and take a look on its Template.
-![Search](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/search.png)
+![Search](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/search.png)
 
 
 ### Shop Page
 
 The screen used to get new Templates, either free or premium.
-![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/shop.png)
+![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/shop.png)
 
 
 ## Navigation diagram
