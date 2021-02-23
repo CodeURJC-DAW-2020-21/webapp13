@@ -58,33 +58,46 @@ We will implement an algorithm that recommends users which have similar interest
 ## Pages
 During this phase we have worked defining the frontend of our web application, as a result of this work we can show you an example of the screens of our system.
 
+
 ### Home Page
 The initial page where you have a general overview of the system.
+
 ![Home](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/index.png)
+
 
 ### Sign Page
 The screen used to register a new user on our system.
+
 ![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/sign.png)
+
 
 ### Login Page
 The screen used to login an existing user on the system.
+
 ![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/login.png)
 
+
 ### Configuration Page
+
 This screen allows the user to modify the data which appears on its Template.
 ![Configuration](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/configuration.png)
 
+
 ### Search Page
+
 The screen used to find new users, filtered by categories, which you can talk to and take a look on its Template.
 ![Search](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/search.png)
 
+
 ### Shop Page
+
 The screen used to get new Templates, either free or premium.
 ![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/screens/shop.png)
 
-## Navigation diagram
-Once we have stablished which are the pages that compose our system, we shall take a look at the flow between pages that emerges through the interaction with them.
 
+## Navigation diagram
+
+Once we have stablished which are the pages that compose our system, we shall take a look at the flow between pages that emerges through the interaction with them.
 
 
 ## Phase 2
