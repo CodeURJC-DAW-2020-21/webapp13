@@ -1,1 +1,0 @@
-import 'tutorio/src/js/page.student-profile'

@@ -1,1 +1,0 @@
-import 'tutorio/src/js/collapse-resize'
