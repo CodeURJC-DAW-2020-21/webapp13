@@ -74,31 +74,48 @@ The screen used to register a new user on our system.
 ### Login Page
 The screen used to login an existing user on the system.
 
-![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/login.png)
+![Login](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/login.png)
 
+### Profile Page
+
+This screen shows you the active template which represents your profile in the system.
+
+![Profile](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/portfolioPremium.png)
+
+### Portfolio Item Page
+
+This screen shows you one of the items that compose your template, containing the neccesary information to represent a project.
+
+![Item](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/portfolioItemPremium.png)
+
+### My Templates Page
+
+This screen shows you a catalog within the templates you own.
+
+![Templates](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/myTemplates.png)
 
 ### Configuration Page for Basic Information
 
 This screen allows the user to modify his personal information such as name, age, etc.
 
-![Configuration](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configBasic.png)
+![ConfigurationBasic](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configBasic.png)
 
 ### Configuration Page for Advanced Information
 
 This screen allows the user to modify more complex information, for example its profile pic or its personal description.
 
-![Configuration](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configAdvanced.png)
+![ConfigurationAdvanced](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configAdvanced.png)
 
 ### Configuration Page for Portfolio Item Information
 
 This screen allows to upload or delete portfolio items to your personal template.
-![Configuration](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configBasic.png)
+![ConfigurationItem](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configBasic.png)
 
 ### Configuration Page for Password
 
 This screen allows to reset the password of your account.
 
-![Configuration](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configPassword.png)
+![ConfigurationPassword](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configPassword.png)
 
 ### Search Page
 
@@ -110,7 +127,7 @@ The screen used to find new users, filtered by categories, which you can talk to
 ### Shop Page
 
 The screen used to get new Templates, either free or premium.
-![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/shop.png)
+![Shop](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/shop.png)
 
 
 ## Navigation diagram
