@@ -80,13 +80,13 @@ The screen used to login an existing user on the system.
 
 This screen shows you the active template which represents your profile in the system.
 
-![Profile](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/portfolioPremium.png)
+![Profile](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/portfolioPremium.PNG)
 
 ### Portfolio Item Page
 
 This screen shows you one of the items that compose your template, containing the neccesary information to represent a project.
 
-![Item](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/portfolioItemPremium.png)
+![Item](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/portfolioItemPremium.PNG)
 
 ### My Templates Page
 
