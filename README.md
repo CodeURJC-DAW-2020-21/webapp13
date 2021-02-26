@@ -109,6 +109,7 @@ This screen allows the user to modify more complex information, for example its 
 ### Configuration Page for Portfolio Item Information
 
 This screen allows to upload or delete portfolio items to your personal template.
+
 ![ConfigurationItem](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configBasic.png)
 
 ### Configuration Page for Password
@@ -127,6 +128,7 @@ The screen used to find new users, filtered by categories, which you can talk to
 ### Shop Page
 
 The screen used to get new Templates, either free or premium.
+
 ![Shop](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/shop.png)
 
 
