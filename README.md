@@ -135,6 +135,7 @@ The screen used to get new Templates, either free or premium.
 ## Navigation diagram
 
 Once we have stablished which are the pages that compose our system, we shall take a look at the flow between pages that emerges through the interaction with them.
+![Diagramm](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/screen_diagram.png)
 
 
 ## Phase 2
