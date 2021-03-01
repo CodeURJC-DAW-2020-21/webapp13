@@ -1,0 +1,451 @@
+        {{> header}}
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content page-content pb-0">
+
+            <!--SUBNAVBAR FOR SEARCHING FILTERS-->
+            <div class="navbar navbar-expand-sm navbar-list navbar-submenu navbar-light p-0 m-0">
+                <div class="container-fluid align-items-start align-items-sm-center">
+                    <div class="navbar-list__item">
+                        <nav class="nav nav-links nav--flush">
+                            <a data-toggle="sidebar" data-target="#filters-drawer"
+                                class="active nav-link d-flex align-items-center">Filtros</a>
+                        </nav>
+                    </div>
+
+                    <div class="navbar-list__item d-flex align-items-center">
+                        <!--PROBABLY DELETED IN THE FUTURE-->
+                        <nav class="nav nav-links nav--flush mr-24pt">
+                            <a href="#" class="mr-4pt nav-link active"><i
+                                    class="material-icons">view_module</i></a>
+                        </nav>
+                        <div class="ml-auto custom-select-icon">
+                            <select name="sort" class="custom-select custom-select-sm custom-select-icon__select">
+                                <option>Nuevos primero</option>
+                                <option>Antiguos primero</option>
+                                <option>Nombre (a-z)</option>
+                                <option>Nombre (z-a)</option>
+                            </select>
+                            <span class="material-icons custom-select-icon__icon">sort</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdk-drawer-layout js-mdk-drawer-layout" data-responsive-width="768px" data-push>
+
+                <!-- MAIN CONTENT -->
+                <div class="mdk-drawer-layout__content">
+                    <div class="page-section">
+                        <div class="container page__container">
+
+
+                            <div class="page-heading">
+                                <h4>Resultados</h4>
+                                <p class="ml-sm-auto text-70 mb-0"><strong>2,000</strong> resultados en Todas</p>
+                            </div>
+
+                            <div class="row">
+                                <!--SINGLE RESULT CARD-->
+                                <div class="col-lg-4 col-xl-3 col-sm-6">
+
+                                    <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
+                                        data-partial-height="40" data-toggle="popover" data-trigger="click">
+
+
+                                        <a href="#" class="js-image" data-position="center">
+                                            <!--PROFILE IMAGE GOES HERE-->
+                                            <img src="assets/images/people/256/256_rsz_florian-perennes-594195-unsplash.jpg" alt="course">
+                                            <span class="overlay__content">
+                                                <span class="overlay__action d-flex flex-column text-center">
+
+                                                </span>
+                                            </span>
+                                        </a>
+
+
+                                        <div class="mdk-reveal__content">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex">
+                                                        <a class="card-title" href="#">Ana Álvarez</a>
+                                                        <small class="text-50 font-weight-bold mb-4pt">Fotógrafo</small>
+                                                    </div>
+                                                    <a href="#"
+                                                        class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="popoverContainer d-none">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
+                                                <img src="assets/images/people/50/50_rsz_florian-perennes-594195-unsplash.jpg" width="40"
+                                                    height="40" alt="Angular" class="rounded">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="card-title mb-0">Ana Álvarez</div>
+                                                <p class="lh-1 mb-0">
+                                                    <span class="text-black-50 small font-weight-bold">Fotógrafo</span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <p class="my-16pt text-black-70">Viendo el mundo a través de mi cámara</p>
+
+                                        <div class="row align-items-center">
+                                            <div class="col text-center">
+                                                <a href="../../templates/free/index.html" class="btn btn-primary">Ver más</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-lg-4 col-xl-3 col-sm-6">
+
+                                    <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
+                                        data-partial-height="40" data-toggle="popover" data-trigger="click">
+
+
+                                        <a href="#" class="js-image" data-position="center">
+                                            <!--PROFILE IMAGE GOES HERE-->
+                                            <img src="assets/images/people/256/256_rsz_clem-onojeghuo-150467-unsplash.jpg" alt="course">
+                                            <span class="overlay__content">
+                                                <span class="overlay__action d-flex flex-column text-center">
+
+                                                </span>
+                                            </span>
+                                        </a>
+
+
+                                        <div class="mdk-reveal__content">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex">
+                                                        <a class="card-title" href="#">Benito Blanco</a>
+                                                        <small class="text-50 font-weight-bold mb-4pt">Diseñador gráfico</small>
+                                                    </div>
+                                                    <a href="#"
+                                                        class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="popoverContainer d-none">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
+                                                <img src="assets/images/people/50/50_rsz_clem-onojeghuo-150467-unsplash.jpg" width="40"
+                                                    height="40" alt="Angular" class="rounded">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="card-title mb-0">Benito Blanco</div>
+                                                <p class="lh-1 mb-0">
+                                                    <span class="text-black-50 small font-weight-bold">Diseñador gráfico</span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <p class="my-16pt text-black-70">Una parte de mi en cada diseño</p>
+
+                                        <div class="row align-items-center">
+                                            <div class="col text-center">
+                                                <a href="../../templates/free/index.html" class="btn btn-primary">Ver más</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="col-lg-4 col-xl-3 col-sm-6">
+
+                                    <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
+                                        data-partial-height="40" data-toggle="popover" data-trigger="click">
+
+
+                                        <a href="#" class="js-image" data-position="center">
+                                            <!--PROFILE IMAGE GOES HERE-->
+                                            <img src="assets/images/people/256/256_rsz_james-gillespie-714755-unsplash.jpg" alt="course">
+                                            <span class="overlay__content">
+                                                <span class="overlay__action d-flex flex-column text-center">
+
+                                                </span>
+                                            </span>
+                                        </a>
+
+
+                                        <div class="mdk-reveal__content">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex">
+                                                        <a class="card-title" href="#">Carla Corbacho</a>
+                                                        <small class="text-50 font-weight-bold mb-4pt">Ingeniero</small>
+                                                    </div>
+                                                    <a href="#"
+                                                        class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="popoverContainer d-none">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
+                                                <img src="assets/images/people/50/50_rsz_james-gillespie-714755-unsplash.jpg" width="40"
+                                                    height="40" alt="Angular" class="rounded">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="card-title mb-0">Carla Corbacho</div>
+                                                <p class="lh-1 mb-0">
+                                                    <span class="text-black-50 small font-weight-bold">Ingeniero</span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <p class="my-16pt text-black-70">Dándolo todo en mis proyectos</p>
+
+                                        <div class="row align-items-center">
+                                            <div class="col text-center">
+                                                <a href="../../templates/free/index.html" class="btn btn-primary">Ver más</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="col-lg-4 col-xl-3 col-sm-6">
+
+                                    <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
+                                        data-partial-height="40" data-toggle="popover" data-trigger="click">
+
+
+                                        <a href="#" class="js-image" data-position="center">
+                                            <!--PROFILE IMAGE GOES HERE-->
+                                            <img src="assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg" alt="course">
+                                            <span class="overlay__content">
+                                                <span class="overlay__action d-flex flex-column text-center">
+
+                                                </span>
+                                            </span>
+                                        </a>
+
+
+                                        <div class="mdk-reveal__content">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex">
+                                                        <a class="card-title" href="#">Daniel Díaz</a>
+                                                        <small class="text-50 font-weight-bold mb-4pt">Empresario</small>
+                                                    </div>
+                                                    <a href="#"
+                                                        class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="popoverContainer d-none">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
+                                                <img src="assets/images/people/50/50_rsz_mubariz-mehdizadeh-364026-unsplash.jpg" width="40"
+                                                    height="40" alt="Angular" class="rounded">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="card-title mb-0">Daniel Díaz</div>
+                                                <p class="lh-1 mb-0">
+                                                    <span class="text-black-50 small font-weight-bold">Empresario</span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <p class="my-16pt text-black-70">Cada día es una oportunidad de emprender</p>
+
+                                        <div class="row align-items-center">
+                                            <div class="col text-center">
+                                                <a href="../../templates/free/index.html" class="btn btn-primary">Ver más</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- PAGINATION -->
+                            <ul class="pagination justify-content-center pagination-sm">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true" class="material-icons">chevron_left</span>
+                                        <span>Prev</span>
+                                    </a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#" aria-label="1">
+                                        <span>1</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="1">
+                                        <span>2</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span>Next</span>
+                                        <span aria-hidden="true" class="material-icons">chevron_right</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DRAWER (FILTERS) -->
+                <div class="mdk-drawer js-mdk-drawer" id="filters-drawer">
+                    <div class="mdk-drawer__content">
+                        <div class="mdk-drawer__inner" data-perfect-scrollbar
+                            data-perfect-scrollbar-wheel-propagation="true">
+                            <div class="pt-md-32pt pt-lg-64pt">
+                                <div class="px-24pt mb-24pt mb-md-48pt filter-section">
+                                    <ul class="accordion js-accordion m-0" id="library-category">
+                                        <li class="accordion__item open">
+                                            <a class="accordion__toggle" data-toggle="collapse"
+                                                data-parent="#library-category" href="#library-all">
+                                                <span class="flex">Profesión</span>
+                                                <span
+                                                    class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
+                                            </a>
+                                            <nav class="accordion__menu collapse show" id="library-all">
+                                                <a class="accordion__menu-link active"
+                                                    href="#">Todas</a>
+                                                <div>
+                                                    <a class="accordion__menu-link" href="#library-development"
+                                                        data-toggle="collapse">Ingeniero</a>
+                                                    <div class="collapse" id="library-development">
+                                                        <nav class="accordion__submenu">
+                                                            <a href="#">Informático</a>
+                                                            <a href="#">Industrial</a>
+                                                            <a href="#">Caminos</a>
+                                                        </nav>
+                                                    </div>
+                                                </div>
+                                                <a class="accordion__menu-link"
+                                                    href="#">Diseñador gráfico</a>
+                                                <a class="accordion__menu-link"
+                                                    href="#">Fotógrafo</a>
+                                                <a class="accordion__menu-link"
+                                                    href="#">Empresario</a>
+                                            </nav>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- // END drawer-layout -->
+
+
+        </div>
+        <!-- // END Header Layout Content -->
+
+    </div>
+    <!-- // END Header Layout -->
+
+    <!-- DRAWER (MOBILE NAVBAR) -->
+    <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+        <div class="mdk-drawer__content">
+            <div class="sidebar sidebar-dark sidebar-left" data-perfect-scrollbar>
+                <div class="sidebar-p-a sidebar-b-b sidebar-m-b pt-0">
+
+                    <!-- Brand -->
+                    <a href="index.html" class="sidebar-brand">
+                        <img class="sidebar-brand-icon" src="assets/images/logo/white-100.svg" width="30" alt="Tutorio">
+                        <span>PortHub</span>
+                    </a>
+                    <!-- // END Brand -->
+
+                    <!-- Search -->
+                    <form action="library-filters.html" class="search-form search-form--black">
+                        <input type="text" class="form-control" placeholder="Búsqueda">
+                        <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
+                    </form>
+
+                </div>
+
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="index.html">Inicio</a>
+                    </li>
+                    <li class="sidebar-menu-item active">
+                        <a class="sidebar-menu-button" href="search.html">Explorar</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="student-edit-account.html">Perfil</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="shop.html">Tienda</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- // END drawer -->
+
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- DOM Factory -->
+    <script src="assets/vendor/dom-factory.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- Fix Footer -->
+    <script src="assets/vendor/fix-footer.js"></script>
+
+    <!-- Chart.js -->
+    <script src="assets/vendor/Chart.min.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="assets/js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="assets/js/app-settings.js"></script>
+
+
+
+
+</body>
+
+</html>
