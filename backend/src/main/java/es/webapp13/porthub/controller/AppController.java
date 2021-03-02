@@ -1,4 +1,4 @@
-package es.webapp13.porthub;
+package es.webapp13.porthub.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
