@@ -60,9 +60,27 @@ public class AppController {
 
     @GetMapping("/login")
     public String loginLink(Model model) {
+
         return "login";
     }
 
+    @GetMapping("/reset-password")
+    public String forgottenPasswordLink(Model model) {
+        return "reset-password";
+    }
 
+    @GetMapping("/signup")
+    public String signupLink(Model model) {
+
+        return "signup";
+        //TODO falta enviar los datos de incio de sesión en el formulario
+    }
+
+    @GetMapping("/index") //va a home habiendo iniciado sesión
+    public String homeLink(Model model) {
+
+        return "index";
+        //TODO falta enviar los datos de incio de sesión en el formulario y que en lugar del boton de login aparezca su foto de perfil
+    }
 
 }
