@@ -63,6 +63,10 @@ public class AppController {
         return "login";
     }
 
+    @GetMapping("/signup")
+    public String signupLink(Model model) {
+        return "signup";
+    }
 
 
 }
