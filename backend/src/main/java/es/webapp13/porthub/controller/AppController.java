@@ -60,13 +60,20 @@ public class AppController {
 
     @GetMapping("/login")
     public String loginLink(Model model) {
+
         return "login";
+    }
+
+    @GetMapping("/reset-password")
+    public String forgottenPasswordLink(Model model) {
+        return "reset-password";
     }
 
     @GetMapping("/signup")
     public String signupLink(Model model) {
-        return "signup";
-    }
 
+        return "signup";
+        //TODO falta enviar los datos de incio de sesión en el formulario
+    }
 
 }
