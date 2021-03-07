@@ -81,4 +81,9 @@ public class AppController {
         return "admin";
     }
 
+    @GetMapping("/user/my-templates")
+    public String myTemplatesLink(Model model){
+        return "my-templates";
+    }
+
 }
