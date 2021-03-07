@@ -81,9 +81,21 @@ public class AppController {
         return "admin";
     }
 
-    @GetMapping("/user/my-templates")
-    public String myTemplatesLink(Model model){
-        return "my-templates";
+    @GetMapping("/banned-users")
+    public String adminBannedUsersLink (Model model){
+        return "admin-banned-users";
     }
+
+    @GetMapping("/app-graphics")
+    public String adminAppGraphicsLink (Model model){
+        return "admin-app-graphics";
+    }
+
+    @GetMapping("/templates-list")
+    public String adminTemplatesListLink (Model model){
+        return "admin-templates-list";
+    }
+
+
 
 }
