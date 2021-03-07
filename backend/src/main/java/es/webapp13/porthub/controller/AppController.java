@@ -76,4 +76,9 @@ public class AppController {
         //TODO falta enviar los datos de incio de sesión en el formulario
     }
 
+    @GetMapping("/admin")
+    public String adminLink (Model model){
+        return "admin";
+    }
+
 }
