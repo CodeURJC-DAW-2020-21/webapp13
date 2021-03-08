@@ -59,48 +59,8 @@
                             <div class="list-group-item">
 
                                 <div class="chart">
-                                    <canvas id="performanceChart" class="chart-canvas"></canvas>
+                                    <canvas id="usersGraphic" class="chart-canvas"></canvas>
                                 </div>
-
-                                <script>
-                                    var data = {
-                                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                                        datasets: [{
-                                            label: "Performance",
-                                            data: [0, 10, 5, 15, 10, 20, 15, 25, 20, 30, 25, 40]
-                                        }]
-                                    }
-
-                                    var options = {
-                                        scales: {
-                                            yAxes: [{
-                                                ticks: {
-                                                    callback: function (a) {
-                                                        if (!(a % 10))
-                                                            return "$" + a + "k"
-                                                    }
-                                                }
-                                            }]
-                                        },
-                                        tooltips: {
-                                            callbacks: {
-                                                label: function (a, e) {
-                                                    var t = e.datasets[a.datasetIndex].label || "",
-                                                        o = a.yLabel,
-                                                        r = "";
-                                                    return 1 < e.datasets.length && (r += '<span class="popover-body-label mr-auto">' + t + "</span>"), r += '<span class="popover-body-value">$' + o + "k</span>"
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    var myLineChart = new Chart(ctx, {
-                                        type: 'line',
-                                        data: data,
-                                        options: options
-                                    });
-                                </script>
-
                             </div>
                         </div>
 
@@ -113,6 +73,38 @@
     </div>
 </div>
 </div>
+
+<script>
+    var lineGraphic = document.getElementById("usersGraphic");
+
+    Chart.defaults.global.defaultFontFamily = "Lato";
+    Chart.defaults.global.defaultFontSize = 18;
+
+    var data = {
+        labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sept", "Oct", "Nov", "Dic"],
+        datasets: [{
+            label: "Usuarios en PortHub",
+            data: [0, 59, 75, 20, 20, 55, 40,59, 75, 20, 20, 55],
+        }]
+    };
+
+    var chartOptions = {
+        legend: {
+            display: true,
+            position: 'top',
+            labels: {
+                boxWidth: 80,
+                fontColor: 'black'
+            }
+        }
+    };
+
+    var lineChart = new Chart(lineGraphic, {
+        type: 'line',
+        data: data,
+        options: chartOptions
+    });
+</script>
 
 <!-- Global Settings -->
 <script src="app/assets/js/settings.js"></script>
