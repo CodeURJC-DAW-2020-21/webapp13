@@ -3,12 +3,10 @@ package es.webapp13.porthub.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.sql.Blob;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class User {
@@ -29,6 +27,15 @@ public class User {
 
     @OneToOne
     private Template activeTemplate;
+
+    @OneToMany
+    private List<Template> templates;
+
+    @OneToMany
+    private List<PortfolioItem> portfolioItems;
+
+    @OneToMany(mappedBy="transmitterId")
+    private List<Message> messages;
 
     public User() {
 
