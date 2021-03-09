@@ -49,30 +49,37 @@
 
 
     <div class="container page__container">
-        <div>
-            <div class="row">
-                <div class="col-lg-9">
-
-                    <div class="page-section">
-                        <h4>Información general de la aplicación</h4>
-                        <div class="list-group list-group-form">
-                            <div class="list-group-item">
-
-                                <div class="chart">
-                                    <canvas id="usersGraphic" class="chart-canvas" width="600" height="400"></canvas>
-                                </div>
-                            </div>
+        <div class="card mb-32pt">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h4 class="card-title">Usuarios de Porthub</h4>
+                        <p class="text-70">En este gráfico se muestra el total de usuarios que usan
+                            la aplicación cada mes.</p>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="chart">
+                            <canvas id="usersGraphic" class="chart-canvas"></canvas>
                         </div>
-
                     </div>
                 </div>
-
+                <div class="row">
+                    <div style="font-size:25px; color: #ffffff">Este texto tiene un tamaño de 25 pixeles.</div>
+                </div>
             </div>
-
         </div>
     </div>
 </div>
 </div>
+
+<!-- Global Settings -->
+<script src="app/assets/js/settings.js"></script>
+
+<!-- Chart.js Library -->
+<script src="app/assets/vendor/Chart.min.js"></script>
+
+<!-- Chart.js Wrapper -->
+<script src="app/assets/js/chartjs.js"></script>
 
 <script>
     var lineGraphic = document.getElementById("usersGraphic");
@@ -84,7 +91,7 @@
         labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sept", "Oct", "Nov", "Dic"],
         datasets: [{
             label: "Usuarios en PortHub",
-            data: [0, 59, 75, 20, 20, 55, 40,59, 75, 20, 20, 55],
+            data: [0, 59, 75, 20, 20, 55, 40, 59, 75, 20, 20, 55],
         }]
     };
 
@@ -106,13 +113,5 @@
     });
 </script>
 
-<!-- Global Settings -->
-<script src="app/assets/js/settings.js"></script>
-
-<!-- Chart.js Library -->
-<script src="app/assets/vendor/Chart.min.js"></script>
-
-<!-- Chart.js Wrapper -->
-<script src="app/assets/js/chartjs.js"></script>
 
 {{> footer}}
