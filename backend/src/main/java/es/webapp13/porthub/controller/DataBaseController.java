@@ -1,9 +1,10 @@
 package es.webapp13.porthub.controller;
 
-import es.webapp13.porthub.model.MessageRepository;
-import es.webapp13.porthub.model.PortfolioItemRepository;
-import es.webapp13.porthub.model.TemplateRepository;
-import es.webapp13.porthub.model.UserRepository;
+import es.webapp13.porthub.Repository.MessageRepository;
+import es.webapp13.porthub.Repository.PortfolioItemRepository;
+import es.webapp13.porthub.Repository.TemplateRepository;
+import es.webapp13.porthub.Repository.UserRepository;
+import es.webapp13.porthub.model.*;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -29,7 +30,8 @@ public class DataBaseController implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
+        templateRepository.save(new Template("/templates/premium/index","Premium",20));
+        templateRepository.save(new Template("/templates/free/index","Free",0));
     }
 
 }

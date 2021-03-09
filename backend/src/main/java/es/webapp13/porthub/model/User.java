@@ -34,7 +34,7 @@ public class User {
     @OneToMany
     private List<PortfolioItem> portfolioItems;
 
-    @OneToMany(mappedBy="transmitterId")
+    @OneToMany(mappedBy = "transmitterId")
     private List<Message> messages;
 
     public User() {
@@ -169,4 +169,5 @@ public class User {
     public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
+
 }

@@ -1,82 +1,100 @@
-        {{> header}}
+{{> header}}
 
-        <!-- Header Layout Content -->
-        <div class="mdk-header-layout__content page-content pb-0">
-            <div class="py-32pt bg-gradient-primary">
-                <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
-                    <img src="app/assets/images/illustration/student/128/white.svg" class="mr-md-32pt mb-32pt mb-md-0"
-                        alt="student">
-                    <div class="flex mb-32pt mb-md-0">
-                        <h1 class="text-white mb-8pt">Crear nueva cuenta</h1>
-                        <p class="lead measure-lead text-white-50">
-                            Crea una cuenta en la mejor red social de portfolios.
-                        </p>
-                    </div>
-                </div>
+<!-- Header Layout Content -->
+<div class="mdk-header-layout__content page-content pb-0">
+    <div class="py-32pt bg-gradient-primary">
+        <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
+            <img src="app/assets/images/illustration/student/128/white.svg" class="mr-md-32pt mb-32pt mb-md-0"
+                 alt="student">
+            <div class="flex mb-32pt mb-md-0">
+                <h1 class="text-white mb-8pt">Crear nueva cuenta</h1>
+                <p class="lead measure-lead text-white-50">
+                    Crea una cuenta en la mejor red social de portfolios.
+                </p>
             </div>
+        </div>
+    </div>
 
-            <div class="bg-white py-32pt py-lg-64pt">
-                <div class="container page__container">
-                    <div class="col-lg-10 p-0 mx-auto">
-                        <div class="row">
-                            <div class="col-md-6 mb-24pt mb-md-0">
-                                <form action="/signup-confirmation" method="post">
-
-                                    <div class="form-group">
-                                        <label for="username">Usuario:</label>
-                                        <input id="username" type="text" class="form-control"
-                                               placeholder="Introduzca su nombre de usuario" name="username">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="name">Nombre:</label>
-                                        <input id="name" type="text" class="form-control"
-                                            placeholder="Introduzca su nombre" name="name">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="surname">Apellidos:</label>
-                                        <input id="surname" type="text" class="form-control"
-                                               placeholder="Introduzca sus apellidos" name="surname">
-                                    </div>
+    <div class="bg-white py-32pt py-lg-64pt">
+        <div class="container page__container">
+            <div class="col-lg-10 p-0 mx-auto">
+                <div class="row">
+                    <div class="col-md-6 mb-24pt mb-md-0">
+                        <form action="/signup-confirmation" method="post" enctype="multipart/form-data">
 
 
-
-                                    <div class="form-group">
-                                        <label for="email">Email:</label>
-                                        <input id="email" type="text" class="form-control"
-                                            placeholder="Introsuzca su dirección de email" name="email">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="phoneNumber">Telefono:</label>
-                                        <input id="phoneNumber" type="text" class="form-control"
-                                               placeholder="Introsuzca su telefono" name="phoneNumber">
-                                    </div>
-
-                                    <div class="form-group mb-24pt">
-                                        <label for="password">Contraseña:</label>
-                                        <input id="password" type="text" class="form-control"
-                                            placeholder="Introuduzca una contraseña" name="password">
-                                    </div>
-
-                                    <button class="btn btn-accent" type="submit">Crear Cuenta</button>
-                                </form>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card mb-0">
-                                    <div class="card-body">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" checked id="topic-all">
-                                            <label class="custom-control-label">Términos y condiciones</label>
-                                            <small class="form-text text-muted">Marcando esta casilla, acepto los
-                                                términos de uso de Porthub</small>
+                                <div class="form-group row mb-0">
+                                    <label class="col-form-label col-sm-3">Foto</label>
+                                    <div class="col-sm-9 media align-items-center">
+                                        <a href="" class="media-left mr-16pt">
+                                            <img src="app/assets/images/people/110/bg-masthead.jpg" alt="people"
+                                                 class="rounded-circle" width="56">
+                                        </a>
+                                        <div class="media-body">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="inputGroupFile01" name="imageFile" accept=".jpg, .jpeg, .svg, .png">
+                                                <label class="custom-file-label" for="inputGroupFile01">Elige un
+                                                    archivo</label>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+
+
+                            <div class="form-group">
+                                <label for="username">Usuario:</label>
+                                <input id="username" type="text" class="form-control"
+                                       placeholder="Introduzca su nombre de usuario" name="username">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Nombre:</label>
+                                <input id="name" type="text" class="form-control"
+                                       placeholder="Introduzca su nombre" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="surname">Apellidos:</label>
+                                <input id="surname" type="text" class="form-control"
+                                       placeholder="Introduzca sus apellidos" name="surname">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input id="email" type="text" class="form-control"
+                                       placeholder="Introsuzca su dirección de email" name="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phoneNumber">Telefono:</label>
+                                <input id="phoneNumber" type="text" class="form-control"
+                                       placeholder="Introsuzca su telefono" name="phoneNumber">
+                            </div>
+
+                            <div class="form-group mb-24pt">
+                                <label for="password">Contraseña:</label>
+                                <input id="password" type="text" class="form-control"
+                                       placeholder="Introuduzca una contraseña" name="password">
+                            </div>
+
+                            <button class="btn btn-accent" type="submit">Crear Cuenta</button>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" checked id="topic-all">
+                                    <label class="custom-control-label">Términos y condiciones</label>
+                                    <small class="form-text text-muted">Marcando esta casilla, acepto los
+                                        términos de uso de Porthub</small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        {{>footer}}
+        </div>
+    </div>
+    {{>footer}}

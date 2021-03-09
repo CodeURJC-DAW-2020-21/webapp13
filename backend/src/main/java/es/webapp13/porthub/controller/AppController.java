@@ -1,24 +1,27 @@
 package es.webapp13.porthub.controller;
 
 import es.webapp13.porthub.model.User;
-import es.webapp13.porthub.model.UserRepository;
 import es.webapp13.porthub.service.UserService;
+import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.net.URI;
+
+import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
+
 
 @Controller
 public class AppController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @GetMapping("/")
     public String indexLink(Model model) {
@@ -87,8 +90,8 @@ public class AppController {
     }
 
     @PostMapping("/signup-confirmation")
-    public String singupConfirmationLink(Model model, User user) {
-        System.out.println(user.toString());
+    public String signupConfirmationLink(Model model, User user, @RequestParam MultipartFile imageFile) throws IOException {
+        userService.createUser(user,imageFile);
         return "index";
     }
 
