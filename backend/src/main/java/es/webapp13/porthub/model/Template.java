@@ -32,7 +32,7 @@ public class Template {
         return templateId;
     }
 
-    public String gethtmlPath() {
+    public String getHtmlPath() {
         return htmlPath;
     }
 
