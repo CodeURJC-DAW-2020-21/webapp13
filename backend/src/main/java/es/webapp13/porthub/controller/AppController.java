@@ -1,11 +1,24 @@
 package es.webapp13.porthub.controller;
 
+import es.webapp13.porthub.model.User;
+import es.webapp13.porthub.model.UserRepository;
+import es.webapp13.porthub.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AppController {
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/")
     public String indexLink(Model model) {
@@ -60,7 +73,6 @@ public class AppController {
 
     @GetMapping("/login")
     public String loginLink(Model model) {
-
         return "login";
     }
 
@@ -71,31 +83,34 @@ public class AppController {
 
     @GetMapping("/signup")
     public String signupLink(Model model) {
-
         return "signup";
-        //TODO falta enviar los datos de incio de sesión en el formulario
+    }
+
+    @PostMapping("/signup-confirmation")
+    public String singupConfirmationLink(Model model, User user) {
+        System.out.println(user.toString());
+        return "index";
     }
 
     @GetMapping("/admin")
-    public String adminLink (Model model){
+    public String adminLink(Model model) {
         return "admin";
     }
 
     @GetMapping("/banned-users")
-    public String adminBannedUsersLink (Model model){
+    public String adminBannedUsersLink(Model model) {
         return "admin-banned-users";
     }
 
     @GetMapping("/app-graphics")
-    public String adminAppGraphicsLink (Model model){
+    public String adminAppGraphicsLink(Model model) {
         return "admin-app-graphics";
     }
 
     @GetMapping("/templates-list")
-    public String adminTemplatesListLink (Model model){
+    public String adminTemplatesListLink(Model model) {
         return "admin-templates-list";
     }
-
 
 
 }

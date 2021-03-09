@@ -20,23 +20,47 @@
                     <div class="col-lg-10 p-0 mx-auto">
                         <div class="row">
                             <div class="col-md-6 mb-24pt mb-md-0">
-                                <form action="signup-payment.html">
+                                <form action="/signup-confirmation" method="post">
+
                                     <div class="form-group">
-                                        <label for="name">Nombre y Apellidos:</label>
-                                        <input id="name" type="text" class="form-control"
-                                            placeholder="Introduzca su nombre y sus apellidos">
+                                        <label for="username">Usuario:</label>
+                                        <input id="username" type="text" class="form-control"
+                                               placeholder="Introduzca su nombre de usuario" name="username">
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Nombre:</label>
+                                        <input id="name" type="text" class="form-control"
+                                            placeholder="Introduzca su nombre" name="name">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="surname">Apellidos:</label>
+                                        <input id="surname" type="text" class="form-control"
+                                               placeholder="Introduzca sus apellidos" name="surname">
+                                    </div>
+
+
+
                                     <div class="form-group">
                                         <label for="email">Email:</label>
-                                        <input id="email" type="email" class="form-control"
-                                            placeholder="Introsuzca su dirección de email">
+                                        <input id="email" type="text" class="form-control"
+                                            placeholder="Introsuzca su dirección de email" name="email">
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="phoneNumber">Telefono:</label>
+                                        <input id="phoneNumber" type="text" class="form-control"
+                                               placeholder="Introsuzca su telefono" name="phoneNumber">
+                                    </div>
+
                                     <div class="form-group mb-24pt">
                                         <label for="password">Contraseña:</label>
-                                        <input id="password" type="password" class="form-control"
-                                            placeholder="Introuduzca una contraseña">
+                                        <input id="password" type="text" class="form-control"
+                                            placeholder="Introuduzca una contraseña" name="password">
                                     </div>
-                                    <a href="/student-edit-account" class="btn btn-accent">Crear cuenta</a>
+
+                                    <button class="btn btn-accent" type="submit">Crear Cuenta</button>
                                 </form>
                             </div>
                             <div class="col-md-6">
@@ -55,80 +79,4 @@
                     </div>
                 </div>
             </div>
-
-            <div class="js-fix-footer bg-white border-top-2">
-                
-                <div class="bg-footer page-section py-lg-32pt">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-2 col-sm-4 mb-24pt mb-md-0">
-                                <p class="text-white-70 mb-8pt"><strong>Síganos en</strong></p>
-                                <nav class="nav nav-links nav--flush">
-                                    <a href="#" class="nav-link mr-8pt"><img src="app/assets/images/icon/footer/facebook-square@2x.png" width="24" height="24" alt="Facebook"></a>
-                                    <a href="#" class="nav-link mr-8pt"><img src="app/assets/images/icon/footer/twitter-square@2x.png" width="24" height="24" alt="Twitter"></a>
-                                    <a href="#" class="nav-link mr-8pt"><img src="app/assets/images/icon/footer/vimeo-square@2x.png" width="24" height="24" alt="Vimeo"></a>
-                                    <a href="#" class="nav-link"><img src="app/assets/images/icon/footer/youtube-square@2x.png" width="24" height="24" alt="YouTube"></a>
-                                </nav>
-                            </div>
-                            <div class="col-md-6 col-sm-4 mb-24pt mb-md-0 d-flex align-items-center">
-                            </div>
-                            <div class="col-md-4 text-md-right">
-                                <p class="mb-8pt d-flex align-items-md-center justify-content-md-end">
-                                    <a href="" class="text-white-70 text-underline mr-16pt">Términos de uso</a>
-                                    <a href="" class="text-white-70 text-underline">Políticas de privacidad</a>
-                                </p>
-                                <p class="text-white-50 mb-0">Copyright 2021 &copy; Todos los derechos reservados.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- // END Header Layout Content -->
-
-    </div>
-    <!-- // END Header Layout -->
-
-    <!-- DRAWER (MOBILE NAVBAR) -->
-    <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
-        <div class="mdk-drawer__content">
-            <div class="sidebar sidebar-dark sidebar-left" data-perfect-scrollbar>
-                <div class="sidebar-p-a sidebar-b-b sidebar-m-b pt-0">
-
-                    <!-- Brand -->
-                    <a href="index.html" class="sidebar-brand">
-                        <img class="sidebar-brand-icon" src="app/assets/images/logo/white-100.svg" width="30" alt="Tutorio">
-                        <span>PortHub</span>
-                    </a>
-                    <!-- // END Brand -->
-
-                    <!-- Search -->
-                    <form action="library-filters.html" class="search-form search-form--black">
-                        <input type="text" class="form-control" placeholder="Búsqueda">
-                        <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
-                    </form>
-
-                </div>
-
-                <ul class="sidebar-menu">
-                    <li class="sidebar-menu-item">
-                        <a class="sidebar-menu-button" href="index.html">Inicio</a>
-                    </li>
-                    <li class="sidebar-menu-item">
-                        <a class="sidebar-menu-button" href="search.html">Explorar</a>
-                    </li>
-                    <li class="sidebar-menu-item">
-                        <a class="sidebar-menu-button" href="student-edit-account.html">Perfil</a>
-                    </li>
-                    <li class="sidebar-menu-item">
-                        <a class="sidebar-menu-button" href="shop.html">Tienda</a>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-    <!-- // END drawer -->
-
         {{>footer}}
