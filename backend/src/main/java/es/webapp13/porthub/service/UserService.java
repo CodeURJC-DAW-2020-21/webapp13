@@ -42,22 +42,6 @@ public class UserService {
 
     }
 
-    //Add portfolio item to a user by a given id
-    public void addPortfolioItem(String id, PortfolioItem item) {
-        item.setUserId(id);
-        portfolioItemRepository.save(item);
-
-        User user = userRepository.findById(id).orElseThrow();
-        user.addPortfolioItem(item);
-        userRepository.save(user);
-    }
-
-    public Iterable<PortfolioItem> getPortfolioItems(String id){
-        User user = userRepository.findById(id).orElseThrow();
-        List<PortfolioItem> portfolioItemList = user.getPortfolioItems();
-        return portfolioItemList;
-    }
-
     public User findUser(String id){
         return userRepository.findFirstById(id);
     }

@@ -2,6 +2,7 @@ package es.webapp13.porthub.controller;
 
 import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.User;
+import es.webapp13.porthub.service.PortfolioItemService;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,9 @@ public class AppController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private PortfolioItemService portfolioItemService;
 
     @GetMapping("/")
     public String indexLink(Model model) {
@@ -54,41 +58,6 @@ public class AppController {
     public String shopLink(Model model) {
         model.addAttribute("active_shop", true);
         return "shop";
-    }
-
-    @GetMapping("/student-edit-account")
-    public String studentEditAccountLink(Model model) {
-        model.addAttribute("active_main", true);
-        return "student-edit-account";
-    }
-
-    @GetMapping("/student-edit-account-notifications")
-    public String studentEditAccountNotificationsLink(Model model) {
-        model.addAttribute("active_notifications", true);
-        model.addAttribute("portfolioItems",userService.getPortfolioItems("id"));
-        return "student-edit-account-notifications";
-    }
-
-
-    @PostMapping("/student-edit-account-notifications")
-    public String studentEditAccountNotificationsForm(Model model, PortfolioItem portfolioItem) {
-        model.addAttribute("active_notifications", true);
-        userService.addPortfolioItem("id", portfolioItem);
-        model.addAttribute("portfolioItems",userService.getPortfolioItems("id"));
-        return "student-edit-account-notifications";
-    }
-
-
-    @GetMapping("/student-edit-account-password")
-    public String studentEditAccountPasswordLink(Model model) {
-        model.addAttribute("active_password", true);
-        return "student-edit-account-password";
-    }
-
-    @GetMapping("/student-edit-account-profile")
-    public String studentEditAccountProfileLink(Model model) {
-        model.addAttribute("active_profile", true);
-        return "student-edit-account-profile";
     }
 
     @GetMapping("/login")
