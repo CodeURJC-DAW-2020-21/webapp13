@@ -92,7 +92,7 @@ public class AppController {
     @PostMapping("/signup-confirmation")
     public String signupConfirmationLink(Model model, User user, @RequestParam MultipartFile imageFile) throws IOException {
         userService.createUser(user,imageFile);
-        return "signup-confirmation";
+        return "index";
     }
 
     @GetMapping("/admin")

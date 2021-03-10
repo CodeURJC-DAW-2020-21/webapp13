@@ -44,7 +44,7 @@
 
 
             <div class="container page__container">
-                <form action="student-edit-account.html">
+                <form action="/student-edit-account-notifications" method="post">
                     <div class="row">
                         <div class="col-lg-9">
                             
@@ -63,7 +63,7 @@
                                                 </a>
                                                 <div class="media-body">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="previewImg" accept=".jpg, .jpeg, .svg, .png">
                                                         <label class="custom-file-label" for="inputGroupFile01">Elige un archivo</label>
                                                     </div>
                                                 </div>
@@ -81,7 +81,7 @@
                                                 </a>
                                                 <div class="media-body">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="image1" accept=".jpg, .jpeg, .svg, .png">
                                                         <label class="custom-file-label" for="inputGroupFile01">Elige un archivo</label>
                                                     </div>
                                                 </div>
@@ -99,7 +99,7 @@
                                                 </a>
                                                 <div class="media-body">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="image2" accept=".jpg, .jpeg, .svg, .png">
                                                         <label class="custom-file-label" for="inputGroupFile01">Elige un archivo</label>
                                                     </div>
                                                 </div>
@@ -117,7 +117,7 @@
                                                 </a>
                                                 <div class="media-body">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="image3" accept=".jpg, .jpeg, .svg, .png">
                                                         <label class="custom-file-label" for="inputGroupFile01">Elige un archivo</label>
                                                     </div>
                                                 </div>
@@ -130,7 +130,7 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Título del trabajo</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="Nombre de tu proyecto" placeholder="Tu nombre de perfil ...">
+                                                <input type="text" class="form-control" value="Nombre de tu proyecto" placeholder="Tu nombre de perfil ..." name="name">
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +143,7 @@
                                                 <div class="form-group row mb-0">
                                                     <label class="col-form-label col-sm-3">Categoría</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" value="Categoría de tu proyecto" placeholder="Tu nombre de perfil ...">
+                                                        <input type="text" class="form-control" value="Categoría de tu proyecto" placeholder="Tu nombre de perfil ..." name="category">
                                                     </div>
                                                 </div>
                                             </div>
@@ -151,7 +151,7 @@
                                                 <div class="form-group row mb-0">
                                                     <label class="col-form-label col-sm-3">Cliente</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" value="Cliente de tu proyecto" placeholder="Tu nombre de perfil ...">
+                                                        <input type="text" class="form-control" value="Cliente de tu proyecto" placeholder="Tu nombre de perfil ..." name="client">
                                                     </div>
                                                 </div>
                                             </div>
@@ -159,7 +159,7 @@
                                                 <div class="form-group row mb-0">
                                                     <label class="col-form-label col-sm-3">Fecha</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" value="Fecha de tu proyecto" placeholder="Tu nombre de perfil ...">
+                                                        <input type="text" class="form-control" value="Fecha de tu proyecto" placeholder="Tu nombre de perfil ..." name="date">
                                                     </div>
                                                 </div>
                                             </div>
@@ -167,22 +167,24 @@
                                                 <div class="form-group row mb-0">
                                                     <label class="col-form-label col-sm-3">URL</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" value="Dirección de tu proyecto" placeholder="Tu nombre de perfil ...">
+                                                        <input type="text" class="form-control" value="Dirección de tu proyecto" placeholder="Tu nombre de perfil ..." name="url">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <!--Item-->
                                     <div class="list-group-item">
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Describe tu trabajo</label>
                                             <div class="col-sm-9">
-                                                <textarea rows="3" class="form-control" placeholder="Habla sobre tu proyecto ..."></textarea>
+                                                <textarea rows="3" class="form-control" placeholder="Habla sobre tu proyecto ..." name="description"></textarea>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <button type="submit" class="btn btn-accent">Guardar cambios</button>
 
                                 </div>
                             </div>
