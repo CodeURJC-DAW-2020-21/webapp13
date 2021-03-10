@@ -25,9 +25,6 @@ public class User {
     private String freelance;
     private Date bornDate;
 
-
-
-
     @Lob
     @JsonIgnore
     private Blob profilePhoto;
@@ -47,6 +44,17 @@ public class User {
     public User() {
     }
 
+    public User(String id, String name, String surname, String email, String phoneNumber, String website, String city, String degree, String freelance) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.website = website;
+        this.city = city;
+        this.degree = degree;
+        this.freelance = freelance;
+    }
 
     public User(String id, String name, String surname) {
         super();
@@ -54,6 +62,7 @@ public class User {
         this.name = name;
         this.surname = surname;
     }
+
 
     @Override
     public String toString() {

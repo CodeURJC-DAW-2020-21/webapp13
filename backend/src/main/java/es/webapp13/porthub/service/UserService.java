@@ -50,8 +50,8 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public User findUser(String username){
-        return userRepository.findFirstByUsername(username);
+    public User findUser(String id){
+        return userRepository.findFirstById(id);
     }
 
 }
