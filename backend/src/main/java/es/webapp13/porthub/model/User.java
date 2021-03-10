@@ -19,7 +19,14 @@ public class User {
     private String email;
     private String password;
     private String phoneNumber;
+    private String website;
+    private String city;
+    private String degree;
+    private String freelance;
     private Date bornDate;
+
+
+
 
     @Lob
     @JsonIgnore
@@ -38,8 +45,8 @@ public class User {
     private List<Message> messages;
 
     public User() {
-
     }
+
 
     public User(String id, String name, String surname) {
         super();
@@ -47,7 +54,6 @@ public class User {
         this.name = name;
         this.surname = surname;
     }
-
 
     @Override
     public String toString() {
@@ -58,6 +64,10 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", website='" + website + '\'' +
+                ", city='" + city + '\'' +
+                ", degree='" + degree + '\'' +
+                ", freelance='" + freelance + '\'' +
                 ", bornDate=" + bornDate +
                 ", profilePhoto=" + profilePhoto +
                 ", activeTemplate=" + activeTemplate +

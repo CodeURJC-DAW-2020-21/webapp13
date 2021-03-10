@@ -1,17 +1,25 @@
 package es.webapp13.porthub.controller;
 
-import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.UserService;
+import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+<<<<<<< HEAD
 
 import java.io.IOException;
 
+=======
+import java.io.IOException;
+import java.net.URI;
+
+import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
+import java.sql.SQLOutput;
+>>>>>>> b7df9cc3621857be8f088c565af773db1029c97f
 
 @Controller
 public class AppController {
@@ -32,6 +40,16 @@ public class AppController {
 
     @GetMapping("/templates/premium/index")
     public String templateLink(Model model) {
+        //El usuario que he metido al iniciar el programa tiene como valor para el atributo
+        //userName, la palabra userName.
+        //En siguientes versiones no hara falta buscarlo dado que tendremos algun atributo
+        //para guardar al usuario activo
+        User user = userService.findUser("username");
+        model.addAttribute("name", user.getName());
+        model.addAttribute("surname", user.getSurname());
+        model.addAttribute("email", user.getEmail());
+        model.addAttribute("phoneNumber", user.getPhoneNumber());
+        model.addAttribute("bornDate", user.getBornDate());
         return "templates/premium/index";
     }
 
@@ -58,6 +76,7 @@ public class AppController {
         return "student-edit-account-notifications";
     }
 
+<<<<<<< HEAD
     @PostMapping("/student-edit-account-notifications")
     public String studentEditAccountNotificationsForm(Model model,PortfolioItem portfolioItem) {
         model.addAttribute("active_notifications", true);
@@ -65,6 +84,8 @@ public class AppController {
         return "student-edit-account-notifications";
     }
 
+=======
+>>>>>>> b7df9cc3621857be8f088c565af773db1029c97f
     @GetMapping("/student-edit-account-password")
     public String studentEditAccountPasswordLink(Model model) {
         model.addAttribute("active_password", true);
@@ -93,9 +114,9 @@ public class AppController {
     }
 
     @PostMapping("/signup-confirmation")
-    public String signupConfirmationLink(Model model, User user) throws IOException {
+    public String signupConfirmationLink(Model model, User user, @RequestParam MultipartFile imageFile) throws IOException {
         userService.createUser(user);
-        return "index";
+        return "signup-confirmation";
     }
 
     @GetMapping("/admin")
