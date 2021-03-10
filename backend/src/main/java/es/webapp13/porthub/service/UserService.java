@@ -31,6 +31,7 @@ public class UserService {
     public void createUser(User user) {
         user.setActiveTemplate(templateRepository.findFirstById(2));
 
+
         userRepository.save(user);
     }
 
