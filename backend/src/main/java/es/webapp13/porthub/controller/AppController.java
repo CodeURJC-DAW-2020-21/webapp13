@@ -1,5 +1,6 @@
 package es.webapp13.porthub.controller;
 
+import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.UserService;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -8,18 +9,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-<<<<<<< HEAD
 
 import java.io.IOException;
 
-=======
+
 import java.io.IOException;
 import java.net.URI;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 import java.sql.SQLOutput;
->>>>>>> b7df9cc3621857be8f088c565af773db1029c97f
+
 
 @Controller
 public class AppController {
@@ -76,16 +78,15 @@ public class AppController {
         return "student-edit-account-notifications";
     }
 
-<<<<<<< HEAD
+
     @PostMapping("/student-edit-account-notifications")
-    public String studentEditAccountNotificationsForm(Model model,PortfolioItem portfolioItem) {
+    public String studentEditAccountNotificationsForm(Model model, PortfolioItem portfolioItem) {
         model.addAttribute("active_notifications", true);
         userService.addPortfolioItem("cfres",portfolioItem);
         return "student-edit-account-notifications";
     }
 
-=======
->>>>>>> b7df9cc3621857be8f088c565af773db1029c97f
+
     @GetMapping("/student-edit-account-password")
     public String studentEditAccountPasswordLink(Model model) {
         model.addAttribute("active_password", true);
