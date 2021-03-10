@@ -1,0 +1,291 @@
+{{> header}}
+
+<!-- Header Layout Content -->
+<div class="mdk-header-layout__content page-content ">
+
+    <div class="bg-gradient-primary border-bottom-white py-32pt">
+        <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
+            <img src="app/assets/images/illustration/student/128/white.svg" width="104"
+                 class="mr-md-32pt mb-32pt mb-md-0" alt="student">
+            <div class="flex mb-32pt mb-md-0">
+                <h2 class="text-white mb-0">Alexander Watson</h2>
+                <h3 class="text-white mb-0">Email: <span class="font-weight-light">alexander.watson@fake-mail.com</span>
+                </h3>
+                <h4 class="text-white mb-0 lowe">Telefono: <span class="font-weight-light">666 666 666</span></h4>
+                <h4 class="text-white mb-0 lowe">Edad: <span class="font-weight-light">24</span></h4>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="navbar navbar-expand-sm navbar-dark-white bg-gradient-primary p-sm-0 mb-0">
+        <div class="container page__container">
+
+            <!-- Navbar toggler -->
+            <button class="navbar-toggler ml-n16pt" type="button" data-toggle="collapse" data-target="#navbar-submenu2">
+                <span class="material-icons">people_outline</span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar-submenu2">
+                <div class="navbar-collapse__content pb-16pt pb-sm-0">
+                    <ul class="nav navbar-nav">
+
+                        <li class="nav-item">
+                            <a href="templates/premium/index.html" class="nav-link">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="my-templates.html" class="nav-link">Mis templates</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container page__container">
+
+
+        <form action="/settings-edit-account-edit-portfolioitem/{{userId}}/{{id}}" method="post"
+              enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-lg-9">
+
+                    {{#portfolioItem}}
+                    <!--Create portfolio item-->
+                    <div class="page-section">
+                        <h4>Modifica un proyecto de tu portfolio</h4>
+                        <div class="list-group list-group-form">
+
+                            <!--Item-->
+                            <div class="list-group-item">
+                                <div class="form-group row mb-0">
+                                    <label class="col-form-label col-sm-3">Miniatura de tu trabajo</label>
+                                    <div class="col-sm-9 media align-items-center">
+                                        <a href="" class="media-left mr-16pt">
+                                            <img src="app/assets/images/people/110/bg-masthead.jpg" alt="people"
+                                                 width="56"
+                                                 class="rounded-circle"/>
+                                        </a>
+                                        <div class="media-body">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="previewImg"
+                                                       name="previewImg"
+                                                       accept=".jpg, .jpeg, .svg, .png">
+                                                <label class="custom-file-label" for="image1">Elige un archivo</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Item-->
+                            <div class="list-group-item">
+                                <div class="form-group row mb-0">
+                                    <label class="col-form-label col-sm-3">Primera foto de tu trabajo</label>
+                                    <div class="col-sm-9 media align-items-center">
+                                        <a href="" class="media-left mr-16pt">
+                                            <img src="app/assets/images/people/110/portfolio-2.jpg" alt="people"
+                                                 width="56"
+                                                 class="rounded-circle"/>
+                                        </a>
+                                        <div class="media-body">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="image1" name="image1"
+                                                       accept=".jpg, .jpeg, .svg, .png">
+                                                <label class="custom-file-label" for="image1">Elige un archivo</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Item-->
+                            <div class="list-group-item">
+                                <div class="form-group row mb-0">
+                                    <label class="col-form-label col-sm-3">Segunda foto de tu trabajo</label>
+                                    <div class="col-sm-9 media align-items-center">
+                                        <a href="" class="media-left mr-16pt">
+                                            <img src="app/assets/images/people/110/portfolio-2.jpg" alt="people"
+                                                 width="56"
+                                                 class="rounded-circle"/>
+                                        </a>
+                                        <div class="media-body">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="image2" name="image2"
+                                                       accept=".jpg, .jpeg, .svg, .png">
+                                                <label class="custom-file-label" for="image2">Elige un archivo</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Item-->
+                            <div class="list-group-item">
+                                <div class="form-group row mb-0">
+                                    <label class="col-form-label col-sm-3">Tercera foto de tu trabajo</label>
+                                    <div class="col-sm-9 media align-items-center">
+                                        <a href="" class="media-left mr-16pt">
+                                            <img src="app/assets/images/people/110/portfolio-2.jpg" alt="people"
+                                                 width="56"
+                                                 class="rounded-circle"/>
+                                        </a>
+                                        <div class="media-body">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="image3" name="image3"
+                                                       accept=".jpg, .jpeg, .svg, .png">
+                                                <label class="custom-file-label" for="image3">Elige un archivo</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Item-->
+                            <div class="list-group-item">
+                                <div class="form-group row mb-0">
+                                    <label class="col-form-label col-sm-3">Título del trabajo</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" value="{{name}}" name="name">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Item-->
+                            <div class="list-group-item" style="background-color:#e9eef2;">
+                                <h4>Información del proyecto</h4>
+                                <div class="list-group list-group-form">
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Categoría</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control"
+                                                       value="{{category}} de tu proyecto"
+                                                       name="category">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Cliente</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" value="{{client}}"
+                                                       name="client">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Fecha</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" class="form-control" value="{{date}}"
+                                                       name="date" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">URL</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" value="{{url}}"
+                                                       name="url">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Item-->
+                            <div class="list-group-item">
+                                <div class="form-group row mb-0">
+                                    <label class="col-form-label col-sm-3">Describe tu trabajo</label>
+                                    <div class="col-sm-9">
+                                <textarea rows="3" class="form-control"
+                                          name="description">{{description}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-accent">Añadir</button>
+
+                        </div>
+                    </div>
+                    {{/portfolioItem}}
+                </div>
+            </div>
+        </form>
+
+        <!--Portfolio item list-->
+        <div class="row">
+
+            {{#portfolioItems}}
+            <!--Item-->
+            <div class="col-lg-4 col-xl-3 col-sm-6">
+
+
+                <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal"
+                     data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title=""
+                     data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
+
+                    <!--Image-->
+                    <a href="#" class="js-image" data-position="center" data-height="auto"
+                       data-domfactory-upgraded="image"
+                       style="display: block; position: relative; overflow: hidden; background-image: url(&quot;http://localhost:8080/app/assets/images/macbook.png&quot;); background-size: cover; background-position: center center; height: 256px;">
+                                            <span class="overlay__content">
+                                                <span class="overlay__action d-flex flex-column text-center">
+                                                </span>
+                                            </span>
+                    </a>
+
+                    <!--Info-->
+                    <div class="mdk-reveal__content">
+                        <div class="mdk-reveal__partial" style="height: 40px;"></div>
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="flex">
+                                    <a class="card-title" href="#">{{name}}</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="popoverContainer d-none">
+
+                    <!--Subinfo-->
+                    <div class="media">
+                        <div class="media-body">
+                            <div class="card-title mb-0">Proyecto 1</div>
+                            <p class="lh-1 mb-0">
+                                <span class="text-black-50 small font-weight-bold">Categoria 1</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--Options-->
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <a href="/settings-edit-account-edit-portfolioitem/{{userId}}/{{id}}"
+                               class="btn btn-primary">Ver más</a>
+                            <a href="/deleted-portfolio-item" class="btn btn-primary">Borrar</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            {{/portfolioItems}}
+
+            {{^portfolioItems}}
+            <p>No hay portfolio items</p>
+            {{/portfolioItems}}
+
+        </div>
+    </div>
+
+    {{> footer}}
+

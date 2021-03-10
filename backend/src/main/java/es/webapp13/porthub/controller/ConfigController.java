@@ -1,18 +1,26 @@
 package es.webapp13.porthub.controller;
 
+import es.webapp13.porthub.Repository.PortfolioItemRepository;
 import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.service.PortfolioItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class ConfigController {
 
     @Autowired
     private PortfolioItemService portfolioItemService;
+
+    @Autowired
+    private PortfolioItemRepository portfolioItemRepository;
+
 
     @GetMapping("/student-edit-account")
     public String studentEditAccountLink(Model model) {
@@ -37,9 +45,21 @@ public class ConfigController {
     }
 
     @GetMapping("/deleted-portfolio-item")
-    public String portfolioItemDeleteLink(){
-        portfolioItemService.deletePortfolioItem("id",3);
+    public String portfolioItemDeleteLink() {
+        portfolioItemService.deletePortfolioItem("id", 3);
         return "student-edit-account-notifications";
+    }
+
+    @GetMapping("/settings-edit-account-edit-portfolioitem/{userId}/{id}")
+    public String portfolioItemEditLink(Model model,@PathVariable long id, @PathVariable String userId) {
+        model.addAttribute("portfolioItem",portfolioItemService.getPortfolioItems(userId));
+        return "settings-edit-account-edit-portfolioitem";
+    }
+
+    @PostMapping("/settings-edit-account-edit-portfolioitem/{userId}/{id}")
+    public String portfolioItemEditForm(Model model,@PathVariable long id, @PathVariable String userId,PortfolioItem newPortfolioItem) {
+        portfolioItemService.updatePortfolioItem(newPortfolioItem,id);
+        return "settings-edit-account-edit-portfolioitem";
     }
 
 
