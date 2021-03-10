@@ -1,8 +1,6 @@
 package es.webapp13.porthub.service;
 
-
 import es.webapp13.porthub.Repository.PortfolioItemRepository;
-import es.webapp13.porthub.Repository.TemplateRepository;
 import es.webapp13.porthub.Repository.UserRepository;
 import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.User;
@@ -39,11 +37,15 @@ public class PortfolioItemService {
         return portfolioItemList;
     }
 
+    //Delete a portfolio item by a given userId and itemId
     public void deletePortfolioItem(String userId, long itemId) {
         User user = userRepository.findById(userId).orElseThrow();
         List<PortfolioItem> portfolioItemList = user.getPortfolioItems();
         PortfolioItem portfolioItem = portfolioItemRepository.findById(itemId).orElseThrow();
+
+        portfolioItemList.remove(portfolioItem);
         portfolioItemRepository.delete(portfolioItem);
+        userRepository.save(user);
     }
 
 }

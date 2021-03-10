@@ -36,6 +36,12 @@ public class ConfigController {
         return "student-edit-account-notifications";
     }
 
+    @GetMapping("/deleted-portfolio-item")
+    public String portfolioItemDeleteLink(){
+        portfolioItemService.deletePortfolioItem("id",3);
+        return "student-edit-account-notifications";
+    }
+
 
     @GetMapping("/student-edit-account-password")
     public String studentEditAccountPasswordLink(Model model) {
