@@ -19,7 +19,14 @@ public class User {
     private String email;
     private String password;
     private String phoneNumber;
+    private String website;
+    private String city;
+    private String degree;
+    private String freelance;
     private Date bornDate;
+
+
+
 
     @Lob
     @JsonIgnore
@@ -38,14 +45,38 @@ public class User {
     private List<Message> messages;
 
     public User() {
-
     }
 
-    public User(String username, String name, String surname) {
+    public User(String username, String name, String surname, String email, String password, String phoneNumber, String website, String city, String degree, String freelance, Date bornDate, Blob profilePhoto, Template activeTemplate, List<Template> templates, List<PortfolioItem> portfolioItems, List<Message> messages) {
         super();
         this.username = username;
         this.name = name;
         this.surname = surname;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.website = website;
+        this.city = city;
+        this.degree = degree;
+        this.freelance = freelance;
+        this.bornDate = bornDate;
+        this.profilePhoto = profilePhoto;
+        this.activeTemplate = activeTemplate;
+        this.templates = templates;
+        this.portfolioItems = portfolioItems;
+        this.messages = messages;
+    }
+
+    public User(String username, String name, String surname, String email, String phoneNumber, String website, String city, String degree, String freelance) {
+        this.username = username;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.website = website;
+        this.city = city;
+        this.degree = degree;
+        this.freelance = freelance;
     }
 
 
@@ -58,6 +89,10 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", website='" + website + '\'' +
+                ", city='" + city + '\'' +
+                ", degree='" + degree + '\'' +
+                ", freelance='" + freelance + '\'' +
                 ", bornDate=" + bornDate +
                 ", profilePhoto=" + profilePhoto +
                 ", activeTemplate=" + activeTemplate +
