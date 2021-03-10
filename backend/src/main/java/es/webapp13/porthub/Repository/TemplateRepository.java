@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TemplateRepository extends JpaRepository<Template, Long> {
 
-    Template findFirstByTemplateId(int templateId);
+    Template findFirstById(int templateId);
 }

@@ -41,10 +41,9 @@
                 </div>
             </div>
 
-
-
             <div class="container page__container">
-                <form action="/student-edit-account-notifications" method="post">
+
+                <form action="/student-edit-account-notifications" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-9">
                             
@@ -63,8 +62,8 @@
                                                 </a>
                                                 <div class="media-body">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="previewImg" accept=".jpg, .jpeg, .svg, .png">
-                                                        <label class="custom-file-label" for="inputGroupFile01">Elige un archivo</label>
+                                                        <input type="file" class="custom-file-input" id="previewImg" name="previewImg" accept=".jpg, .jpeg, .svg, .png">
+                                                        <label class="custom-file-label" for="image1">Elige un archivo</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -81,8 +80,8 @@
                                                 </a>
                                                 <div class="media-body">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="image1" accept=".jpg, .jpeg, .svg, .png">
-                                                        <label class="custom-file-label" for="inputGroupFile01">Elige un archivo</label>
+                                                        <input type="file" class="custom-file-input" id="image1" name="image1" accept=".jpg, .jpeg, .svg, .png">
+                                                        <label class="custom-file-label" for="image1">Elige un archivo</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -99,8 +98,8 @@
                                                 </a>
                                                 <div class="media-body">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="image2" accept=".jpg, .jpeg, .svg, .png">
-                                                        <label class="custom-file-label" for="inputGroupFile01">Elige un archivo</label>
+                                                        <input type="file" class="custom-file-input" id="image2" name="image2" accept=".jpg, .jpeg, .svg, .png">
+                                                        <label class="custom-file-label" for="image2">Elige un archivo</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -117,8 +116,8 @@
                                                 </a>
                                                 <div class="media-body">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="image3" accept=".jpg, .jpeg, .svg, .png">
-                                                        <label class="custom-file-label" for="inputGroupFile01">Elige un archivo</label>
+                                                        <input type="file" class="custom-file-input" id="image3" name="image3" accept=".jpg, .jpeg, .svg, .png">
+                                                        <label class="custom-file-label" for="image3">Elige un archivo</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -130,7 +129,7 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Título del trabajo</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="Nombre de tu proyecto" placeholder="Tu nombre de perfil ..." name="name">
+                                                <input type="text" class="form-control" placeholder="Nombre de tu proyecto"  name="name">
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +142,7 @@
                                                 <div class="form-group row mb-0">
                                                     <label class="col-form-label col-sm-3">Categoría</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" value="Categoría de tu proyecto" placeholder="Tu nombre de perfil ..." name="category">
+                                                        <input type="text" class="form-control" placeholder="Categoría de tu proyecto" name="category">
                                                     </div>
                                                 </div>
                                             </div>
@@ -151,7 +150,7 @@
                                                 <div class="form-group row mb-0">
                                                     <label class="col-form-label col-sm-3">Cliente</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" value="Cliente de tu proyecto" placeholder="Tu nombre de perfil ..." name="client">
+                                                        <input type="text" class="form-control" placeholder="Cliente de tu proyecto"  name="client">
                                                     </div>
                                                 </div>
                                             </div>
@@ -159,7 +158,7 @@
                                                 <div class="form-group row mb-0">
                                                     <label class="col-form-label col-sm-3">Fecha</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" value="Fecha de tu proyecto" placeholder="Tu nombre de perfil ..." name="date">
+                                                        <input type="date" class="form-control" placeholder="Fecha de tu proyecto" name="date" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -167,7 +166,7 @@
                                                 <div class="form-group row mb-0">
                                                     <label class="col-form-label col-sm-3">URL</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" value="Dirección de tu proyecto" placeholder="Tu nombre de perfil ..." name="url">
+                                                        <input type="text" class="form-control" placeholder="Dirección de tu proyecto"  name="url">
                                                     </div>
                                                 </div>
                                             </div>
@@ -184,7 +183,7 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn btn-accent">Guardar cambios</button>
+                                    <button type="submit" class="btn btn-accent">Añadir</button>
 
                                 </div>
                             </div>
@@ -203,111 +202,8 @@
                                         <div class="col-lg-4 col-xl-3 col-sm-6">
 
                                             <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
-                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-image: url(&quot;file:///home/cfres/Codigo/practicaWeb/frontend/ModifiedHTML/app/assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg&quot;); background-size: cover; background-position: center center; height: 256px;">
-                                                    <!--PROFILE IMAGE GOES HERE-->
-                                                    
-                                                    <span class="overlay__content">
-                                                        <span class="overlay__action d-flex flex-column text-center">
-        
-                                                        </span>
-                                                    </span>
-                                                </a>
-        
-        
-                                                <div class="mdk-reveal__content"><div class="mdk-reveal__partial" style="height: 40px;"></div>
-                                                    <div class="card-body">
-                                                        <div class="d-flex">
-                                                            <div class="flex">
-                                                                <a class="card-title" href="#">Proyecto 1</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="popoverContainer d-none">
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
-                                                        <img src="app/assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg" width="40" height="40" alt="Angular" class="rounded">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="card-title mb-0">Proyecto 1</div>
-                                                        <p class="lh-1 mb-0">
-                                                        </p>
-                                                    </div>
-                                                </div>
-    
-        
-                                                <div class="row align-items-center mt-3">
-                                                    <div class="col text-center">
-                                                        <a href="#" class="btn btn-primary">Editar</a>
-                                                        <a href="#" class="btn btn-accent">Eliminar</a>
-                                                    </div>
-                                                </div>
-        
-                                            </div>
-        
-                                        </div>
-                                        
-                                        <!--Item-->
-                                        <div class="col-lg-4 col-xl-3 col-sm-6">
-
-                                            <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
-                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-image: url(&quot;file:///home/cfres/Codigo/practicaWeb/frontend/ModifiedHTML/app/assets/images/1280_writing-down-goals_4460x4460.jpg&quot;); background-size: cover; background-position: center center; height: 256px;">
-                                                    <!--PROFILE IMAGE GOES HERE-->
-                                                    
-                                                    <span class="overlay__content">
-                                                        <span class="overlay__action d-flex flex-column text-center">
-        
-                                                        </span>
-                                                    </span>
-                                                </a>
-        
-        
-                                                <div class="mdk-reveal__content"><div class="mdk-reveal__partial" style="height: 40px;"></div>
-                                                    <div class="card-body">
-                                                        <div class="d-flex">
-                                                            <div class="flex">
-                                                                <a class="card-title" href="#">Proyecto 1</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="popoverContainer d-none">
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
-                                                        <img src="app/assets/images/1280_writing-down-goals_4460x4460.jpg" width="40" height="40" alt="Angular" class="rounded">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="card-title mb-0">Proyecto 1</div>
-                                                        <p class="lh-1 mb-0">
-                                                        </p>
-                                                    </div>
-                                                </div>
-    
-        
-                                                <div class="row align-items-center mt-3">
-                                                    <div class="col text-center">
-                                                        <a href="#" class="btn btn-primary">Editar</a>
-                                                        <a href="#" class="btn btn-accent">Eliminar</a>
-                                                    </div>
-                                                </div>
-        
-                                            </div>
-        
-                                        </div>
-                                        
-                                        <!--Item-->
-                                        <div class="col-lg-4 col-xl-3 col-sm-6">
-
-                                            <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
-                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-image: url(&quot;file:///home/cfres/Codigo/practicaWeb/frontend/ModifiedHTML/app/assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg&quot;); background-size: cover; background-position: center center; height: 256px;">
+                                               
+                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-size: cover; background-position: center center; height: 256px;">
                                                     <!--PROFILE IMAGE GOES HERE-->
                                                     
                                                     <span class="overlay__content">
@@ -359,17 +255,17 @@
                                         <div class="col-lg-4 col-xl-3 col-sm-6">
 
                                             <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
-                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-image: url(&quot;file:///home/cfres/Codigo/practicaWeb/frontend/ModifiedHTML/app/assets/images/1280_writing-down-goals_4460x4460.jpg&quot;); background-size: cover; background-position: center center; height: 256px;">
+                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-size: cover; background-position: center center; height: 256px;">
                                                     <!--PROFILE IMAGE GOES HERE-->
-                                                    
+
                                                     <span class="overlay__content">
                                                         <span class="overlay__action d-flex flex-column text-center">
-        
+
                                                         </span>
                                                     </span>
                                                 </a>
-        
-        
+
+
                                                 <div class="mdk-reveal__content"><div class="mdk-reveal__partial" style="height: 40px;"></div>
                                                     <div class="card-body">
                                                         <div class="d-flex">
@@ -386,7 +282,7 @@
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
-                                                        <img src="app/assets/images/1280_writing-down-goals_4460x4460.jpg" width="40" height="40" alt="Angular" class="rounded">
+                                                        <img src="app/assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg" width="40" height="40" alt="Angular" class="rounded">
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="card-title mb-0">Proyecto 1</div>
@@ -394,17 +290,121 @@
                                                         </p>
                                                     </div>
                                                 </div>
-    
-        
+
+
                                                 <div class="row align-items-center mt-3">
                                                     <div class="col text-center">
                                                         <a href="#" class="btn btn-primary">Editar</a>
                                                         <a href="#" class="btn btn-accent">Eliminar</a>
                                                     </div>
                                                 </div>
-        
+
                                             </div>
+
+                                        </div>
+
+                                        <!--Item-->
+                                        <div class="col-lg-4 col-xl-3 col-sm-6">
+
+                                            <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
+                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-size: cover; background-position: center center; height: 256px;">
+                                                    <!--PROFILE IMAGE GOES HERE-->
+
+                                                    <span class="overlay__content">
+                                                        <span class="overlay__action d-flex flex-column text-center">
         
+                                                        </span>
+                                                    </span>
+                                                </a>
+
+
+                                                <div class="mdk-reveal__content"><div class="mdk-reveal__partial" style="height: 40px;"></div>
+                                                    <div class="card-body">
+                                                        <div class="d-flex">
+                                                            <div class="flex">
+                                                                <a class="card-title" href="#">Proyecto 1</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="popoverContainer d-none">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
+                                                        <img src="app/assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg" width="40" height="40" alt="Angular" class="rounded">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="card-title mb-0">Proyecto 1</div>
+                                                        <p class="lh-1 mb-0">
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row align-items-center mt-3">
+                                                    <div class="col text-center">
+                                                        <a href="#" class="btn btn-primary">Editar</a>
+                                                        <a href="#" class="btn btn-accent">Eliminar</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <!--Item-->
+                                        <div class="col-lg-4 col-xl-3 col-sm-6">
+
+                                            <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
+                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-size: cover; background-position: center center; height: 256px;">
+                                                    <!--PROFILE IMAGE GOES HERE-->
+
+                                                    <span class="overlay__content">
+                                                        <span class="overlay__action d-flex flex-column text-center">
+
+                                                        </span>
+                                                    </span>
+                                                </a>
+
+
+                                                <div class="mdk-reveal__content"><div class="mdk-reveal__partial" style="height: 40px;"></div>
+                                                    <div class="card-body">
+                                                        <div class="d-flex">
+                                                            <div class="flex">
+                                                                <a class="card-title" href="#">Proyecto 1</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="popoverContainer d-none">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
+                                                        <img src="app/assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg" width="40" height="40" alt="Angular" class="rounded">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="card-title mb-0">Proyecto 1</div>
+                                                        <p class="lh-1 mb-0">
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row align-items-center mt-3">
+                                                    <div class="col text-center">
+                                                        <a href="#" class="btn btn-primary">Editar</a>
+                                                        <a href="#" class="btn btn-accent">Eliminar</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
                                         </div>
 
                                     </div>
@@ -419,55 +419,4 @@
                 </form>
             </div>
 
-
-
-            <div class="js-fix-footer bg-white border-top-2">
-                <div class="bg-footer page-section py-lg-32pt">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-2 col-sm-4 mb-24pt mb-md-0">
-                                <p class="text-white-70 mb-8pt"><strong>Siguenos</strong></p>
-                                <nav class="nav nav-links nav--flush">
-                                    <a href="#" class="nav-link mr-8pt"><img
-                                            src="app/assets/images/icon/footer/facebook-square@2x.png" width="24"
-                                            height="24" alt="Facebook"></a>
-                                    <a href="#" class="nav-link mr-8pt"><img
-                                            src="app/assets/images/icon/footer/twitter-square@2x.png" width="24" height="24"
-                                            alt="Twitter"></a>
-                                    <a href="#" class="nav-link mr-8pt"><img
-                                            src="app/assets/images/icon/footer/vimeo-square@2x.png" width="24" height="24"
-                                            alt="Vimeo"></a>
-                                    <a href="#" class="nav-link"><img
-                                            src="app/assets/images/icon/footer/youtube-square@2x.png" width="24" height="24"
-                                            alt="YouTube"></a>
-                                </nav>
-                            </div>
-                            <div class="col-md-6 col-sm-4 mb-24pt mb-md-0 d-flex align-items-center">
-
-                            </div>
-                            <div class="col-md-4 text-md-right">
-                                <p class="mb-8pt d-flex align-items-md-center justify-content-md-end">
-                                    <a href="" class="text-white-70 text-underline mr-16pt">Terminos</a>
-                                    <a href="" class="text-white-70 text-underline">Politica de privacidad</a>
-                                </p>
-                                <p class="text-white-50 mb-0">Copyright 2019 &copy; Todos los derechos reservados.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- // END Header Layout Content -->
-
-    </div>
-    <!-- // END Header Layout -->
-
         {{> footer}}
-
-
-
-
-</body>
-
-</html>

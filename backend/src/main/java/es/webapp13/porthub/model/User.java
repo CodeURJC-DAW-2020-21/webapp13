@@ -12,7 +12,7 @@ import java.util.List;
 public class User {
 
     @Id
-    private String username;
+    private String id;
 
     private String name;
     private String surname;
@@ -41,9 +41,9 @@ public class User {
 
     }
 
-    public User(String username, String name, String surname) {
+    public User(String id, String name, String surname) {
         super();
-        this.username = username;
+        this.id = id;
         this.name = name;
         this.surname = surname;
     }
@@ -52,7 +52,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
@@ -67,12 +67,12 @@ public class User {
                 '}';
     }
 
-    public String getUsername() {
-        return username;
+    public String getid() {
+        return id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setid(String id) {
+        this.id = id;
     }
 
     public String getName() {

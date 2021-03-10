@@ -11,7 +11,7 @@ public class Template {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int templateId;
+    private long id;
 
     private String htmlPath;
 
@@ -28,16 +28,20 @@ public class Template {
         this.price = price;
     }
 
-    public int getTemplateId() {
-        return templateId;
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getHtmlPath() {
         return htmlPath;
     }
 
-    public void setHtmlPath(String html) {
-        this.htmlPath = html;
+    public void setHtmlPath(String htmlPath) {
+        this.htmlPath = htmlPath;
     }
 
     public String getName() {
@@ -55,5 +59,4 @@ public class Template {
     public void setPrice(int price) {
         this.price = price;
     }
-
 }

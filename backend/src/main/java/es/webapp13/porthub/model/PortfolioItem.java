@@ -1,10 +1,11 @@
 package es.webapp13.porthub.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.engine.jdbc.BlobProxy;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
+import java.io.IOException;
 import java.sql.Blob;
 import java.sql.Date;
 
@@ -12,7 +13,8 @@ import java.sql.Date;
 public class PortfolioItem {
 
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     private String userId;
 
@@ -39,6 +41,7 @@ public class PortfolioItem {
     private String category;
     private String client;
     private String url;
+
     private Date date;
 
 
@@ -59,11 +62,11 @@ public class PortfolioItem {
         this.date = date;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -95,32 +98,32 @@ public class PortfolioItem {
         return previewImg;
     }
 
-    public void setPreviewImg(Blob previewImg) {
-        this.previewImg = previewImg;
+    public void setPreviewImg(MultipartFile previewImg) throws IOException {
+        this.previewImg = BlobProxy.generateProxy(previewImg.getInputStream(), previewImg.getSize());
     }
 
     public Blob getImage1() {
         return image1;
     }
 
-    public void setImage1(Blob image1) {
-        this.image1 = image1;
+    public void setImage1(MultipartFile image1) throws IOException {
+        this.image1 = BlobProxy.generateProxy(image1.getInputStream(), image1.getSize());
     }
 
     public Blob getImage2() {
         return image2;
     }
 
-    public void setImage2(Blob image2) {
-        this.image2 = image2;
+    public void setImage2(MultipartFile image2) throws IOException {
+        this.image2 = BlobProxy.generateProxy(image2.getInputStream(), image2.getSize());
     }
 
     public Blob getImage3() {
         return image3;
     }
 
-    public void setImage3(Blob image3) {
-        this.image3 = image3;
+    public void setImage3(MultipartFile image3) throws IOException {
+        this.image3 = BlobProxy.generateProxy(image3.getInputStream(), image3.getSize());
     }
 
     public String getCategory() {
@@ -131,11 +134,45 @@ public class PortfolioItem {
         this.category = category;
     }
 
+    public String getClient() {
+        return client;
+    }
+
+    public void setClient(String client) {
+        this.client = client;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "PortfolioItem{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", previewImg=" + previewImg +
+                ", image1=" + image1 +
+                ", image2=" + image2 +
+                ", image3=" + image3 +
+                ", category='" + category + '\'' +
+                ", client='" + client + '\'' +
+                ", url='" + url + '\'' +
+                ", date=" + date +
+                '}';
     }
 }

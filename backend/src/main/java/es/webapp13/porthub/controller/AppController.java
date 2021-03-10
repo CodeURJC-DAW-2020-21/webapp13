@@ -8,11 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+
 
 import java.io.IOException;
-
 
 
 @Controller
@@ -55,14 +53,15 @@ public class AppController {
     }
 
     @GetMapping("/student-edit-account-notifications")
-    public String studentEditAccountNotificationsLink(Model model, PortfolioItem portfolioItem) {
+    public String studentEditAccountNotificationsLink(Model model) {
         model.addAttribute("active_notifications", true);
         return "student-edit-account-notifications";
     }
 
     @PostMapping("/student-edit-account-notifications")
-    public String studentEditAccountNotificationsForm(Model model, PortfolioItem portfolioItem) {
-        //userService.addPortfolioItem("cfres",portfolioItem);
+    public String studentEditAccountNotificationsForm(Model model,PortfolioItem portfolioItem) {
+        model.addAttribute("active_notifications", true);
+        userService.addPortfolioItem("cfres",portfolioItem);
         return "student-edit-account-notifications";
     }
 
