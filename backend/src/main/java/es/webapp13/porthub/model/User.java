@@ -41,18 +41,11 @@ public class User {
 
     }
 
-
-    public User(String username, String name, String surname, String email, String password, String phoneNumber, Date bornDate, Blob profilePhoto, Template activeTemplate) {
+    public User(String username, String name, String surname) {
         super();
         this.username = username;
         this.name = name;
         this.surname = surname;
-        this.email = email;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-        this.bornDate = bornDate;
-        this.profilePhoto = profilePhoto;
-        this.activeTemplate = activeTemplate;
     }
 
 
@@ -168,6 +161,10 @@ public class User {
 
     public void setMessages(List<Message> messages) {
         this.messages = messages;
+    }
+
+    public void addPortfolioItem(PortfolioItem portfolioItem){
+        portfolioItems.add(portfolioItem);
     }
 
 }

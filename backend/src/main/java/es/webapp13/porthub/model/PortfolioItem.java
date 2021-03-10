@@ -37,6 +37,8 @@ public class PortfolioItem {
     private Blob image3;
 
     private String category;
+    private String client;
+    private String url;
     private Date date;
 
 
