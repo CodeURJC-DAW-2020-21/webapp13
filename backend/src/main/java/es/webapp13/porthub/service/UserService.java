@@ -44,6 +44,7 @@ public class UserService {
     public void addPortfolioItem(String id, PortfolioItem item) {
         item.setUserId(id);
         portfolioItemRepository.save(item);
+
         User user = userRepository.findById(id).orElseThrow();
         user.addPortfolioItem(item);
         userRepository.save(user);
