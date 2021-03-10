@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 @Component
@@ -20,10 +22,19 @@ public class UserService {
     @Autowired
     private TemplateRepository templateRepository;
 
-    public void createUser(User user, MultipartFile imageFile) throws IOException {
+    //Create the user in signup
+    public void createUser(User user){
         user.setActiveTemplate(templateRepository.findFirstByTemplateId(2));
-        user.setProfilePhoto(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+
         userRepository.save(user);
+    }
+
+    //Profile photo inserted by the user
+    public void updateProfilePhoto(User user, MultipartFile imageFile) throws IOException {
+        user.setProfilePhoto(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+
+        userRepository.save(user);
+
     }
 
 
