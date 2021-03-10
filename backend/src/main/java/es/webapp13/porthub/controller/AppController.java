@@ -36,21 +36,8 @@ public class AppController {
 
     @GetMapping("/templates/premium/index")
     public String templateLink(Model model) {
-        //El usuario que he metido al iniciar el programa tiene como valor para el atributo
-        //userName, la palabra userName.
-        //En siguientes versiones no hara falta buscarlo dado que tendremos algun atributo
-        //para guardar al usuario activo
-        User user = userService.findUser("id");
-        model.addAttribute("name", user.getName());
-        model.addAttribute("surname", user.getSurname());
-        model.addAttribute("email", user.getEmail());
-        model.addAttribute("phoneNumber", user.getPhoneNumber());
-        model.addAttribute("website", user.getWebsite());
-        model.addAttribute("city", user.getCity());
-        model.addAttribute("degree", user.getDegree());
-        model.addAttribute("freelance", user.getFreelance());
-        model.addAttribute("description", user.getDescription());
-        model.addAttribute("job", user.getJob());
+        User user = userService.getActiveUser();
+        model.addAttribute("user", user);
         return "templates/premium/index";
     }
 
@@ -83,6 +70,7 @@ public class AppController {
     @PostMapping("/signup-confirmation")
     public String signupConfirmationLink(Model model, User user) throws IOException {
         userService.createUser(user);
+        userService.setActiveUser(user);
         return "signup-confirmation";
     }
 

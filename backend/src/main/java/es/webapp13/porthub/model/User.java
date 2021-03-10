@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.sql.Blob;
 import javax.persistence.*;
 
-import java.util.Date;
+
+import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -25,7 +26,7 @@ public class User {
     private String freelance;
     private String description;
     private String job;
-    private String age;
+    private long age;
     private Date bornDate;
 
     @Lob
@@ -195,11 +196,11 @@ public class User {
         this.description = description;
     }
 
-    public String getAge() {
+    public long getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(long age) {
         this.age = age;
     }
 
