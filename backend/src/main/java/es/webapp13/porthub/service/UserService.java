@@ -30,8 +30,6 @@ public class UserService {
     //Create the user in signup
     public void createUser(User user) {
         user.setActiveTemplate(templateRepository.findFirstById(2));
-
-
         userRepository.save(user);
     }
 

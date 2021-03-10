@@ -40,12 +40,17 @@ public class AppController {
         //userName, la palabra userName.
         //En siguientes versiones no hara falta buscarlo dado que tendremos algun atributo
         //para guardar al usuario activo
-        User user = userService.findUser("username");
+        User user = userService.findUser("id");
         model.addAttribute("name", user.getName());
         model.addAttribute("surname", user.getSurname());
         model.addAttribute("email", user.getEmail());
         model.addAttribute("phoneNumber", user.getPhoneNumber());
-        model.addAttribute("bornDate", user.getBornDate());
+        model.addAttribute("website", user.getWebsite());
+        model.addAttribute("city", user.getCity());
+        model.addAttribute("degree", user.getDegree());
+        model.addAttribute("freelance", user.getFreelance());
+        model.addAttribute("description", user.getDescription());
+        model.addAttribute("job", user.getJob());
         return "templates/premium/index";
     }
 
@@ -100,6 +105,5 @@ public class AppController {
     public String adminTemplatesListLink(Model model) {
         return "admin-templates-list";
     }
-
 
 }

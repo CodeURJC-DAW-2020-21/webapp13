@@ -23,6 +23,9 @@ public class User {
     private String city;
     private String degree;
     private String freelance;
+    private String description;
+    private String job;
+    private String age;
     private Date bornDate;
 
     @Lob
@@ -44,7 +47,7 @@ public class User {
     public User() {
     }
 
-    public User(String id, String name, String surname, String email, String phoneNumber, String website, String city, String degree, String freelance) {
+    public User(String id, String name, String surname, String email, String phoneNumber, String website, String city, String degree, String freelance, String description, String job) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -54,6 +57,8 @@ public class User {
         this.city = city;
         this.degree = degree;
         this.freelance = freelance;
+        this.job = job;
+        this.description = description;
     }
 
     public User(String id, String name, String surname) {
@@ -140,6 +145,62 @@ public class User {
 
     public void setBornDate(Date bornDate) {
         this.bornDate = bornDate;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDegree() {
+        return degree;
+    }
+
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
+
+    public String getFreelance() {
+        return freelance;
+    }
+
+    public void setFreelance(String freelance) {
+        this.freelance = freelance;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public Blob getProfilePhoto() {
