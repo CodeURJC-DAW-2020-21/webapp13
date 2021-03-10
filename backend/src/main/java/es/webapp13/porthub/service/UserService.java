@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Component
 public class UserService {
@@ -48,6 +49,12 @@ public class UserService {
         User user = userRepository.findById(id).orElseThrow();
         user.addPortfolioItem(item);
         userRepository.save(user);
+    }
+
+    public Iterable<PortfolioItem> getPortfolioItems(String id){
+        User user = userRepository.findById(id).orElseThrow();
+        List<PortfolioItem> portfolioItemList = user.getPortfolioItems();
+        return portfolioItemList;
     }
 
     public User findUser(String id){

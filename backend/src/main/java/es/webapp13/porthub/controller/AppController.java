@@ -68,6 +68,7 @@ public class AppController {
     @GetMapping("/student-edit-account-notifications")
     public String studentEditAccountNotificationsLink(Model model) {
         model.addAttribute("active_notifications", true);
+        model.addAttribute("portfolioItems",userService.getPortfolioItems("id"));
         return "student-edit-account-notifications";
     }
 
@@ -75,7 +76,8 @@ public class AppController {
     @PostMapping("/student-edit-account-notifications")
     public String studentEditAccountNotificationsForm(Model model, PortfolioItem portfolioItem) {
         model.addAttribute("active_notifications", true);
-        userService.addPortfolioItem("cfres",portfolioItem);
+        userService.addPortfolioItem("id", portfolioItem);
+        model.addAttribute("portfolioItems",userService.getPortfolioItems("id"));
         return "student-edit-account-notifications";
     }
 

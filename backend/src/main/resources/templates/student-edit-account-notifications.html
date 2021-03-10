@@ -187,228 +187,69 @@
 
                                 </div>
                             </div>
-                            
-                            <!--Portfolio items list-->
-                            <div class="page-section pt-0">
-                                <div class="container page__container">
-                                    <div class="page-heading">
-                                        <h4>Mis proyectos</h4>
-                                        <p class="ml-sm-auto text-70 mb-0"><strong>4</strong> resultados</p>
-                                    </div>
-        
-                                    <div class="row">
-                                        
-                                        <!--Item-->
-                                        <div class="col-lg-4 col-xl-3 col-sm-6">
 
-                                            <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
+                            <!--Portfolio item list-->
+                            <div class="row">
 
-                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-size: cover; background-position: center center; height: 256px;">
-                                                    <!--PROFILE IMAGE GOES HERE-->
-                                                    
-                                                    <span class="overlay__content">
-                                                        <span class="overlay__action d-flex flex-column text-center">
-        
-                                                        </span>
-                                                    </span>
-                                                </a>
-        
-        
-                                                <div class="mdk-reveal__content"><div class="mdk-reveal__partial" style="height: 40px;"></div>
-                                                    <div class="card-body">
-                                                        <div class="d-flex">
-                                                            <div class="flex">
-                                                                <a class="card-title" href="#">Proyecto 1</a>
-                                                            </div>
-                                                        </div>
+                                {{#portfolioItems}}
+                                <!--Item-->
+                                <div class="col-lg-4 col-xl-3 col-sm-6">
+
+
+                                    <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal" data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
+
+                                        <!--Image-->
+                                        <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-image: url(&quot;http://localhost:8080/app/assets/images/macbook.png&quot;); background-size: cover; background-position: center center; height: 256px;">
+                                            <span class="overlay__content">
+                                                <span class="overlay__action d-flex flex-column text-center">
+                                                </span>
+                                            </span>
+                                        </a>
+
+                                        <!--Info-->
+                                        <div class="mdk-reveal__content"><div class="mdk-reveal__partial" style="height: 40px;"></div>
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex">
+                                                        <a class="card-title" href="#">{{name}}</a>
                                                     </div>
                                                 </div>
 
                                             </div>
-
-                                            <div class="popoverContainer d-none">
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
-                                                        <img src="app/assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg" width="40" height="40" alt="Angular" class="rounded">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="card-title mb-0">Proyecto 1</div>
-                                                        <p class="lh-1 mb-0">
-                                                        </p>
-                                                    </div>
-                                                </div>
-    
-        
-                                                <div class="row align-items-center mt-3">
-                                                    <div class="col text-center">
-                                                        <a href="#" class="btn btn-primary">Editar</a>
-                                                        <a href="#" class="btn btn-accent">Eliminar</a>
-                                                    </div>
-                                                </div>
-        
-                                            </div>
-        
-                                        </div>
-
-                                        <!--Item-->
-                                        <div class="col-lg-4 col-xl-3 col-sm-6">
-
-                                            <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
-                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-size: cover; background-position: center center; height: 256px;">
-                                                    <!--PROFILE IMAGE GOES HERE-->
-
-                                                    <span class="overlay__content">
-                                                        <span class="overlay__action d-flex flex-column text-center">
-
-                                                        </span>
-                                                    </span>
-                                                </a>
-
-
-                                                <div class="mdk-reveal__content"><div class="mdk-reveal__partial" style="height: 40px;"></div>
-                                                    <div class="card-body">
-                                                        <div class="d-flex">
-                                                            <div class="flex">
-                                                                <a class="card-title" href="#">Proyecto 1</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="popoverContainer d-none">
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
-                                                        <img src="app/assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg" width="40" height="40" alt="Angular" class="rounded">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="card-title mb-0">Proyecto 1</div>
-                                                        <p class="lh-1 mb-0">
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="row align-items-center mt-3">
-                                                    <div class="col text-center">
-                                                        <a href="#" class="btn btn-primary">Editar</a>
-                                                        <a href="#" class="btn btn-accent">Eliminar</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <!--Item-->
-                                        <div class="col-lg-4 col-xl-3 col-sm-6">
-
-                                            <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
-                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-size: cover; background-position: center center; height: 256px;">
-                                                    <!--PROFILE IMAGE GOES HERE-->
-
-                                                    <span class="overlay__content">
-                                                        <span class="overlay__action d-flex flex-column text-center">
-        
-                                                        </span>
-                                                    </span>
-                                                </a>
-
-
-                                                <div class="mdk-reveal__content"><div class="mdk-reveal__partial" style="height: 40px;"></div>
-                                                    <div class="card-body">
-                                                        <div class="d-flex">
-                                                            <div class="flex">
-                                                                <a class="card-title" href="#">Proyecto 1</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="popoverContainer d-none">
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
-                                                        <img src="app/assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg" width="40" height="40" alt="Angular" class="rounded">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="card-title mb-0">Proyecto 1</div>
-                                                        <p class="lh-1 mb-0">
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="row align-items-center mt-3">
-                                                    <div class="col text-center">
-                                                        <a href="#" class="btn btn-primary">Editar</a>
-                                                        <a href="#" class="btn btn-accent">Eliminar</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <!--Item-->
-                                        <div class="col-lg-4 col-xl-3 col-sm-6">
-
-                                            <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title="" title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
-                                                <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image" style="display: block; position: relative; overflow: hidden; background-size: cover; background-position: center center; height: 256px;">
-                                                    <!--PROFILE IMAGE GOES HERE-->
-
-                                                    <span class="overlay__content">
-                                                        <span class="overlay__action d-flex flex-column text-center">
-
-                                                        </span>
-                                                    </span>
-                                                </a>
-
-
-                                                <div class="mdk-reveal__content"><div class="mdk-reveal__partial" style="height: 40px;"></div>
-                                                    <div class="card-body">
-                                                        <div class="d-flex">
-                                                            <div class="flex">
-                                                                <a class="card-title" href="#">Proyecto 1</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="popoverContainer d-none">
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
-                                                        <img src="app/assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg" width="40" height="40" alt="Angular" class="rounded">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="card-title mb-0">Proyecto 1</div>
-                                                        <p class="lh-1 mb-0">
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="row align-items-center mt-3">
-                                                    <div class="col text-center">
-                                                        <a href="#" class="btn btn-primary">Editar</a>
-                                                        <a href="#" class="btn btn-accent">Eliminar</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
                                         </div>
 
                                     </div>
+
+
+                                    <div class="popoverContainer d-none">
+
+                                        <!--Subinfo-->
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <div class="card-title mb-0">Proyecto 1</div>
+                                                <p class="lh-1 mb-0">
+                                                    <span class="text-black-50 small font-weight-bold">Categoria 1</span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <!--Options-->
+                                        <div class="row align-items-center">
+                                            <div class="col text-center">
+                                                <a href="../../templates/free/index.html" class="btn btn-primary">Ver más</a>
+                                                <a href="../../templates/free/index.html" class="btn btn-primary">Borrar</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                                 </div>
+                                {{/portfolioItems}}
+
+                                {{^portfolioItems}}
+                                <p>No hay portfolio items</p>
+                                {{/portfolioItems}}
+
                             </div>
 
                         </div>
