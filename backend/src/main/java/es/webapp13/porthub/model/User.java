@@ -23,6 +23,7 @@ public class User {
     private String phoneNumber;
     private String website;
     private String city;
+    private String category;
     private String degree;
     private String freelance;
     private String description;
@@ -49,7 +50,7 @@ public class User {
     public User() {
     }
 
-    public User(String id, String name, String surname, String email, String phoneNumber, String website, String city, String degree, String freelance, String description, String job) {
+    public User(String id, String name, String surname, String email, String phoneNumber, String website, String city, String degree, String freelance, String description, String job, String category) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -61,6 +62,7 @@ public class User {
         this.freelance = freelance;
         this.job = job;
         this.description = description;
+        this.category = category;
     }
 
     public User(String id, String name, String surname) {
@@ -245,8 +247,17 @@ public class User {
         this.messages = messages;
     }
 
-    public void addPortfolioItem(PortfolioItem portfolioItem){
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void addPortfolioItem(PortfolioItem portfolioItem) {
         portfolioItems.add(portfolioItem);
     }
+
 
 }

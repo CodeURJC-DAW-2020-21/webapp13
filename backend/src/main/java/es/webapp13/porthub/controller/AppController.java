@@ -31,11 +31,7 @@ public class AppController {
         return "index";
     }
 
-    @GetMapping("/search")
-    public String searchLink(Model model) {
-        model.addAttribute("active_search", true);
-        return "search";
-    }
+
 
     @GetMapping("/templates/free/index")
     public String templateFreeLink(Model model) {
