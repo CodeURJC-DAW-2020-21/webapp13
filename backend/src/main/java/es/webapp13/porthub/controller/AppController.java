@@ -21,6 +21,9 @@ public class AppController {
     private UserService userService;
 
     @Autowired
+    private DefaultModelAttributes defaultModelAttributes;
+
+    @Autowired
     private PortfolioItemService portfolioItemService;
 
     @GetMapping("/")
@@ -89,8 +92,19 @@ public class AppController {
     public String signupConfirmationLink(Model model, User user) throws IOException {
         userService.createUser(user);
         userService.setActiveUser(user);
+        defaultModelAttributes.setLogued(true);
+        model.addAttribute("logued", true);
         return "signup-confirmation";
     }
+
+    @GetMapping("/logout-confirmation")
+    public String logoutConfirmationLink(Model model){
+        userService.setActiveUser(null);
+        defaultModelAttributes.setLogued(false);
+        model.addAttribute("logued", false);
+        return "logout-confirmation";
+    }
+
 
     @GetMapping("/admin")
     public String adminLink(Model model) {
