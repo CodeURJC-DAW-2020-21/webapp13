@@ -1,0 +1,81 @@
+{{> header}}
+
+
+<!-- Header Layout Content -->
+<div class="mdk-header-layout__content page-content pb-0">
+    <div class="bg-gradient-primary py-32pt">
+        <div class="container d-flex flex-column flex-sm-row align-items-sm-center">
+            <div class="flex">
+                <h1 class="text-white flex mb-0">Cierre de sesión</h1>
+                <p class="lead text-white-50">Administración de sesión</p>
+            </div>
+            <p class="d-sm-none">Su sesión ha sido cerrada correctamente</p>
+        </div>
+    </div>
+    <div class="page-section bg-white">
+        <div class="container page__container">
+            <div class="col-sm-6 mx-auto">
+
+                <form action="/">
+
+                    <div class="form-group">
+                        <label>Sesión cerrada con éxito</label>
+                        <label>Ya ha cerrado su sesión de Porthub, puede seguir navegando
+                            por el sistema sin las funcionalidades de haber iniciado sesión.</label>
+                    </div>
+                    <div class="text-center">
+                        <a href="/" class="btn btn-accent">Inicio</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- // END Header Layout Content -->
+
+</div>
+<!-- // END Header Layout -->
+
+<!-- DRAWER (MOBILE NAVBAR) -->
+<div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+    <div class="mdk-drawer__content">
+        <div class="sidebar sidebar-dark sidebar-left" data-perfect-scrollbar>
+            <div class="sidebar-p-a sidebar-b-b sidebar-m-b pt-0">
+
+                <!-- Brand -->
+                <a href="index.html" class="sidebar-brand">
+                    <img class="sidebar-brand-icon" src="app/assets/images/logo/white-100.svg" width="30" alt="Tutorio">
+                    <span>PortHub</span>
+                </a>
+                <!-- // END Brand -->
+
+                <!-- Search -->
+                <form action="library-filters.html" class="search-form search-form--black">
+                    <input type="text" class="form-control" placeholder="Búsqueda">
+                    <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
+                </form>
+
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="index.html">Inicio</a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="search.html">Explorar</a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="student-edit-account.html">Perfil</a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="shop.html">Tienda</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- // END drawer -->
+
+{{>footer}}

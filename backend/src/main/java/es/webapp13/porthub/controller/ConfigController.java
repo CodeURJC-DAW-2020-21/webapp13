@@ -74,4 +74,9 @@ public class ConfigController {
         model.addAttribute("active_profile", true);
         return "student-edit-account-profile";
     }
+
+    @GetMapping("/my-templates")
+    public String userTemplatesLink(Model model){
+        return "my-templates";
+    }
 }

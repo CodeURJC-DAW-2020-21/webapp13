@@ -6,8 +6,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @ControllerAdvice
 public class DefaultModelAttributes {
 
-    @ModelAttribute("userName")
-    public String userName() {
-        return "username";
+    private boolean logued;
+
+    public DefaultModelAttributes() {
+        this.logued = false;
     }
+
+    @ModelAttribute("logued")
+    public Boolean userLogued() {
+        return logued;
+    }
+
+    public void setLogued(boolean logued) {
+        this.logued = logued;
+    }
+
 }
