@@ -32,9 +32,12 @@ public class DataBaseController implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        templateRepository.save(new Template("/templates/premium/index","Premium",20));
-        templateRepository.save(new Template("/templates/free/index","Free",0));
-        userRepository.save(new User("id", "name", "surname", "email", "phoneNumber", "website", "city", "degree", "freelance", "description", "job"));
+        Template free = new Template("/templates/free/index","Free",0);
+        templateRepository.save(free);
+        Template premium = new Template("/templates/premium/index","Premium",20);
+        templateRepository.save(premium);
+        User user = new User("id", "name", "surname", "email", "phoneNumber", "website", "city", "degree", "freelance", "description", "job");
+        userRepository.save(user);
     }
 
 }

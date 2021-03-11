@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 
 import java.sql.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -37,7 +38,7 @@ public class User {
     private Template activeTemplate;
 
     @OneToMany
-    private List<Template> templates;
+    private List<Template> templates = new LinkedList<>();
 
     @OneToMany
     private List<PortfolioItem> portfolioItems;

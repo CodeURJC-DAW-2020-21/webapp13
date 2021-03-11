@@ -89,13 +89,13 @@
 
                 <!-- Main Navigation -->
                 <ul class="nav navbar-nav ml-auto flex-nowrap" style="white-space: nowrap;">
+                    {{#logued}}
                     <li class="nav-item">
                         <a href="/student-edit-account" class="nav-link">
                             <i class="material-icons">settings</i>
                             <span class="sr-only">Login</span>
                         </a>
                     </li>
-                    {{#logued}}
                     <li class="d-none d-sm-flex nav-item">
                         <a href="/logout-confirmation" class="btn btn-accent">Logout</a>
                     </li>

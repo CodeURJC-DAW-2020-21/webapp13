@@ -4,6 +4,7 @@ package es.webapp13.porthub.service;
 import es.webapp13.porthub.Repository.PortfolioItemRepository;
 import es.webapp13.porthub.Repository.TemplateRepository;
 import es.webapp13.porthub.model.PortfolioItem;
+import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.Repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.List;
 
 @Component
 public class UserService {
@@ -38,7 +40,12 @@ public class UserService {
 
     //Create the user in signup
     public void createUser(User user) {
-        user.setActiveTemplate(templateRepository.findFirstById(1));
+
+        Template free = templateRepository.findFirstById(1);
+        user.setActiveTemplate(free);
+        user.getTemplates().add(free);
+        Template premium = templateRepository.findFirstById(2);
+        user.getTemplates().add(premium);
         java.util.Date currentTime = new java.util.Date();
         long ageMilliseconds = currentTime.getTime() - user.getBornDate().getTime();
         long ageSeconds = ageMilliseconds / 1000;
@@ -58,6 +65,10 @@ public class UserService {
 
     public User findUser(String id){
         return userRepository.findFirstById(id);
+    }
+
+    public List<Template> getTemplates(){
+        return activeUser.getTemplates();
     }
 
 }
