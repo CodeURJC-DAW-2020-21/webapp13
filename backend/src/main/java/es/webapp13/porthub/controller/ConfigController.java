@@ -50,16 +50,16 @@ public class ConfigController {
         return "student-edit-account-notifications";
     }
 
-    @GetMapping("/settings-edit-account-edit-portfolioitem/{userId}/{id}")
+    @GetMapping("/settings-edit-account-edit-portfolioitem-{userId}-{id}")
     public String portfolioItemEditLink(Model model,@PathVariable long id, @PathVariable String userId) {
-        model.addAttribute("portfolioItem",portfolioItemService.getPortfolioItems(userId));
+        model.addAttribute("portfolioItem",portfolioItemService.getPortfolioItem(userId,id));
         return "settings-edit-account-edit-portfolioitem";
     }
 
-    @PostMapping("/settings-edit-account-edit-portfolioitem/{userId}/{id}")
+    @PostMapping("/settings-edit-account-edit-portfolioitem-{userId}-{id}")
     public String portfolioItemEditForm(Model model,@PathVariable long id, @PathVariable String userId,PortfolioItem newPortfolioItem) {
         portfolioItemService.updatePortfolioItem(newPortfolioItem,id);
-        return "settings-edit-account-edit-portfolioitem";
+        return "portfolioitem-update-confirmation";
     }
 
 

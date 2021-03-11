@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Component
 public class PortfolioItemService {
@@ -23,8 +24,8 @@ public class PortfolioItemService {
     /**
      * Add portfolio item to a user by a given id
      *
-     * @param userId id of the user
-     * @param item   form with the portfolio item information
+     * @param userId Id of the user
+     * @param item   Form with the portfolio item information
      */
     public void addPortfolioItem(String userId, PortfolioItem item) {
         item.setUserId(userId);
@@ -36,14 +37,31 @@ public class PortfolioItemService {
     }
 
     /**
-     * Get a portfolio item by a given id
+     * Get a portfolio item by a given user id
      *
-     * @param userId id of the user
+     * @param userId Id of the user
      * @return Iterable of portfolio items
      */
     public List<PortfolioItem> getPortfolioItems(String userId) {
         User user = userRepository.findById(userId).orElseThrow();
         return user.getPortfolioItems();
+    }
+
+    /**
+     * Return a portfolio item by a given user id and portfolio item id
+     *
+     * @param userId Id of the user
+     * @param itemId Id of the portfolio item
+     * @return Portfolio item
+     */
+    public PortfolioItem getPortfolioItem(String userId, long itemId) {
+        User user = userRepository.findById(userId).orElseThrow();
+        List<PortfolioItem> portfolioItemList = user.getPortfolioItems();
+        for (PortfolioItem p : portfolioItemList) {
+            if (p.getId() == itemId)
+                return p;
+        }
+        throw new NoSuchElementException("No portfolio item associated to this user id");
     }
 
 
