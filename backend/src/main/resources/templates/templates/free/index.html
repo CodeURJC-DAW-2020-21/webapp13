@@ -27,7 +27,7 @@
 
 <body id="page-top">
 
-    <a href="../../index.html"><button type="button" id="close-button" class="btn btn-warning btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3"><i class="fas fa-times"></i></button></a> 
+    <a href="/"><button type="button" id="close-button" class="btn btn-warning btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3"><i class="fas fa-times"></i></button></a>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-dark" id="mainNav">
         <div class="container">
@@ -45,58 +45,76 @@
         </div>
     </nav>
 
-    <!-- Masthead-->
-    <header class="masthead">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center justify-content-center text-center">
-                <div class="col-lg-10 align-self-end">
-                    <h1 class="text-uppercase text-white font-weight-bold">Your Favorite Source of Free Bootstrap Themes
-                    </h1>
-                    <hr class="divider my-4" />
-                </div>
-                <div class="col-lg-8 align-self-baseline">
-                    <p class="text-white-75 font-weight-light mb-5">Start Bootstrap can help you build better websites
-                        using the Bootstrap framework! Just download a theme and start customizing, no strings attached!
-                    </p>
-                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!--About-->
     <section class="page-section bg-primary" id="about">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 id="about-tittle" class="text-white mt-0">About</h2>
+                    <h2 id="about-tittle" class="text-white mt-0">Sobre mí</h2>
                     <hr class="divider light my-4" />
                     <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
-                        src="assets/img/profile-img.jpg" alt="profile-img">
-                    <p id="about-complete-name" class="text-white mt-0 text-uppercase h3">Paco Sanz Ortega</p>
-                    <p id="about-description" class="text-white-50 font-weight-light mb-4">Me llamo paco y soy ingeniero
-                        de software, en mis ratos libres desarrollo proyectos para crecer cada día mas en el mundo del
-                        software.</p>
+                        src="../../templates/free/img/profile-img.jpg" alt="profile-img">
+                    <p id="about-complete-name" class="text-white mt-0 text-uppercase h3">
+                        {{#user}}{{user.name}} {{user.surname}}{{/user}}
+                        {{^user}}Nombre Apellidos{{/user}}
+                    </p>
+                    <p id="about-job" class="text-white mt-0 text-uppercase h5">
+                        {{#user}}{{user.job}}{{/user}}
+                        {{^user}}Trabajo{{/user}}
+                    </p>
+                    <p id="about-description" class="text-white-50 font-weight-light mb-4">
+                        {{#user}}{{user.description}}{{/user}}
+                        {{^user}}Descripción{{/user}}
+                    </p>
                     <div class="row d-flex m-1">
                         <div class="col-lg-6 p-0">
                             <ul class="list-group border border-white rounded-0">
                                 <li class="list-group-item border border-white active"><strong>Fecha de
                                         nacimiento:</strong> <span id="about-date"
-                                        class="text-white mt-0">28/04/1996</span></li>
-                                <li class="list-group-item border border-white"><strong>Telefono:</strong> <span
-                                        id="about-phone">+123 456 7890</span></li>
-                                <li class="list-group-item border border-white active"><strong>Ciudad:</strong> <span
-                                        id="about-city">New York, USA</span></li>
+                                        class="text-white mt-0">
+                                    {{#user}}{{user.bornDate}}{{/user}}
+                                    {{^user}}Fecha{{/user}}
+                                </span></li>
+                                <li class="list-group-item border border-white"><strong>Página web:</strong> <span
+                                        id="about-website">
+                                    {{#user}}{{user.website}}{{/user}}
+                                    {{^user}}Página web{{/user}}
+                                </span></li>
+                                <li class="list-group-item border border-white active"><strong>Teléfono:</strong> <span
+                                        id="about-phone">
+                                    {{#user}}{{user.phoneNumber}}{{/user}}
+                                    {{^user}}Ciudad{{/user}}
+                                </span></li>
+                                <li class="list-group-item border border-white"><strong>Ciudad:</strong> <span
+                                        id="about-city">
+                                    {{#user}}{{user.city}}{{/user}}
+                                    {{^user}}Teléfono{{/user}}
+                                </span></li>
                             </ul>
                         </div>
                         <div class="col-lg-6 p-0 ">
                             <ul class="list-group border border-white rounded-0">
                                 <li class="list-group-item border border-white"><strong>Edad:</strong> <span
-                                        id="about-age">30</span></li>
-                                <li class="list-group-item border border-white active"><strong>Trabajo:</strong> <span
-                                        id="about-job">Ingeniero de software</span></li>
+                                        id="about-age">
+                                    {{#user}}{{user.age}}{{/user}}
+                                    {{^user}}Edad{{/user}}
+                                </span></li>
+                                <li class="list-group-item border border-white active"><strong>Nivel educativo:</strong> <span
+                                        id="about-degree">
+                                    {{#user}}{{user.degree}}{{/user}}
+                                    {{^user}}Nivel{{/user}}
+                                </span></li>
                                 <li class="list-group-item border border-white"><strong>Email:</strong> <span
-                                        id="about-email">email@example.com</span></li>
+                                        id="about-email">
+                                    {{#user}}{{user.email}}{{/user}}
+                                    {{^user}}Email{{/user}}
+                                </span></li>
+                                <li class="list-group-item border border-white active"><strong>Disponibilidad:</strong> <span
+                                        id="about-job">
+                                    {{#user}}{{user.freelance}}{{/user}}
+                                    {{^user}}Disponibilidad{{/user}}
+                                </span></li>
+
                             </ul>
                         </div>
                     </div>
@@ -176,7 +194,7 @@
             <div class="row no-gutters">
                 <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
                     <a class="portfolio-box" href="portfolio-item.html">
-                        <img class="img-fluid" id="portfolio-visual-item-img" src="assets/img/portfolio/thumbnails/1.jpg" alt="" />
+                        <img class="img-fluid" id="portfolio-visual-item-img" src="../../templates/free/img/portfolio/thumbnails/1.jpg" alt="" />
                         <div class="portfolio-box-caption">
                             <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
                         </div>
@@ -184,7 +202,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
                     <a class="portfolio-box" href="portfolio-item.html">
-                        <img class="img-fluid" id="portfolio-visual-item-img" src="assets/img/portfolio/thumbnails/2.jpg" alt="" />
+                        <img class="img-fluid" id="portfolio-visual-item-img" src="../../templates/free/img/portfolio/thumbnails/2.jpg" alt="" />
                         <div class="portfolio-box-caption">
                             <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
                         </div>
@@ -192,7 +210,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
                     <a class="portfolio-box" href="portfolio-item.html">
-                        <img class="img-fluid" id="portfolio-visual-item-img" src="assets/img/portfolio/thumbnails/3.jpg" alt="" />
+                        <img class="img-fluid" id="portfolio-visual-item-img" src="../../templates/free/img/portfolio/thumbnails/3.jpg" alt="" />
                         <div class="portfolio-box-caption">
                             <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
                         </div>
@@ -200,7 +218,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
                     <a class="portfolio-box" href="portfolio-item.html">
-                        <img class="img-fluid" id="portfolio-visual-item-img" src="assets/img/portfolio/thumbnails/4.jpg" alt="" />
+                        <img class="img-fluid" id="portfolio-visual-item-img" src="../../templates/free/img/portfolio/thumbnails/4.jpg" alt="" />
                         <div class="portfolio-box-caption">
                             <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
                         </div>
@@ -208,7 +226,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
                     <a class="portfolio-box" href="portfolio-item.html">
-                        <img class="img-fluid" id="portfolio-visual-item-img" src="assets/img/portfolio/thumbnails/5.jpg" alt="" />
+                        <img class="img-fluid" id="portfolio-visual-item-img" src="../../templates/free/img/portfolio/thumbnails/5.jpg" alt="" />
                         <div class="portfolio-box-caption">
                             <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
                         </div>
@@ -216,7 +234,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
                     <a class="portfolio-box" href="portfolio-item.html">
-                        <img class="img-fluid" id="portfolio-visual-item-img" src="assets/img/portfolio/thumbnails/6.jpg" alt="" />
+                        <img class="img-fluid" id="portfolio-visual-item-img" src="../../templates/free/img/portfolio/thumbnails/6.jpg" alt="" />
                         <div class="portfolio-box-caption p-3">
                             <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
                         </div>

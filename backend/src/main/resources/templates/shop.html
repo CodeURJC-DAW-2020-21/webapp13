@@ -20,16 +20,19 @@
                                         <span class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
                                             <i class="material-icons">group</i>
                                         </span>
-                                        <h4 class="mb-8pt">Minimalista</h4>
+                                        <h4 class="mb-8pt">Free</h4>
                                         <p class="text-70 mb-0">Un diseño orientado a una clara visualización de tu trabajo.</p>
                                     </div>
                                     <p class="d-flex justify-content-center align-items-center m-0">
                                         <span class="h4 m-0 font-weight-normal">&euro;</span>
-                                        <span class="h1 m-0 font-weight-normal">19</span>
+                                        <span class="h1 m-0 font-weight-normal">0</span>
                                     </p>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="signup.html" class="btn btn-outline-secondary">Comprar</a>
+                                    <a href="/templates/free/index" class="btn btn-outline-secondary">Preview</a>
+                                    {{#user}}
+                                    <a href="#" class="btn btn-outline-secondary">Comprado</a>
+                                    {{/user}}
                                 </div>
                             </div>
 
@@ -43,7 +46,7 @@
                                         <span class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
                                             <i class="material-icons">business_center</i>
                                         </span>
-                                        <h4 class="mb-8pt">Profesional</h4>
+                                        <h4 class="mb-8pt">Premium</h4>
                                         <p class="text-70 mb-0">Un diseño de corte serio dirigido a empresas.</p>
                                     </div>
                                     <p class="d-flex justify-content-center align-items-center m-0">
@@ -51,8 +54,12 @@
                                         <span class="h1 m-0 font-weight-normal">19</span>
                                     </p>
                                 </div>
+
                                 <div class="card-footer">
-                                    <a href="signup.html" class="btn btn-outline-secondary">Comprar</a>
+                                    <a href="/templates/premium/index" class="btn btn-outline-secondary">Preview</a>
+                                    {{#user}}
+                                    <a href="/purchase-confirmation" class="btn btn-outline-secondary">Comprar</a>
+                                    {{/user}}
                                 </div>
                             </div>
 

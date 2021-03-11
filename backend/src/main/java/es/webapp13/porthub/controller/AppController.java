@@ -34,22 +34,40 @@ public class AppController {
         return "search";
     }
 
+    @GetMapping("/templates/free/index")
+    public String templateFreeLink(Model model) {
+        User user = userService.getActiveUser();
+        model.addAttribute("user", user);
+        return "templates/free/index";
+    }
+
+    @GetMapping("/templates/free/portfolioitem")
+    public String templateFreePortfolioItemLink(Model model) {
+        return "templates/free/portfolio-item";
+    }
+
     @GetMapping("/templates/premium/index")
-    public String templateLink(Model model) {
+    public String templatePremiumLink(Model model) {
         User user = userService.getActiveUser();
         model.addAttribute("user", user);
         return "templates/premium/index";
     }
 
     @GetMapping("/templates/premium/portfolioitem")
-    public String templatePortfolioItemLink(Model model) {
+    public String templatePremiumPortfolioItemLink(Model model) {
         return "templates/premium/portfolio-item";
     }
 
     @GetMapping("/shop")
     public String shopLink(Model model) {
         model.addAttribute("active_shop", true);
+        model.addAttribute("user", userService.getActiveUser());
         return "shop";
+    }
+
+    @GetMapping("/purchase-confirmation")
+    public String purchaseConfirmationLink(Model model){
+        return "purchase-confirmation";
     }
 
     @GetMapping("/login")

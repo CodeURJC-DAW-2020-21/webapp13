@@ -38,7 +38,7 @@ public class UserService {
 
     //Create the user in signup
     public void createUser(User user) {
-        user.setActiveTemplate(templateRepository.findFirstById(2));
+        user.setActiveTemplate(templateRepository.findFirstById(1));
         java.util.Date currentTime = new java.util.Date();
         long ageMilliseconds = currentTime.getTime() - user.getBornDate().getTime();
         long ageSeconds = ageMilliseconds / 1000;
