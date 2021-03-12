@@ -68,7 +68,6 @@ public class UserService {
         return userRepository.findFirstById(id);
     }
 
-
     public String getTemplateHtmlPath(String id) {
         User user = userRepository.findById(id).orElseThrow();
         Template template = user.getActiveTemplate();

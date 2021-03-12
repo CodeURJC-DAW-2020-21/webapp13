@@ -1,6 +1,7 @@
 package es.webapp13.porthub.controller;
 
 
+import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.SearchService;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
 
 @Controller
 public class SearchController {
@@ -22,35 +25,42 @@ public class SearchController {
     @GetMapping("/search")
     public String searchLink(Model model) {
         model.addAttribute("active_all", true);
-        model.addAttribute("users", searchService.getUsers());
+        List<User> userList = searchService.getUsers();
+        model.addAttribute("total",userList.size());
+        model.addAttribute("users", userList);
         return "search";
     }
 
     @GetMapping("/search-ingeniero")
     public String searchLinkEngineer(Model model) {
         model.addAttribute("active_engineer", true);
-        model.addAttribute("users", searchService.getUsersByCategory("Ingeniero"));
+        List<User> userList = searchService.getUsersByCategory("Ingeniero");
+        model.addAttribute("total",userList.size());
+        model.addAttribute("users", userList);
         return "search";
     }
 
     @GetMapping("/search-diseñador")
     public String searchLinkDesigner(Model model) {
         model.addAttribute("active_designer", true);
-        model.addAttribute("users", searchService.getUsersByCategory("Diseñador"));
+        List<User> userList = searchService.getUsersByCategory("Diseñador");
+        model.addAttribute("total",userList.size());
         return "search";
     }
 
     @GetMapping("/search-fotografo")
     public String searchLinkPhotographer(Model model) {
         model.addAttribute("active_photographer", true);
-        model.addAttribute("users", searchService.getUsersByCategory("Fotografo"));
+        List<User> userList = searchService.getUsersByCategory("Fotografo");
+        model.addAttribute("total",userList.size());
         return "search";
     }
 
     @GetMapping("/search-empresario")
     public String searchLinkBusinessman(Model model) {
         model.addAttribute("active_businessman", true);
-        model.addAttribute("users", searchService.getUsersByCategory("Empresario"));
+        List<User> userList = searchService.getUsersByCategory("Empresario");
+        model.addAttribute("total",userList.size());
         return "search";
     }
 
