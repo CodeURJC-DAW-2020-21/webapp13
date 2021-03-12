@@ -4,6 +4,7 @@ package es.webapp13.porthub.service;
 import es.webapp13.porthub.Repository.PortfolioItemRepository;
 import es.webapp13.porthub.Repository.TemplateRepository;
 import es.webapp13.porthub.model.PortfolioItem;
+import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.Repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -47,6 +48,7 @@ public class UserService {
         long ageDays = ageHours / 24;
         long ageYears = ageDays / 365;
         user.setAge(ageYears);
+        user.setActiveTemplate(templateRepository.findFirstById(1));
         userRepository.save(user);
     }
 
@@ -58,6 +60,20 @@ public class UserService {
 
     public User findUser(String id){
         return userRepository.findFirstById(id);
+    }
+
+    public String getTemplateHtmlPath(String id){
+        User user = userRepository.findById(id).orElseThrow();
+
+        Template template = user.getActiveTemplate();
+        System.out.println("#" +
+                "#" +
+                "#" +
+                "#" +
+                "#" +
+                "#");
+        System.out.println(user.getActiveTemplate());
+        return template.getHtmlPath();
     }
 
 }

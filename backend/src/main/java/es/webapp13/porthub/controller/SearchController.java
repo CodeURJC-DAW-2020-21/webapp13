@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class SearchController {
 
+
     @Autowired
     private SearchService searchService;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/search")
     public String searchLink(Model model) {
-        model.addAttribute("active_search", true);
+        model.addAttribute("active_all", true);
         model.addAttribute("users", searchService.getUsers());
         return "search";
     }
@@ -31,23 +35,29 @@ public class SearchController {
 
     @GetMapping("/search-diseñador")
     public String searchLinkDesigner(Model model) {
-        model.addAttribute("active_search", true);
+        model.addAttribute("active_designer", true);
         model.addAttribute("users", searchService.getUsersByCategory("Diseñador"));
         return "search";
     }
 
     @GetMapping("/search-fotografo")
     public String searchLinkPhotographer(Model model) {
-        model.addAttribute("active_search", true);
+        model.addAttribute("active_photographer", true);
         model.addAttribute("users", searchService.getUsersByCategory("Fotografo"));
         return "search";
     }
 
     @GetMapping("/search-empresario")
-    public String searchLinkBusinessman (Model model) {
-        model.addAttribute("active_search", true);
+    public String searchLinkBusinessman(Model model) {
+        model.addAttribute("active_businessman", true);
         model.addAttribute("users", searchService.getUsersByCategory("Empresario"));
         return "search";
+    }
+
+
+    @GetMapping("/template-{id}")
+    public String templateFromSearchLink(@PathVariable String id) {
+        return userService.getTemplateHtmlPath(id);
     }
 
 

@@ -97,7 +97,7 @@
 
                                 <div class="row align-items-center">
                                     <div class="col text-center">
-                                        <a href="../../templates/free/index.html" class="btn btn-primary">Ver más</a>
+                                        <a href="/template-{{id}}" class="btn btn-primary mt-4">Ver más</a>
                                     </div>
                                 </div>
 
@@ -159,12 +159,12 @@
                                     </a>
 
                                     <nav class="accordion__menu" id="library-all">
-                                        <a class="accordion__menu-link active" href="/search">Todas</a>
+                                        <a class="accordion__menu-link {{#active_all}}active{{/active_all}}" href="/search">Todas</a>
 
-                                        <a class="accordion__menu-link" href="/search-ingeniero">Ingeniero</a>
-                                        <a class="accordion__menu-link" href="/search-diseñador">Diseñador</a>
-                                        <a class="accordion__menu-link" href="/search-fotografo">Fotógrafo</a>
-                                        <a class="accordion__menu-link" href="/search-empresario">Empresario</a>
+                                        <a class="accordion__menu-link {{#active_engineer}}active{{/active_engineer}}" href="/search-ingeniero">Ingeniero</a>
+                                        <a class="accordion__menu-link {{#active_designer}}active{{/active_designer}}" href="/search-diseñador">Diseñador</a>
+                                        <a class="accordion__menu-link {{#active_photographer}}active{{/active_photographer}}" href="/search-fotografo">Fotógrafo</a>
+                                        <a class="accordion__menu-link {{#active_businessman}}active{{/active_businessman}}" href="/search-empresario">Empresario</a>
 
                                     </nav>
                                 </li>

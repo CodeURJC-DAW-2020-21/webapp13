@@ -49,7 +49,9 @@ public class User {
     public User() {
     }
 
-    public User(String id, String name, String surname, String email, String phoneNumber, String website, String city, String degree, String freelance, String description, String job, String category) {
+    public User(String id, String name, String surname, String email, String phoneNumber,
+                String website, String city, String degree, String freelance, String description,
+                String job, String category,Template activeTemplate) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -62,6 +64,7 @@ public class User {
         this.job = job;
         this.description = description;
         this.category = category;
+        this.activeTemplate = activeTemplate;
     }
 
     public User(String id, String name, String surname) {

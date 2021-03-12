@@ -22,8 +22,8 @@ public class Template {
     public Template() {
     }
 
-    public Template(String html, String name, int price) {
-        this.htmlPath = html;
+    public Template(String htmlPath, String name, int price) {
+        this.htmlPath = htmlPath;
         this.name = name;
         this.price = price;
     }

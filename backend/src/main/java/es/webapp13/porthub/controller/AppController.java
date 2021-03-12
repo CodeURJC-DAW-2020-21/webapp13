@@ -101,7 +101,6 @@ public class AppController {
         return "logout-confirmation";
     }
 
-
     @GetMapping("/admin")
     public String adminLink(Model model) {
         return "admin";
