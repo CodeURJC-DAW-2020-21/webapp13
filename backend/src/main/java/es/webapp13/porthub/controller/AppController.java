@@ -28,10 +28,9 @@ public class AppController {
 
     @GetMapping("/")
     public String indexLink(Model model) {
+        model.addAttribute("users",userService);
         return "index";
     }
-
-
 
     @GetMapping("/templates/free/index")
     public String templateFreeLink(Model model) {

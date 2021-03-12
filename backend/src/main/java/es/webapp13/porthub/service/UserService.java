@@ -64,6 +64,14 @@ public class UserService {
         userRepository.save(user);
     }
 
+    /**
+     * Get all the users in the database (at the moment, later on we should get pageable elements)
+     * @return List of users
+     */
+    public List<User> findUsers() {
+        return userRepository.findAll();
+    }
+
     public User findUser(String id) {
         return userRepository.findFirstById(id);
     }

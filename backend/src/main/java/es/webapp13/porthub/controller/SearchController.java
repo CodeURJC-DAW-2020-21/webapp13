@@ -25,13 +25,13 @@ public class SearchController {
     @GetMapping("/search")
     public String searchLink(Model model) {
         model.addAttribute("active_all", true);
-        List<User> userList = searchService.getUsers();
+        List<User> userList = userService.findUsers();
         model.addAttribute("total",userList.size());
         model.addAttribute("users", userList);
         return "search";
     }
 
-    @GetMapping("/search-ingeniero")
+    @GetMapping("/search-ingeniería")
     public String searchLinkEngineer(Model model) {
         model.addAttribute("active_engineer", true);
         List<User> userList = searchService.getUsersByCategory("Ingeniero");
@@ -40,27 +40,30 @@ public class SearchController {
         return "search";
     }
 
-    @GetMapping("/search-diseñador")
+    @GetMapping("/search-diseño")
     public String searchLinkDesigner(Model model) {
         model.addAttribute("active_designer", true);
         List<User> userList = searchService.getUsersByCategory("Diseñador");
         model.addAttribute("total",userList.size());
+        model.addAttribute("users", userList);
         return "search";
     }
 
-    @GetMapping("/search-fotografo")
+    @GetMapping("/search-fotografía")
     public String searchLinkPhotographer(Model model) {
         model.addAttribute("active_photographer", true);
         List<User> userList = searchService.getUsersByCategory("Fotografo");
         model.addAttribute("total",userList.size());
+        model.addAttribute("users", userList);
         return "search";
     }
 
-    @GetMapping("/search-empresario")
+    @GetMapping("/search-empresa")
     public String searchLinkBusinessman(Model model) {
         model.addAttribute("active_businessman", true);
         List<User> userList = searchService.getUsersByCategory("Empresario");
         model.addAttribute("total",userList.size());
+        model.addAttribute("users", userList);
         return "search";
     }
 

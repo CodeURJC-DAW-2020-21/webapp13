@@ -13,11 +13,12 @@ public class SearchService {
 
     @Autowired
     private UserRepository userRepository;
-
-    public List<User> getUsers() {
-        return userRepository.findAll();
-    }
-
+    
+    /**
+     * Get all the users in the database by a given category (at the moment, later on we should get pageable elements)
+     * @param category Category of a user
+     * @return List of users
+     */
     public List<User> getUsersByCategory(String category){
         return userRepository.findByCategory(category);
     }
