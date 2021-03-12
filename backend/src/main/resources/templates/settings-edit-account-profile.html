@@ -5,7 +5,7 @@
 
             <div class="bg-gradient-primary border-bottom-white py-32pt">
                 <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
-                    <img src="app/assets/images/illustration/student/128/white.svg" width="104" class="mr-md-32pt mb-32pt mb-md-0" alt="student">
+                    <img src="/app/assets/images/illustration/student/128/white.svg" width="104" class="mr-md-32pt mb-32pt mb-md-0" alt="student">
                     <div class="flex mb-32pt mb-md-0">
                         <h2 class="text-white mb-0">Alexander Watson</h2>
                         <h3 class="text-white mb-0">Email: <span class="font-weight-light">alexander.watson@fake-mail.com</span></h3>
@@ -31,7 +31,7 @@
                                     <a href="/templates/premium/index" class="nav-link">Perfil</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="my-templates.html" class="nav-link">Mis templates</a>
+                                    <a href="settings-edit-account-mytemplates.html" class="nav-link">Mis templates</a>
                                 </li>
 
                             </ul>
@@ -42,29 +42,44 @@
 
 
 
-
             <div class="container page__container">
-                <form action="student-edit-account.html">
+                <form action="settings-edit-account.html">
                     <div class="row">
                         <div class="col-lg-9">
 
                             <div class="page-section">
-                                <h4>Cambiar contraseña</h4>
-
+                                <h4>Información avanzada</h4>
                                 <div class="list-group list-group-form">
                                     <div class="list-group-item">
                                         <div class="form-group row mb-0">
-                                            <label class="col-form-label col-sm-3">Nueva contraseña</label>
-                                            <div class="col-sm-9">
-                                                <input type="password" class="form-control" placeholder="Password ...">
+                                            <label class="col-form-label col-sm-3">Tu foto</label>
+                                            <div class="col-sm-9 media align-items-center">
+                                                <a href="" class="media-left mr-16pt">
+                                                    <img src="/app/assets/images/people/110/guy-3.jpg" alt="people" width="56" class="rounded-circle" />
+                                                </a>
+                                                <div class="media-body">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                                        <label class="custom-file-label" for="inputGroupFile01">Elige un archivo</label>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="list-group-item">
                                         <div class="form-group row mb-0">
-                                            <label class="col-form-label col-sm-3">Confirmar contraseña</label>
+                                            <label class="col-form-label col-sm-3">Nombre de usuario de PortHub</label>
                                             <div class="col-sm-9">
-                                                <input type="password" class="form-control" placeholder="Confirm password ...">
+                                                <input type="text" class="form-control" value="PortHub.com/alexander" placeholder="Tu nombre de perfil ...">
+                                                <small class="form-text text-muted">Tu nombre de perfil será usado como parte de la dirección URL pública de tu perfil.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Descríbete</label>
+                                            <div class="col-sm-9">
+                                                <textarea rows="3" class="form-control" placeholder="Habla sobre ti ..."></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -91,16 +106,16 @@
                                     <p class="text-white-70 mb-8pt"><strong>Siguenos</strong></p>
                                     <nav class="nav nav-links nav--flush">
                                         <a href="#" class="nav-link mr-8pt"><img
-                                                src="app/assets/images/icon/footer/facebook-square@2x.png" width="24"
+                                                src="/app/assets/images/icon/footer/facebook-square@2x.png" width="24"
                                                 height="24" alt="Facebook"></a>
                                         <a href="#" class="nav-link mr-8pt"><img
-                                                src="app/assets/images/icon/footer/twitter-square@2x.png" width="24" height="24"
+                                                src="/app/assets/images/icon/footer/twitter-square@2x.png" width="24" height="24"
                                                 alt="Twitter"></a>
                                         <a href="#" class="nav-link mr-8pt"><img
-                                                src="app/assets/images/icon/footer/vimeo-square@2x.png" width="24" height="24"
+                                                src="/app/assets/images/icon/footer/vimeo-square@2x.png" width="24" height="24"
                                                 alt="Vimeo"></a>
                                         <a href="#" class="nav-link"><img
-                                                src="app/assets/images/icon/footer/youtube-square@2x.png" width="24" height="24"
+                                                src="/app/assets/images/icon/footer/youtube-square@2x.png" width="24" height="24"
                                                 alt="YouTube"></a>
                                     </nav>
                                 </div>

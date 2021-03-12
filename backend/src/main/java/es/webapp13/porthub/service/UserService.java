@@ -28,6 +28,7 @@ public class UserService {
 
     private User activeUser = null;
 
+
     public User getActiveUser() {
         return activeUser;
     }
@@ -36,14 +37,12 @@ public class UserService {
         this.activeUser = activeUser;
     }
 
-    //Create the user in signup
-    public void createUser(User user) {
-
-        Template free = templateRepository.findFirstById(1);
-        user.getTemplates().add(free);
-        Template premium = templateRepository.findFirstById(2);
-        user.getTemplates().add(premium);
-        user.setActiveTemplate(free);
+    /**
+     * Calculate the user age
+     * @param user A given user
+     * @return The age of the user
+     */
+    private long calculateAge(User user){
         java.util.Date currentTime = new java.util.Date();
         long ageMilliseconds = currentTime.getTime() - user.getBornDate().getTime();
         long ageSeconds = ageMilliseconds / 1000;
@@ -51,12 +50,35 @@ public class UserService {
         long ageHours = ageMinutes / 60;
         long ageDays = ageHours / 24;
         long ageYears = ageDays / 365;
-        user.setAge(ageYears);
+        return 0;
+    }
+
+    /**
+     * Creates, configure and add a new user to the database
+     * @param user User received from a form
+     */
+    public void createUser(User user) {
+
+        Template free = templateRepository.findFirstById(1);
+        user.getTemplates().add(free);
+        user.setActiveTemplate(free);
+
+        Template premium = templateRepository.findFirstById(2);
+        user.getTemplates().add(premium);
+        long age = calculateAge(user);
+
+
+        user.setAge(age);
         user.setActiveTemplate(templateRepository.findFirstById(1));
         userRepository.save(user);
     }
 
-    //Profile photo inserted by the user
+    /**
+     * Update the profile photo of a given user by a given image
+     * @param user A user given
+     * @param imageFile A image given
+     * @throws IOException
+     */
     public void updateProfilePhoto(User user, MultipartFile imageFile) throws IOException {
         user.setProfilePhoto(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
         userRepository.save(user);
@@ -80,6 +102,10 @@ public class UserService {
         return template.getHtmlPath();
     }
 
+    /**
+     * Get a list of templates
+     * @return List of templates
+     */
     public List<Template> getTemplates() {
         return activeUser.getTemplates();
     }

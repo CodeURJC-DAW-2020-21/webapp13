@@ -18,8 +18,12 @@ public class User {
 
     private String name;
     private String surname;
+    private long age;
+    private Date bornDate;
+
     private String email;
     private String password;
+
     private String phoneNumber;
     private String website;
     private String city;
@@ -28,8 +32,7 @@ public class User {
     private String freelance;
     private String description;
     private String job;
-    private long age;
-    private Date bornDate;
+
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
@@ -53,13 +56,14 @@ public class User {
     public User() {
     }
 
-    public User(String id, String name, String surname, String email, String phoneNumber,
+    public User(String id, String name, String surname, String email, String password, String phoneNumber,
                 String website, String city, String degree, String freelance, String description,
-                String job, String category,Template activeTemplate) {
+                String job, String category, Template activeTemplate) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
+        this.password = password;
         this.phoneNumber = phoneNumber;
         this.website = website;
         this.city = city;
@@ -70,14 +74,6 @@ public class User {
         this.category = category;
         this.activeTemplate = activeTemplate;
     }
-
-    public User(String id, String name, String surname) {
-        super();
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-    }
-
 
     @Override
     public String toString() {

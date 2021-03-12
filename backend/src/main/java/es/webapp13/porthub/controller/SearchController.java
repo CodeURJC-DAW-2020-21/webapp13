@@ -31,7 +31,7 @@ public class SearchController {
         return "search";
     }
 
-    @GetMapping("/search-ingeniería")
+    @GetMapping("/search/ingeniería")
     public String searchLinkEngineer(Model model) {
         model.addAttribute("active_engineer", true);
         List<User> userList = searchService.getUsersByCategory("Ingeniero");
@@ -40,7 +40,7 @@ public class SearchController {
         return "search";
     }
 
-    @GetMapping("/search-diseño")
+    @GetMapping("/search/diseño")
     public String searchLinkDesigner(Model model) {
         model.addAttribute("active_designer", true);
         List<User> userList = searchService.getUsersByCategory("Diseñador");
@@ -49,7 +49,7 @@ public class SearchController {
         return "search";
     }
 
-    @GetMapping("/search-fotografía")
+    @GetMapping("/search/fotografía")
     public String searchLinkPhotographer(Model model) {
         model.addAttribute("active_photographer", true);
         List<User> userList = searchService.getUsersByCategory("Fotografo");
@@ -58,7 +58,7 @@ public class SearchController {
         return "search";
     }
 
-    @GetMapping("/search-empresa")
+    @GetMapping("/search/empresa")
     public String searchLinkBusinessman(Model model) {
         model.addAttribute("active_businessman", true);
         List<User> userList = searchService.getUsersByCategory("Empresario");
@@ -68,7 +68,7 @@ public class SearchController {
     }
 
 
-    @GetMapping("/template-{id}")
+    @GetMapping("/template/{id}")
     public String templateFromSearchLink(@PathVariable String id) {
         return userService.getTemplateHtmlPath(id);
     }

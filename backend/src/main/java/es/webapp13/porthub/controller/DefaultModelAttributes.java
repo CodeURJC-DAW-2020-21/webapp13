@@ -10,6 +10,7 @@ import java.security.Principal;
 @ControllerAdvice
 public class DefaultModelAttributes {
 
+    /*
     @ModelAttribute
     public void addAttributes(Model model, HttpServletRequest request) {
 
@@ -24,6 +25,22 @@ public class DefaultModelAttributes {
         } else {
             model.addAttribute("logged", false);
         }
+    }
+     */
+
+    private boolean logued;
+
+    public DefaultModelAttributes() {
+        this.logued = false;
+    }
+
+    @ModelAttribute("logued")
+    public Boolean userLogued() {
+        return logued;
+    }
+
+    public void setLogued(boolean logued) {
+        this.logued = logued;
     }
 
 

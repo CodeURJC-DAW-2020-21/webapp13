@@ -1,3 +1,4 @@
+/*
 package es.webapp13.porthub.security;
 
 import java.security.SecureRandom;
@@ -35,8 +36,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // Public pages
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
-        http.authorizeRequests().antMatchers("/loginerror").permitAll();
+        //http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
+        http.authorizeRequests().antMatchers("/shop").permitAll();
+        http.authorizeRequests().antMatchers("/search").permitAll();
 
         // Private pages
         http.authorizeRequests().antMatchers("/newbook").hasAnyRole("USER");
@@ -57,4 +60,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 }
 
-
+*/

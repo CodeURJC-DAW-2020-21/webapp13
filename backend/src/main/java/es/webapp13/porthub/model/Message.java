@@ -25,8 +25,8 @@ public class Message {
 
     private Date send_date;
 
-    // Constructor necesario para la carga desde BBDD
-    protected Message() {}
+    protected Message() {
+    }
 
     public Message(User transmitterId, User receiverId, String text, Date send_date) {
         this.transmitterId = transmitterId;

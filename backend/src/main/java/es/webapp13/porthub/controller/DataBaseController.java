@@ -1,11 +1,8 @@
 package es.webapp13.porthub.controller;
 
-import es.webapp13.porthub.repository.MessageRepository;
-import es.webapp13.porthub.repository.PortfolioItemRepository;
 import es.webapp13.porthub.repository.TemplateRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.model.*;
-import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
@@ -16,17 +13,9 @@ public class DataBaseController implements CommandLineRunner {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private MessageRepository messageRepository;
 
     @Autowired
     private TemplateRepository templateRepository;
-
-    @Autowired
-    private PortfolioItemRepository portfolioItemRepository;
-
-    @Autowired
-    private UserService loginService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -35,10 +24,10 @@ public class DataBaseController implements CommandLineRunner {
         templateRepository.save(free);
         templateRepository.save(premium);
 
-        userRepository.save(new User("id", "name", "surname", "email", "phoneNumber",
+        userRepository.save(new User("id", "name", "surname", "email","1234", "phoneNumber",
                 "website", "city", "degree", "freelance", "description", "job", "Ingeniero", free));
 
-        userRepository.save(new User("id2", "name2", "surname2", "email2", "phoneNumber2",
+        userRepository.save(new User("id2", "name2", "surname2", "email2","1234", "phoneNumber2",
                 "website2", "city2", "degree2", "freelance2", "description2", "job2", "Fotografo", premium));
     }
 
