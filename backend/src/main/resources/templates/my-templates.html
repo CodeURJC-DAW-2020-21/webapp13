@@ -50,7 +50,7 @@
                         <div class="col-6">
                             <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
                                  data-partial-height="40" data-toggle="popover" data-trigger="click">
-                                <a href="#" class="js-image" data-position="center">
+                                <a href="{{htmlPath}}" class="js-image" data-position="center">
                                     <!--PROFILE IMAGE GOES HERE-->
                                     <img class="img-fluid" src="../../app/assets/images/people/256/portfolioPremium.PNG"
                                          alt="course">
@@ -63,10 +63,14 @@
                                     <div class="card-body">
                                         <div class="d-flex">
                                             <div class="flex">
-                                                <a class="card-title" href="#">{{name}}</a>
+                                                <a class="card-title" href="{{htmlPath}}">{{name}}</a>
                                             </div>
-                                            <a href="#"
-                                               class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
+                                            <form action="/set-active-template">
+                                                <input type="hidden" name='name' value="{{name}}"/>
+
+                                                <input type='submit' class="btn btn-accent" value='Activar' />
+                                            </form>
+
                                         </div>
 
                                     </div>

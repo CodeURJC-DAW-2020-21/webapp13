@@ -1,7 +1,11 @@
 package es.webapp13.porthub.controller;
 
 import es.webapp13.porthub.Repository.PortfolioItemRepository;
+import es.webapp13.porthub.Repository.TemplateRepository;
+import es.webapp13.porthub.Repository.UserRepository;
 import es.webapp13.porthub.model.PortfolioItem;
+import es.webapp13.porthub.model.Template;
+import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.PortfolioItemService;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -18,6 +23,12 @@ public class ConfigController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private TemplateRepository templateRepository;
 
     @Autowired
     private PortfolioItemService portfolioItemService;
@@ -83,4 +94,14 @@ public class ConfigController {
         model.addAttribute("templates", userService.getTemplates());
         return "my-templates";
     }
+
+    @GetMapping("/set-active-template")
+    public String activeTemplateLink(Model model, @RequestParam String name){
+        Template activeTemplate = templateRepository.findFirstByName(name);
+        User user = userService.getActiveUser();
+        user.setActiveTemplate(activeTemplate);
+        userRepository.save(user);
+        return "change-active-template-confirmation";
+    }
+
 }

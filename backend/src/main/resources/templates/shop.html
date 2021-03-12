@@ -3,67 +3,47 @@
         <!-- Header Layout Content -->
         <div class="mdk-header-layout__content page-content pb-0">
 
-
             <div class="page-section pt-64pt bg-gradient-primary">
                 <div class="container page__container">
                     <div class="hero text-center pb-64pt">
                         <h1 class="text-white">Compra tu Portfolio</h1>
                         <p class="text-white-50 lead measure-hero-lead mx-auto">Elige entre múltiples portfolios diseñados por profesionales del sector.</p>
                     </div>
-                    <div class="row card-group-row mb-16pt mb-lg-40pt d-flex justify-content-center">
-                        <div class="col-lg-4 col-sm-6 card-group-row__col">
 
+                    <div class="row card-group-row mb-16pt mb-lg-40pt d-flex justify-content-center">
+                        {{#templates}}
+                        <div class="col-lg-4 col-sm-6 card-group-row__col">
                             <div class="card card-group-row__card text-center o-hidden">
 
                                 <div class="card-body d-flex flex-column">
                                     <div class="flex-grow mb-16pt">
+                                        {{#isFree}}
                                         <span class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
                                             <i class="material-icons">group</i>
                                         </span>
-                                        <h4 class="mb-8pt">Free</h4>
-                                        <p class="text-70 mb-0">Un diseño orientado a una clara visualización de tu trabajo.</p>
-                                    </div>
-                                    <p class="d-flex justify-content-center align-items-center m-0">
-                                        <span class="h4 m-0 font-weight-normal">&euro;</span>
-                                        <span class="h1 m-0 font-weight-normal">0</span>
-                                    </p>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="/templates/free/index" class="btn btn-outline-secondary">Preview</a>
-                                    {{#user}}
-                                    <a href="#" class="btn btn-outline-secondary">Comprado</a>
-                                    {{/user}}
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-4 col-sm-6 card-group-row__col">
-
-                            <div class="card card-group-row__card text-center o-hidden">
-
-                                <div class="card-body d-flex flex-column">
-                                    <div class="flex-grow mb-16pt">
+                                        {{/isFree}}
+                                        {{^isFree}}
                                         <span class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
                                             <i class="material-icons">business_center</i>
                                         </span>
-                                        <h4 class="mb-8pt">Premium</h4>
-                                        <p class="text-70 mb-0">Un diseño de corte serio dirigido a empresas.</p>
+                                        {{/isFree}}
+                                        <h4 class="mb-8pt">{{name}}</h4>
+                                        <p class="text-70 mb-0">{{description}}</p>
                                     </div>
                                     <p class="d-flex justify-content-center align-items-center m-0">
                                         <span class="h4 m-0 font-weight-normal">&euro;</span>
-                                        <span class="h1 m-0 font-weight-normal">19</span>
+                                        <span class="h1 m-0 font-weight-normal">{{price}}</span>
                                     </p>
                                 </div>
-
                                 <div class="card-footer">
-                                    <a href="/templates/premium/index" class="btn btn-outline-secondary">Preview</a>
+                                    <a href="{{htmlPath}}" class="btn btn-outline-secondary">Preview</a>
                                     {{#user}}
                                     <a href="/purchase-confirmation" class="btn btn-outline-secondary">Comprar</a>
                                     {{/user}}
                                 </div>
                             </div>
-
                         </div>
+                        {{/templates}}
                     </div>
 
                 

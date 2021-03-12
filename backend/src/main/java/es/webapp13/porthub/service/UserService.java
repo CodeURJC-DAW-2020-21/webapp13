@@ -42,10 +42,10 @@ public class UserService {
     public void createUser(User user) {
 
         Template free = templateRepository.findFirstById(1);
-        user.setActiveTemplate(free);
         user.getTemplates().add(free);
         Template premium = templateRepository.findFirstById(2);
         user.getTemplates().add(premium);
+        user.setActiveTemplate(free);
         java.util.Date currentTime = new java.util.Date();
         long ageMilliseconds = currentTime.getTime() - user.getBornDate().getTime();
         long ageSeconds = ageMilliseconds / 1000;

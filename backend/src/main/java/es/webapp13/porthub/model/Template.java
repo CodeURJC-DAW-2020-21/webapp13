@@ -19,13 +19,19 @@ public class Template {
 
     private int price;
 
+    private boolean isFree;
+
+    private String description;
+
     public Template() {
     }
 
-    public Template(String htmlPath, String name, int price) {
+    public Template(String htmlPath, String name, int price, boolean isFree, String description) {
         this.htmlPath = htmlPath;
         this.name = name;
         this.price = price;
+        this.isFree = isFree;
+        this.description = description;
     }
 
     public long getId() {
@@ -58,5 +64,21 @@ public class Template {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isFree() {
+        return isFree;
+    }
+
+    public void setFree(boolean free) {
+        isFree = free;
     }
 }

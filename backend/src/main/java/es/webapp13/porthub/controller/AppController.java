@@ -1,6 +1,8 @@
 package es.webapp13.porthub.controller;
 
+import es.webapp13.porthub.Repository.TemplateRepository;
 import es.webapp13.porthub.model.PortfolioItem;
+import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.PortfolioItemService;
 import es.webapp13.porthub.service.UserService;
@@ -26,10 +28,26 @@ public class AppController {
     @Autowired
     private PortfolioItemService portfolioItemService;
 
+    @Autowired
+    private TemplateRepository templateRepository;
+
     @GetMapping("/")
     public String indexLink(Model model) {
         model.addAttribute("users",userService);
         return "index";
+    }
+
+    @GetMapping("/profile")
+    public String profileLink(Model model){
+        User user = userService.getActiveUser();
+        if (user==null){
+            return templateFreeLink(model);
+        }else{
+            model.addAttribute("user", user);
+            Template template = userService.getActiveUser().getActiveTemplate();
+            String htmlPath = template.getHtmlPath();
+            return htmlPath;
+        }
     }
 
     @GetMapping("/templates/free/index")
@@ -60,6 +78,7 @@ public class AppController {
     public String shopLink(Model model) {
         model.addAttribute("active_shop", true);
         model.addAttribute("user", userService.getActiveUser());
+        model.addAttribute("templates", templateRepository.findAll());
         return "shop";
     }
 
