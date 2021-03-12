@@ -13,7 +13,7 @@ public class SearchService {
 
     @Autowired
     private UserRepository userRepository;
-    
+
     /**
      * Get all the users in the database by a given category (at the moment, later on we should get pageable elements)
      * @param category Category of a user

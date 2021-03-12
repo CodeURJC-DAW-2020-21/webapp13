@@ -1,7 +1,6 @@
 package es.webapp13.porthub.controller;
 
 import es.webapp13.porthub.Repository.TemplateRepository;
-import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.PortfolioItemService;
