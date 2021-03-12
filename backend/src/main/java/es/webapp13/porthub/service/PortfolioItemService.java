@@ -1,7 +1,7 @@
 package es.webapp13.porthub.service;
 
-import es.webapp13.porthub.Repository.PortfolioItemRepository;
-import es.webapp13.porthub.Repository.UserRepository;
+import es.webapp13.porthub.repository.PortfolioItemRepository;
+import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.User;
 import org.springframework.beans.factory.annotation.Autowired;

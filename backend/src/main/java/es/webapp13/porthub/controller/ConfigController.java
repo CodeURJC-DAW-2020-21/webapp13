@@ -1,6 +1,6 @@
 package es.webapp13.porthub.controller;
 
-import es.webapp13.porthub.Repository.PortfolioItemRepository;
+import es.webapp13.porthub.repository.PortfolioItemRepository;
 import es.webapp13.porthub.Repository.TemplateRepository;
 import es.webapp13.porthub.Repository.UserRepository;
 import es.webapp13.porthub.model.PortfolioItem;
@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 @Controller
 public class ConfigController {

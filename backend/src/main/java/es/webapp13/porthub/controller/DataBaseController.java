@@ -1,16 +1,14 @@
 package es.webapp13.porthub.controller;
 
-import es.webapp13.porthub.Repository.MessageRepository;
-import es.webapp13.porthub.Repository.PortfolioItemRepository;
-import es.webapp13.porthub.Repository.TemplateRepository;
-import es.webapp13.porthub.Repository.UserRepository;
+import es.webapp13.porthub.repository.MessageRepository;
+import es.webapp13.porthub.repository.PortfolioItemRepository;
+import es.webapp13.porthub.repository.TemplateRepository;
+import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.model.*;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
-
-import java.util.Date;
 
 @Controller
 public class DataBaseController implements CommandLineRunner {
