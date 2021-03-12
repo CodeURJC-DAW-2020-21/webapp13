@@ -46,29 +46,24 @@
 
                     <div class="row">
                         <!--SINGLE RESULT CARD-->
+                        {{#templates}}
                         <div class="col-6">
-
                             <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
                                  data-partial-height="40" data-toggle="popover" data-trigger="click">
-
-
                                 <a href="#" class="js-image" data-position="center">
                                     <!--PROFILE IMAGE GOES HERE-->
-                                    <img class="img-fluid" src="assets/images/people/256/portfolioPremium.PNG"
+                                    <img class="img-fluid" src="../../app/assets/images/people/256/portfolioPremium.PNG"
                                          alt="course">
                                     <span class="overlay__content">
                                                 <span class="overlay__action d-flex flex-column text-center">
-
                                                 </span>
                                             </span>
                                 </a>
-
-
                                 <div class="mdk-reveal__content">
                                     <div class="card-body">
                                         <div class="d-flex">
                                             <div class="flex">
-                                                <a class="card-title" href="#">Template 1</a>
+                                                <a class="card-title" href="#">{{name}}</a>
                                             </div>
                                             <a href="#"
                                                class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
@@ -77,45 +72,8 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
-
-
-                        <div class="col-6">
-
-                            <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
-                                 data-partial-height="40" data-toggle="popover" data-trigger="click">
-
-
-                                <a href="#" class="js-image" data-position="center">
-                                    <!--PROFILE IMAGE GOES HERE-->
-                                    <img class="img-fluid" src="assets/images/people/256/portfolioPremium.PNG"
-                                         alt="course">
-                                    <span class="overlay__content">
-                                                <span class="overlay__action d-flex flex-column text-center">
-
-                                                </span>
-                                            </span>
-                                </a>
-
-
-                                <div class="mdk-reveal__content">
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <div class="flex">
-                                                <a class="card-title" href="#">Template 2</a>
-                                            </div>
-                                            <a href="#"
-                                               class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
+                        {{/templates}}
 
                     </div>
                 </div>

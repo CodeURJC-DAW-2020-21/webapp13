@@ -3,6 +3,7 @@ package es.webapp13.porthub.controller;
 import es.webapp13.porthub.Repository.PortfolioItemRepository;
 import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.service.PortfolioItemService;
+import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,9 @@ import java.util.List;
 
 @Controller
 public class ConfigController {
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private PortfolioItemService portfolioItemService;
@@ -62,7 +66,6 @@ public class ConfigController {
         return "portfolioitem-update-confirmation";
     }
 
-
     @GetMapping("/student-edit-account-password")
     public String studentEditAccountPasswordLink(Model model) {
         model.addAttribute("active_password", true);
@@ -77,6 +80,7 @@ public class ConfigController {
 
     @GetMapping("/my-templates")
     public String userTemplatesLink(Model model){
+        model.addAttribute("templates", userService.getTemplates());
         return "my-templates";
     }
 }
