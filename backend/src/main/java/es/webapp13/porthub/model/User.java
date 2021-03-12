@@ -31,6 +31,9 @@ public class User {
     private long age;
     private Date bornDate;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roles;
+
     @Lob
     @JsonIgnore
     private Blob profilePhoto;
@@ -262,5 +265,12 @@ public class User {
         portfolioItems.add(portfolioItem);
     }
 
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
 
 }

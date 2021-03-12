@@ -1,19 +1,17 @@
 package es.webapp13.porthub.service;
 
 
-import es.webapp13.porthub.Repository.PortfolioItemRepository;
-import es.webapp13.porthub.Repository.TemplateRepository;
-import es.webapp13.porthub.model.PortfolioItem;
+import es.webapp13.porthub.repository.PortfolioItemRepository;
+import es.webapp13.porthub.repository.TemplateRepository;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
-import es.webapp13.porthub.Repository.UserRepository;
+import es.webapp13.porthub.repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.util.List;
 
 @Component
