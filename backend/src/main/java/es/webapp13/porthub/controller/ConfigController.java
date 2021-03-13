@@ -30,13 +30,13 @@ public class ConfigController {
     @Autowired
     private PortfolioItemService portfolioItemService;
 
-    @GetMapping("/student-edit-account")
+    @GetMapping("/settings/edit/account")
     public String studentEditAccountLink(Model model) {
         model.addAttribute("active_main", true);
         return "settings-edit-account";
     }
 
-    @GetMapping("/student-edit-account-notifications")
+    @GetMapping("/settings/edit/account/portfolioitems")
     public String studentEditAccountNotificationsLink(Model model) {
         model.addAttribute("active_notifications", true);
         model.addAttribute("portfolioItems", portfolioItemService.getPortfolioItems("id"));
@@ -44,7 +44,7 @@ public class ConfigController {
     }
 
 
-    @PostMapping("/student-edit-account-notifications")
+    @PostMapping("/settings/edit/account/portfolioitems")
     public String studentEditAccountNotificationsForm(Model model, PortfolioItem portfolioItem) {
         model.addAttribute("active_notifications", true);
         portfolioItemService.addPortfolioItem("id", portfolioItem);
@@ -52,43 +52,43 @@ public class ConfigController {
         return "settings-edit-account-portfolioitems";
     }
 
-    @GetMapping("/deleted-portfolio-item")
+    @GetMapping("/settings/edit/account/deleted/portfolio-item")
     public String portfolioItemDeleteLink() {
         portfolioItemService.deletePortfolioItem("id", 3);
         return "settings-edit-account-portfolioitems";
     }
 
-    @GetMapping("/settings-edit-account-edit-portfolioitem-{userId}-{id}")
+    @GetMapping("/settings/edit/account/edit/portfolioitem/{userId}/{id}")
     public String portfolioItemEditLink(Model model,@PathVariable long id, @PathVariable String userId) {
         model.addAttribute("portfolioItem",portfolioItemService.getPortfolioItem(userId,id));
         return "settings-edit-account-edit-portfolioitem";
     }
 
-    @PostMapping("/settings-edit-account-edit-portfolioitem-{userId}-{id}")
+    @PostMapping("/settings/edit/account/edit/portfolioitem/{userId}/{id}")
     public String portfolioItemEditForm(Model model,@PathVariable long id, @PathVariable String userId,PortfolioItem newPortfolioItem) {
         portfolioItemService.updatePortfolioItem(newPortfolioItem,id);
         return "portfolioitem-update-confirmation";
     }
 
-    @GetMapping("/student-edit-account-password")
+    @GetMapping("/settings/edit/account/password")
     public String studentEditAccountPasswordLink(Model model) {
         model.addAttribute("active_password", true);
         return "settings-edit-account-password";
     }
 
-    @GetMapping("/student-edit-account-profile")
+    @GetMapping("/student/edit/account/profile")
     public String studentEditAccountProfileLink(Model model) {
         model.addAttribute("active_profile", true);
         return "settings-edit-account-profile";
     }
 
-    @GetMapping("/my-templates")
+    @GetMapping("/settings/edit/account/my-templates")
     public String userTemplatesLink(Model model){
         model.addAttribute("templates", userService.getTemplates());
         return "settings-edit-account-mytemplates";
     }
 
-    @GetMapping("/set-active-template")
+    @GetMapping("/set/active/template")
     public String activeTemplateLink(Model model, @RequestParam String name){
         Template activeTemplate = templateRepository.findFirstByName(name);
         User user = userService.getActiveUser();
