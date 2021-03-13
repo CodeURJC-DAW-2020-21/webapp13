@@ -38,4 +38,11 @@ public class ActiveTemplateService {
         return activeTemplateMap.values();
     }
 
+    public void changeActiveTemplate(long oldId, long newId){
+        ActiveTemplate oldActiveTemplate = activeTemplateMap.get(oldId);
+        oldActiveTemplate.setActive(false);
+        ActiveTemplate newActiveTemplate = activeTemplateMap.get(newId);
+        newActiveTemplate.setActive(true);
+    }
+
 }

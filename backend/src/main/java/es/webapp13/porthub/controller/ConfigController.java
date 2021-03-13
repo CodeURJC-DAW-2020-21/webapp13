@@ -94,8 +94,10 @@ public class ConfigController {
 
     @GetMapping("/set/active/template")
     public String activeTemplateLink(Model model, @RequestParam long id){
-        Template activeTemplate = templateRepository.findFirstById(id);
         User user = userService.getActiveUser();
+        long oldId = user.getActiveTemplate().getId();
+        activeTemplateService.changeActiveTemplate(oldId, id);
+        Template activeTemplate = templateRepository.findFirstById(id);
         user.setActiveTemplate(activeTemplate);
         userRepository.save(user);
         return "change-active-template-confirmation";
