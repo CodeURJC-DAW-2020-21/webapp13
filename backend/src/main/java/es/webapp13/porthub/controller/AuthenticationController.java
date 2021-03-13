@@ -1,6 +1,7 @@
 package es.webapp13.porthub.controller;
 
 import es.webapp13.porthub.model.User;
+import es.webapp13.porthub.service.ActiveTemplateService;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,9 @@ import java.io.IOException;
 
 @Controller
 public class AuthenticationController {
+
+    @Autowired
+    private ActiveTemplateService activeTemplateService;
 
     @Autowired
     private UserService userService;
@@ -39,6 +43,7 @@ public class AuthenticationController {
         userService.createUser(user);
         userService.setActiveUser(user);
         defaultModelAttributes.setLogued(true);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
         model.addAttribute("logued", true);
         return "signup-confirmation";
     }

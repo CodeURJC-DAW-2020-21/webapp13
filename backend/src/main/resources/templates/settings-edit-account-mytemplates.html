@@ -65,11 +65,15 @@
                                             <div class="d-flex align-items-center">
                                                 <a class="card-title" href="{{htmlPath}}">{{name}}</a>
                                             </div>
+                                            {{#active}}
+                                            <a href="{{htmlPath}}" class="btn btn-primary">Activo</a>
+                                            {{/active}}
+                                            {{^active}}
                                             <form action="/set/active/template">
-                                                <input type="hidden" name='name' value="{{name}}"/>
+                                                <input type="hidden" name='id' value="{{id}}"/>
                                                 <input type='submit' class="btn btn-accent" value='Activar' />
                                             </form>
-
+                                            {{/active}}
                                         </div>
 
                                     </div>

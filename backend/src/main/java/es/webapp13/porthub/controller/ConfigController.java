@@ -5,6 +5,7 @@ import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
+import es.webapp13.porthub.service.ActiveTemplateService;
 import es.webapp13.porthub.service.PortfolioItemService;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ConfigController {
+
+    @Autowired
+    private ActiveTemplateService activeTemplateService;
 
     @Autowired
     private UserService userService;
@@ -84,13 +88,13 @@ public class ConfigController {
 
     @GetMapping("/settings/edit/account/my-templates")
     public String userTemplatesLink(Model model){
-        model.addAttribute("templates", userService.getTemplates());
+        model.addAttribute("templates", activeTemplateService.getActiveTemplateList());
         return "settings-edit-account-mytemplates";
     }
 
     @GetMapping("/set/active/template")
-    public String activeTemplateLink(Model model, @RequestParam String name){
-        Template activeTemplate = templateRepository.findFirstByName(name);
+    public String activeTemplateLink(Model model, @RequestParam long id){
+        Template activeTemplate = templateRepository.findFirstById(id);
         User user = userService.getActiveUser();
         user.setActiveTemplate(activeTemplate);
         userRepository.save(user);
