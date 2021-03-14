@@ -1,4 +1,4 @@
-/*
+
 package es.webapp13.porthub.security;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class RepositoryUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user = userRepository.findByName(username)
+        User user = userRepository.findById(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         List<GrantedAuthority> roles = new ArrayList<>();
@@ -38,4 +38,3 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 
     }
 }
-*/

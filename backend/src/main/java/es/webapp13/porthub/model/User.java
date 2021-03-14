@@ -58,7 +58,7 @@ public class User {
 
     public User(String id, String name, String surname, String email, String password, String phoneNumber,
                 String website, String city, String degree, String freelance, String description,
-                String job, String category, Template activeTemplate) {
+                String job, String category, Template activeTemplate, String... roles) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -73,6 +73,7 @@ public class User {
         this.description = description;
         this.category = category;
         this.activeTemplate = activeTemplate;
+        this.roles = List.of(roles);
     }
 
     @Override

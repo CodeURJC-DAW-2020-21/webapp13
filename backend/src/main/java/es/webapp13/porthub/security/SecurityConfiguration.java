@@ -1,4 +1,3 @@
-/*
 package es.webapp13.porthub.security;
 
 import java.security.SecureRandom;
@@ -40,16 +39,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/logout").permitAll();
         http.authorizeRequests().antMatchers("/shop").permitAll();
         http.authorizeRequests().antMatchers("/search").permitAll();
+        http.authorizeRequests().antMatchers("/search/*").permitAll();
 
         // Private pages
-        http.authorizeRequests().antMatchers("/newbook").hasAnyRole("USER");
-        http.authorizeRequests().antMatchers("/student-edit-*").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/settings/edit/account").hasAnyRole("USER");
         http.authorizeRequests().antMatchers("/settings-edit-*").hasAnyRole("USER");
-        //http.authorizeRequests().antMatchers("/settings-edit-*").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/settings/*").hasAnyRole("USER");
+
+        // Admin pages
+        http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
 
         // Login form
         http.formLogin().loginPage("/login");
-        http.formLogin().usernameParameter("username");
+        http.formLogin().usernameParameter("id");
         http.formLogin().passwordParameter("password");
         http.formLogin().defaultSuccessUrl("/");
         http.formLogin().failureUrl("/loginerror");
@@ -57,7 +59,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // Logout
         http.logout().logoutUrl("/logout");
         http.logout().logoutSuccessUrl("/");
+
+        // Disable CSRF at the moment
+        http.csrf().disable();
     }
 }
 
-*/
+

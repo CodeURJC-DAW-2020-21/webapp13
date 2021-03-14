@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class UserService {
@@ -93,6 +94,10 @@ public class UserService {
         return userRepository.findFirstById(id);
     }
 
+    public User findName(String name) {
+        return userRepository.findFirstByName(name);
+    }
+
     public String getTemplateHtmlPath(String id) {
         User user = userRepository.findById(id).orElseThrow();
         Template template = user.getActiveTemplate();
@@ -105,5 +110,9 @@ public class UserService {
      */
     public List<Template> getTemplates() {
         return activeUser.getTemplates();
+    }
+
+    public Optional<User> findById(String name){
+        return userRepository.findById(name);
     }
 }
