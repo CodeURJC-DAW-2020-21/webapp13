@@ -45,4 +45,13 @@ public class ActiveTemplateService {
         newActiveTemplate.setActive(true);
     }
 
+    public void addTemplate(Template template){
+        long id = template.getId();
+        String name = template.getName();
+        String htmlPath = template.getHtmlPath();
+        boolean active = false;
+        ActiveTemplate activeTemplate = new ActiveTemplate(id,htmlPath, name, active);
+        activeTemplateMap.put(id, activeTemplate);
+    }
+
 }

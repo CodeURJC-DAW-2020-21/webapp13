@@ -2,7 +2,6 @@ package es.webapp13.porthub.service;
 
 
 import es.webapp13.porthub.repository.PortfolioItemRepository;
-import es.webapp13.porthub.repository.TemplateRepository;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.UserRepository;
@@ -15,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class UserService {
@@ -23,7 +23,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private TemplateRepository templateRepository;
+    private TemplateService templateService;
 
     @Autowired
     private PortfolioItemRepository portfolioItemRepository;
@@ -41,10 +41,11 @@ public class UserService {
 
     /**
      * Calculate the user age
+     *
      * @param user A given user
      * @return The age of the user
      */
-    private long calculateAge(User user){
+    private long calculateAge(User user) {
         java.util.Date currentTime = new java.util.Date();
         long ageMilliseconds = currentTime.getTime() - user.getBornDate().getTime();
         long ageSeconds = ageMilliseconds / 1000;
@@ -52,32 +53,32 @@ public class UserService {
         long ageHours = ageMinutes / 60;
         long ageDays = ageHours / 24;
         long ageYears = ageDays / 365;
-        return 0;
+        return ageYears;
     }
 
     /**
      * Creates, configure and add a new user to the database
+     *
      * @param user User received from a form
      */
     public void createUser(User user) {
-
-        Template free = templateRepository.findFirstById(1);
+        Template free = templateService.findFirstById(1);
         user.getTemplates().add(free);
         user.setActiveTemplate(free);
-
-        Template premium = templateRepository.findFirstById(2);
-        user.getTemplates().add(premium);
         long age = calculateAge(user);
-
-
         user.setAge(age);
-        user.setActiveTemplate(templateRepository.findFirstById(1));
+        user.setActiveTemplate(templateService.findFirstById(1));
+        userRepository.save(user);
+    }
+
+    public void saveChanges(User user) {
         userRepository.save(user);
     }
 
     /**
      * Update the profile photo of a given user by a given image
-     * @param user A user given
+     *
+     * @param user      A user given
      * @param imageFile A image given
      * @throws IOException
      */
@@ -88,6 +89,7 @@ public class UserService {
 
     /**
      * Get all the users in the database (at the moment, later on we should get pageable elements)
+     *
      * @return List of users
      */
     public List<User> findUsers() {
@@ -98,6 +100,10 @@ public class UserService {
         return userRepository.findFirstById(id);
     }
 
+    public User findName(String name) {
+        return userRepository.findFirstByName(name);
+    }
+
     public String getTemplateHtmlPath(String id) {
         User user = userRepository.findById(id).orElseThrow();
         Template template = user.getActiveTemplate();
@@ -106,6 +112,7 @@ public class UserService {
 
     /**
      * Get a list of templates
+     *
      * @return List of templates
      */
     public List<Template> getTemplates() {
@@ -113,7 +120,11 @@ public class UserService {
     }
 
 
-    public Page<User> findUsersPage(Pageable page){
+    public Page<User> findUsersPage(Pageable page) {
         return userRepository.findAll(page);
+    }
+
+    public Optional<User> findById(String name) {
+        return userRepository.findById(name);
     }
 }
