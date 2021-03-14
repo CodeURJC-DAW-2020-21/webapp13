@@ -39,12 +39,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/logout").permitAll();
         http.authorizeRequests().antMatchers("/shop").permitAll();
         http.authorizeRequests().antMatchers("/search").permitAll();
-        http.authorizeRequests().antMatchers("/search/*").permitAll();
+        http.authorizeRequests().antMatchers("/search/**").permitAll();
 
         // Private pages
-        http.authorizeRequests().antMatchers("/settings/edit/account").hasAnyRole("USER");
-        http.authorizeRequests().antMatchers("/settings-edit-*").hasAnyRole("USER");
-        http.authorizeRequests().antMatchers("/settings/*").hasAnyRole("USER");
+        //http.authorizeRequests().antMatchers("/settings/edit/account").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/settings/**").hasAnyRole("USER");
 
         // Admin pages
         http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
@@ -60,8 +59,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.logout().logoutUrl("/logout");
         http.logout().logoutSuccessUrl("/");
 
-        // Disable CSRF at the moment
-        http.csrf().disable();
+
     }
 }
 

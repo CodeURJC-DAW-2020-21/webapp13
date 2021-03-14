@@ -1,6 +1,6 @@
 
 package es.webapp13.porthub.security;
-/*
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -36,4 +36,4 @@ class CSRFHandlerInterceptor implements HandlerInterceptor {
     }
 }
 
- */
+
