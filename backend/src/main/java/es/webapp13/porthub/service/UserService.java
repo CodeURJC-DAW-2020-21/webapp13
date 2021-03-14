@@ -7,12 +7,14 @@ import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +29,9 @@ public class UserService {
 
     @Autowired
     private PortfolioItemRepository portfolioItemRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     private User activeUser = null;
 
@@ -65,6 +70,13 @@ public class UserService {
         Template free = templateService.findFirstById(1);
         user.getTemplates().add(free);
         user.setActiveTemplate(free);
+
+        List<String> roles = new LinkedList<>();
+        roles.add("USER");
+        user.setRoles(roles);
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         long age = calculateAge(user);
         user.setAge(age);
         user.setActiveTemplate(templateService.findFirstById(1));

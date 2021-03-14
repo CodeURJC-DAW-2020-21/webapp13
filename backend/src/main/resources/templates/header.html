@@ -91,6 +91,7 @@
                 <form class="search-form search-form--black search-form-courses d-none d-md-flex"
                       action="/search">
                     <input type="text" class="form-control" placeholder="Descubre un nuevo portfolio">
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
                     <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
                 </form>
 
@@ -106,7 +107,10 @@
                         </a>
                     </li>
                     <li class="d-none d-sm-flex nav-item">
-                        <a href="/logout/confirmation" class="btn btn-accent">Logout</a>
+                        <form action="/logout" method="post">
+                            <button type="submit" class="btn btn-accent">Logout</button>
+                            <input type="hidden" name="_csrf" value="{{token}}" />
+                        </form>
                     </li>
                     {{/logued}}
                     {{^logued}}

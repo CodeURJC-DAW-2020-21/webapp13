@@ -44,6 +44,7 @@
                                     {{^purchased}}
                                     <form action="/purchase/confirmation">
                                         <input type="hidden" name='id' value="{{id}}"/>
+                                        <input type="hidden" name="_csrf" value="{{token}}"/>
                                         <input type='submit' class="btn btn-outline-secondary" value='Comprar'/>
                                     </form>
                                     {{/purchased}}

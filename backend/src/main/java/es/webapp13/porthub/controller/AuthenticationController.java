@@ -68,4 +68,6 @@ public class AuthenticationController {
         model.addAttribute("logued", false);
         return "logout-confirmation";
     }
+
+
 }
