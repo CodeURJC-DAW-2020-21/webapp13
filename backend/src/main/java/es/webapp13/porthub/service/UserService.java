@@ -8,6 +8,8 @@ import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -108,5 +110,10 @@ public class UserService {
      */
     public List<Template> getTemplates() {
         return activeUser.getTemplates();
+    }
+
+
+    public Page<User> findUsersPage(Pageable page){
+        return userRepository.findAll(page);
     }
 }

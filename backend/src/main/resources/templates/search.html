@@ -9,7 +9,7 @@
             <div class="navbar-list__item">
                 <nav class="nav nav-links nav--flush">
                     <a data-toggle="sidebar" data-target="#filters-drawer"
-                       class="active nav-link d-flex align-items-center">Filtros</a>
+                        class="active nav-link d-flex align-items-center">Filtros</a>
                 </nav>
             </div>
 
@@ -46,18 +46,18 @@
                         <div class="col-lg-4 col-xl-3 col-sm-6">
 
                             <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
-                                 data-partial-height="40" data-toggle="popover" data-trigger="click">
+                                data-partial-height="40" data-toggle="popover" data-trigger="click">
 
 
                                 <a href="#" class="js-image" data-position="center">
                                     <!--PROFILE IMAGE GOES HERE-->
                                     <img src="/app/assets/images/people/256/256_rsz_florian-perennes-594195-unsplash.jpg"
-                                         alt="course">
+                                        alt="course">
                                     <span class="overlay__content">
-                                                <span class="overlay__action d-flex flex-column text-center">
+                                        <span class="overlay__action d-flex flex-column text-center">
 
-                                                </span>
-                                            </span>
+                                        </span>
+                                    </span>
                                 </a>
 
 
@@ -69,7 +69,7 @@
                                                 <small class="text-50 font-weight-bold mb-4pt">{{job}}</small>
                                             </div>
                                             <a href="#"
-                                               class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
+                                                class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
                                         </div>
 
                                     </div>
@@ -80,8 +80,7 @@
                                     <div class="media-left">
                                         <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
                                         <img src="/app/assets/images/people/50/50_rsz_florian-perennes-594195-unsplash.jpg"
-                                             width="40"
-                                             height="40" alt="Angular" class="rounded">
+                                            width="40" height="40" alt="Angular" class="rounded">
                                     </div>
                                     <div class="media-body">
                                         <div class="card-title mb-0">{{name}}</div>
@@ -141,26 +140,30 @@
         <!-- DRAWER (FILTERS) -->
         <div class="mdk-drawer js-mdk-drawer" id="filters-drawer">
             <div class="mdk-drawer__content">
-                <div class="mdk-drawer__inner" data-perfect-scrollbar
-                     data-perfect-scrollbar-wheel-propagation="true">
+                <div class="mdk-drawer__inner" data-perfect-scrollbar data-perfect-scrollbar-wheel-propagation="true">
                     <div class="pt-md-32pt pt-lg-64pt">
                         <div class="px-24pt mb-24pt mb-md-48pt filter-section">
                             <ul class="accordion js-accordion m-0" id="library-category">
                                 <li class="accordion__item open">
 
-                                    <a class="accordion__toggle" data-toggle="collapse"
-                                       data-parent="#library-category" href="#library-all">
+                                    <a class="accordion__toggle" data-toggle="collapse" data-parent="#library-category"
+                                        href="#library-all">
                                         <span class="flex">Profesión</span>
                                         <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
                                     </a>
 
                                     <nav class="accordion__menu" id="library-all">
-                                        <a class="accordion__menu-link {{#active_all}}active{{/active_all}}" href="/search">Todas</a>
+                                        <a class="accordion__menu-link {{#active_all}}active{{/active_all}}"
+                                            href="/search">Todas</a>
 
-                                        <a class="accordion__menu-link {{#active_engineer}}active{{/active_engineer}}" href="/search/ingeniería">Ingeniería</a>
-                                        <a class="accordion__menu-link {{#active_designer}}active{{/active_designer}}" href="/search/diseño">Diseño</a>
-                                        <a class="accordion__menu-link {{#active_photographer}}active{{/active_photographer}}" href="/search/fotografía">Fotografía</a>
-                                        <a class="accordion__menu-link {{#active_businessman}}active{{/active_businessman}}" href="/search/empresa">Empresa</a>
+                                        <a class="accordion__menu-link {{#active_engineer}}active{{/active_engineer}}"
+                                            href="/search/ingeniería">Ingeniería</a>
+                                        <a class="accordion__menu-link {{#active_designer}}active{{/active_designer}}"
+                                            href="/search/diseño">Diseño</a>
+                                        <a class="accordion__menu-link {{#active_photographer}}active{{/active_photographer}}"
+                                            href="/search/fotografía">Fotografía</a>
+                                        <a class="accordion__menu-link {{#active_businessman}}active{{/active_businessman}}"
+                                            href="/search/empresa">Empresa</a>
 
                                     </nav>
                                 </li>
@@ -174,6 +177,9 @@
 
     </div>
     <!-- // END drawer-layout -->
+
+    
+    <script src="/app/assets/js/custom/ajax.js"></script>
 
 
 </div>
