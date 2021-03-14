@@ -19,108 +19,140 @@
         <div class="container page__container">
             <div class="col-lg-10 p-0 mx-auto">
                 <div class="row">
-                    <div class="col-md-6 mb-24pt mb-md-0">
-                        <form action="/signup/confirmation" method="post" enctype="multipart/form-data">
-
-                            <div class="form-group">
-                                <label for="id">Usuario:</label>
-                                <input id="id" type="text" class="form-control"
-                                       placeholder="Introduzca su nombre de usuario" name="id">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="name">Nombre:</label>
-                                <input id="name" type="text" class="form-control"
-                                       placeholder="Introduzca su nombre" name="name">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="surname">Apellidos:</label>
-                                <input id="surname" type="text" class="form-control"
-                                       placeholder="Introduzca sus apellidos" name="surname">
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input id="email" type="text" class="form-control"
-                                       placeholder="Introsuzca su dirección de email" name="email">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phoneNumber">Telefono:</label>
-                                <input id="phoneNumber" type="text" class="form-control"
-                                       placeholder="Introsuzca su telefono" name="phoneNumber">
-                            </div>
-
-                            <div class="form-group mb-24pt">
-                                <label for="password">Contraseña:</label>
-                                <input id="password" type="text" class="form-control"
-                                       placeholder="Introuduzca una contraseña" name="password">
-                            </div>
-
-                            <div class="form-group mb-24pt">
-                                <label for="website">Página web:</label>
-                                <input id="website" type="text" class="form-control"
-                                       placeholder="Introuduzca la dirección de su página web" name="website">
-                            </div>
-
-                            <div class="form-group mb-24pt">
-                                <label for="city">Ciudad:</label>
-                                <input id="city" type="text" class="form-control"
-                                       placeholder="Introuduzca la ciudad en la que vive" name="city">
-                            </div>
-
-                            <div class="form-group mb-24pt">
-                                <label for="degree">Nivel educativo:</label>
-                                <input id="degree" type="text" class="form-control"
-                                       placeholder="Introuduzca su nivel educativo" name="degree">
-                            </div>
-
-                            <div class="form-group mb-24pt">
-                                <label for="freelance">Disponibilidad:</label>
-                                <input id="freelance" type="text" class="form-control"
-                                       placeholder="Introuduzca su situación laboral" name="freelance">
-                            </div>
-
-                            <div class="form-group mb-24pt">
-                                <label for="job">Área de trabajo:</label>
-                                <input id="job" type="text" class="form-control"
-                                       placeholder="Introuduzca su área de trabajo" name="job">
-                            </div>
-
-                            <div class="form-group mb-24pt">
-                                <label for="bornDate">Fecha de nacimiento:</label>
-                                <input id="bornDate" type="date" class="form-control"
-                                       placeholder="Introuduzca su área de trabajo" name="bornDate">
-                            </div>
-
-                            <div class="form-group mb-24pt">
-                                <label for="description">Descripción personal:</label>
-                                <input id="description" type="text" class="form-control"
-                                       placeholder="Introuduzca su descripción" name="description">
-                            </div>
-
-                            <input type="hidden" name="_csrf" value="{{token}}"/>
-
-                            <button class="btn btn-accent" type="submit">Crear Cuenta</button>
-                        </form>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-0">
-                            <div class="card-body">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" checked id="topic-all">
-                                    <label class="custom-control-label">Términos y condiciones</label>
-                                    <small class="form-text text-muted">Marcando esta casilla, acepto los
-                                        términos de uso de Porthub</small>
+                    <div class="col-md-12 mb-24pt mb-md-0">
+                        <form action="/signup/confirmation" method="post" enctype="multipart/form-data"
+                              class="needs-validation" novalidate>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="id">Usuario:</label>
+                                    <input id="id" type="text" class="form-control"
+                                           placeholder="Introduzca su nombre de usuario" name="id" required>
+                                    <div class="invalid-feedback">Introduzca un nombre de usuario para completar la información de su cuenta</div>
+                                </div>
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="email">Email:</label>
+                                    <input id="email" type="email" class="form-control"
+                                           placeholder="Introsuzca su dirección de email" name="email" required>
+                                    <div class="invalid-feedback">Introduzca un email para completar la información de su cuenta</div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="name">Nombre:</label>
+                                    <input id="name" type="text" class="form-control"
+                                           placeholder="Introduzca su nombre" name="name" required>
+                                    <div class="invalid-feedback">Introduzca un nombre para completar la unformación de su cuenta</div>
+                                </div>
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="surname">Apellidos:</label>
+                                    <input id="surname" type="text" class="form-control"
+                                           placeholder="Introduzca sus apellidos" name="surname" required>
+                                    <div class="invalid-feedback">Introduzca unos apellidos para completar la información de su cuenta su cuenta</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="password">Contraseña:</label>
+                                    <input id="password" type="password" class="form-control"
+                                           placeholder="Introduzca una contraseña" name="password" required>
+                                    <div class="invalid-feedback">Introduzca una contraseña para completar la información de su cuenta</div>
+                                </div>
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="phoneNumber">Telefono:</label>
+                                    <input id="phoneNumber" type="text" class="form-control"
+                                           placeholder="Introsuzca su telefono" name="phoneNumber" required>
+                                    <div class="invalid-feedback">Introduzca un teléfono para completar la información de su cuenta</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="bornDate">Fecha de nacimiento:</label>
+                                    <input id="bornDate" type="date" class="form-control"
+                                           placeholder="Introduzca su área de trabajo" name="bornDate" required>
+                                    <div class="invalid-feedback">Introduzca una fecha de nacimiento para completar la información de su cuenta</div>
+                                </div>
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="city">Ciudad:</label>
+                                    <input id="city" type="text" class="form-control"
+                                           placeholder="Introduzca la ciudad en la que vive" name="city" required>
+                                    <div class="invalid-feedback">Introduzca una ciudad para completar la información de su cuenta</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="freelance">Disponibilidad:</label>
+                                    <input id="freelance" type="text" class="form-control"
+                                           placeholder="Introduzca su situación laboral" name="freelance" required>
+                                    <div class="invalid-feedback">Introduzca una disponibilidad para completar la información de su cuenta</div>
+                                </div>
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="job">Área de trabajo:</label>
+                                    <input id="job" type="text" class="form-control"
+                                           placeholder="Introduzca su área de trabajo" name="job" required>
+                                    <div class="invalid-feedback">Introduzca un área de trabajo para completar la información de su cuenta</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="degree">Nivel educativo:</label>
+                                    <input id="degree" type="text" class="form-control"
+                                           placeholder="Introduzca su nivel educativo" name="degree" required>
+                                    <div class="invalid-feedback">Introduzca un nivel educativo para completar la información de su cuenta</div>
+                                </div>
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="website">Página web:</label>
+                                    <input id="website" type="text" class="form-control"
+                                           placeholder="Introduzca la dirección de su página web" name="website"
+                                           required>
+                                    <div class="invalid-feedback">Introduzca una página web para completar la información de su cuenta</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <label for="description">Descripción personal:</label>
+                                    <textarea id="description" class="form-control" required
+                                              placeholder="Habla sobre ti ..."></textarea>
+                                    <div class="invalid-feedback">Introduzca una descripción personal para completar la información de su cuenta</div>
+                                </div>
+                                <div class="form-group col-md-6 mb-24pt">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                                <input type="checkbox" class="custom-control-input" id="termsAccept" required>
+                                                <label class="custom-control-label" for="termsAccept">Términos y condiciones de uso</label><br>
+                                                <small>Marcando esta casilla, acepto los términos y condiciones de uso de Porthub</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <button class="btn btn-accent" type="submit">Crear Cuenta</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 {{>footer}}
