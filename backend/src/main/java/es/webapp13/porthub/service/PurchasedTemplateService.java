@@ -4,7 +4,6 @@ package es.webapp13.porthub.service;
 import es.webapp13.porthub.model.ActiveTemplate;
 import es.webapp13.porthub.model.PurchasedTemplate;
 import es.webapp13.porthub.model.Template;
-import es.webapp13.porthub.repository.TemplateRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,7 +17,7 @@ import java.util.Map;
 public class PurchasedTemplateService {
 
     @Autowired
-    private TemplateRepository templateRepository;
+    private TemplateService templateService;
 
     private Map<Long, PurchasedTemplate> purchasedTemplateMap;
 
@@ -29,7 +28,7 @@ public class PurchasedTemplateService {
 
     public void init(List<Template> purchasedTemplates) {
         purchasedTemplateMap = new HashMap<>();
-        for (Template template: templateRepository.findAll()){
+        for (Template template: templateService.findAll()){
             long id = template.getId();
             String name = template.getName();
             String htmlPath = template.getHtmlPath();

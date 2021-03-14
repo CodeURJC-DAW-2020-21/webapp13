@@ -2,7 +2,6 @@ package es.webapp13.porthub.service;
 
 
 import es.webapp13.porthub.repository.PortfolioItemRepository;
-import es.webapp13.porthub.repository.TemplateRepository;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.UserRepository;
@@ -21,7 +20,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private TemplateRepository templateRepository;
+    private TemplateService templateService;
 
     @Autowired
     private PortfolioItemRepository portfolioItemRepository;
@@ -50,7 +49,7 @@ public class UserService {
         long ageHours = ageMinutes / 60;
         long ageDays = ageHours / 24;
         long ageYears = ageDays / 365;
-        return 0;
+        return ageYears;
     }
 
     /**
@@ -58,12 +57,12 @@ public class UserService {
      * @param user User received from a form
      */
     public void createUser(User user) {
-        Template free = templateRepository.findFirstById(1);
+        Template free = templateService.findFirstById(1);
         user.getTemplates().add(free);
         user.setActiveTemplate(free);
         long age = calculateAge(user);
         user.setAge(age);
-        user.setActiveTemplate(templateRepository.findFirstById(1));
+        user.setActiveTemplate(templateService.findFirstById(1));
         userRepository.save(user);
     }
 

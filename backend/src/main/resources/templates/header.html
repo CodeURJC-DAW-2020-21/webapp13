@@ -73,9 +73,16 @@
                     <li class="nav-item {{#active_search}}active{{/active_search}}">
                         <a href="/search" class="nav-link "><i class="fas fa-search fa-sm mr-4pt d-flex align-items-center"></i>Explorar</a>
                     </li>
+                    {{#logued}}
                     <li class="nav-item {{#active_profile}}active{{/active_profile}}">
                         <a href="/profile" class="nav-link"><i class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
                     </li>
+                    {{/logued}}
+                    {{^logued}}
+                    <li class="nav-item {{#active_profile}}active{{/active_profile}}">
+                        <a href="/login" class="nav-link"><i class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
+                    </li>
+                    {{/logued}}
                     <li class="nav-item {{#active_shop}}active{{/active_shop}}">
                         <a href="/shop" class="nav-link"><i class="fas fa-shopping-bag mr-4pt d-flex align-items-center"></i>Tienda</a>
                     </li>

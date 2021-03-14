@@ -1,12 +1,12 @@
 package es.webapp13.porthub.controller;
 
-import es.webapp13.porthub.repository.TemplateRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.ActiveTemplateService;
 import es.webapp13.porthub.service.PortfolioItemService;
+import es.webapp13.porthub.service.TemplateService;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +29,7 @@ public class ConfigController {
     private UserRepository userRepository;
 
     @Autowired
-    private TemplateRepository templateRepository;
+    private TemplateService templateService;
 
     @Autowired
     private PortfolioItemService portfolioItemService;
@@ -97,7 +97,7 @@ public class ConfigController {
         User user = userService.getActiveUser();
         long oldId = user.getActiveTemplate().getId();
         activeTemplateService.changeActiveTemplate(oldId, id);
-        Template activeTemplate = templateRepository.findFirstById(id);
+        Template activeTemplate = templateService.findFirstById(id);
         user.setActiveTemplate(activeTemplate);
         userRepository.save(user);
         return "change-active-template-confirmation";
