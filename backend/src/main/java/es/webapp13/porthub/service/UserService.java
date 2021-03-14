@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,6 +66,11 @@ public class UserService {
         Template free = templateService.findFirstById(1);
         user.getTemplates().add(free);
         user.setActiveTemplate(free);
+
+        List<String> roles = new LinkedList<>();
+        roles.add("USER");
+        user.setRoles(roles);
+
         long age = calculateAge(user);
         user.setAge(age);
         user.setActiveTemplate(templateService.findFirstById(1));

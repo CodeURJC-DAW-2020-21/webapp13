@@ -20,6 +20,7 @@ public class User {
     private String surname;
     private long age;
     private Date bornDate;
+    private Date creationDate;
 
     private String email;
     private String password;
@@ -270,4 +271,11 @@ public class User {
         this.roles = roles;
     }
 
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
 }
