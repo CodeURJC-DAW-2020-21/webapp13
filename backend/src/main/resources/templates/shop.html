@@ -38,18 +38,21 @@
                                 <div class="card-footer">
                                     <a href="{{htmlPath}}" class="btn btn-outline-secondary">Preview</a>
                                     {{#user}}
-                                    <a href="/purchase-confirmation" class="btn btn-outline-secondary">Comprar</a>
+                                    {{#purchased}}
+                                    <a href="#" class="btn btn-outline-secondary">Comprado</a>
+                                    {{/purchased}}
+                                    {{^purchased}}
+                                    <form action="/purchase/confirmation">
+                                        <input type="hidden" name='id' value="{{id}}"/>
+                                        <input type='submit' class="btn btn-outline-secondary" value='Comprar'/>
+                                    </form>
+                                    {{/purchased}}
                                     {{/user}}
                                 </div>
                             </div>
                         </div>
                         {{/templates}}
                     </div>
-
-                
-
-                    
-
                 </div>
             </div>
 

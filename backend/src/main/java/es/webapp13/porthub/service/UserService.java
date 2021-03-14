@@ -58,18 +58,16 @@ public class UserService {
      * @param user User received from a form
      */
     public void createUser(User user) {
-
         Template free = templateRepository.findFirstById(1);
         user.getTemplates().add(free);
         user.setActiveTemplate(free);
-
-        Template premium = templateRepository.findFirstById(2);
-        user.getTemplates().add(premium);
         long age = calculateAge(user);
-
-
         user.setAge(age);
         user.setActiveTemplate(templateRepository.findFirstById(1));
+        userRepository.save(user);
+    }
+
+    public void saveChanges(User user){
         userRepository.save(user);
     }
 
