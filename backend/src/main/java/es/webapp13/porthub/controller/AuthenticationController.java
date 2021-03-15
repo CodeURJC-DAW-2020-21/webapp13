@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.security.Principal;
 
 @Controller
 public class AuthenticationController {
@@ -52,17 +54,16 @@ public class AuthenticationController {
     @PostMapping("/signup/confirmation")
     public String signupConfirmationLink(Model model, User user) throws IOException {
         userService.createUser(user);
-        //userService.setActiveUser(user);
-        //defaultModelAttributes.setLogued(true);
         activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
         purchasedTemplateService.init(user.getTemplates());
-        model.addAttribute("logued", true);
         return "signup-confirmation";
     }
 
     @GetMapping("/logout/confirmation")
-    public String logoutConfirmationLink(Model model) {
-        userService.saveChanges(userService.getActiveUser());
+    public String logoutConfirmationLink(Model model, HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
+        userService.saveChanges(user);
         //userService.setActiveUser(null);
         //defaultModelAttributes.setLogued(false);
         model.addAttribute("logued", false);

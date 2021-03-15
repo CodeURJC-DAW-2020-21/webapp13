@@ -24,10 +24,8 @@ public class DefaultModelAttributes {
     @ModelAttribute
     public void addAttributes(Model model, HttpServletRequest request) {
 
-
         Principal principal = request.getUserPrincipal();
         //Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
 
         if(principal != null) {
             String name = principal.getName();
