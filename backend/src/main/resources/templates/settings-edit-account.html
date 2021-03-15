@@ -76,7 +76,12 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Nombre</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="Alexander" placeholder="Escribe tu nombre ...">
+                                                {{#logued}}
+                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{name}}{{/user}}">
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="" placeholder="Escribe tu nombre...">
+                                                {{/logued}}
                                             </div>
                                         </div>
                                     </div>
@@ -84,7 +89,12 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Apellidos</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="Watson" placeholder="Escribe tu apellido ...">
+                                                {{#logued}}
+                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{surname}}{{/user}}">
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="" placeholder="Escribe tus apellidos...">
+                                                {{/logued}}
                                             </div>
                                         </div>
                                     </div>
@@ -92,8 +102,13 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Correo</label>
                                             <div class="col-sm-9">
-                                                <input type="email" class="form-control" value="alexander.watson@fake-mail.com" placeholder="Escribe tu dirección de correo ...">
+                                                {{#logued}}
+                                                <input type="email" class="form-control" value="" placeholder="{{#user}}{{email}}{{/user}}">
                                                 <small class="form-text text-muted">Si desea cambiar su correo, deberá confirmarlo otra vez.</small>
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="" placeholder="Escribe tu dirección de correo...">
+                                                {{/logued}}
                                             </div>
                                         </div>
                                     </div>
@@ -101,7 +116,12 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Teléfono</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="666 666 666" placeholder="Escribe tu número de teléfono ...">
+                                                {{#logued}}
+                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{phoneNumber}}{{/user}}">
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="" placeholder="Escribe tu número de teléfono...">
+                                                {{/logued}}
                                             </div>
                                         </div>
                                     </div>
@@ -109,7 +129,12 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Fecha de nacimiento</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="00/00/0000" placeholder="Escribe tu fecha de nacimiento ...">
+                                                {{#logued}}
+                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{bornDate}}{{/user}}">
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="" placeholder="Escribe tu fecha de nacimiento...">
+                                                {{/logued}}
                                             </div>
                                         </div>
                                     </div>
@@ -117,7 +142,64 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Edad</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="00" placeholder="Escribe tu edad ...">
+                                                {{#logued}}
+                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{age}}{{/user}}">
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="" placeholder="Escribe tu edad...">
+                                                {{/logued}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Ciudad</label>
+                                            <div class="col-sm-9">
+                                                {{#logued}}
+                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{city}}{{/user}}">
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="" placeholder="Escribe tu ciudad...">
+                                                {{/logued}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Nivel educativo</label>
+                                            <div class="col-sm-9">
+                                                {{#logued}}
+                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{degree}}{{/user}}">
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="" placeholder="Escribe tu nivel educativo...">
+                                                {{/logued}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Área de trabajo</label>
+                                            <div class="col-sm-9">
+                                                {{#logued}}
+                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{job}}{{/user}}">
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="" placeholder="Escribe un área de trabajo...">
+                                                {{/logued}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Disponibilidad</label>
+                                            <div class="col-sm-9">
+                                                {{#logued}}
+                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{freelance}}{{/user}}">
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="" placeholder="Escribe tu edad...">
+                                                {{/logued}}
                                             </div>
                                         </div>
                                     </div>
