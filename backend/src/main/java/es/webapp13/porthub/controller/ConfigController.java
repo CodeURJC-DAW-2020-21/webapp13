@@ -9,12 +9,19 @@ import es.webapp13.porthub.service.PortfolioItemService;
 import es.webapp13.porthub.service.TemplateService;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.sql.SQLException;
+import java.util.Optional;
 
 @Controller
 public class ConfigController {
@@ -103,4 +110,19 @@ public class ConfigController {
         return "change-active-template-confirmation";
     }
 
+    @GetMapping("/portfolioitems/{id}/image")
+    public ResponseEntity<Object> downloadPortfolioItemImage(@PathVariable long id) throws SQLException {
+        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
+        System.out.println("La encontre");
+        if (portfolioItem.isPresent() && portfolioItem.get().getPreviewImg() != null) {
+
+            Resource file = new InputStreamResource(portfolioItem.get().getPreviewImg().getBinaryStream());
+
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
+                    .contentLength(portfolioItem.get().getPreviewImg().length()).body(file);
+
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

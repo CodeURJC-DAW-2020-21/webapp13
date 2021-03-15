@@ -36,7 +36,7 @@ public class AuthenticationController {
 
     @RequestMapping("/loginerror")
     public String loginerror() {
-        return "login";
+        return "login-error";
     }
 
     @GetMapping("/reset/password")

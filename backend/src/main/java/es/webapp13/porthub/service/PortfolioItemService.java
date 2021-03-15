@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Component
 public class PortfolioItemService {
@@ -97,6 +98,10 @@ public class PortfolioItemService {
         portfolioItemList.remove(portfolioItem);
         portfolioItemRepository.delete(portfolioItem);
         userRepository.save(user);
+    }
+
+    public Optional<PortfolioItem> findById(long id){
+        return portfolioItemRepository.findById(id);
     }
 
 }

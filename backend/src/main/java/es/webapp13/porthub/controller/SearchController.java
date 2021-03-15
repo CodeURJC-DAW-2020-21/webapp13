@@ -35,7 +35,7 @@ public class SearchController {
         return "search";
     }
 
-    @GetMapping("/search/ingeniería")
+    @GetMapping("/search/ingenieria")
     public String searchLinkEngineer(Model model) {
         model.addAttribute("active_engineer", true);
         List<User> userList = searchService.getUsersByCategory("Ingeniero");
@@ -53,7 +53,7 @@ public class SearchController {
         return "search";
     }
 
-    @GetMapping("/search/fotografía")
+    @GetMapping("/search/fotografia")
     public String searchLinkPhotographer(Model model) {
         model.addAttribute("active_photographer", true);
         List<User> userList = searchService.getUsersByCategory("Fotografo");

@@ -223,17 +223,12 @@
                              data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title=""
                              title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
 
-
                             <!--Image-->
-                            <a href="#" class="js-image" data-position="center" data-height="auto"
-                               data-domfactory-upgraded="image"
-                               style="display: block; position: relative; overflow: hidden; background-image: url(&quot;http://localhost:8080/app/assets/images/macbook.png&quot;); background-size: cover; background-position: center center; height: 256px;">
-                                <img src="/app/assets/images/people/256/256_rsz_florian-perennes-594195-unsplash.jpg"
-                                     alt="course">
+                            <a href="#" class="js-image" data-position="center" data-height="auto" data-domfactory-upgraded="image">
+                                <img src="/portfolioitems/{{id}}/image" height="256px" alt="course">
                                 <span class="overlay__content">
-                                                <span class="overlay__action d-flex flex-column text-center">
-                                                </span>
-                                            </span>
+                                    <span class="overlay__action d-flex flex-column text-center"></span>
+                                </span>
                             </a>
 
                             <!--Info-->
@@ -257,15 +252,15 @@
                             <!--Subinfo-->
                             <div class="media">
                                 <div class="media-body">
-                                    <div class="card-title mb-0">Proyecto 1</div>
+                                    <div class="card-title mb-2">{{name}}</div>
                                     <p class="lh-1 mb-0">
-                                        <span class="text-black-50 small font-weight-bold">Categoria 1</span>
+                                        <span class="text-black-50 small font-weight-bold mb-2">{{category}}</span>
                                     </p>
                                 </div>
                             </div>
 
                             <!--Options-->
-                            <div class="row align-items-center">
+                            <div class="row align-items-center mt-2">
                                 <div class="col text-center">
                                     <a href="/settings/edit/account/edit/portfolioitem/{{userId}}/{{id}}"
                                        class="btn btn-primary">Editar</a>
