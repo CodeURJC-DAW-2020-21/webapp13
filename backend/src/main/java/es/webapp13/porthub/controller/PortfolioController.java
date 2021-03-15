@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+
 @Controller
 public class PortfolioController {
 
@@ -15,30 +18,22 @@ public class PortfolioController {
     private UserService userService;
 
     @GetMapping("/profile")
-    public String profileLink(Model model) {
-        User user = userService.getActiveUser();
-        if (user == null) {
-            return templateFreeLink(model);
-        } else {
-            model.addAttribute("user", user);
-            Template template = userService.getActiveUser().getActiveTemplate();
-            String htmlPath = template.getHtmlPath();
-            return htmlPath;
-        }
+    public String profileLink(Model model, HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
+        Template template = user.getActiveTemplate();
+        String htmlPath = template.getHtmlPath();
+        return htmlPath;
     }
 
     @GetMapping("/templates/free/index")
     public String templateFreeLink(Model model) {
-        User user = userService.getActiveUser();
-        model.addAttribute("user", user);
         return "templates/free/index";
     }
 
 
     @GetMapping("/templates/premium/index")
     public String templatePremiumLink(Model model) {
-        User user = userService.getActiveUser();
-        model.addAttribute("user", user);
         return "templates/premium/index";
     }
 

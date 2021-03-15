@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -100,8 +102,9 @@ public class ConfigController {
     }
 
     @GetMapping("/set/active/template")
-    public String activeTemplateLink(Model model, @RequestParam long id){
-        User user = userService.getActiveUser();
+    public String activeTemplateLink(Model model, HttpServletRequest request, @RequestParam long id){
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
         long oldId = user.getActiveTemplate().getId();
         activeTemplateService.changeActiveTemplate(oldId, id);
         Template activeTemplate = templateService.findFirstById(id);

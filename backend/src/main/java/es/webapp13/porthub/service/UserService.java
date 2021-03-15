@@ -34,16 +34,7 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    private User activeUser = null;
 
-
-    public User getActiveUser() {
-        return activeUser;
-    }
-
-    public void setActiveUser(User activeUser) {
-        this.activeUser = activeUser;
-    }
 
     /**
      * Calculate the user age
@@ -126,9 +117,6 @@ public class UserService {
      *
      * @return List of templates
      */
-    public List<Template> getTemplates() {
-        return activeUser.getTemplates();
-    }
 
 
     public Page<User> findUsersPage(Pageable page) {

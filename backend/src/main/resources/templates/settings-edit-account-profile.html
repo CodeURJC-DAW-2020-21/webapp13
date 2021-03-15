@@ -70,8 +70,14 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Nombre de usuario de PortHub</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="PortHub.com/alexander" placeholder="Tu nombre de perfil ...">
+                                                {{#logued}}
+                                                <input type="text" class="form-control" value="PortHub.com/{{#user}}{{id}}{{/user}}" placeholder="Tu nombre de perfil ...">
                                                 <small class="form-text text-muted">Tu nombre de perfil será usado como parte de la dirección URL pública de tu perfil.</small>
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="PortHub.com/" placeholder="Tu nombre de perfil ...">
+                                                <small class="form-text text-muted">Tu nombre de perfil será usado como parte de la dirección URL pública de tu perfil.</small>
+                                                {{/logued}}
                                             </div>
                                         </div>
                                     </div>
@@ -79,7 +85,12 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Descríbete</label>
                                             <div class="col-sm-9">
-                                                <textarea rows="3" class="form-control" placeholder="Habla sobre ti ..."></textarea>
+                                                {{#logued}}
+                                                <textarea rows="3" class="form-control" placeholder="{{#user}}{{description}}{{/user}}"></textarea>
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <textarea rows="3" class="form-control" placeholder="Habla sobre ti..."></textarea>
+                                                {{/logued}}
                                             </div>
                                         </div>
                                     </div>
