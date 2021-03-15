@@ -1,6 +1,17 @@
+var page = 1
 
-fetch('https://localhost:8443/users/')
-    .then(data => data.json())
-    .then(users => console.log(users))
-    .catch(error => console.log("Error: ", error));
+$("#load-more").click(function(){
+    $("#result").append($('<div class="row" id="users-to-load">').load("/search/?page="+(page++)+"&size=8 .user-item"))
+    count = $(".user-item").length;
+    $("#total").html(count)
+})
+
+while(1){
+
+    console.log(count)
+}
+
+
+
+
 

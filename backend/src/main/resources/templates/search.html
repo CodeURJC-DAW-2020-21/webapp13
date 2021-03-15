@@ -32,106 +32,94 @@
 
         <!-- MAIN CONTENT -->
         <div class="mdk-drawer-layout__content">
-            <div class="page-section" style="height: 60vh;">
+            <div class="page-section">
                 <div class="container page__container">
 
 
                     <div class="page-heading">
                         <h4>Resultados</h4>
-                        <p class="ml-sm-auto text-70 mb-0"><strong>{{total}}</strong> resultados en Todas</p>
+                        <p class="ml-sm-auto text-70 mb-0"><strong id="total"></strong> resultados en Todas</p>
                     </div>
 
-                    <div class="row">
-                        {{#users}}
-                        <div class="col-lg-4 col-xl-3 col-sm-6">
 
-                            <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
-                                data-partial-height="40" data-toggle="popover" data-trigger="click">
-
-
-                                <a href="#" class="js-image" data-position="center">
-                                    <!--PROFILE IMAGE GOES HERE-->
-                                    <img src="/portfolioitems/{{id}}}/image"
-                                        alt="course">
-                                    <span class="overlay__content">
-                                        <span class="overlay__action d-flex flex-column text-center">
-
-                                        </span>
-                                    </span>
-                                </a>
-
-
-                                <div class="mdk-reveal__content">
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <div class="flex">
-                                                <a class="card-title" href="#">{{name}}</a>
-                                                <small class="text-50 font-weight-bold mb-4pt">{{job}}</small>
+                    <div id="result">
+                        <div class="row" id="users-to-load">
+                            {{#users}}
+                            <div class="col-lg-6 col-xl-3 col-sm-6 user-item">
+                                <div>
+    
+                                    <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
+                                        data-partial-height="40" data-toggle="popover" data-trigger="click">
+    
+    
+                                        <a href="#" class="js-image" data-position="center">
+                                            <!--PROFILE IMAGE GOES HERE /portfolioitems/{{id}}}/image-->
+                                            <img src="/app/assets/images/people/256/256_rsz_florian-perennes-594195-unsplash.jpg"
+                                                alt="course">
+                                            <span class="overlay__content">
+                                                <span class="overlay__action d-flex flex-column text-center">
+    
+                                                </span>
+                                            </span>
+                                        </a>
+    
+    
+                                        <div class="mdk-reveal__content">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex">
+                                                        <a class="card-title" href="#">{{name}}</a>
+                                                        <small class="text-50 font-weight-bold mb-4pt">{{job}}</small>
+                                                    </div>
+                                                    <a href="#"
+                                                        class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
+                                                </div>
+    
                                             </div>
-                                            <a href="#"
-                                                class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
                                         </div>
-
                                     </div>
+                                    <div class="popoverContainer d-none">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
+                                                <img src="/app/assets/images/people/50/50_rsz_florian-perennes-594195-unsplash.jpg"
+                                                    width="40" height="40" alt="Angular" class="rounded">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="card-title mb-0">{{name}}</div>
+                                                <p class="lh-1 mb-0">
+                                                    <span class="text-black-50 small font-weight-bold">{{job}}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+    
+                                        <div class="row align-items-center">
+                                            <div class="col text-center">
+                                                <a href="/template/{{id}}" class="btn btn-primary mt-4">Ver más</a>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+    
                                 </div>
+    
+    
                             </div>
-                            <div class="popoverContainer d-none">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
-                                        <img src="/app/assets/images/people/50/50_rsz_florian-perennes-594195-unsplash.jpg"
-                                            width="40" height="40" alt="Angular" class="rounded">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="card-title mb-0">{{name}}</div>
-                                        <p class="lh-1 mb-0">
-                                            <span class="text-black-50 small font-weight-bold">{{job}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="row align-items-center">
-                                    <div class="col text-center">
-                                        <a href="/template/{{id}}" class="btn btn-primary mt-4">Ver más</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
+                            {{/users}}
+    
+                            {{^users}}
+                            <p class="text-black-50 lead measure-hero-lead mx-auto mb-64pt">No hay nada todavia.</p>
+                            {{/users}}
+    
+    
                         </div>
-                        {{/users}}
-
-                        {{^users}}
-                        <p class="text-black-50 lead measure-hero-lead mx-auto mb-64pt">No hay nada todavia.</p>
-                        {{/users}}
-
-
                     </div>
+                    
 
-                    <!-- PAGINATION -->
+                    <!-- PAGINATION  /search/?page={{page}}&size={{size}}-->
                     <ul class="pagination justify-content-center pagination-sm">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true" class="material-icons">chevron_left</span>
-                                <span>Prev</span>
-                            </a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#" aria-label="1">
-                                <span>1</span>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="1">
-                                <span>2</span>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span>Next</span>
-                                <span aria-hidden="true" class="material-icons">chevron_right</span>
-                            </a>
-                        </li>
+                        <button class="btn btn-accent" id="load-more">Cargar más</button>
+
                     </ul>
                 </div>
             </div>
@@ -177,9 +165,6 @@
 
     </div>
     <!-- // END drawer-layout -->
-
-    
-    <script src="/app/assets/js/custom/ajax.js"></script>
 
 
 </div>

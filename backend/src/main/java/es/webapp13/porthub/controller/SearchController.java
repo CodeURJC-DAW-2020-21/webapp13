@@ -34,11 +34,13 @@ public class SearchController {
     private UserService userService;
 
     @GetMapping("/search")
-    public String searchLink(Model model) {
+    public String searchLink(Model model,Pageable pageable) {
         model.addAttribute("active_all", true);
-        List<User> userList = userService.findUsers();
-        model.addAttribute("total",userList.size());
-        model.addAttribute("users", userList);
+        Page<User> userPage = userService.findUsers(pageable);
+        model.addAttribute("total",8*(pageable.getPageNumber()+1));
+        model.addAttribute("page",userPage.getNumber()+1);
+        model.addAttribute("size",8);
+        model.addAttribute("users", userPage);
         return "search";
     }
 
