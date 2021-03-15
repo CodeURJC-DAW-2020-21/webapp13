@@ -45,7 +45,7 @@ public class User {
     @OneToOne
     private Template activeTemplate;
 
-    @OneToMany
+    @ManyToMany
     private List<Template> templates = new LinkedList<>();
 
     @OneToMany
