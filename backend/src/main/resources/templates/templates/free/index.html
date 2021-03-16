@@ -205,62 +205,21 @@
     <div class="container-fluid p-0">
         <h2 id="about-tittle" class="text-white mt-0 text-center">Proyectos</h2>
         <hr class="divider light my-4"/>
-
+        {{^portfolioItems}}
+        <h4 id="about-tittle" class="text-white mt-0 text-center">No tienes proyectos todavia.</h4>
+        {{/portfolioItems}}
         <div class="row no-gutters">
+            {{#portfolioItems}}
             <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
-                <a class="portfolio-box" href="/templates/free/portfolioitem">
+                <a class="portfolio-box" href="/templates/free/portfolioitem/{{id}}">
                     <img class="img-fluid" id="portfolio-visual-item-img"
                          src="../../templates/free/img/portfolio/thumbnails/1.jpg" alt=""/>
                     <div class="portfolio-box-caption">
-                        <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
+                        <div class="project-name" id="portfolio-visual-item-name">{{name}}</div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
-                <a class="portfolio-box" href="/templates/free/portfolioitem">
-                    <img class="img-fluid" id="portfolio-visual-item-img"
-                         src="../../templates/free/img/portfolio/thumbnails/2.jpg" alt=""/>
-                    <div class="portfolio-box-caption">
-                        <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
-                <a class="portfolio-box" href="/templates/free/portfolioitem">
-                    <img class="img-fluid" id="portfolio-visual-item-img"
-                         src="../../templates/free/img/portfolio/thumbnails/3.jpg" alt=""/>
-                    <div class="portfolio-box-caption">
-                        <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
-                <a class="portfolio-box" href="/templates/free/portfolioitem">
-                    <img class="img-fluid" id="portfolio-visual-item-img"
-                         src="../../templates/free/img/portfolio/thumbnails/4.jpg" alt=""/>
-                    <div class="portfolio-box-caption">
-                        <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
-                <a class="portfolio-box" href="/templates/free/portfolioitem">
-                    <img class="img-fluid" id="portfolio-visual-item-img"
-                         src="../../templates/free/img/portfolio/thumbnails/5.jpg" alt=""/>
-                    <div class="portfolio-box-caption">
-                        <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
-                <a class="portfolio-box" href="/templates/free/portfolioitem">
-                    <img class="img-fluid" id="portfolio-visual-item-img"
-                         src="../../templates/free/img/portfolio/thumbnails/6.jpg" alt=""/>
-                    <div class="portfolio-box-caption p-3">
-                        <div class="project-name" id="portfolio-visual-item-name">Project Name</div>
-                    </div>
-                </a>
-            </div>
+            {{/portfolioItems}}
         </div>
     </div>
 </section>
