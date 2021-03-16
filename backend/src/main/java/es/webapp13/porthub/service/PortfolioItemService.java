@@ -7,6 +7,7 @@ import es.webapp13.porthub.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -72,8 +73,12 @@ public class PortfolioItemService {
      * @param item form with the changes to the portfolio item
      * @param id   id of the portfolio item
      */
-    public void updatePortfolioItem(PortfolioItem item, long id) {
+    public void updatePortfolioItem(PortfolioItem item, long id) throws IOException {
         PortfolioItem portfolioItem = portfolioItemRepository.findById(id).orElseThrow();
+        portfolioItem.updatePreviewImg(item.getPreviewImg());
+        portfolioItem.updateImage1(item.getImage1());
+        portfolioItem.updateImage2(item.getImage2());
+        portfolioItem.updateImage3(item.getImage3());
         portfolioItem.setName(item.getName());
         portfolioItem.setCategory(item.getCategory());
         portfolioItem.setClient(item.getClient());

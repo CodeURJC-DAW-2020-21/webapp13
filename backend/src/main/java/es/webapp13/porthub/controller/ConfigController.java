@@ -75,11 +75,12 @@ public class ConfigController {
         return "settings-edit-account-portfolioitems";
     }
 
-    //Cambiar esto
-    @GetMapping("/settings/edit/account/deleted/portfolio-item")
-    public String portfolioItemDeleteLink() {
-        portfolioItemService.deletePortfolioItem("id", 3);
-        return "settings-edit-account-portfolioitems";
+    @GetMapping("/settings/edit/account/{id}/deleted/portfolio-item")
+    public String portfolioItemDeleteLink(@PathVariable long id,HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
+        portfolioItemService.deletePortfolioItem(user.getid(), id);
+        return "deleted-portfolioitem";
     }
 
     @GetMapping("/settings/edit/account/edit/portfolioitem/{userId}/{id}")
@@ -89,7 +90,7 @@ public class ConfigController {
     }
 
     @PostMapping("/settings/edit/account/edit/portfolioitem/{userId}/{id}")
-    public String portfolioItemEditForm(Model model,@PathVariable long id, @PathVariable String userId,PortfolioItem newPortfolioItem) {
+    public String portfolioItemEditForm(Model model,@PathVariable long id, @PathVariable String userId,PortfolioItem newPortfolioItem) throws IOException {
         portfolioItemService.updatePortfolioItem(newPortfolioItem,id);
         return "portfolioitem-update-confirmation";
     }

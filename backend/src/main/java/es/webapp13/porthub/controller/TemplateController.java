@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
 @Controller
-public class PortfolioController {
+public class TemplateController {
 
     @Autowired
     private UserService userService;

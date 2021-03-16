@@ -175,4 +175,21 @@ public class PortfolioItem {
                 ", date=" + date +
                 '}';
     }
+
+    public void updatePreviewImg(Blob previewImg) throws IOException {
+        this.previewImg = previewImg;
+    }
+
+    public void updateImage1(Blob image1) throws IOException {
+        this.image1 = image1;
+    }
+
+    public void updateImage2(Blob image2) throws IOException {
+        this.image2 = image2;
+    }
+
+    public void updateImage3(Blob image3) throws IOException {
+        this.image3 = image3;
+    }
+
 }
