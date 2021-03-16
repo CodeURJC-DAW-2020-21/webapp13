@@ -151,17 +151,4 @@ public class ConfigController {
         return "update-profile-confirmation";
     }
 
-    private void updateImage(User user, MultipartFile profileImg) throws IOException, SQLException {
-        if (!profileImg.isEmpty())
-            user.setProfilePhoto(BlobProxy.generateProxy(profileImg.getInputStream(), profileImg.getSize()));
-        else {
-
-            // Maintain the same image loading it before updating the book
-            User dbUser = userService.findById(user.getid()).orElseThrow();
-            if (dbUser.getProfilePhoto().length() == 0)
-                user.setProfilePhoto(BlobProxy.generateProxy(dbUser.getProfilePhoto().getBinaryStream(), dbUser.getProfilePhoto().length()));
-        }
-    }
-
-
 }

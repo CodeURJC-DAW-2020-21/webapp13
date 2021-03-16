@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLException;
@@ -41,6 +42,20 @@ public class SearchController {
         model.addAttribute("category","Todas");
         model.addAttribute("users", userPage);
 
+        return "search";
+    }
+
+    @GetMapping("/searchbar")
+    public String searchBarLink(Model model){
+        model.addAttribute("category","Todas");
+        return "search";
+    }
+
+    @PostMapping("/searchbar")
+    public String searchBarForm(Model model,String search,Pageable pageable){
+        model.addAttribute("category","Todas");
+        Page<User> userPage = searchService.getUsersBySearch(search,pageable);
+        model.addAttribute("users", userPage);
         return "search";
     }
 

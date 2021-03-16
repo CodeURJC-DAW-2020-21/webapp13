@@ -95,6 +95,13 @@ public class PortfolioItemService {
         portfolioItemRepository.save(portfolioItem);
     }
 
+    /**
+     *
+     * @param item
+     * @param previewImg
+     * @throws IOException
+     * @throws SQLException
+     */
     private void updatePreviewImg(PortfolioItem item, MultipartFile previewImg) throws IOException, SQLException {
         if (!previewImg.isEmpty())
             item.setPreviewImg(BlobProxy.generateProxy(previewImg.getInputStream(), previewImg.getSize()));
@@ -107,6 +114,13 @@ public class PortfolioItemService {
         }
     }
 
+    /**
+     *
+     * @param item
+     * @param img
+     * @throws IOException
+     * @throws SQLException
+     */
     private void updateImg1(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
         if (!img.isEmpty())
             item.setImage1(BlobProxy.generateProxy(img.getInputStream(), img.getSize()));
@@ -119,6 +133,13 @@ public class PortfolioItemService {
         }
     }
 
+    /**
+     *
+     * @param item
+     * @param img
+     * @throws IOException
+     * @throws SQLException
+     */
     private void updateImg2(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
         if (!img.isEmpty())
             item.setImage2(BlobProxy.generateProxy(img.getInputStream(), img.getSize()));
@@ -131,6 +152,13 @@ public class PortfolioItemService {
         }
     }
 
+    /**
+     *
+     * @param item
+     * @param img
+     * @throws IOException
+     * @throws SQLException
+     */
     private void updateImg3(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
         if (!img.isEmpty())
             item.setImage3(BlobProxy.generateProxy(img.getInputStream(), img.getSize()));
