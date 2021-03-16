@@ -144,6 +144,6 @@ public class ConfigController {
     @PostMapping("/settings/edit/account/set/new/info")
     public String setNewInfoCurrentUser(Model model, HttpServletRequest request, User user) throws IOException {
         userService.updateUser(user,user.getid());
-        return "settings-edit-account";
+        return "update-profile-confirmation";
     }
 }
