@@ -35,17 +35,17 @@
                                         <span class="h1 m-0 font-weight-normal">{{price}}</span>
                                     </p>
                                 </div>
-                                <div class="card-footer">
-                                    <a href="{{htmlPath}}" class="btn btn-outline-secondary">Preview</a>
+                                <div class="card-footer d-flex flex-column">
+                                    <a href="{{htmlPath}}" class="btn btn-outline-primary mb-3">Preview</a>
                                     {{#logued}}
                                     {{#purchased}}
-                                    <a href="#" class="btn btn-outline-secondary">Comprado</a>
+                                    <a href="#" class="btn btn-secondary">Comprado</a>
                                     {{/purchased}}
                                     {{^purchased}}
                                     <form action="/purchase/confirmation">
                                         <input type="hidden" name='id' value="{{id}}"/>
                                         <input type="hidden" name="_csrf" value="{{token}}"/>
-                                        <input type='submit' class="btn btn-outline-secondary" value='Comprar'/>
+                                        <input type='submit' class="btn btn-outline-accent w-100" value='Comprar'/>
                                     </form>
                                     {{/purchased}}
                                     {{/logued}}

@@ -4,24 +4,17 @@ package es.webapp13.porthub.controller;
 import es.webapp13.porthub.repository.TemplateRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.model.*;
-import org.apache.commons.io.IOUtils;
-import org.apache.tomcat.util.http.fileupload.disk.DiskFileItem;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
-import org.springframework.mock.web.MockMultipartFile;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.multipart.MultipartFile;
 
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.sql.PreparedStatement;
+
 
 @Controller
 public class DataBaseController implements CommandLineRunner {

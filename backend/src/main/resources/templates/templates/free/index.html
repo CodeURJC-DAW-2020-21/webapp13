@@ -60,15 +60,15 @@
                 <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
                      src="../../templates/free/img/profile-img.jpg" alt="profile-img">
                 <p id="about-complete-name" class="text-white mt-0 text-uppercase h3">
-                    {{#user}}{{user.name}} {{user.surname}}{{/user}}
+                    {{#user}}{{name}} {{surname}}{{/user}}
                     {{^user}}Nombre Apellidos{{/user}}
                 </p>
                 <p id="about-job" class="text-white mt-0 text-uppercase h5">
-                    {{#user}}{{user.job}}{{/user}}
+                    {{#user}}{{job}}{{/user}}
                     {{^user}}Trabajo{{/user}}
                 </p>
                 <p id="about-description" class="text-white-50 font-weight-light mb-4">
-                    {{#user}}{{user.description}}{{/user}}
+                    {{#user}}{{description}}{{/user}}
                     {{^user}}Descripción{{/user}}
                 </p>
                 <div class="row d-flex m-1">
@@ -77,22 +77,22 @@
                             <li class="list-group-item border border-white active"><strong>Fecha de
                                 nacimiento:</strong> <span id="about-date"
                                                            class="text-white mt-0">
-                                    {{#user}}{{user.bornDate}}{{/user}}
+                                    {{#user}}{{bornDate}}{{/user}}
                                     {{^user}}Fecha{{/user}}
                                 </span></li>
                             <li class="list-group-item border border-white"><strong>Página web:</strong> <span
                                     id="about-website">
-                                    {{#user}}{{user.website}}{{/user}}
+                                    {{#user}}{{website}}{{/user}}
                                     {{^user}}Página web{{/user}}
                                 </span></li>
                             <li class="list-group-item border border-white active"><strong>Teléfono:</strong> <span
                                     id="about-phone">
-                                    {{#user}}{{user.phoneNumber}}{{/user}}
+                                    {{#user}}{{phoneNumber}}{{/user}}
                                     {{^user}}Ciudad{{/user}}
                                 </span></li>
                             <li class="list-group-item border border-white"><strong>Ciudad:</strong> <span
                                     id="about-city">
-                                    {{#user}}{{user.city}}{{/user}}
+                                    {{#user}}{{city}}{{/user}}
                                     {{^user}}Teléfono{{/user}}
                                 </span></li>
                         </ul>
@@ -101,24 +101,24 @@
                         <ul class="list-group border border-white rounded-0">
                             <li class="list-group-item border border-white"><strong>Edad:</strong> <span
                                     id="about-age">
-                                    {{#user}}{{user.age}}{{/user}}
+                                    {{#user}}{{age}}{{/user}}
                                     {{^user}}Edad{{/user}}
                                 </span></li>
                             <li class="list-group-item border border-white active"><strong>Nivel educativo:</strong>
                                 <span
                                         id="about-degree">
-                                    {{#user}}{{user.degree}}{{/user}}
+                                    {{#user}}{{degree}}{{/user}}
                                     {{^user}}Nivel{{/user}}
                                 </span></li>
                             <li class="list-group-item border border-white"><strong>Email:</strong> <span
                                     id="about-email">
-                                    {{#user}}{{user.email}}{{/user}}
+                                    {{#user}}{{email}}{{/user}}
                                     {{^user}}Email{{/user}}
                                 </span></li>
                             <li class="list-group-item border border-white active"><strong>Disponibilidad:</strong>
                                 <span
                                         id="about-job">
-                                    {{#user}}{{user.freelance}}{{/user}}
+                                    {{#user}}{{freelance}}{{/user}}
                                     {{^user}}Disponibilidad{{/user}}
                                 </span></li>
 
