@@ -145,26 +145,22 @@ public class ConfigController {
     }
 
     @PostMapping("/settings/edit/account/set/new/info")
-    public String setNewInfoCurrentUser(Model model, HttpServletRequest request, User user, MultipartFile profilePhoto) throws IOException, SQLException {
-        System.out.println("he llegado");
-        //updateImage(user, profilePhoto);
-        //userService.updateUser(user, user.getid());
+    public String setNewInfoCurrentUser(Model model, HttpServletRequest request, User user, MultipartFile profileImg) throws IOException, SQLException {
+
+        userService.updateUser(user, user.getid(),profileImg);
 
         return "update-profile-confirmation";
     }
 
-    private void updateImage(User user, MultipartFile profilePhoto) throws IOException, SQLException {
-        if (!profilePhoto.isEmpty()) {
-            user.setProfilePhoto(BlobProxy.generateProxy(profilePhoto.getInputStream(), profilePhoto.getSize()));
-        } else {
+    private void updateImage(User user, MultipartFile profileImg) throws IOException, SQLException {
+        if (!profileImg.isEmpty())
+            user.setProfilePhoto(BlobProxy.generateProxy(profileImg.getInputStream(), profileImg.getSize()));
+        else {
 
             // Maintain the same image loading it before updating the book
             User dbUser = userService.findById(user.getid()).orElseThrow();
-            if (dbUser.getProfilePhoto().length()==0){
+            if (dbUser.getProfilePhoto().length()==0)
                 user.setProfilePhoto(BlobProxy.generateProxy(dbUser.getProfilePhoto().getBinaryStream(), dbUser.getProfilePhoto().length()));
-            }
-
-
         }
     }
 
