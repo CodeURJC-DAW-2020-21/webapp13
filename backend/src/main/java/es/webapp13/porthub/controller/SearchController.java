@@ -37,9 +37,7 @@ public class SearchController {
     public String searchLink(Model model,Pageable pageable) {
         model.addAttribute("active_all", true);
         Page<User> userPage = userService.findUsers(pageable);
-        model.addAttribute("total",8*(pageable.getPageNumber()+1));
-        model.addAttribute("page",userPage.getNumber()+1);
-        model.addAttribute("size",8);
+        model.addAttribute("hasNext",userPage.hasNext());
         model.addAttribute("users", userPage);
         return "search";
     }
