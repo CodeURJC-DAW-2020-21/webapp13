@@ -38,7 +38,7 @@
 
                     <div class="page-heading">
                         <h4>Resultados</h4>
-                        <p class="ml-sm-auto text-70 mb-0"><strong id="total"></strong> resultados en Todas</p>
+                        <p class="ml-sm-auto text-70 mb-0"><strong id="total">8</strong> resultados en Todas</p>
                     </div>
 
 
@@ -116,11 +116,13 @@
                     </div>
                     
 
-                    <!-- PAGINATION  /search/?page={{page}}&size={{size}}-->
-                    <ul class="pagination justify-content-center pagination-sm">
-                        <button class="btn btn-accent" id="load-more">Cargar más</button>
+                    <!-- PAGINATION -->
+                    <div id="hasNextPage">
+                        <ul class="pagination justify-content-center pagination-sm" id="button-replace">
+                            {{#hasNext}}<button class="btn btn-accent" id="load-more">Cargar más</button>{{/hasNext}}
+                        </ul>
+                    </div>
 
-                    </ul>
                 </div>
             </div>
         </div>
