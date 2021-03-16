@@ -44,8 +44,11 @@ public class ConfigController {
     private PortfolioItemService portfolioItemService;
 
     @GetMapping("/settings/edit/account")
-    public String studentEditAccountLink(Model model) {
+    public String studentEditAccountLink(Model model,HttpServletRequest request) {
         model.addAttribute("active_main", true);
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
+        model.addAttribute("user",user);
         return "settings-edit-account";
     }
 
@@ -130,10 +133,8 @@ public class ConfigController {
     }
 
     @PostMapping("/settings/edit/account/set/new/info")
-    public String setNewInforCurrentUser(Model model, HttpServletRequest request, User user){
-        Principal principal = request.getUserPrincipal();
-        User currentUser = userService.findUser(principal.getName());
-        userService.saveChanges(currentUser);
+    public String setNewInfoCurrentUser(Model model, HttpServletRequest request, User user){
+        userService.saveChanges(user);
 
         return "settings-edit-account";
     }

@@ -35,7 +35,6 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
 
 
-
     /**
      * Calculate the user age
      *
@@ -85,7 +84,7 @@ public class UserService {
      * @throws IOException
      */
     public void updateProfilePhoto(User user, MultipartFile imageFile) throws IOException {
-        user.setProfilePhoto(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+        user.setProfilePhoto(imageFile);
         userRepository.save(user);
     }
 
@@ -95,7 +94,7 @@ public class UserService {
      * @return List of users
      */
     public Page<User> findUsers(Pageable pageable) {
-        return userRepository.findAll(PageRequest.of(pageable.getPageNumber(),8));
+        return userRepository.findAll(PageRequest.of(pageable.getPageNumber(), 8));
     }
 
     public User findUser(String id) {
@@ -112,16 +111,10 @@ public class UserService {
         return template.getHtmlPath();
     }
 
-    /**
-     * Get a list of templates
-     *
-     * @return List of templates
-     */
 
 
-    public Page<User> findUsersPage(Pageable page) {
-        return userRepository.findAll(page);
-    }
+
+
 
     public Optional<User> findById(String name) {
         return userRepository.findById(name);

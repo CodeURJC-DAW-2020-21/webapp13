@@ -38,43 +38,48 @@ public class SearchController {
         model.addAttribute("active_all", true);
         Page<User> userPage = userService.findUsers(pageable);
         model.addAttribute("hasNext",userPage.hasNext());
+        model.addAttribute("category","Todas");
         model.addAttribute("users", userPage);
         return "search";
     }
 
     @GetMapping("/search/ingenieria")
-    public String searchLinkEngineer(Model model) {
+    public String searchLinkEngineer(Model model,Pageable pageable) {
         model.addAttribute("active_engineer", true);
-        List<User> userList = searchService.getUsersByCategory("Ingeniero");
-        model.addAttribute("total",userList.size());
-        model.addAttribute("users", userList);
+        Page<User> userPage = searchService.getUsersByCategory("Ingeniero",pageable);
+        model.addAttribute("hasNext",userPage.hasNext());
+        model.addAttribute("category","Ingeniería");
+        model.addAttribute("users", userPage);
         return "search";
     }
 
     @GetMapping("/search/diseño")
-    public String searchLinkDesigner(Model model) {
+    public String searchLinkDesigner(Model model,Pageable pageable) {
         model.addAttribute("active_designer", true);
-        List<User> userList = searchService.getUsersByCategory("Diseñador");
-        model.addAttribute("total",userList.size());
-        model.addAttribute("users", userList);
+        Page<User> userPage = searchService.getUsersByCategory("Diseñador",pageable);
+        model.addAttribute("hasNext",userPage.hasNext());
+        model.addAttribute("category","Diseño");
+        model.addAttribute("users", userPage);
         return "search";
     }
 
     @GetMapping("/search/fotografia")
-    public String searchLinkPhotographer(Model model) {
+    public String searchLinkPhotographer(Model model,Pageable pageable) {
         model.addAttribute("active_photographer", true);
-        List<User> userList = searchService.getUsersByCategory("Fotografo");
-        model.addAttribute("total",userList.size());
-        model.addAttribute("users", userList);
+        Page<User> userPage = searchService.getUsersByCategory("Fotografo",pageable);
+        model.addAttribute("hasNext",userPage.hasNext());
+        model.addAttribute("category","Fotografía");
+        model.addAttribute("users", userPage);
         return "search";
     }
 
     @GetMapping("/search/empresa")
-    public String searchLinkBusinessman(Model model) {
+    public String searchLinkBusinessman(Model model,Pageable pageable) {
         model.addAttribute("active_businessman", true);
-        List<User> userList = searchService.getUsersByCategory("Empresario");
-        model.addAttribute("total",userList.size());
-        model.addAttribute("users", userList);
+        Page<User> userPage = searchService.getUsersByCategory("Empresario",pageable);
+        model.addAttribute("hasNext",userPage.hasNext());
+        model.addAttribute("category","Empresa");
+        model.addAttribute("users", userPage);
         return "search";
     }
 

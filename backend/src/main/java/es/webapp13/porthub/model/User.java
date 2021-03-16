@@ -1,7 +1,10 @@
 package es.webapp13.porthub.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.engine.jdbc.BlobProxy;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.sql.Blob;
 import javax.persistence.*;
 
@@ -74,6 +77,27 @@ public class User {
         this.description = description;
         this.category = category;
         this.activeTemplate = activeTemplate;
+        this.roles = List.of(roles);
+    }
+
+    public User(String id, String name, String surname, String email, String password, String phoneNumber,
+                String website, String city, String degree, String freelance, String description,
+                String job, String category, Template activeTemplate,MultipartFile profilePhoto, String... roles) throws IOException {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.website = website;
+        this.city = city;
+        this.degree = degree;
+        this.freelance = freelance;
+        this.job = job;
+        this.description = description;
+        this.category = category;
+        this.activeTemplate = activeTemplate;
+        this.profilePhoto = BlobProxy.generateProxy(profilePhoto.getInputStream(), profilePhoto.getSize());
         this.roles = List.of(roles);
     }
 
@@ -215,8 +239,8 @@ public class User {
         return profilePhoto;
     }
 
-    public void setProfilePhoto(Blob profilePhoto) {
-        this.profilePhoto = profilePhoto;
+    public void setProfilePhoto(MultipartFile profilePhoto) throws IOException {
+        this.profilePhoto = BlobProxy.generateProxy(profilePhoto.getInputStream(), profilePhoto.getSize());
     }
 
     public Template getActiveTemplate() {
