@@ -1,7 +1,5 @@
 package es.webapp13.porthub.controller;
 
-
-import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.SearchService;
 import es.webapp13.porthub.service.UserService;
@@ -17,11 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import java.sql.SQLException;
-import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -47,14 +41,15 @@ public class SearchController {
 
     @GetMapping("/searchbar")
     public String searchBarLink(Model model){
-        model.addAttribute("category","Todas");
+        model.addAttribute("category","Busqueda");
         return "search";
     }
 
     @PostMapping("/searchbar")
     public String searchBarForm(Model model,String search,Pageable pageable){
-        model.addAttribute("category","Todas");
         Page<User> userPage = searchService.getUsersBySearch(search,pageable);
+        model.addAttribute("hasNext",userPage.hasNext());
+        model.addAttribute("category","Busqueda");
         model.addAttribute("users", userPage);
         return "search";
     }
