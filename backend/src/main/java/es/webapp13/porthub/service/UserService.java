@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -74,9 +75,9 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void updateUser(User newUser, String id) throws IOException {
+    public void updateUser(User newUser, String id,MultipartFile profileImg) throws IOException, SQLException {
         User user = userRepository.findById(id).orElseThrow();
-        user.updateProfilePhoto(newUser.getProfilePhoto());
+        updateProfilePhoto(user,profileImg);
         user.setName(newUser.getName());
         user.setSurname(newUser.getSurname());
         user.setEmail(newUser.getEmail());
@@ -95,15 +96,22 @@ public class UserService {
     }
 
     /**
-     * Update the profile photo of a given user by a given image
-     *
-     * @param user      A user given
-     * @param imageFile A image given
+     * Update profile photo by a given user
+     * @param user
+     * @param profileImg
      * @throws IOException
+     * @throws SQLException
      */
-    public void updateProfilePhoto(User user, MultipartFile imageFile) throws IOException {
-        user.setProfilePhoto(imageFile);
-        userRepository.save(user);
+    private void updateProfilePhoto(User user, MultipartFile profileImg) throws IOException, SQLException {
+        if (!profileImg.isEmpty())
+            user.setProfilePhoto(BlobProxy.generateProxy(profileImg.getInputStream(), profileImg.getSize()));
+        else {
+
+            // Maintain the same image loading it before updating the book
+            User dbUser = findById(user.getid()).orElseThrow();
+            if (dbUser.getProfilePhoto().length()==0)
+                user.setProfilePhoto(BlobProxy.generateProxy(dbUser.getProfilePhoto().getBinaryStream(), dbUser.getProfilePhoto().length()));
+        }
     }
 
     /**

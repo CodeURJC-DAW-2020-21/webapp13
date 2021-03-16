@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../../templates/premium/img/favicon.png" rel="icon">
-  <link href="../../templates/premium/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../../../templates/premium/img/favicon.png" rel="icon">
+  <link href="../../../templates/premium/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Font Awesome icons (free version)-->
   <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
@@ -20,15 +20,15 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="../../templates/premium/vendor/aos/aos.css" rel="stylesheet">
-  <link href="../../templates/premium/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../templates/premium/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../../templates/premium/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../../templates/premium/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../../templates/premium/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../../../templates/premium/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../../../templates/premium/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../templates/premium/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../../templates/premium/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../../../templates/premium/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../../../templates/premium/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../../templates/premium/css/style.css" rel="stylesheet">
+  <link href="../../../templates/premium/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: iPortfolio - v3.0.1
@@ -50,7 +50,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="../../templates/premium/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+        <img src="../../../templates/premium/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -72,6 +72,7 @@
     </div>
   </header><!-- End Header -->
 
+  {{#portfolioItem}}
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -79,10 +80,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Nombre del proyecto</h2>
+          <h2>{{name}}</h2>
           <ol>
             <li><a href="index.html">Inicio</a></li>
-            <li>Nombre del proyecto</li>
+            <li>{{name}}</li>
           </ol>
         </div>
 
@@ -100,15 +101,15 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="../../templates/premium/img/portfolio/portfolio-details-1.jpg" alt="">
+                  <img src="../../../templates/premium/img/portfolio/portfolio-details-1.jpg" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="../../templates/premium/img/portfolio/portfolio-details-2.jpg" alt="">
+                  <img src="../../../templates/premium/img/portfolio/portfolio-details-2.jpg" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="../../templates/premium/img/portfolio/portfolio-details-3.jpg" alt="">
+                  <img src="../../../templates/premium/img/portfolio/portfolio-details-3.jpg" alt="">
                 </div>
 
               </div>
@@ -120,9 +121,9 @@
             <div class="portfolio-info">
               <h3>Información del proyecto</h3>
               <ul>
-                <li><strong>Categoría</strong>: Web design</li>
-                <li><strong>Cliente</strong>: ASU Company</li>
-                <li><strong>Fecha del proyecto</strong>: 01 March, 2020</li>
+                <li><strong>Categoría: </strong>{{url}}</li>
+                <li><strong>Cliente: </strong>{{client}}</li>
+                <li><strong>Fecha del proyecto: </strong>{{date}}</li>
               </ul>
             </div>
             
@@ -134,7 +135,7 @@
           <div class="col mx-5 portfolio-description">
             <h2>Descripción</h2>
             <p>
-              Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+              {{description}}
             </p>
           </div>
         </div>
@@ -143,6 +144,7 @@
     </section><!-- End Portfolio Details Section -->
 
   </main><!-- End #main -->
+  {{/portfolioItem}}
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -156,18 +158,18 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="../../templates/premium/vendor/aos/aos.js"></script>
-  <script src="../../templates/premium/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../../templates/premium/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../../templates/premium/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="../../templates/premium/vendor/php-email-form/validate.js"></script>
-  <script src="../../templates/premium/vendor/purecounter/purecounter.js"></script>
-  <script src="../../templates/premium/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../../templates/premium/vendor/typed.js/typed.min.js"></script>
-  <script src="../../templates/premium/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../../../templates/premium/vendor/aos/aos.js"></script>
+  <script src="../../../templates/premium/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../templates/premium/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../../templates/premium/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../../../templates/premium/vendor/php-email-form/validate.js"></script>
+  <script src="../../../templates/premium/vendor/purecounter/purecounter.js"></script>
+  <script src="../../../templates/premium/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../../../templates/premium/vendor/typed.js/typed.min.js"></script>
+  <script src="../../../templates/premium/vendor/waypoints/noframework.waypoints.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="../../templates/premium/js/main.js"></script>
+  <script src="../../../templates/premium/js/main.js"></script>
 
 </body>
 

@@ -20,4 +20,9 @@ public class SearchService {
     public Page<User> getUsersByCategory(String category, Pageable pageable) {
         return userRepository.findByCategory(category, PageRequest.of(pageable.getPageNumber(),8));
     }
+
+    public Page<User> getUsersBySearch(String search, Pageable pageable) {
+        return userRepository.findSearching(search, PageRequest.of(pageable.getPageNumber(),8));
+    }
+
 }

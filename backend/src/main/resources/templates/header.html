@@ -90,8 +90,8 @@
                 </ul>
 
                 <form class="search-form search-form--black search-form-courses d-none d-md-flex"
-                      action="/search">
-                    <input type="text" class="form-control" placeholder="Descubre un nuevo portfolio">
+                      action="/searchbar" method="post">
+                    <input type="text" class="form-control" name="search" placeholder="Descubre un nuevo portfolio">
                     <input type="hidden" name="_csrf" value="{{token}}"/>
                     <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
                 </form>
