@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -74,9 +75,8 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void updateUser(User newUser, String id) throws IOException {
+    public void updateUser(User newUser, String id) throws IOException, SQLException {
         User user = userRepository.findById(id).orElseThrow();
-        user.updateProfilePhoto(newUser.getProfilePhoto());
         user.setName(newUser.getName());
         user.setSurname(newUser.getSurname());
         user.setEmail(newUser.getEmail());
@@ -101,8 +101,8 @@ public class UserService {
      * @param imageFile A image given
      * @throws IOException
      */
-    public void updateProfilePhoto(User user, MultipartFile imageFile) throws IOException {
-        user.setProfilePhoto(imageFile);
+    public void updateProfilePhoto(User user, MultipartFile imageFile) throws IOException, SQLException {
+        user.setProfilePhoto(BlobProxy.generateProxy(user.getProfilePhoto().getBinaryStream(),user.getProfilePhoto().length()));
         userRepository.save(user);
     }
 
