@@ -39,9 +39,6 @@ public class ConfigController {
     private UserService userService;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private TemplateService templateService;
 
     @Autowired
@@ -67,13 +64,15 @@ public class ConfigController {
 
 
     @PostMapping("/settings/edit/account/portfolioitems")
-    public String studentEditAccountNotificationsForm(Model model, HttpServletRequest request, PortfolioItem portfolioItem) {
+    public String studentEditAccountNotificationsForm(Model model, HttpServletRequest request,
+                                                      PortfolioItem portfolioItem, MultipartFile preImg, MultipartFile img1,
+                                                      MultipartFile img2, MultipartFile img3) throws IOException {
         model.addAttribute("active_notifications", true);
 
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
 
-        portfolioItemService.addPortfolioItem(user.getid(), portfolioItem);
+        portfolioItemService.addPortfolioItem(user.getid(), portfolioItem, preImg, img1, img2, img3);
         model.addAttribute("portfolioItems", portfolioItemService.getPortfolioItems(user.getid()));
         return "settings-edit-account-portfolioitems";
     }
@@ -93,8 +92,8 @@ public class ConfigController {
     }
 
     @PostMapping("/settings/edit/account/edit/portfolioitem/{userId}/{id}")
-    public String portfolioItemEditForm(Model model, @PathVariable long id, @PathVariable String userId, PortfolioItem newPortfolioItem) throws IOException {
-        portfolioItemService.updatePortfolioItem(newPortfolioItem, id);
+    public String portfolioItemEditForm(Model model, @PathVariable long id, @PathVariable String userId, PortfolioItem newPortfolioItem, MultipartFile preImg, MultipartFile img1, MultipartFile img2, MultipartFile img3) throws IOException, SQLException {
+        portfolioItemService.updatePortfolioItem(newPortfolioItem, id, preImg,img1,img2,img3);
         return "portfolioitem-update-confirmation";
     }
 
@@ -124,7 +123,7 @@ public class ConfigController {
         activeTemplateService.changeActiveTemplate(oldId, id);
         Template activeTemplate = templateService.findFirstById(id);
         user.setActiveTemplate(activeTemplate);
-        userRepository.save(user);
+        userService.saveChanges(user);
         return "change-active-template-confirmation";
     }
 
@@ -147,7 +146,7 @@ public class ConfigController {
     @PostMapping("/settings/edit/account/set/new/info")
     public String setNewInfoCurrentUser(Model model, HttpServletRequest request, User user, MultipartFile profileImg) throws IOException, SQLException {
 
-        userService.updateUser(user, user.getid(),profileImg);
+        userService.updateUser(user, user.getid(), profileImg);
 
         return "update-profile-confirmation";
     }
@@ -159,7 +158,7 @@ public class ConfigController {
 
             // Maintain the same image loading it before updating the book
             User dbUser = userService.findById(user.getid()).orElseThrow();
-            if (dbUser.getProfilePhoto().length()==0)
+            if (dbUser.getProfilePhoto().length() == 0)
                 user.setProfilePhoto(BlobProxy.generateProxy(dbUser.getProfilePhoto().getBinaryStream(), dbUser.getProfilePhoto().length()));
         }
     }

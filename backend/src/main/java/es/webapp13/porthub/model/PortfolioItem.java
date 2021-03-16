@@ -98,32 +98,32 @@ public class PortfolioItem {
         return previewImg;
     }
 
-    public void setPreviewImg(MultipartFile previewImg) throws IOException {
-        this.previewImg = BlobProxy.generateProxy(previewImg.getInputStream(), previewImg.getSize());
+    public void setPreviewImg(Blob previewImg) {
+        this.previewImg = previewImg;
     }
 
     public Blob getImage1() {
         return image1;
     }
 
-    public void setImage1(MultipartFile image1) throws IOException {
-        this.image1 = BlobProxy.generateProxy(image1.getInputStream(), image1.getSize());
+    public void setImage1(Blob image1) {
+        this.image1 = image1;
     }
 
     public Blob getImage2() {
         return image2;
     }
 
-    public void setImage2(MultipartFile image2) throws IOException {
-        this.image2 = BlobProxy.generateProxy(image2.getInputStream(), image2.getSize());
+    public void setImage2(Blob image2) {
+        this.image2 = image2;
     }
 
     public Blob getImage3() {
         return image3;
     }
 
-    public void setImage3(MultipartFile image3) throws IOException {
-        this.image3 = BlobProxy.generateProxy(image3.getInputStream(), image3.getSize());
+    public void setImage3(Blob image3) {
+        this.image3 = image3;
     }
 
     public String getCategory() {
@@ -174,22 +174,6 @@ public class PortfolioItem {
                 ", url='" + url + '\'' +
                 ", date=" + date +
                 '}';
-    }
-
-    public void updatePreviewImg(Blob previewImg) throws IOException {
-        this.previewImg = previewImg;
-    }
-
-    public void updateImage1(Blob image1) throws IOException {
-        this.image1 = image1;
-    }
-
-    public void updateImage2(Blob image2) throws IOException {
-        this.image2 = image2;
-    }
-
-    public void updateImage3(Blob image3) throws IOException {
-        this.image3 = image3;
     }
 
 }
