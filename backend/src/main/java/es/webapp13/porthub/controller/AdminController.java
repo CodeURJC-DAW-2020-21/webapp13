@@ -1,11 +1,16 @@
 package es.webapp13.porthub.controller;
 
+import es.webapp13.porthub.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AdminController {
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/admin")
     public String adminLink(Model model) {
@@ -19,6 +24,8 @@ public class AdminController {
 
     @GetMapping("/admin/app/graphics")
     public String adminAppGraphicsLink(Model model) {
+        long totalUsers = userRepository.count();
+        model.addAttribute("totalUsers", totalUsers);
         return "admin-app-graphics";
     }
 

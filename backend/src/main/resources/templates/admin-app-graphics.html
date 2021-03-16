@@ -33,13 +33,13 @@
                             <a href="/admin" class="nav-link">Lista de usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/banned-users" class="nav-link">Usuarios penalizados</a>
+                            <a href="/admin/banned/users" class="nav-link">Usuarios penalizados</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/templates-list" class="nav-link">Templates disponibles</a>
+                            <a href="/admin/templates/list" class="nav-link">Templates disponibles</a>
                         </li>
                         <li class="nav-item active">
-                            <a href="/app-graphics" class="nav-link">Información general</a>
+                            <a href="/admin/app/graphics" class="nav-link">Información general</a>
                         </li>
                     </ul>
                 </div>
@@ -55,7 +55,7 @@
                     <div class="col-lg-4">
                         <h4 class="card-title">Usuarios de Porthub</h4>
                         <p class="text-70">En este gráfico se muestra el total de usuarios que usan
-                            la aplicación cada mes.</p>
+                            la aplicación.</p>
                     </div>
                     <div class="col-lg-8">
                         <div class="chart">
@@ -64,9 +64,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div style="font-size:25px; color: #ffffff">Este texto tiene un tamaño de 25 pixeles.</div>
+                    <div style="font-size:25px; color: #ffffff">Este texto es de relleno para cuadrar el gráfico.</div>
                 </div>
             </div>
+            <input type="hidden" value="{{totalUsers}}" id="totalUsers">
         </div>
     </div>
 </div>
@@ -82,16 +83,17 @@
 <script src="/app/assets/js/chartjs.js"></script>
 
 <script>
-    var lineGraphic = document.getElementById("usersGraphic");
+    var barGraphic = document.getElementById("usersGraphic");
 
     Chart.defaults.global.defaultFontFamily = "Lato";
     Chart.defaults.global.defaultFontSize = 18;
-
     var data = {
-        labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sept", "Oct", "Nov", "Dic"],
+        label: "Usuarios totales",
+        backgroundColor: 'rgba(0, 99, 132, 0.6)',
+        borderColor:  'rgba(0, 99, 132, 1)',
         datasets: [{
             label: "Usuarios en PortHub",
-            data: [0, 59, 75, 20, 20, 55, 40, 59, 75, 20, 20, 55],
+            data: [{{totalUsers}}]
         }]
     };
 
@@ -106,8 +108,8 @@
         }
     };
 
-    var lineChart = new Chart(lineGraphic, {
-        type: 'line',
+    var lineChart = new Chart(barGraphic, {
+        type: 'bar',
         data: data,
         options: chartOptions
     });
