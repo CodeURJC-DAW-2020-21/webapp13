@@ -40,6 +40,7 @@ public class SearchController {
         model.addAttribute("hasNext",userPage.hasNext());
         model.addAttribute("category","Todas");
         model.addAttribute("users", userPage);
+
         return "search";
     }
 

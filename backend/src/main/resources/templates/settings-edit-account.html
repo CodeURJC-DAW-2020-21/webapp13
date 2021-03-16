@@ -44,7 +44,7 @@
 
 
             <div class="container page__container">
-                <form action="/settings/edit/account/set/new/info" method="post">
+                <form action="/settings/edit/account/set/new/info" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-9">
 
@@ -62,7 +62,7 @@
                                                 </a>
                                                 <div class="media-body">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="imageFile" accept=".jpg, .jpeg, .svg, .png">
+                                                        <input type="file" class="custom-file-input" id="profilePhoto" name="profilePhoto" accept=".jpg, .jpeg, .svg, .png">
                                                         <label class="custom-file-label" for="inputGroupFile01">Elige un
                                                             archivo</label>
                                                     </div>
@@ -76,7 +76,7 @@
                                             <label class="col-form-label col-sm-3">Nombre de usuario</label>
                                             <div class="col-sm-9">
 
-                                                <input id="id" name="id" type="text" class="form-control" value="{{id}}">
+                                                <input id="id" name="id" type="text" class="form-control" value="{{id}}" disabled>
 
 
 

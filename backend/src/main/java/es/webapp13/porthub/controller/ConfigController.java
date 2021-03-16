@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -53,21 +54,28 @@ public class ConfigController {
     }
 
     @GetMapping("/settings/edit/account/portfolioitems")
-    public String studentEditAccountNotificationsLink(Model model) {
+    public String studentEditAccountNotificationsLink(Model model,HttpServletRequest request) {
         model.addAttribute("active_notifications", true);
-        model.addAttribute("portfolioItems", portfolioItemService.getPortfolioItems("id"));
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
+        model.addAttribute("portfolioItems", portfolioItemService.getPortfolioItems(user.getid()));
         return "settings-edit-account-portfolioitems";
     }
 
 
     @PostMapping("/settings/edit/account/portfolioitems")
-    public String studentEditAccountNotificationsForm(Model model, PortfolioItem portfolioItem) {
+    public String studentEditAccountNotificationsForm(Model model,HttpServletRequest request, PortfolioItem portfolioItem) {
         model.addAttribute("active_notifications", true);
-        portfolioItemService.addPortfolioItem("id", portfolioItem);
-        model.addAttribute("portfolioItems", portfolioItemService.getPortfolioItems("id"));
+
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
+
+        portfolioItemService.addPortfolioItem(user.getid(), portfolioItem);
+        model.addAttribute("portfolioItems", portfolioItemService.getPortfolioItems(user.getid()));
         return "settings-edit-account-portfolioitems";
     }
 
+    //Cambiar esto
     @GetMapping("/settings/edit/account/deleted/portfolio-item")
     public String portfolioItemDeleteLink() {
         portfolioItemService.deletePortfolioItem("id", 3);
@@ -133,9 +141,8 @@ public class ConfigController {
     }
 
     @PostMapping("/settings/edit/account/set/new/info")
-    public String setNewInfoCurrentUser(Model model, HttpServletRequest request, User user){
-        userService.saveChanges(user);
-
+    public String setNewInfoCurrentUser(Model model, HttpServletRequest request, User user) throws IOException {
+        userService.updateUser(user,user.getid());
         return "settings-edit-account";
     }
 }

@@ -52,10 +52,10 @@
                                          data-partial-height="40" data-toggle="popover" data-trigger="click">
 
 
-                                        <a href="#" class="js-image" data-position="center">
+                                        <a href="/template/{{id}}" data-position="center">
                                             <!--PROFILE IMAGE GOES HERE /portfolioitems/{{id}}}/image-->
-                                            <img src="/users/{{id}}/image"
-                                                 alt="course">
+                                            <img class="img-fluid" src="{{#profilePhoto}}/users/{{id}}/image{{/profilePhoto}} {{^profilePhoto}} /app/assets/images/people/256/256_rsz_florian-perennes-594195-unsplash.jpg {{/profilePhoto}}"
+                                                 alt="course" style="height: 256px;">
                                             <span class="overlay__content">
                                                 <span class="overlay__action d-flex flex-column text-center">
     
@@ -69,7 +69,6 @@
                                                 <div class="d-flex">
                                                     <div class="flex">
                                                         <a class="card-title" href="#">{{name}}</a>
-                                                        <small class="text-50 font-weight-bold mb-4pt">{{job}}</small>
                                                     </div>
                                                     <a href="#"
                                                        class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
@@ -77,28 +76,6 @@
 
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="popoverContainer d-none">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <!--SMALLER PROFILE IMAGE GOES HERE (40x40)-->
-                                                <img src="/app/assets/images/people/50/50_rsz_florian-perennes-594195-unsplash.jpg"
-                                                     width="40" height="40" alt="Angular" class="rounded">
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="card-title mb-0">{{name}}</div>
-                                                <p class="lh-1 mb-0">
-                                                    <span class="text-black-50 small font-weight-bold">{{job}}</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row align-items-center">
-                                            <div class="col text-center">
-                                                <a href="/template/{{id}}" class="btn btn-primary mt-4">Ver más</a>
-                                            </div>
-                                        </div>
-
                                     </div>
 
                                 </div>

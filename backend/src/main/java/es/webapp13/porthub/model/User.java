@@ -302,4 +302,9 @@ public class User {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
+
+
+    public void updateProfilePhoto(Blob profilePhoto) throws IOException {
+        this.profilePhoto = profilePhoto;
+    }
 }

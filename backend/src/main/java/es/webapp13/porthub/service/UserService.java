@@ -1,6 +1,7 @@
 package es.webapp13.porthub.service;
 
 
+import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.repository.PortfolioItemRepository;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.sql.Blob;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -69,6 +71,22 @@ public class UserService {
         long age = calculateAge(user);
         user.setAge(age);
         user.setActiveTemplate(templateService.findFirstById(1));
+        userRepository.save(user);
+    }
+
+    public void updateUser(User newUser, String id) throws IOException {
+        User user = userRepository.findById(id).orElseThrow();
+        user.updateProfilePhoto(newUser.getProfilePhoto());
+        user.setName(newUser.getName());
+        user.setSurname(newUser.getSurname());
+        user.setEmail(newUser.getEmail());
+        user.setPhoneNumber(newUser.getPhoneNumber());
+        user.setAge(newUser.getAge());
+        user.setCity(newUser.getCity());
+        user.setDegree(newUser.getDegree());
+        user.setJob(newUser.getJob());
+        user.setFreelance(newUser.getFreelance());
+
         userRepository.save(user);
     }
 
