@@ -43,7 +43,7 @@
 
 
             <div class="container page__container">
-                <form action="settings-edit-account.html">
+                <form action="/settings/edit/account/set/new/info" method="post">
                     <div class="row">
                         <div class="col-lg-9">
 
@@ -70,14 +70,26 @@
                                         </div>
                                     </div>
 
-
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Nombre de usuario</label>
+                                            <div class="col-sm-9">
+                                                {{#logued}}
+                                                <input id="id" name="id" type="text" class="form-control" value="{{#user}}{{id}}{{/user}}" placeholder="{{#user}}{{id}}{{/user}}">
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="" placeholder="Escribe tu nombre...">
+                                                {{/logued}}
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="list-group-item">
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Nombre</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{name}}{{/user}}">
+                                                <input id="name" name="name" type="text" class="form-control" value="{{#user}}{{name}}{{/user}}" placeholder="{{#user}}{{name}}{{/user}}">
                                                 {{/logued}}
                                                 {{^logued}}
                                                 <input type="text" class="form-control" value="" placeholder="Escribe tu nombre...">
@@ -90,7 +102,7 @@
                                             <label class="col-form-label col-sm-3">Apellidos</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{surname}}{{/user}}">
+                                                <input id="surname" name="surname" type="text" class="form-control" value="{{#user}}{{surname}}{{/user}}" placeholder="{{#user}}{{surname}}{{/user}}">
                                                 {{/logued}}
                                                 {{^logued}}
                                                 <input type="text" class="form-control" value="" placeholder="Escribe tus apellidos...">
@@ -103,7 +115,7 @@
                                             <label class="col-form-label col-sm-3">Correo</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <input type="email" class="form-control" value="" placeholder="{{#user}}{{email}}{{/user}}">
+                                                <input id="email" name="email" type="email" class="form-control" value="{{#user}}{{email}}{{/user}}" placeholder="{{#user}}{{email}}{{/user}}">
                                                 <small class="form-text text-muted">Si desea cambiar su correo, deberá confirmarlo otra vez.</small>
                                                 {{/logued}}
                                                 {{^logued}}
@@ -117,7 +129,7 @@
                                             <label class="col-form-label col-sm-3">Teléfono</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{phoneNumber}}{{/user}}">
+                                                <input id="phoneNumber" name="phoneNumber" type="text" class="form-control" value="{{#user}}{{phoneNumber}}{{/user}}" placeholder="{{#user}}{{phoneNumber}}{{/user}}">
                                                 {{/logued}}
                                                 {{^logued}}
                                                 <input type="text" class="form-control" value="" placeholder="Escribe tu número de teléfono...">
@@ -130,7 +142,7 @@
                                             <label class="col-form-label col-sm-3">Fecha de nacimiento</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{bornDate}}{{/user}}">
+                                                <input id="bornDate" name="bornDate" type="text" class="form-control" value="{{#user}}{{bornDate}}{{/user}}" placeholder="{{#user}}{{bornDate}}{{/user}}">
                                                 {{/logued}}
                                                 {{^logued}}
                                                 <input type="text" class="form-control" value="" placeholder="Escribe tu fecha de nacimiento...">
@@ -143,7 +155,7 @@
                                             <label class="col-form-label col-sm-3">Edad</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{age}}{{/user}}">
+                                                <input id="age" name="age" type="text" class="form-control" value="{{#user}}{{age}}{{/user}}" placeholder="{{#user}}{{age}}{{/user}}">
                                                 {{/logued}}
                                                 {{^logued}}
                                                 <input type="text" class="form-control" value="" placeholder="Escribe tu edad...">
@@ -156,7 +168,7 @@
                                             <label class="col-form-label col-sm-3">Ciudad</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{city}}{{/user}}">
+                                                <input id="city" name="city" type="text" class="form-control" value="{{#user}}{{city}}{{/user}}" placeholder="{{#user}}{{city}}{{/user}}">
                                                 {{/logued}}
                                                 {{^logued}}
                                                 <input type="text" class="form-control" value="" placeholder="Escribe tu ciudad...">
@@ -169,7 +181,7 @@
                                             <label class="col-form-label col-sm-3">Nivel educativo</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{degree}}{{/user}}">
+                                                <input id="degree" name="degree" type="text" class="form-control" value="{{#user}}{{degree}}{{/user}}" placeholder="{{#user}}{{degree}}{{/user}}">
                                                 {{/logued}}
                                                 {{^logued}}
                                                 <input type="text" class="form-control" value="" placeholder="Escribe tu nivel educativo...">
@@ -182,7 +194,7 @@
                                             <label class="col-form-label col-sm-3">Área de trabajo</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{job}}{{/user}}">
+                                                <input id="job" name="job" type="text" class="form-control" value="{{#user}}{{job}}{{/user}}" placeholder="{{#user}}{{job}}{{/user}}">
                                                 {{/logued}}
                                                 {{^logued}}
                                                 <input type="text" class="form-control" value="" placeholder="Escribe un área de trabajo...">
@@ -195,7 +207,7 @@
                                             <label class="col-form-label col-sm-3">Disponibilidad</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <input type="text" class="form-control" value="" placeholder="{{#user}}{{freelance}}{{/user}}">
+                                                <input id="freelance" name="freelance" type="text" class="form-control" value="{{#user}}{{freelance}}{{/user}}" placeholder="{{#user}}{{freelance}}{{/user}}">
                                                 {{/logued}}
                                                 {{^logued}}
                                                 <input type="text" class="form-control" value="" placeholder="Escribe tu edad...">

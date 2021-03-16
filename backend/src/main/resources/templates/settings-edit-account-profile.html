@@ -43,7 +43,7 @@
 
 
             <div class="container page__container">
-                <form action="settings-edit-account.html">
+                <form action="/settings/edit/account/set/new/info">
                     <div class="row">
                         <div class="col-lg-9">
 
@@ -71,7 +71,7 @@
                                             <label class="col-form-label col-sm-3">Nombre de usuario de PortHub</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <input type="text" class="form-control" value="PortHub.com/{{#user}}{{id}}{{/user}}" placeholder="Tu nombre de perfil ...">
+                                                <input id="id" name="id" type="text" class="form-control" value="PortHub.com/{{#user}}{{id}}{{/user}}" placeholder="Tu nombre de perfil ...">
                                                 <small class="form-text text-muted">Tu nombre de perfil será usado como parte de la dirección URL pública de tu perfil.</small>
                                                 {{/logued}}
                                                 {{^logued}}
@@ -86,7 +86,7 @@
                                             <label class="col-form-label col-sm-3">Descríbete</label>
                                             <div class="col-sm-9">
                                                 {{#logued}}
-                                                <textarea rows="3" class="form-control" placeholder="{{#user}}{{description}}{{/user}}"></textarea>
+                                                <textarea id="description" name="description" rows="3" class="form-control" placeholder="{{#user}}{{description}}{{/user}}"></textarea>
                                                 {{/logued}}
                                                 {{^logued}}
                                                 <textarea rows="3" class="form-control" placeholder="Habla sobre ti..."></textarea>

@@ -128,4 +128,13 @@ public class ConfigController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PostMapping("/settings/edit/account/set/new/info")
+    public String setNewInforCurrentUser(Model model, HttpServletRequest request, User user){
+        Principal principal = request.getUserPrincipal();
+        User currentUser = userService.findUser(principal.getName());
+        userService.saveChanges(currentUser);
+
+        return "settings-edit-account";
+    }
 }
