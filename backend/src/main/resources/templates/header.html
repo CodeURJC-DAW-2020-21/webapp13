@@ -108,6 +108,14 @@
                             <span class="sr-only">Login</span>
                         </a>
                     </li>
+                    {{#admin}}
+                    <li class="d-none d-sm-flex nav-item">
+                        <form action="/admin" method="get">
+                            <button type="submit" class="btn btn-outline-success">Administración</button>
+                            <input type="hidden" name="_csrf" value="{{token}}" />
+                        </form>
+                    </li>
+                    {{/admin}}
                     <li class="d-none d-sm-flex nav-item">
                         <form action="/logout" method="post">
                             <button type="submit" class="btn btn-accent">Logout</button>
