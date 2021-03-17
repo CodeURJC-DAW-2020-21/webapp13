@@ -34,16 +34,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         // Public pages
         http.authorizeRequests().antMatchers("/").permitAll();
+        http.authorizeRequests().antMatchers("/error").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
+        http.authorizeRequests().antMatchers("/signup/**").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
         http.authorizeRequests().antMatchers("/shop").permitAll();
         http.authorizeRequests().antMatchers("/search").permitAll();
         http.authorizeRequests().antMatchers("/search/**").permitAll();
+        http.authorizeRequests().antMatchers("/reset/password").permitAll();
+        http.authorizeRequests().antMatchers("/reset/password").permitAll();
 
         // Private pages
-        //http.authorizeRequests().antMatchers("/settings/edit/account").hasAnyRole("USER");
         http.authorizeRequests().antMatchers("/settings/**").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/logout/confirmation").hasAnyRole("USER");
 
         // Admin pages
         http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
