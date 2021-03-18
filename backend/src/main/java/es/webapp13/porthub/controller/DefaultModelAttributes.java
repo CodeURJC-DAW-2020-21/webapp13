@@ -42,7 +42,6 @@ public class DefaultModelAttributes {
             //model.addAttribute("username", principal.getName());
             //model.addAttribute("username", user.getName());
             model.addAttribute("user", user);
-
              */
         } else {
             model.addAttribute("logued", false);
