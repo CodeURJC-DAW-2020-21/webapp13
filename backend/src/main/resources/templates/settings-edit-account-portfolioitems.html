@@ -178,12 +178,13 @@
         </form>
 
         <div class="row mb-4">
-            <div class="col-lg-9">
+            <div class="col-lg-9" id="result">
                 <h4>Listado de proyectos</h4>
-                <div class="row">
-                    {{#portfolioItems}}
-                    <!--Item-->
-                    <div class="col-lg-4">
+                <div class="row" id="users-to-load">
+
+
+                    {{#portfolioItemsPage}}
+                    <div class="col-lg-4 portfolioitem-item">
                         <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal"
                              data-partial-height="40" data-toggle="popover" data-trigger="click" data-original-title=""
                              title="" data-domfactory-upgraded="mdk-reveal,overlay" style="height: 296px;">
@@ -218,7 +219,7 @@
                                 <div class="media-body">
                                     <div class="card-title mb-2">{{name}}</div>
                                     <p class="lh-1 mb-0">
-                                        <span class="text-black-50 small font-weight-bold mb-2">{{category}}</span>
+                                        <span class="text-black-50 small font-weight-bold mb-2">Cateogria</span>
                                     </p>
                                 </div>
                             </div>
@@ -235,15 +236,24 @@
                         </div>
 
                     </div>
-                    {{/portfolioItems}}
+                    {{/portfolioItemsPage}}
 
-                    {{^portfolioItems}}
+                    {{^portfolioItemsPage}}
                     <p class="text-black-50 lead measure-hero-lead mx-auto">No tienes proyectos todavia.</p>
-                    {{/portfolioItems}}
+                    {{/portfolioItemsPage}}
+
+
                 </div>
 
             </div>
 
+            <div id="hasNextPage">
+                <ul class="pagination justify-content-center pagination-sm" id="button-replace">
+                    {{#hasNext}}
+                    <button class="btn btn-accent" id="load-more1">Cargar más</button>
+                    {{/hasNext}}
+                </ul>
+            </div>
         </div>
 
 

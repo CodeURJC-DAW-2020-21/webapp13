@@ -6,6 +6,9 @@ import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.User;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -50,11 +53,12 @@ public class PortfolioItemService {
      *
      * @param userId Id of the user
      * @return Iterable of portfolio items
-     */
+
     public List<PortfolioItem> getPortfolioItems(String userId) {
         User user = userRepository.findById(userId).orElseThrow();
         return user.getPortfolioItems();
     }
+     */
 
     /**
      * Return a portfolio item by a given user id and portfolio item id
@@ -190,6 +194,10 @@ public class PortfolioItemService {
 
     public Optional<PortfolioItem> findById(long id) {
         return portfolioItemRepository.findById(id);
+    }
+
+    public Page<PortfolioItem> findPortfolioItems(String userId,Pageable pageable) {
+        return portfolioItemRepository.findByUserId(userId,PageRequest.of(pageable.getPageNumber(), 3));
     }
 
 }

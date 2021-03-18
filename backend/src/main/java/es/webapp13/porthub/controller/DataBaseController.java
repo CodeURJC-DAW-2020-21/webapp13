@@ -1,6 +1,7 @@
 package es.webapp13.porthub.controller;
 
 
+import es.webapp13.porthub.repository.PortfolioItemRepository;
 import es.webapp13.porthub.repository.TemplateRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.model.*;
@@ -13,6 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import java.sql.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 
 @Controller
@@ -20,6 +23,9 @@ public class DataBaseController implements CommandLineRunner {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PortfolioItemRepository portfolioItemRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -34,10 +40,32 @@ public class DataBaseController implements CommandLineRunner {
         templateRepository.save(free);
         templateRepository.save(premium);
 
+        PortfolioItem portfolioItem1 = new PortfolioItem("id","proyecto1");
+        portfolioItemRepository.save(portfolioItem1);
+        PortfolioItem portfolioItem2 = new PortfolioItem("id","proyecto2");
+        portfolioItemRepository.save(portfolioItem2);
+        PortfolioItem portfolioItem3 = new PortfolioItem("id","proyecto3");
+        portfolioItemRepository.save(portfolioItem3);
+        PortfolioItem portfolioItem4 = new PortfolioItem("id","proyecto4");
+        portfolioItemRepository.save(portfolioItem4);
+        PortfolioItem portfolioItem5 = new PortfolioItem("id","proyecto5");
+        portfolioItemRepository.save(portfolioItem5);
+        PortfolioItem portfolioItem6 = new PortfolioItem("id","proyecto6");
+        portfolioItemRepository.save(portfolioItem6);
+        PortfolioItem portfolioItem7 = new PortfolioItem("id","proyecto7");
+        portfolioItemRepository.save(portfolioItem7);
 
+        List<PortfolioItem> portfolioItemList = new LinkedList<>();
+        portfolioItemList.add(portfolioItem1);
+        portfolioItemList.add(portfolioItem2);
+        portfolioItemList.add(portfolioItem3);
+        portfolioItemList.add(portfolioItem4);
+        portfolioItemList.add(portfolioItem5);
+        portfolioItemList.add(portfolioItem6);
+        portfolioItemList.add(portfolioItem7);
 
         userRepository.save(new User("id", "name1", "surname", "email@email",passwordEncoder.encode("pass"), "618 99 55 66",
-                "www.web.es", "Madrid", "Grado en Ingeniería Informática", "freelance", "description", "job", "Ingeniero", free,new Date(161598600), "USER"));
+                "www.web.es", "Madrid", "Grado en Ingeniería Informática", "freelance", "description", "job", "Ingeniero", free,new Date(161598600),portfolioItemList, "USER"));
 
         userRepository.save(new User("id2", "name2", "surname2", "email2",passwordEncoder.encode("1234"), "phoneNumber2",
                 "website2", "city2", "degree2", "freelance2", "description2", "job2", "Fotografo", premium, new Date(161598600),"USER", "ADMIN"));

@@ -49,17 +49,11 @@ public class PortfolioItem {
 
     }
 
-    public PortfolioItem(int id, String userId, String name, String description, Blob previewImg, Blob image1, Blob image2, Blob image3, String category, Date date) {
-        this.id = id;
+    public PortfolioItem(String userId, String name) {
+        super();
         this.userId = userId;
         this.name = name;
-        this.description = description;
-        this.previewImg = previewImg;
-        this.image1 = image1;
-        this.image2 = image2;
-        this.image3 = image3;
-        this.category = category;
-        this.date = date;
+
     }
 
     public long getId() {

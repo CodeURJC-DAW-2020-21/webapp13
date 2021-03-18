@@ -1,6 +1,5 @@
 package es.webapp13.porthub.controller;
 
-import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
@@ -9,10 +8,11 @@ import es.webapp13.porthub.service.PortfolioItemService;
 import es.webapp13.porthub.service.TemplateService;
 import es.webapp13.porthub.service.UserService;
 
-import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.security.Principal;
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 import java.util.Optional;
 
 @Controller
@@ -54,11 +55,14 @@ public class ConfigController {
     }
 
     @GetMapping("/settings/edit/account/portfolioitems")
-    public String studentEditAccountNotificationsLink(Model model, HttpServletRequest request) {
+    public String studentEditAccountNotificationsLink(Model model, HttpServletRequest request, Pageable pageable) {
         model.addAttribute("active_notifications", true);
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
-        model.addAttribute("portfolioItems", portfolioItemService.getPortfolioItems(user.getid()));
+
+        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getid(),pageable);
+        model.addAttribute("hasNext",portfolioItems.hasNext());
+        model.addAttribute("portfolioItemsPage", portfolioItems);
         return "settings-edit-account-portfolioitems";
     }
 
@@ -66,14 +70,15 @@ public class ConfigController {
     @PostMapping("/settings/edit/account/portfolioitems")
     public String studentEditAccountNotificationsForm(Model model, HttpServletRequest request,
                                                       PortfolioItem portfolioItem, MultipartFile preImg, MultipartFile img1,
-                                                      MultipartFile img2, MultipartFile img3) throws IOException {
+                                                      MultipartFile img2, MultipartFile img3,Pageable pageable) throws IOException {
         model.addAttribute("active_notifications", true);
 
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
 
         portfolioItemService.addPortfolioItem(user.getid(), portfolioItem, preImg, img1, img2, img3);
-        model.addAttribute("portfolioItems", portfolioItemService.getPortfolioItems(user.getid()));
+        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getid(),pageable);
+        model.addAttribute("portfolioItems", portfolioItems);
         return "settings-edit-account-portfolioitems";
     }
 

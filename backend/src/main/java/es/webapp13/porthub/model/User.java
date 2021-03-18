@@ -83,6 +83,29 @@ public class User {
         this.roles = List.of(roles);
     }
 
+    public User(String id, String name, String surname, String email, String password, String phoneNumber,
+                String website, String city, String degree, String freelance, String description,
+                String job, String category, Template activeTemplate, Date date,List<PortfolioItem> portfolioItemList,String... roles) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.website = website;
+        this.city = city;
+        this.degree = degree;
+        this.freelance = freelance;
+        this.job = job;
+        this.description = description;
+        this.category = category;
+        this.activeTemplate = activeTemplate;
+        this.bornDate = date;
+        this.portfolioItems = portfolioItemList;
+        this.roles = List.of(roles);
+    }
+
     @Override
     public String toString() {
         return "User{" +
