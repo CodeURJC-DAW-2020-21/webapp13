@@ -73,7 +73,6 @@
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Inicio</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Sobre mí</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Experiencia</span></a></li>
           <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -107,12 +106,12 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            {{#user}}
+            {{#user.profilePhoto}}
             <img src="/profilePhoto" alt="" class="img-fluid rounded-circle">
-            {{/user}}
-            {{^user}}
+            {{/user.profilePhoto}}
+            {{^user.profilePhoto}}
             <img src="../../templates/premium/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-            {{/user}}
+            {{/user.profilePhoto}}
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>
