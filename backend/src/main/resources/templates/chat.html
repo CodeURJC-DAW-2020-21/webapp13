@@ -1,0 +1,76 @@
+{{> header}}
+
+<noscript>
+    <h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+        enabled. Please enable
+        Javascript and reload this page!</h2>
+</noscript>
+
+
+<div id="main-content messages" class="container" style="margin-top: 5%">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <a href="#send" class="btn-primary btn w-100 mt-2 mb-2">Leer mensajes mas recientes</a>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Conversación</th>
+                </tr>
+                </thead>
+                <tbody id="greetings">
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12 mt-2 mb-2" id="sendDiv">
+            <form id="sendForm"  class="form-inline">
+                <div class="form-group w-75">
+                    <input type="text" id="name" class="form-control w-100" placeholder="Escribe un mensaje a tu amigo">
+                </div>
+                <button id="send" class="btn btn-accent w-25" type="submit">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+{{> footer}}
