@@ -47,6 +47,7 @@ public class TemplateController {
     public String templatePremiumPortfolioItemLink(Model model,@PathVariable long id, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
+
         model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(user.getid(), id));
         return "templates/premium/portfolio-item";
     }

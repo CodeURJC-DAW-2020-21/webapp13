@@ -50,7 +50,12 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
+        {{#user.profilePhoto}}
+        <img src="/profilePhoto" alt="" class="img-fluid rounded-circle">
+        {{/user.profilePhoto}}
+        {{^user.profilePhoto}}
         <img src="../../templates/premium/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+        {{/user.profilePhoto}}
         <h1 class="text-light"><a href="index.html">
           {{#user}}{{name}} {{surname}}{{/user}}
           {{^user}}Nombre Apellidos{{/user}}
@@ -102,7 +107,12 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="../../templates/premium/img/profile-img.jpg" class="img-fluid" alt="">
+            {{#user}}
+            <img src="/profilePhoto" alt="" class="img-fluid rounded-circle">
+            {{/user}}
+            {{^user}}
+            <img src="../../templates/premium/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+            {{/user}}
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>
@@ -160,7 +170,7 @@
     </section><!-- End About Section -->
 
 
-    
+
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio section-bg">

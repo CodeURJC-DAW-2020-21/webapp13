@@ -78,6 +78,7 @@ public class ConfigController {
 
         portfolioItemService.addPortfolioItem(user.getid(), portfolioItem, preImg, img1, img2, img3);
         Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getid(),pageable);
+        model.addAttribute("hasNext", portfolioItems.hasNext());
         model.addAttribute("portfolioItems", portfolioItems);
         return "settings-edit-account-portfolioitems";
     }
@@ -142,6 +143,71 @@ public class ConfigController {
 
             return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
                     .contentLength(portfolioItem.get().getPreviewImg().length()).body(file);
+
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/portfolioitems/{id}/image1")
+    public ResponseEntity<Object> downloadPortfolioItemImage1(@PathVariable long id) throws SQLException {
+        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
+        System.out.println("La encontre");
+        if (portfolioItem.isPresent() && portfolioItem.get().getImage1() != null) {
+
+            Resource file = new InputStreamResource(portfolioItem.get().getImage1().getBinaryStream());
+
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
+                    .contentLength(portfolioItem.get().getImage1().length()).body(file);
+
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/portfolioitems/{id}/image2")
+    public ResponseEntity<Object> downloadPortfolioItemImage2(@PathVariable long id) throws SQLException {
+        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
+        System.out.println("La encontre");
+        if (portfolioItem.isPresent() && portfolioItem.get().getImage2() != null) {
+
+            Resource file = new InputStreamResource(portfolioItem.get().getImage2().getBinaryStream());
+
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
+                    .contentLength(portfolioItem.get().getImage2().length()).body(file);
+
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/portfolioitems/{id}/image3")
+    public ResponseEntity<Object> downloadPortfolioItemImage3(@PathVariable long id) throws SQLException {
+        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
+        System.out.println("La encontre");
+        if (portfolioItem.isPresent() && portfolioItem.get().getImage3() != null) {
+
+            Resource file = new InputStreamResource(portfolioItem.get().getImage3().getBinaryStream());
+
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
+                    .contentLength(portfolioItem.get().getImage3().length()).body(file);
+
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/profilePhoto")
+    public ResponseEntity<Object> downloadProfilePhoto(HttpServletRequest request) throws SQLException {
+        System.out.println("La encontre");
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
+        if (user.getProfilePhoto() != null) {
+
+            Resource file = new InputStreamResource(user.getProfilePhoto().getBinaryStream());
+
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
+                    .contentLength(user.getProfilePhoto().length()).body(file);
 
         } else {
             return ResponseEntity.notFound().build();

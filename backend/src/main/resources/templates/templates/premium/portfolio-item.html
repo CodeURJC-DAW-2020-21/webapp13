@@ -50,8 +50,16 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
+        {{#user.profilePhoto}}
+        <img src="/profilePhoto" alt="" class="img-fluid rounded-circle">
+        {{/user.profilePhoto}}
+        {{^user.profilePhoto}}
         <img src="../../../templates/premium/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
+        {{/user.profilePhoto}}
+        <h1 class="text-light"><a href="index.html">
+          {{#user}}{{name}} {{surname}}{{/user}}
+          {{^user}}Nombre Apellidos{{/user}}
+        </a></h1>
         <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -101,15 +109,15 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="../../../templates/premium/img/portfolio/portfolio-details-1.jpg" alt="">
+                  <img src="/portfolioitems/{{id}}/image1" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="../../../templates/premium/img/portfolio/portfolio-details-2.jpg" alt="">
+                  <img src="/portfolioitems/{{id}}/image3" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="../../../templates/premium/img/portfolio/portfolio-details-3.jpg" alt="">
+                  <img src="/portfolioitems/{{id}}/image3" alt="">
                 </div>
 
               </div>

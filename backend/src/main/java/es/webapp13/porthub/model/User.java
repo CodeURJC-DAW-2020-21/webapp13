@@ -44,6 +44,7 @@ public class User {
     private List<String> roles;
 
     @Lob
+    @JsonIgnore
     private Blob profilePhoto;
 
     @OneToOne
