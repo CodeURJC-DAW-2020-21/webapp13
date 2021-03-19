@@ -126,9 +126,13 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Área de trabajo</label>
                                             <div class="col-sm-9">
-
-                                                <input id="job" name="job" type="text" class="form-control" value="{{job}}">
-
+                                                <select class="custom-select" id="category" name="category" required>
+                                                    <option value="{{category}}">Elige...</option>
+                                                    <option value="Ingeniero">Ingeniería</option>
+                                                    <option value="Diseñador">Diseño</option>
+                                                    <option value="Fotografo">Fotografía</option>
+                                                    <option value="Empresario">Empresa</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

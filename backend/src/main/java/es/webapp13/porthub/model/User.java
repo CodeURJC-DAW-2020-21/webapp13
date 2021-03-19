@@ -37,7 +37,6 @@ public class User {
     private String degree;
     private String freelance;
     private String description;
-    private String job;
 
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -63,8 +62,7 @@ public class User {
     }
 
     public User(String id, String name, String surname, String email, String password, String phoneNumber,
-                String website, String city, String degree, String freelance, String description,
-                String job, String category, Template activeTemplate, Date date,String... roles) {
+                String website, String city, String degree, String freelance, String description, String category, Template activeTemplate, Date date,String... roles) {
         super();
         this.id = id;
         this.name = name;
@@ -76,7 +74,6 @@ public class User {
         this.city = city;
         this.degree = degree;
         this.freelance = freelance;
-        this.job = job;
         this.description = description;
         this.category = category;
         this.activeTemplate = activeTemplate;
@@ -85,8 +82,7 @@ public class User {
     }
 
     public User(String id, String name, String surname, String email, String password, String phoneNumber,
-                String website, String city, String degree, String freelance, String description,
-                String job, String category, Template activeTemplate, Date date,List<PortfolioItem> portfolioItemList,String... roles) {
+                String website, String city, String degree, String freelance, String description, String category, Template activeTemplate, Date date,List<PortfolioItem> portfolioItemList,String... roles) {
         super();
         this.id = id;
         this.name = name;
@@ -98,7 +94,6 @@ public class User {
         this.city = city;
         this.degree = degree;
         this.freelance = freelance;
-        this.job = job;
         this.description = description;
         this.category = category;
         this.activeTemplate = activeTemplate;
@@ -215,14 +210,6 @@ public class User {
 
     public void setFreelance(String freelance) {
         this.freelance = freelance;
-    }
-
-    public String getJob() {
-        return job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
     }
 
     public String getDescription() {
