@@ -29,10 +29,17 @@
 
 <body id="page-top">
 
-<a href="/">
-    <button type="button" id="close-button" class="btn btn-warning btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="
+<div class="d-flex flex-row">
+    <a href="/chat/{{user.id}}">
+        <button type="button" id="chat-button" class="btn btn-primary btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="position: fixed; bottom: 10%; right: 0; background-color: #1695de;"><i class="fas fa-comment"></i></i></button>
+    </a>
+
+    <a href="/">
+        <button type="button" id="close-button" class="btn btn-warning btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="
     z-index: 99;"><i class="fas fa-times"></i></button>
-</a>
+    </a>
+</div>
+
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-dark" id="mainNav">
     <div class="container">
