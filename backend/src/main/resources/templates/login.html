@@ -46,45 +46,4 @@
 </div>
 <!-- // END Header Layout -->
 
-<!-- DRAWER (MOBILE NAVBAR) -->
-<div class="mdk-drawer js-mdk-drawer" id="default-drawer">
-    <div class="mdk-drawer__content">
-        <div class="sidebar sidebar-dark sidebar-left" data-perfect-scrollbar>
-            <div class="sidebar-p-a sidebar-b-b sidebar-m-b pt-0">
-
-                <!-- Brand -->
-                <a href="index.html" class="sidebar-brand">
-                    <img class="sidebar-brand-icon" src="/app/assets/images/logo/white-100.svg" width="30" alt="Tutorio">
-                    <span>PortHub</span>
-                </a>
-                <!-- // END Brand -->
-
-                <!-- Search -->
-                <form action="library-filters.html" class="search-form search-form--black">
-                    <input type="text" class="form-control" placeholder="Búsqueda">
-                    <input type="hidden" name="_csrf" value="{{token}}"/>
-                    <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
-                </form>
-
-            </div>
-
-            <ul class="sidebar-menu">
-                <li class="sidebar-menu-item">
-                    <a class="sidebar-menu-button" href="index.html">Inicio</a>
-                </li>
-                <li class="sidebar-menu-item">
-                    <a class="sidebar-menu-button" href="search.html">Explorar</a>
-                </li>
-                <li class="sidebar-menu-item">
-                    <a class="sidebar-menu-button" href="settings-edit-account.html">Perfil</a>
-                </li>
-                <li class="sidebar-menu-item">
-                    <a class="sidebar-menu-button" href="shop.html">Tienda</a>
-                </li>
-            </ul>
-        </div>
-
-    </div>
-</div>
-<!-- // END drawer -->
 {{>footer}}
