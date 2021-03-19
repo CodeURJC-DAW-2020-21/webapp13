@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>Creative - Start Bootstrap Theme</title>
+    <title>Perfil</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
 
@@ -170,6 +170,14 @@
                 </a>
             </div>
             {{/portfolioItems}}
+
+            <div id="hasNextPage">
+                <ul class="pagination justify-content-center pagination-sm" id="button-replace">
+                    {{#hasNext}}
+                    <button class="btn btn-accent" id="load-more2">Cargar más</button>
+                    {{/hasNext}}
+                </ul>
+            </div>
         </div>
     </div>
 </section>
