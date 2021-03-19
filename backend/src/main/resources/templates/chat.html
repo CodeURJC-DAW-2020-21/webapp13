@@ -24,38 +24,15 @@
             <table id="conversation" class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Conversación</th>
+                    <th>Conversación con <p id="receiver-id">{{receiver.id}}</p></th>
                 </tr>
                 </thead>
-                <tbody id="greetings">
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
-                <tr><td>Hello, sdfsdfhgjghjgh!</td></tr>
+                <tbody id="conversation">
+
+                {{#messages}}
+                <tr><td class="message"> <b class="sender-id">{{sender.id}}</b>: {{text}}</td></tr>
+                {{/messages}}
+
 
                 </tbody>
             </table>

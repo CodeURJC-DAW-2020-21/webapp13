@@ -15,11 +15,11 @@ public class Message {
 
     @ManyToOne
     @JsonIgnore
-    private User transmitterId;
+    private User sender;
 
     @ManyToOne
     @JsonIgnore
-    private User receiverId;
+    private User receiver;
 
     private String text;
 
@@ -28,9 +28,10 @@ public class Message {
     protected Message() {
     }
 
-    public Message(User transmitterId, User receiverId, String text, Date send_date) {
-        this.transmitterId = transmitterId;
-        this.receiverId = receiverId;
+    public Message(User sender, User receiver, String text, Date send_date) {
+        super();
+        this.sender = sender;
+        this.receiver = receiver;
         this.text = text;
         this.send_date = send_date;
     }
@@ -43,20 +44,20 @@ public class Message {
         this.id = id;
     }
 
-    public User getTransmitterId() {
-        return transmitterId;
+    public User getsender() {
+        return sender;
     }
 
-    public void setTransmitterId(User transmitterId) {
-        this.transmitterId = transmitterId;
+    public void setsender(User sender) {
+        this.sender = sender;
     }
 
-    public User getReceiverId() {
-        return receiverId;
+    public User getreceiver() {
+        return receiver;
     }
 
-    public void setReceiverId(User receiverId) {
-        this.receiverId = receiverId;
+    public void setreceiver(User receiver) {
+        this.receiver = receiver;
     }
 
     public String getText() {

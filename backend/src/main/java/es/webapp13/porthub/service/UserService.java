@@ -1,6 +1,7 @@
 package es.webapp13.porthub.service;
 
 
+import es.webapp13.porthub.model.Message;
 import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.repository.PortfolioItemRepository;
 import es.webapp13.porthub.model.Template;
@@ -68,6 +69,11 @@ public class UserService {
         List<String> roles = new LinkedList<>();
         roles.add("USER");
         user.setRoles(roles);
+
+        List<Message> messages = new LinkedList<>();
+        System.out.println("### Lista mensajes creada"+ messages);
+        user.setMessages(messages);
+
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         long age = calculateAge(user);
         user.setAge(age);
@@ -137,12 +143,13 @@ public class UserService {
         return template.getHtmlPath();
     }
 
-
-
-
-
-
     public Optional<User> findById(String name) {
         return userRepository.findById(name);
+    }
+
+
+    public List<Message> getMessageList(String id){
+        User user = userRepository.findById(id).orElseThrow();
+        return user.getMessages();
     }
 }

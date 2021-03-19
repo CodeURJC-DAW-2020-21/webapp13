@@ -1,13 +1,15 @@
 package es.webapp13.porthub.chat;
 
-public class Message {
+public class ChatMessage {
 
     private String content;
     private String sender;
+    private String receiver;
 
-    public Message(String content, String sender) {
+    public ChatMessage(String content, String sender, String receiver) {
         this.content = content;
         this.sender = sender;
+        this.receiver = receiver;
     }
 
     public String getContent() {
@@ -24,5 +26,13 @@ public class Message {
 
     public void setSender(String sender) {
         this.sender = sender;
+    }
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
     }
 }

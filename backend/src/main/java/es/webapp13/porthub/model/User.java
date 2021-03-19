@@ -56,8 +56,8 @@ public class User {
     @OneToMany
     private List<PortfolioItem> portfolioItems;
 
-    @OneToMany(mappedBy = "transmitterId")
-    private List<Message> messages;
+    @OneToMany(mappedBy = "sender")
+    private List<Message> messages = new LinkedList<>();
 
     public User() {
     }
