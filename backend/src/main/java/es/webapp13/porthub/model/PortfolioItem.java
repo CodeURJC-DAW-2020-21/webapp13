@@ -56,6 +56,17 @@ public class PortfolioItem {
 
     }
 
+    public PortfolioItem(String userId, String name, String description, String category, String client, String url, Date date) {
+        super();
+        this.userId = userId;
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.client = client;
+        this.url = url;
+        this.date = date;
+    }
+
     public long getId() {
         return id;
     }

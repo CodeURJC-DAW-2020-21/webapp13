@@ -5,6 +5,10 @@ import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.PortfolioItemService;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.sql.SQLException;
+import java.util.Optional;
 
 @Controller
 public class TemplateController {
@@ -43,24 +49,50 @@ public class TemplateController {
         return "templates/premium/index";
     }
 
-    @GetMapping("/templates/premium/portfolioitem/{id}")
-    public String templatePremiumPortfolioItemLink(Model model,@PathVariable long id, HttpServletRequest request) {
-        Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
 
-        model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(user.getid(), id));
+    @GetMapping("/template/premium/{userId}/portfolioitem/{itemId}")
+    public String templatePremiumPortfolioItemLink(Model model, @PathVariable String userId, @PathVariable long itemId) {
+        model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(userId, itemId));
         return "templates/premium/portfolio-item";
     }
 
-
-    @GetMapping("/templates/free/portfolioitem/{id}")
-    public String templateFreePortfolioItemLink(Model model, @PathVariable long id, HttpServletRequest request) {
-        Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
-        model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(user.getid(), id));
+    @GetMapping("/template/free/{userId}/portfolioitem/{itemId}")
+    public String templateFreePortfolioItemLink(Model model, @PathVariable String userId, @PathVariable long itemId) {
+        model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(userId, itemId));
         return "templates/free/portfolio-item";
     }
 
+    @GetMapping("/template/{id}")
+    public String templateFromSearchLink(Model model,@PathVariable String id, HttpServletRequest request) {
+        User portfolioUser = userService.findUser(id);
+        model.addAttribute("portfolioUser",portfolioUser);
+        model.addAttribute("external", true);
+        Principal principal = request.getUserPrincipal();
+        if (principal!=null){
+            User activeUser = userService.findUser(principal.getName());
+            if (activeUser!=portfolioUser){
+                model.addAttribute("chat", true);
+            }
+        }else{
+            model.addAttribute("chat", true);
+        }
+        return userService.getTemplateHtmlPath(id);
+    }
+
+    @GetMapping("/users/{id}/image")
+    public ResponseEntity<Object> downloadPortfolioItemImage(@PathVariable String id) throws SQLException {
+        Optional<User> user = userService.findById(id);
+        if (user.isPresent() && user.get().getProfilePhoto() != null) {
+
+            Resource file = new InputStreamResource(user.get().getProfilePhoto().getBinaryStream());
+
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
+                    .contentLength(user.get().getProfilePhoto().length()).body(file);
+
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 
 }

@@ -15,6 +15,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -92,28 +95,6 @@ public class SearchController {
         model.addAttribute("category","Empresa");
         model.addAttribute("users", userPage);
         return "search";
-    }
-
-    @GetMapping("/template/{id}")
-    public String templateFromSearchLink(Model model,@PathVariable String id) {
-        model.addAttribute("externalUser",userService.findUser(id));
-        model.addAttribute("external", true);
-        return userService.getTemplateHtmlPath(id);
-    }
-
-    @GetMapping("/users/{id}/image")
-    public ResponseEntity<Object> downloadPortfolioItemImage(@PathVariable String id) throws SQLException {
-        Optional<User> user = userService.findById(id);
-        if (user.isPresent() && user.get().getProfilePhoto() != null) {
-
-            Resource file = new InputStreamResource(user.get().getProfilePhoto().getBinaryStream());
-
-            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
-                    .contentLength(user.get().getProfilePhoto().length()).body(file);
-
-        } else {
-            return ResponseEntity.notFound().build();
-        }
     }
 
 

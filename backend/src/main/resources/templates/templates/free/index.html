@@ -30,9 +30,13 @@
 <body id="page-top">
 
 <div class="d-flex flex-row">
-    <a href="/chat/{{user.id}}">
+    {{#chat}}
+    {{#portfolioUser}}}
+    <a href="/chat/{{id}}">
         <button type="button" id="chat-button" class="btn btn-primary btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="position: fixed; bottom: 10%; right: 0; background-color: #1695de;"><i class="fas fa-comment"></i></i></button>
     </a>
+    {{/portfolioUser}}
+    {{/chat}}
 
     <a href="/">
         <button type="button" id="close-button" class="btn btn-warning btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="
@@ -63,24 +67,8 @@
             <div class="col-lg-8 text-center">
                 <h2 id="about-tittle" class="text-white mt-0">Sobre mí</h2>
                 <hr class="divider light my-4"/>
-                {{^external}}
-                    {{#user}}
-                        {{#profilePhoto}}
-                        <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
-                             src="/profilePhoto/{{id}}" alt="profile-img">
-                        {{/profilePhoto}}
-                        {{^profilePhoto}}
-                        <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
-                             src="../../templates/free/img/profile-img.jpg" alt="profile-img">
-                        {{/profilePhoto}}
-                    {{/user}}
-                    {{^user}}
-                        <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
-                             src="../../templates/free/img/profile-img.jpg" alt="profile-img">
-                    {{/user}}
-                {{/external}}
                 {{#external}}
-                    {{#externalUser}}
+                    {{#portfolioUser}}
                         {{#profilePhoto}}
                         <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
                              src="/profilePhoto/{{id}}" alt="profile-img">
@@ -89,33 +77,35 @@
                         <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
                              src="../../templates/free/img/profile-img.jpg" alt="profile-img">
                         {{/profilePhoto}}
-                    {{/externalUser}}
+                    {{/portfolioUser}}
+                {{/external}}
+
+                {{^external}}
+                <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
+                     src="../../templates/free/img/profile-img.jpg" alt="profile-img">
                 {{/external}}
                 <p id="about-complete-name" class="text-white mt-0 text-uppercase h3">
                     {{^external}}
-                        {{#user}}{{name}} {{surname}}{{/user}}
-                        {{^user}}Nombre Apellidos{{/user}}
+                        Nombre Apellidos
                     {{/external}}
                     {{#external}}
-                        {{#externalUser}}{{name}} {{surname}}{{/externalUser}}
+                        {{#portfolioUser}}{{name}} {{surname}}{{/portfolioUser}}
                     {{/external}}
                 </p>
                 <p id="about-job" class="text-white mt-0 text-uppercase h5">
                     {{^external}}
-                        {{#user}}{{category}}{{/user}}
-                        {{^user}}Trabajo{{/user}}
+                        Trabajo
                     {{/external}}
                     {{#external}}
-                        {{#externalUser}}{{category}}{{/externalUser}}
+                        {{#portfolioUser}}{{category}}{{/portfolioUser}}
                     {{/external}}
                 </p>
                 <p id="about-description" class="text-white-50 font-weight-light mb-4">
                     {{^external}}
-                        {{#user}}{{description}}{{/user}}
-                        {{^user}}Descripción{{/user}}
+                        Descripción
                     {{/external}}
                     {{#external}}
-                        {{#externalUser}}{{description}}{{/externalUser}}
+                        {{#portfolioUser}}{{description}}{{/portfolioUser}}
                     {{/external}}
                 </p>
                 <div class="row d-flex m-1">
@@ -125,41 +115,37 @@
                                 nacimiento:</strong> <span id="about-date"
                                                            class="text-white mt-0">
                                 {{^external}}
-                                    {{#user}}{{bornDate}}{{/user}}
-                                    {{^user}}Fecha{{/user}}
+                                    Fecha
                                 {{/external}}
                                 {{#external}}
-                                    {{#externalUser}}{{bornDate}}{{/externalUser}}
+                                    {{#portfolioUser}}{{bornDate}}{{/portfolioUser}}
                                 {{/external}}
                                 </span></li>
                             <li class="list-group-item border border-white"><strong>Página web:</strong> <span
                                     id="about-website">
                                 {{^external}}
-                                    {{#user}}{{website}}{{/user}}
-                                    {{^user}}Página web{{/user}}
+                                    Página web
                                 {{/external}}
                                 {{#external}}
-                                    {{#externalUser}}{{website}}{{/externalUser}}
+                                    {{#portfolioUser}}{{website}}{{/portfolioUser}}
                                 {{/external}}
                                 </span></li>
                             <li class="list-group-item border border-white active"><strong>Teléfono:</strong> <span
                                     id="about-phone">
                                 {{^external}}
-                                    {{#user}}{{phoneNumber}}{{/user}}
-                                        {{^user}}Telefono{{/user}}
+                                    Telefono
                                 {{/external}}
                                 {{#external}}
-                                    {{#externalUser}}{{phoneNumber}}{{/externalUser}}
+                                    {{#portfolioUser}}{{phoneNumber}}{{/portfolioUser}}
                                 {{/external}}
                                 </span></li>
                             <li class="list-group-item border border-white"><strong>Ciudad:</strong> <span
                                     id="about-city">
                                 {{^external}}
-                                    {{#user}}{{city}}{{/user}}
-                                    {{^user}}Ciudad{{/user}}
+                                    Ciudad
                                 {{/external}}
                                 {{#external}}
-                                    {{#externalUser}}{{city}}{{/externalUser}}
+                                    {{#portfolioUser}}{{city}}{{/portfolioUser}}
                                 {{/external}}
                                 </span></li>
                         </ul>
@@ -169,41 +155,37 @@
                             <li class="list-group-item border border-white"><strong>Edad:</strong> <span
                                     id="about-age">
                                 {{^external}}
-                                    {{#user}}{{age}}{{/user}}
-                                    {{^user}}Edad{{/user}}
+                                    Edad
                                 {{/external}}
                                 {{#external}}
-                                    {{#externalUser}}{{age}}{{/externalUser}}
+                                    {{#portfolioUser}}{{age}}{{/portfolioUser}}
                                 {{/external}}
                                 </span></li>
                             <li class="list-group-item border border-white active"><strong>Nivel educativo:</strong>
                                 <span id="about-degree">
                                 {{^external}}
-                                    {{#user}}{{degree}}{{/user}}
-                                    {{^user}}Nivel{{/user}}
+                                    Nivel
                                 {{/external}}
                                 {{#external}}
-                                    {{#externalUser}}{{degree}}{{/externalUser}}
+                                    {{#portfolioUser}}{{degree}}{{/portfolioUser}}
                                 {{/external}}
                                 </span></li>
                             <li class="list-group-item border border-white"><strong>Email:</strong> <span
                                     id="about-email">
                                 {{^external}}
-                                    {{#user}}{{email}}{{/user}}
-                                    {{^user}}Email{{/user}}
+                                    Email
                                 {{/external}}
                                 {{#external}}
-                                    {{#externalUser}}{{email}}{{/externalUser}}
+                                    {{#portfolioUser}}{{email}}{{/portfolioUser}}
                                 {{/external}}
                                 </span></li>
                             <li class="list-group-item border border-white active"><strong>Disponibilidad:</strong>
                                 <span id="about-freelance">
                                 {{^external}}
-                                    {{#user}}{{freelance}}{{/user}}
-                                    {{^user}}Disponibilidad{{/user}}
+                                    Disponibilidad
                                 {{/external}}
                                 {{#external}}
-                                    {{#externalUser}}{{freelance}}{{/externalUser}}
+                                    {{#portfolioUser}}{{freelance}}{{/portfolioUser}}
                                 {{/external}}
                                 </span></li>
                         </ul>
@@ -228,34 +210,17 @@
         <h2 id="about-tittle" class="text-white mt-0 text-center">Proyectos</h2>
         <hr class="divider light my-4"/>
         {{^external}}
-            {{#user}}
-                {{^portfolioItems}}
-                <h4 id="about-tittle" class="text-white mt-0 text-center">No tienes proyectos todavia.</h4>
-                {{/portfolioItems}}
-                <div class="row no-gutters">
-                    {{#portfolioItems}}
-                    <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
-                        <a class="portfolio-box" href="/templates/free/portfolioitem/{{id}}">
-                            <img class="img-fluid" id="portfolio-visual-item-img"
-                                 src="/portfolioitems/{{id}}/image" alt=""/>
-                            <div class="portfolio-box-caption">
-                                <div class="project-name" id="portfolio-visual-item-name">{{name}}</div>
-                            </div>
-                        </a>
-                    </div>
-                    {{/portfolioItems}}
-                </div>
-            {{/user}}
+        <h4 id="about-tittle" class="text-white mt-0 text-center">No tiene proyectos todavia.</h4>
         {{/external}}
         {{#external}}
-            {{#externalUser}}
+            {{#portfolioUser}}
                 {{^portfolioItems}}
                 <h4 id="about-tittle" class="text-white mt-0 text-center">No tiene proyectos todavia.</h4>
                 {{/portfolioItems}}
                 <div class="row no-gutters">
                     {{#portfolioItems}}
                     <div class="col-lg-4 col-sm-6" id="portfolio-visual-item">
-                        <a class="portfolio-box" href="/templates/free/portfolioitem/{{id}}">
+                        <a class="portfolio-box" href="/template/free/{{portfolioUser.id}}/portfolioitem/{{id}}">
                             <img class="img-fluid" id="portfolio-visual-item-img"
                                  src="/portfolioitems/{{id}}/image" alt=""/>
                             <div class="portfolio-box-caption">
@@ -265,7 +230,7 @@
                     </div>
                     {{/portfolioItems}}
                 </div>
-            {{/externalUser}}
+            {{/portfolioUser}}
         {{/external}}
     </div>
 </section>

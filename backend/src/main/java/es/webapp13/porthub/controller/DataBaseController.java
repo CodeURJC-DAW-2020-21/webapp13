@@ -40,19 +40,19 @@ public class DataBaseController implements CommandLineRunner {
         templateRepository.save(free);
         templateRepository.save(premium);
 
-        PortfolioItem portfolioItem1 = new PortfolioItem("id","proyecto1");
+        PortfolioItem portfolioItem1 = new PortfolioItem("id","proyecto1", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem1);
-        PortfolioItem portfolioItem2 = new PortfolioItem("id","proyecto2");
+        PortfolioItem portfolioItem2 = new PortfolioItem("id","proyecto2", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem2);
-        PortfolioItem portfolioItem3 = new PortfolioItem("id","proyecto3");
+        PortfolioItem portfolioItem3 = new PortfolioItem("id","proyecto3", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem3);
-        PortfolioItem portfolioItem4 = new PortfolioItem("id","proyecto4");
+        PortfolioItem portfolioItem4 = new PortfolioItem("id","proyecto4", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem4);
-        PortfolioItem portfolioItem5 = new PortfolioItem("id","proyecto5");
+        PortfolioItem portfolioItem5 = new PortfolioItem("id","proyecto5", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem5);
-        PortfolioItem portfolioItem6 = new PortfolioItem("id","proyecto6");
+        PortfolioItem portfolioItem6 = new PortfolioItem("id","proyecto6", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem6);
-        PortfolioItem portfolioItem7 = new PortfolioItem("id","proyecto7");
+        PortfolioItem portfolioItem7 = new PortfolioItem("id","proyecto7", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem7);
 
         List<PortfolioItem> portfolioItemList = new LinkedList<>();
