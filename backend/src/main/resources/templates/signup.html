@@ -86,12 +86,20 @@
                                            placeholder="Introduzca su situación laboral" name="freelance" required>
                                     <div class="invalid-feedback">Introduzca una disponibilidad para completar la información de su cuenta</div>
                                 </div>
+
                                 <div class="form-group col-md-6 mb-24pt">
-                                    <label for="job">Área de trabajo:</label>
-                                    <input id="job" type="text" class="form-control"
-                                           placeholder="Introduzca su área de trabajo" name="job" required>
-                                    <div class="invalid-feedback">Introduzca un área de trabajo para completar la información de su cuenta</div>
+                                    <label for="category">Área de trabajo:</label>
+                                    <select class="custom-select" id="category" name="category" required>
+                                        <option value="">Elige...</option>
+                                        <option value="Ingeniero">Ingeniería</option>
+                                        <option value="Diseñador">Diseño</option>
+                                        <option value="Fotografo">Fotografía</option>
+                                        <option value="Empresario">Empresa</option>
+                                    </select>
                                 </div>
+
+
+
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6 mb-24pt">

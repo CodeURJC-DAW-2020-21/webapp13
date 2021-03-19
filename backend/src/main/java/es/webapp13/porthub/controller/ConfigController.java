@@ -197,11 +197,10 @@ public class ConfigController {
         }
     }
 
-    @GetMapping("/profilePhoto")
-    public ResponseEntity<Object> downloadProfilePhoto(HttpServletRequest request) throws SQLException {
+    @GetMapping("/profilePhoto/{id}")
+    public ResponseEntity<Object> downloadProfilePhoto(@PathVariable String id, HttpServletRequest request) throws SQLException {
         System.out.println("La encontre");
-        Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findUser(id);
         if (user.getProfilePhoto() != null) {
 
             Resource file = new InputStreamResource(user.getProfilePhoto().getBinaryStream());
