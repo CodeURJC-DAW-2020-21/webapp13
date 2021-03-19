@@ -96,7 +96,8 @@ public class SearchController {
 
     @GetMapping("/template/{id}")
     public String templateFromSearchLink(Model model,@PathVariable String id) {
-        model.addAttribute("user",userService.findUser(id));
+        model.addAttribute("externalUser",userService.findUser(id));
+        model.addAttribute("external", true);
         return userService.getTemplateHtmlPath(id);
     }
 

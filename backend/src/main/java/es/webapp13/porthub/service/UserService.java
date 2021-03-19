@@ -83,7 +83,9 @@ public class UserService {
 
     public void updateUser(User newUser, String id,MultipartFile profileImg) throws IOException, SQLException {
         User user = userRepository.findById(id).orElseThrow();
-        updateProfilePhoto(user,profileImg);
+        if (!profileImg.isEmpty()) {
+            updateProfilePhoto(user, profileImg);
+        }
         user.setName(newUser.getName());
         user.setSurname(newUser.getSurname());
         user.setEmail(newUser.getEmail());
@@ -91,7 +93,7 @@ public class UserService {
         user.setAge(newUser.getAge());
         user.setCity(newUser.getCity());
         user.setDegree(newUser.getDegree());
-        user.setJob(newUser.getJob());
+        user.setCategory(newUser.getCategory());
         user.setFreelance(newUser.getFreelance());
 
         userRepository.save(user);
