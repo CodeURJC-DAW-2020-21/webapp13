@@ -6,6 +6,9 @@ import es.webapp13.porthub.repository.TemplateRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.model.*;
 
+import es.webapp13.porthub.service.ActiveTemplateService;
+import es.webapp13.porthub.service.PurchasedTemplateService;
+import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
@@ -32,6 +35,15 @@ public class DataBaseController implements CommandLineRunner {
 
     @Autowired
     private TemplateRepository templateRepository;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private PurchasedTemplateService purchasedTemplateService;
+
+    @Autowired
+    private ActiveTemplateService activeTemplateService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -64,8 +76,14 @@ public class DataBaseController implements CommandLineRunner {
         portfolioItemList.add(portfolioItem6);
         portfolioItemList.add(portfolioItem7);
 
-        userRepository.save(new User("id", "name1", "surname", "email@email",passwordEncoder.encode("pass"), "618 99 55 66",
-                "www.web.es", "Madrid", "Grado en Ingeniería Informática", "freelance", "description", "Ingeniero", free,new Date(161598600),portfolioItemList, "USER"));
+        User user = new User("id", "name1", "surname", "email@email",passwordEncoder.encode("pass"), "618 99 55 66",
+                "www.web.es", "Madrid", "Grado en Ingeniería Informática", "freelance", "description", "Ingeniero", free,new Date(161598600),portfolioItemList, "USER");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
+
+
 
         userRepository.save(new User("id2", "name2", "surname2", "email2",passwordEncoder.encode("1234"), "phoneNumber2",
                 "website2", "city2", "degree2", "freelance2", "description2", "Fotografo", premium, new Date(161598600),"USER", "ADMIN"));

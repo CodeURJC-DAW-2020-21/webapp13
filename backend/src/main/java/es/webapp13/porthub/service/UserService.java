@@ -1,11 +1,8 @@
 package es.webapp13.porthub.service;
 
 
-import es.webapp13.porthub.model.Message;
-import es.webapp13.porthub.model.PortfolioItem;
+import es.webapp13.porthub.model.*;
 import es.webapp13.porthub.repository.PortfolioItemRepository;
-import es.webapp13.porthub.model.Template;
-import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +14,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.security.Key;
 import java.sql.Blob;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Component
 public class UserService {
@@ -37,6 +33,9 @@ public class UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private PurchasedTemplateService purchasedTemplateService;
 
 
     /**
@@ -154,4 +153,31 @@ public class UserService {
         User user = userRepository.findById(id).orElseThrow();
         return user.getMessages();
     }
+
+
+    public PurchasedTemplate getPopularTemplate(String id){
+        User user = userRepository.findById(id).orElseThrow();
+        List<User> userList = userRepository.findSimilarUser(user.getCategory());
+        Map<Long, Integer> templateMap = new HashMap<>();
+        for (User u: userList){
+            long templateId = u.getActiveTemplate().getId();
+            Integer currentValue = templateMap.get(templateId);
+            if (currentValue==null){
+                templateMap.put(templateId, 1);
+            }else{
+                templateMap.put(templateId, currentValue++);
+            }
+        }
+        Integer maxValue = -1;
+        Long topId = null;
+        for (long k: templateMap.keySet()){
+            int currentValue = templateMap.get(k);
+            if (currentValue>maxValue){
+                maxValue = currentValue;
+                topId = k;
+            }
+        }
+        return purchasedTemplateService.getPurchased(topId);
+    }
+
 }
