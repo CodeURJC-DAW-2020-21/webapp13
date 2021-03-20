@@ -2,6 +2,7 @@ package es.webapp13.porthub.service;
 
 
 import es.webapp13.porthub.model.*;
+import es.webapp13.porthub.repository.MessageRepository;
 import es.webapp13.porthub.repository.PortfolioItemRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -13,8 +14,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.security.Key;
+import java.security.Principal;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.*;
@@ -24,6 +27,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private MessageRepository messageRepository;
 
     @Autowired
     private TemplateService templateService;
@@ -180,4 +186,8 @@ public class UserService {
         return purchasedTemplateService.getPurchased(topId);
     }
 
+    public List<String> findChats(User user) {
+        List<String> chats = messageRepository.findChats(user.getid());
+        return chats;
+    }
 }

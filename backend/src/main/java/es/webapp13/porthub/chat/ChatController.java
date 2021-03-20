@@ -42,16 +42,30 @@ public class ChatController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
         List<Message> messages = new LinkedList<>();
-        List<Message> messagesSender = messageService.findMessages(user,userService.findUser(id));
-        List<Message> messagesReceiver = messageService.findMessages(userService.findUser(id),user);
+        List<Message> messagesSender = messageService.findMessages(user, userService.findUser(id));
+        List<Message> messagesReceiver = messageService.findMessages(userService.findUser(id), user);
         messages.addAll(messagesSender);
         messages.addAll(messagesReceiver);
-        messages.sort((o1,o2) -> o1.getSend_date().compareTo(o2.getSend_date()));
+        messages.sort((o1, o2) -> o1.getSend_date().compareTo(o2.getSend_date()));
 
         model.addAttribute("receiver", userService.findUser(id));
 
-        model.addAttribute("messages",messages);
+        model.addAttribute("messages", messages);
         return "chat";
+    }
+
+    @GetMapping("/active_chats")
+    public String activeChatLink(Model model,HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
+        List<String> userIdList = userService.findChats(user);
+        List<User> userList = new LinkedList<>();
+        for (String u: userIdList){
+            userList.add(userService.findUser(u));
+        }
+        model.addAttribute("users",userList);
+
+        return "active_chat";
     }
 
 }
