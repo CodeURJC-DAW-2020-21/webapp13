@@ -54,8 +54,9 @@ public class ConfigController {
         return "settings-edit-account";
     }
 
+
     @GetMapping("/settings/edit/account/portfolioitems")
-    public String studentEditAccountNotificationsLink(Model model, HttpServletRequest request, Pageable pageable) {
+    public String studentEditAccountPortfolioitemsLink(Model model, HttpServletRequest request, Pageable pageable) {
         model.addAttribute("active_notifications", true);
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
@@ -67,7 +68,7 @@ public class ConfigController {
     }
 
 
-    @PostMapping("/settings/edit/account/portfolioitems")
+    @PostMapping("/settings/edit/account/portfolioitems/confirm")
     public String studentEditAccountNotificationsForm(Model model, HttpServletRequest request,
                                                       PortfolioItem portfolioItem, MultipartFile preImg, MultipartFile img1,
                                                       MultipartFile img2, MultipartFile img3,Pageable pageable) throws IOException {
@@ -78,9 +79,7 @@ public class ConfigController {
 
         portfolioItemService.addPortfolioItem(user.getid(), portfolioItem, preImg, img1, img2, img3);
         Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getid(),pageable);
-        model.addAttribute("hasNext", portfolioItems.hasNext());
-        model.addAttribute("portfolioItems", portfolioItems);
-        return "settings-edit-account-portfolioitems";
+        return "confirm-portfolioitem";
     }
 
     @GetMapping("/settings/edit/account/{id}/deleted/portfolio-item")

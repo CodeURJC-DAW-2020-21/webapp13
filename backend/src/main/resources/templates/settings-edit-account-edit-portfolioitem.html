@@ -12,7 +12,7 @@
                 <div class="col-lg-9">
                     {{#portfolioItem}}
                     <!--Create portfolio item-->
-                    <div class="page-section">
+                    <div class="page-section pb-2">
                         <h4>Modifica un proyecto de tu portfolio</h4>
                         <div class="list-group list-group-form">
 
@@ -166,15 +166,21 @@
                                 </div>
                             </div>
                             <input type="hidden" name="_csrf" value="{{token}}"/>
-                            <button type="submit" class="btn btn-accent">Guardar cambios</button>
-
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
                         </div>
                     </div>
-                    {{/portfolioItem}}
+
                 </div>
             </div>
         </form>
 
+        <div class="col-lg-9 d-flex justify-content-center mb-3 p-0">
+            <form class="w-100 " action="/settings/edit/account/{{id}}/deleted/portfolio-item">
+                <button  type="submit" class="btn btn-accent w-100">Borrar</button>
+            </form>
+        </div>
+
+        {{/portfolioItem}}
     </div>
     {{/user}}
 </div>
