@@ -132,6 +132,21 @@ The screen used to get new Templates, either free or premium.
 ![Shop](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/shop.png)
 
 
+###Admin Users Page
+This screen shows a list of all users in Porthub
+
+![AdminUsers](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/adminUserList.png)
+
+###Admin Banned Users Page
+This screen shows a list of all banned users in Porthub
+
+![AdminBannedUsers](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/adminBannedUsers.png)
+
+###Admin Templates List Page
+This screen shows a list of all templates avaible in Porthub
+
+![AdminTemplatesList](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/adminTemplatesList.png)
+
 ## Navigation diagram
 
 Once we have stablished which are the pages that compose our system, we shall take a look at the flow between pages that emerges through the interaction with them.
