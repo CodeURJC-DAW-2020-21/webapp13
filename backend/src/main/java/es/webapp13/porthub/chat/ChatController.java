@@ -17,6 +17,7 @@ import java.security.Principal;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class ChatController {
@@ -44,12 +45,15 @@ public class ChatController {
     public String chat(Model model, @PathVariable String id, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
+        if (user.getid().equals(id))
+            return "error";
         List<Message> messages = new LinkedList<>();
-        List<Message> messagesSender = messageService.findMessages(user, userService.findUser(id));
-        List<Message> messagesReceiver = messageService.findMessages(userService.findUser(id), user);
+        User u =userService.findUser(id);
+        List<Message> messagesSender = messageService.findMessages(user, u);
+        List<Message> messagesReceiver = messageService.findMessages(u, user);
         messages.addAll(messagesSender);
         messages.addAll(messagesReceiver);
-        messages.sort(Comparator.comparing(Message::getSend_date));
+        messages.sort(Comparator.comparing(Message::getSendDate));
 
         model.addAttribute("receiver", userService.findUser(id));
 
@@ -61,7 +65,7 @@ public class ChatController {
     public String activeChatLink(Model model,HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
-        List<String> userIdList = userService.findChats(user);
+        Set<String> userIdList = userService.findChats(user);
         List<User> userList = new LinkedList<>();
         for (String u: userIdList){
             userList.add(userService.findUser(u));

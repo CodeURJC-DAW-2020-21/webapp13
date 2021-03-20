@@ -186,8 +186,11 @@ public class UserService {
         return purchasedTemplateService.getPurchased(topId);
     }
 
-    public List<String> findChats(User user) {
-        List<String> chats = messageRepository.findChats(user.getid());
+    public Set<String> findChats(User user) {
+        List<String> SentMessagesId = messageRepository.findSentChats(user.getid());
+        Set<String> chats = new HashSet<>(SentMessagesId);
+        List<String> ReceivedMessagesId = messageRepository.findReceivedChats(user.getid());
+        chats.addAll(ReceivedMessagesId);
         return chats;
     }
 }
