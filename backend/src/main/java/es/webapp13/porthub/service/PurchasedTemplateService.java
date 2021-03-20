@@ -24,8 +24,6 @@ public class PurchasedTemplateService {
     public PurchasedTemplateService() {
     }
 
-
-
     public void init(List<Template> purchasedTemplates) {
         purchasedTemplateMap = new HashMap<>();
         for (Template template: templateService.findAll()){
@@ -52,6 +50,10 @@ public class PurchasedTemplateService {
 
     public void purchase(long id){
         purchasedTemplateMap.get(id).setPurchased(true);
+    }
+
+    public PurchasedTemplate getPurchased(long id){
+        return purchasedTemplateMap.get(id);
     }
 
 }

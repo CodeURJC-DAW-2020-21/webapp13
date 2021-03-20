@@ -1,5 +1,6 @@
 package es.webapp13.porthub.controller;
 
+import es.webapp13.porthub.model.PurchasedTemplate;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.ActiveTemplateService;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.*;
 import java.security.Principal;
+import java.util.LinkedList;
+import java.util.List;
 
 @Controller
 public class ShopController {
@@ -55,5 +58,14 @@ public class ShopController {
         return "purchase-confirmation";
     }
 
+    @GetMapping("/recommendTemplate")
+    public String recommendTemplate(Model model, HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
+        List<PurchasedTemplate> purchasedTemplates = new LinkedList<>();
+        purchasedTemplates.add(userService.getPopularTemplate(user.getid()));
+        model.addAttribute("templates", purchasedTemplates);
+        return "shop";
+    }
 
 }

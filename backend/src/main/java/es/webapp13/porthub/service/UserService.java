@@ -1,11 +1,8 @@
 package es.webapp13.porthub.service;
 
 
-import es.webapp13.porthub.model.Message;
-import es.webapp13.porthub.model.PortfolioItem;
+import es.webapp13.porthub.model.*;
 import es.webapp13.porthub.repository.PortfolioItemRepository;
-import es.webapp13.porthub.model.Template;
-import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +33,9 @@ public class UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private PurchasedTemplateService purchasedTemplateService;
 
 
     /**
@@ -155,7 +155,7 @@ public class UserService {
     }
 
 
-    public Template getSimilarUser(String id){
+    public PurchasedTemplate getPopularTemplate(String id){
         User user = userRepository.findById(id).orElseThrow();
         List<User> userList = userRepository.findSimilarUser(user.getCategory());
         Map<Long, Integer> templateMap = new HashMap<>();
@@ -177,7 +177,7 @@ public class UserService {
                 topId = k;
             }
         }
-        return templateService.findFirstById(topId);
+        return purchasedTemplateService.getPurchased(topId);
     }
-    
+
 }
