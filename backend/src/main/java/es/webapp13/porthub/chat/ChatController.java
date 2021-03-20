@@ -64,7 +64,7 @@ public class ChatController {
             userList.add(userService.findUser(u));
         }
         model.addAttribute("users",userList);
-
+        model.addAttribute("active_chat",true);
         return "active_chat";
     }
 

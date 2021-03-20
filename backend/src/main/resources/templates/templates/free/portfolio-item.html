@@ -40,6 +40,16 @@
 
 <main id="main ml-0">
 
+    {{#logued}}
+    {{#chat}}
+    {{#portfolioUser}}}
+    <a href="/chat/{{id}}">
+        <button type="button" id="chat-button" class="btn btn-primary btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="position: fixed; bottom: 10%; right: 0; background-color: #1695de;"><i class="fas fa-comment"></i></i></button>
+    </a>
+    {{/portfolioUser}}
+    {{/chat}}
+    {{/logued}}
+
     <a href="/">
         <button type="button" id="close-button" class="btn btn-warning btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3"
                 style="

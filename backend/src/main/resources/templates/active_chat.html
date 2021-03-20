@@ -2,7 +2,7 @@
 
 <div class="page-section mt-5 mr-4 ml-4">
 
-    <h4>Discussions</h4>
+    <h4>Conversaciones</h4>
     <div class="card">
 
         <div class="list-group list-group-flush">
@@ -24,7 +24,7 @@
 
                     </div>
                     <div class="col-auto d-flex flex-column align-items-center justify-content-center">
-                        <a href="" class="btn btn-primary">Ver mensajes</a>
+                        <a href="/chat/{{id}}" class="btn btn-primary">Ver mensajes</a>
                     </div>
                 </div>
             </div>
@@ -37,13 +37,7 @@
             {{/users}}
 
         </div>
-        
-        {{#users}}
-        <hr>
-        <div class="card-body text-center">
-            <a href="" class=" btn btn-accent">Ver más chats</a>
-        </div>
-        {{/users}}
+
     </div>
 
 </div>

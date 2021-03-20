@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../../../../templates/premium/img/favicon.png" rel="icon">
-  <link href="../../../../templates/premium/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/templates/premium/img/favicon.png" rel="icon">
+  <link href="/templates/premium/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Font Awesome icons (free version)-->
   <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
@@ -20,15 +20,15 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="../../../../templates/premium/vendor/aos/aos.css" rel="stylesheet">
-  <link href="../../../../templates/premium/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../../../templates/premium/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../../../../templates/premium/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../../../../templates/premium/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../../../../templates/premium/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/templates/premium/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/templates/premium/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/templates/premium/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/templates/premium/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/templates/premium/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/templates/premium/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../../../../templates/premium/css/style.css" rel="stylesheet">
+  <link href="/templates/premium/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: iPortfolio - v3.0.1
@@ -39,6 +39,16 @@
 </head>
 
 <body>
+
+  {{#logued}}
+  {{#chat}}
+  {{#portfolioUser}}}
+  <a href="/chat/{{id}}">
+    <button type="button" id="chat-button" class="btn btn-primary btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="position: fixed; bottom: 10%; right: 0; background-color: #1695de; z-index: 999"><i class="fas fa-comment"></i></i></button>
+  </a>
+  {{/portfolioUser}}
+  {{/chat}}
+  {{/logued}}
 
   <a href="/"><button type="button" id="close-button" class="btn btn-warning btn-circle btn-xl mx-md-5 mb-md-5 mx-3 mb-3"><i class="fas fa-times"></i></button></a>
 
@@ -54,7 +64,7 @@
         <img src="/profilePhoto/{{id}}" alt="" class="img-fluid rounded-circle">
         {{/user.profilePhoto}}
         {{^user.profilePhoto}}
-        <img src="../../../../templates/premium/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+        <img src="/templates/premium/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
         {{/user.profilePhoto}}
         <h1 class="text-light"><a href="index.html">
           {{#user}}{{name}} {{surname}}{{/user}}
@@ -165,18 +175,18 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="../../../../templates/premium/vendor/aos/aos.js"></script>
-  <script src="../../../../templates/premium/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../../../../templates/premium/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../../../../templates/premium/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="../../../../templates/premium/vendor/php-email-form/validate.js"></script>
-  <script src="../../../../templates/premium/vendor/purecounter/purecounter.js"></script>
-  <script src="../../../../templates/premium/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../../../../templates/premium/vendor/typed.js/typed.min.js"></script>
-  <script src="../../../../templates/premium/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="/templates/premium/vendor/aos/aos.js"></script>
+  <script src="/templates/premium/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/templates/premium/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/templates/premium/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/templates/premium/vendor/php-email-form/validate.js"></script>
+  <script src="/templates/premium/vendor/purecounter/purecounter.js"></script>
+  <script src="/templates/premium/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/templates/premium/vendor/typed.js/typed.min.js"></script>
+  <script src="/templates/premium/vendor/waypoints/noframework.waypoints.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="../../../../templates/premium/js/main.js"></script>
+  <script src="/templates/premium/js/main.js"></script>
 
 </body>
 
