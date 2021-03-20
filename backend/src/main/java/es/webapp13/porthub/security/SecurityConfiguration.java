@@ -1,9 +1,6 @@
 package es.webapp13.porthub.security;
 
 import java.security.SecureRandom;
-
-import es.webapp13.porthub.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,8 +12,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
+    final
     RepositoryUserDetailsService userDetailsService;
+
+    public SecurityConfiguration(RepositoryUserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

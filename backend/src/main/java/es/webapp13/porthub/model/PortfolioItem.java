@@ -1,11 +1,7 @@
 package es.webapp13.porthub.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.engine.jdbc.BlobProxy;
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.persistence.*;
-import java.io.IOException;
 import java.sql.Blob;
 import java.sql.Date;
 

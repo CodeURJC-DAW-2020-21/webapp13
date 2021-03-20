@@ -3,7 +3,6 @@ package es.webapp13.porthub.repository;
 
 import es.webapp13.porthub.model.Template;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

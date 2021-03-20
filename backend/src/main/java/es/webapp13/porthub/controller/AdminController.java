@@ -23,7 +23,7 @@ public class AdminController {
     }
 
     @GetMapping("/admin/banned/users")
-    public String adminBannedUsersLink(Model model) {
+    public String adminBannedUsersLink() {
         return "admin-banned-users";
     }
 
@@ -35,7 +35,7 @@ public class AdminController {
     }
 
     @GetMapping("/admin/templates/list")
-    public String adminTemplatesListLink(Model model) {
+    public String adminTemplatesListLink() {
         return "admin-templates-list";
     }
 

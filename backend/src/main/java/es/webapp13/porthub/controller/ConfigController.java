@@ -70,14 +70,13 @@ public class ConfigController {
     @PostMapping("/settings/edit/account/portfolioitems/confirm")
     public String studentEditAccountNotificationsForm(Model model, HttpServletRequest request,
                                                       PortfolioItem portfolioItem, MultipartFile preImg, MultipartFile img1,
-                                                      MultipartFile img2, MultipartFile img3, Pageable pageable) throws IOException {
+                                                      MultipartFile img2, MultipartFile img3) throws IOException {
         model.addAttribute("active_notifications", true);
 
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
 
         portfolioItemService.addPortfolioItem(user.getid(), portfolioItem, preImg, img1, img2, img3);
-        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getid(), pageable);
         return "confirm-portfolioitem";
     }
 
@@ -101,7 +100,7 @@ public class ConfigController {
     }
 
     @PostMapping("/settings/edit/account/edit/portfolioitem/{userId}/{id}")
-    public String portfolioItemEditForm(Model model, HttpServletRequest request, @PathVariable long id, @PathVariable String userId, PortfolioItem newPortfolioItem, MultipartFile preImg, MultipartFile img1, MultipartFile img2, MultipartFile img3) throws IOException, SQLException {
+    public String portfolioItemEditForm(HttpServletRequest request, @PathVariable long id, @PathVariable String userId, PortfolioItem newPortfolioItem, MultipartFile preImg, MultipartFile img1, MultipartFile img2, MultipartFile img3) throws IOException, SQLException {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
         if (!userId.equals(user.getid()))
@@ -130,7 +129,7 @@ public class ConfigController {
     }
 
     @GetMapping("/set/active/template")
-    public String activeTemplateLink(Model model, HttpServletRequest request, @RequestParam long id) {
+    public String activeTemplateLink(HttpServletRequest request, @RequestParam long id) {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
         long oldId = user.getActiveTemplate().getId();
@@ -144,7 +143,6 @@ public class ConfigController {
     @GetMapping("/portfolioitems/{id}/image")
     public ResponseEntity<Object> downloadPortfolioItemImage(@PathVariable long id) throws SQLException {
         Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
-        System.out.println("La encontre");
         if (portfolioItem.isPresent() && portfolioItem.get().getPreviewImg() != null) {
 
             Resource file = new InputStreamResource(portfolioItem.get().getPreviewImg().getBinaryStream());
@@ -160,7 +158,6 @@ public class ConfigController {
     @GetMapping("/portfolioitems/{id}/image1")
     public ResponseEntity<Object> downloadPortfolioItemImage1(@PathVariable long id) throws SQLException {
         Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
-        System.out.println("La encontre");
         if (portfolioItem.isPresent() && portfolioItem.get().getImage1() != null) {
 
             Resource file = new InputStreamResource(portfolioItem.get().getImage1().getBinaryStream());
@@ -176,7 +173,6 @@ public class ConfigController {
     @GetMapping("/portfolioitems/{id}/image2")
     public ResponseEntity<Object> downloadPortfolioItemImage2(@PathVariable long id) throws SQLException {
         Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
-        System.out.println("La encontre");
         if (portfolioItem.isPresent() && portfolioItem.get().getImage2() != null) {
 
             Resource file = new InputStreamResource(portfolioItem.get().getImage2().getBinaryStream());
@@ -192,7 +188,6 @@ public class ConfigController {
     @GetMapping("/portfolioitems/{id}/image3")
     public ResponseEntity<Object> downloadPortfolioItemImage3(@PathVariable long id) throws SQLException {
         Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
-        System.out.println("La encontre");
         if (portfolioItem.isPresent() && portfolioItem.get().getImage3() != null) {
 
             Resource file = new InputStreamResource(portfolioItem.get().getImage3().getBinaryStream());
@@ -206,8 +201,7 @@ public class ConfigController {
     }
 
     @GetMapping("/profilePhoto/{id}")
-    public ResponseEntity<Object> downloadProfilePhoto(@PathVariable String id, HttpServletRequest request) throws SQLException {
-        System.out.println("La encontre");
+    public ResponseEntity<Object> downloadProfilePhoto(@PathVariable String id) throws SQLException {
         User user = userService.findUser(id);
         if (user.getProfilePhoto() != null) {
 
@@ -222,10 +216,8 @@ public class ConfigController {
     }
 
     @PostMapping("/settings/edit/account/set/new/info")
-    public String setNewInfoCurrentUser(Model model, HttpServletRequest request, User user, MultipartFile profileImg) throws IOException, SQLException {
-
+    public String setNewInfoCurrentUser(User user, MultipartFile profileImg) throws IOException, SQLException {
         userService.updateUser(user, user.getid(), profileImg);
-
         return "update-profile-confirmation";
     }
 

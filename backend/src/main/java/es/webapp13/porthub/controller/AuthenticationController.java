@@ -1,11 +1,10 @@
 package es.webapp13.porthub.controller;
 
-import es.webapp13.porthub.model.PurchasedTemplate;
+
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.ActiveTemplateService;
 import es.webapp13.porthub.service.PurchasedTemplateService;
 import es.webapp13.porthub.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,20 +19,21 @@ import java.security.Principal;
 @Controller
 public class AuthenticationController {
 
-    @Autowired
-    private PurchasedTemplateService purchasedTemplateService;
+    private final PurchasedTemplateService purchasedTemplateService;
 
-    @Autowired
-    private ActiveTemplateService activeTemplateService;
+    private final ActiveTemplateService activeTemplateService;
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    private DefaultModelAttributes defaultModelAttributes;
+    public AuthenticationController(PurchasedTemplateService purchasedTemplateService, ActiveTemplateService activeTemplateService, UserService userService) {
+        this.purchasedTemplateService = purchasedTemplateService;
+        this.activeTemplateService = activeTemplateService;
+        this.userService = userService;
+    }
+
 
     @RequestMapping("/login")
-    public String loginLink(Model model) {
+    public String loginLink() {
         return "login";
     }
 
@@ -43,12 +43,12 @@ public class AuthenticationController {
     }
 
     @GetMapping("/reset/password")
-    public String forgottenPasswordLink(Model model) {
+    public String forgottenPasswordLink() {
         return "reset-password";
     }
 
     @GetMapping("/signup")
-    public String signupLink(Model model) {
+    public String signupLink() {
         return "signup";
     }
 
@@ -72,8 +72,6 @@ public class AuthenticationController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
         userService.saveChanges(user);
-        //userService.setActiveUser(null);
-        //defaultModelAttributes.setLogued(false);
         model.addAttribute("logued", false);
         return "logout-confirmation";
     }

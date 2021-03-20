@@ -7,14 +7,12 @@ import es.webapp13.porthub.service.ActiveTemplateService;
 import es.webapp13.porthub.service.PurchasedTemplateService;
 import es.webapp13.porthub.service.TemplateService;
 import es.webapp13.porthub.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.*;
 import java.security.Principal;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,17 +20,20 @@ import java.util.List;
 @Controller
 public class ShopController {
 
-    @Autowired
-    private ActiveTemplateService activeTemplateService;
+    private final ActiveTemplateService activeTemplateService;
 
-    @Autowired
-    private PurchasedTemplateService purchasedTemplateService;
+    private final PurchasedTemplateService purchasedTemplateService;
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    private TemplateService templateService;
+    private final TemplateService templateService;
+
+    public ShopController(ActiveTemplateService activeTemplateService, PurchasedTemplateService purchasedTemplateService, UserService userService, TemplateService templateService) {
+        this.activeTemplateService = activeTemplateService;
+        this.purchasedTemplateService = purchasedTemplateService;
+        this.userService = userService;
+        this.templateService = templateService;
+    }
 
     @GetMapping("/shop")
     public String shopLink(Model model, HttpServletRequest request) {
@@ -47,13 +48,12 @@ public class ShopController {
     }
 
     @GetMapping("/purchase/confirmation")
-    public String purchaseConfirmationLink(Model model, HttpServletRequest request, @RequestParam long id) {
+    public String purchaseConfirmationLink(HttpServletRequest request, @RequestParam long id) {
         purchasedTemplateService.purchase(id);
         Template template = templateService.findFirstById(id);
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
         user.getTemplates().add(template);
-        //userService.saveChanges(user);
         activeTemplateService.addTemplate(template);
         return "purchase-confirmation";
     }

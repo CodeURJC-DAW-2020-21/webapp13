@@ -4,24 +4,21 @@ import es.webapp13.porthub.model.Message;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.MessageRepository;
 import es.webapp13.porthub.repository.UserRepository;
-import es.webapp13.porthub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.HtmlUtils;
 
-import java.sql.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
-
 @Component
 public class ChatService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private MessageRepository messageRepository;
+    private final MessageRepository messageRepository;
+
+    public ChatService(UserRepository userRepository, MessageRepository messageRepository) {
+        this.userRepository = userRepository;
+        this.messageRepository = messageRepository;
+    }
 
 
     public void saveMessage(ChatMessage msg) {

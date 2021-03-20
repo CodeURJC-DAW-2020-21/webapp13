@@ -1,10 +1,7 @@
 package es.webapp13.porthub.repository;
 
 import es.webapp13.porthub.model.Message;
-import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

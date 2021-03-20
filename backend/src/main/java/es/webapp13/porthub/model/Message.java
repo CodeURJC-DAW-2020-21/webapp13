@@ -44,19 +44,19 @@ public class Message {
         this.id = id;
     }
 
-    public User getsender() {
+    public User getSender() {
         return sender;
     }
 
-    public void setsender(User sender) {
+    public void setSender(User sender) {
         this.sender = sender;
     }
 
-    public User getreceiver() {
+    public User getReceiver() {
         return receiver;
     }
 
-    public void setreceiver(User receiver) {
+    public void setReceiver(User receiver) {
         this.receiver = receiver;
     }
 
