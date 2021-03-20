@@ -27,7 +27,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.security.Principal;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 import java.util.Optional;
 
 @Controller
@@ -61,8 +60,8 @@ public class ConfigController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
 
-        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getid(),pageable);
-        model.addAttribute("hasNext",portfolioItems.hasNext());
+        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getid(), pageable);
+        model.addAttribute("hasNext", portfolioItems.hasNext());
         model.addAttribute("portfolioItemsPage", portfolioItems);
         return "settings-edit-account-portfolioitems";
     }
@@ -71,14 +70,14 @@ public class ConfigController {
     @PostMapping("/settings/edit/account/portfolioitems/confirm")
     public String studentEditAccountNotificationsForm(Model model, HttpServletRequest request,
                                                       PortfolioItem portfolioItem, MultipartFile preImg, MultipartFile img1,
-                                                      MultipartFile img2, MultipartFile img3,Pageable pageable) throws IOException {
+                                                      MultipartFile img2, MultipartFile img3, Pageable pageable) throws IOException {
         model.addAttribute("active_notifications", true);
 
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
 
         portfolioItemService.addPortfolioItem(user.getid(), portfolioItem, preImg, img1, img2, img3);
-        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getid(),pageable);
+        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getid(), pageable);
         return "confirm-portfolioitem";
     }
 
@@ -86,19 +85,29 @@ public class ConfigController {
     public String portfolioItemDeleteLink(@PathVariable long id, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
+
         portfolioItemService.deletePortfolioItem(user.getid(), id);
         return "deleted-portfolioitem";
     }
 
     @GetMapping("/settings/edit/account/edit/portfolioitem/{userId}/{id}")
-    public String portfolioItemEditLink(Model model, @PathVariable long id, @PathVariable String userId) {
+    public String portfolioItemEditLink(Model model, HttpServletRequest request, @PathVariable long id, @PathVariable String userId) {
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
+        if (!userId.equals(user.getid()))
+            return "error";
         model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(userId, id));
         return "settings-edit-account-edit-portfolioitem";
     }
 
     @PostMapping("/settings/edit/account/edit/portfolioitem/{userId}/{id}")
-    public String portfolioItemEditForm(Model model, @PathVariable long id, @PathVariable String userId, PortfolioItem newPortfolioItem, MultipartFile preImg, MultipartFile img1, MultipartFile img2, MultipartFile img3) throws IOException, SQLException {
-        portfolioItemService.updatePortfolioItem(newPortfolioItem, id, preImg,img1,img2,img3);
+    public String portfolioItemEditForm(Model model, HttpServletRequest request, @PathVariable long id, @PathVariable String userId, PortfolioItem newPortfolioItem, MultipartFile preImg, MultipartFile img1, MultipartFile img2, MultipartFile img3) throws IOException, SQLException {
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findUser(principal.getName());
+        if (!userId.equals(user.getid()))
+            return "error";
+
+        portfolioItemService.updatePortfolioItem(newPortfolioItem, id, preImg, img1, img2, img3);
         return "portfolioitem-update-confirmation";
     }
 
