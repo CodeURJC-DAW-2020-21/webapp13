@@ -101,15 +101,14 @@
                 </form>
 
                 <!-- Main Navigation -->
-                <ul class="nav navbar-nav ml-auto flex-nowrap" style="white-space: nowrap;">
+                <ul class="nav navbar-nav ml-auto flex-nowrap flex-row" style="white-space: nowrap;">
 
                     {{#logued}}
-                    <li class="nav-item">Hello,<p id="user-id">{{#user}}{{id}}{{/user}}</p></li>
-                    <!--<li class="nav-item">Hello, </li>-->
+                    <li class="nav-item text-white mr-3 mr-md-0"><p>Hello,<span id="user-id">{{#user}}{{id}}{{/user}}</span></p></li>
                     <li class="nav-item">
                         <a href="/settings/edit/account" class="nav-link">
                             <i class="material-icons">settings</i>
-                            <span class="sr-only">Login</span>
+                            <span class="sr-only">Settings</span>
                         </a>
                     </li>
                     {{#admin}}

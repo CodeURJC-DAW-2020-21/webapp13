@@ -53,8 +53,8 @@
                 <!-- // END Brand -->
 
                 <!-- Search -->
-                <form action="library-filters.html" class="search-form search-form--black">
-                    <input type="text" class="form-control" placeholder="Búsqueda">
+                <form action="/searchbar" method="post" class="search-form search-form--black">
+                    <input type="text" class="form-control" placeholder="Busca un usuario">
                     <input type="hidden" name="_csrf" value="{{token}}"/>
                     <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
                 </form>
@@ -74,6 +74,22 @@
                 <li class="sidebar-menu-item">
                     <a class="sidebar-menu-button" href="/shop">Tienda</a>
                 </li>
+
+                {{#logued}}
+                <li class="sidebar-menu-item">
+                    <form action="/logout" method="post">
+                        <button type="submit" class="btn btn-accent ml-3">Logout</button>
+                        <input type="hidden" name="_csrf" value="{{token}}" />
+                    </form>
+                </li>
+                {{/logued}}
+
+                {{^logued}}
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/login">Iniciar sesión</a>
+                </li>
+                {{/logued}}
+
             </ul>
         </div>
 
