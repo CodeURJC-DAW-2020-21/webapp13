@@ -17,11 +17,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.security.Key;
 import java.sql.Blob;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Component
 public class UserService {
@@ -154,4 +153,31 @@ public class UserService {
         User user = userRepository.findById(id).orElseThrow();
         return user.getMessages();
     }
+
+
+    public Template getSimilarUser(String id){
+        User user = userRepository.findById(id).orElseThrow();
+        List<User> userList = userRepository.findSimilarUser(user.getCategory());
+        Map<Long, Integer> templateMap = new HashMap<>();
+        for (User u: userList){
+            long templateId = u.getActiveTemplate().getId();
+            Integer currentValue = templateMap.get(templateId);
+            if (currentValue==null){
+                templateMap.put(templateId, 1);
+            }else{
+                templateMap.put(templateId, currentValue++);
+            }
+        }
+        Integer maxValue = -1;
+        Long topId = null;
+        for (long k: templateMap.keySet()){
+            int currentValue = templateMap.get(k);
+            if (currentValue>maxValue){
+                maxValue = currentValue;
+                topId = k;
+            }
+        }
+        return templateService.findFirstById(topId);
+    }
+    
 }

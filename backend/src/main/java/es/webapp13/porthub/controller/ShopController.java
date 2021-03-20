@@ -54,4 +54,6 @@ public class ShopController {
         activeTemplateService.addTemplate(template);
         return "purchase-confirmation";
     }
+
+
 }
