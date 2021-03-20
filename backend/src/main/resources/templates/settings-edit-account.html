@@ -43,10 +43,6 @@
                                             <div class="col-sm-9">
 
                                                 <input id="id" name="id" type="text" class="form-control" value="{{id}}" disabled>
-
-
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -124,6 +120,16 @@
                                     </div>
                                     <div class="list-group-item">
                                         <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Disponibilidad</label>
+                                            <div class="col-sm-9">
+
+                                                <input id="freelance" name="freelance" type="text" class="form-control" value="{{freelance}}">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Área de trabajo</label>
                                             <div class="col-sm-9">
                                                 <select class="custom-select" id="category" name="category" required>
@@ -136,16 +142,21 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="list-group-item">
                                         <div class="form-group row mb-0">
-                                            <label class="col-form-label col-sm-3">Disponibilidad</label>
+                                            <label class="col-form-label col-sm-3">Descríbete</label>
                                             <div class="col-sm-9">
-
-                                                <input id="freelance" name="freelance" type="text" class="form-control" value="{{freelance}}">
-
+                                                {{#logued}}
+                                                <textarea id="description" name="description" rows="3" class="form-control" placeholder="{{#user}}{{description}}{{/user}}"></textarea>
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <textarea rows="3" class="form-control" placeholder="Habla sobre ti..."></textarea>
+                                                {{/logued}}
                                             </div>
                                         </div>
                                     </div>
+
                                     <button type="submit" class="btn btn-accent">Guardar cambios</button>
                                 </div>
 

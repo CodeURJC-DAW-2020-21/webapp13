@@ -116,11 +116,6 @@ public class ConfigController {
         return "settings-edit-account-password";
     }
 
-    @GetMapping("/settings/edit/account/profile")
-    public String studentEditAccountProfileLink(Model model) {
-        model.addAttribute("active_profile", true);
-        return "settings-edit-account-profile";
-    }
 
     @GetMapping("/settings/edit/account/my-templates")
     public String userTemplatesLink(Model model) {
