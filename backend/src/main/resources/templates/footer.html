@@ -68,9 +68,21 @@
                 <li class="sidebar-menu-item">
                     <a class="sidebar-menu-button" href="/search">Explorar</a>
                 </li>
-                <li class="sidebar-menu-item">
-                    <a class="sidebar-menu-button" href="/templates/premium/index">Perfil</a>
+
+                {{#logued}}
+                {{#user}}
+                <li class="sidebar-menu-item {{#active_profile}}active{{/active_profile}}">
+                    <a href="/template/{{id}}" class="sidebar-menu-button">Perfil</a>
                 </li>
+                {{/user}}
+                {{/logued}}
+                {{^logued}}
+                <li class="sidebar-menu-item {{#active_profile}}active{{/active_profile}}">
+                    <a href="/login" class="sidebar-menu-button">Perfil</a>
+                </li>
+                {{/logued}}
+
+
                 <li class="sidebar-menu-item">
                     <a class="sidebar-menu-button" href="/shop">Tienda</a>
                 </li>
@@ -81,6 +93,14 @@
                 {{/logued}}
 
                 {{#logued}}
+                {{#admin}}
+                <li class="sidebar-menu-item mb-3">
+                    <form action="/admin" method="post">
+                        <button type="submit" class="btn btn-outline-success ml-3">Administración</button>
+                        <input type="hidden" name="_csrf" value="{{token}}" />
+                    </form>
+                </li>
+                {{/admin}}
                 <li class="sidebar-menu-item">
                     <form action="/logout" method="post">
                         <button type="submit" class="btn btn-accent ml-3">Logout</button>
