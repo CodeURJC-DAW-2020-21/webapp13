@@ -42,11 +42,6 @@ public class AuthenticationController {
         return "login-error";
     }
 
-    @GetMapping("/reset/password")
-    public String forgottenPasswordLink() {
-        return "reset-password";
-    }
-
     @GetMapping("/signup")
     public String signupLink() {
         return "signup";

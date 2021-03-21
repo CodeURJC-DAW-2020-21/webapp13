@@ -76,9 +76,6 @@ public class TemplateController {
         model.addAttribute("hasNext", portfolioItems.hasNext());
         model.addAttribute("portfolioItemsPage", portfolioItems);
 
-        System.out.println("###");
-        System.out.println(portfolioItems.getNumberOfElements());
-
         Principal principal = request.getUserPrincipal();
         if (principal != null) {
             User activeUser = userService.findUser(principal.getName());
