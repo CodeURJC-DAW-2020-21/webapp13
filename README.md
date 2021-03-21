@@ -154,6 +154,92 @@ Once we have stablished which are the pages that compose our system, we shall ta
 
 
 ## Phase 2
+
+### Navigation
+
+#### Pages
+
+#### Navigation diagram
+
+### Instructions for implementation
+
+### Diagram with the entities in the database
+
+### Class diagram and templates
+
+### Participation
+
+#### Cristian
+##### Description
+In this phase, I worked a lot with ajax, implementing it in different pages like the search page, projects page or in your main portfolio to show you projects. I worked too with images uploading and updating them to the database, I got in some troubles, but in the end I manage to solve all the issues. The most important commit that I perform is the chat, that I achieve to work dynamically with some JavaScript tricks. Other stuff that I have made it's to fix some CSS, because despite to not being evaluable, from my point of view it's important to keep the aplicaction as aesthetic as possible.
+
+##### Top 5 commits
+1. [Full chat implementation](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/e2f33cba82aecee6d9253504f5f4a8e3153ce579)
+2. [Completed ajax on search page](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/41e1aa9ab9c9a123e0ab1766d3282e5fc3e543fd)
+3. [Fixed portfolio items images on update](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/b3a798ae267a0f44433e0668dfbae0cbf07e49a8)
+4. [Update portfolio item info](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/145737d5187b879f163ea34b07fee716a341e6df)
+5. [Search bar](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/33946eef4a5e56aba9ea08d368a56ee2cc4d3ae0)
+
+##### Top 5 files
+1. __SearchController.java__
+2. __PortfolioItemService.java__
+3. __SearchService.js__
+4. __ajax.js__
+5. __chat.js__
+
+#### José Manuel
+##### Description
+My priority in this phase has been working in the application's security. I've implemented the login and CSRF functionalities and URLs security configuration depending on the user's role. Also, I've worked in a first part of the chat functionality, setting the default users in the database, creating the error page, and I've helped my teammates in the development of the rest of the application's backend and solving problems and errors which couldn't be solved.
+
+##### Top 5 commits
+1. [Functional login](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/33a59863fddb84d2f2f546d865ca9583d77c3cae)
+2. [First part of login](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/40155d79008a1a585e160ac865afe273b672e1cb)
+3. [Basic chat implementation](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/ffc5b35ed8e0d50a85ec7c722608c0eff8a87f84)
+4. [Enabled CSRF and login with new users](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/ac201c505fc8a16e0b34e33171e5a6708871c3b2)
+5. [Set images in default users](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/691aca77e8a30a000eeaa780f1c40e53d510455a)
+
+##### Top 5 files
+1. __SecurityConfiguration.java__
+2. __CSRFHandlerConfiguration.java__
+3. __RepositoryUserDetailsService.java__
+4. __WebSocketConfig.java__
+5. __DataBaseController.java__
+
+#### José Justo 
+##### Description
+
+##### Top 5 commits
+1. 
+2. 
+3. 
+4. 
+5.
+
+##### Top 5 files
+1. 
+2. 
+3. 
+4.
+5.
+
+#### Aitor
+##### Description
+
+##### Top 5 commits
+1. 
+2. 
+3. 
+4. 
+5.
+
+##### Top 5 files
+1. 
+2. 
+3. 
+4.
+5.
+
+
 ## Phase 3
 ## Phase 4
  

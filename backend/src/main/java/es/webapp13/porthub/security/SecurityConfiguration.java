@@ -42,9 +42,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/signup/**").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
         http.authorizeRequests().antMatchers("/shop").permitAll();
-        http.authorizeRequests().antMatchers("/search").permitAll();
+        http.authorizeRequests().antMatchers("/searchbar").permitAll();
         http.authorizeRequests().antMatchers("/search/**").permitAll();
-        http.authorizeRequests().antMatchers("/reset/password").permitAll();
         http.authorizeRequests().antMatchers("/reset/password").permitAll();
         http.authorizeRequests().antMatchers("/templates/**").permitAll();
 
@@ -52,10 +51,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/settings/**").hasAnyRole("USER");
         http.authorizeRequests().antMatchers("/logout/confirmation").hasAnyRole("USER");
         http.authorizeRequests().antMatchers("/profile").hasAnyRole("USER");
-
+        http.authorizeRequests().antMatchers("/set/active/template").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/purchase/confirmation").hasAnyRole("USER");
 
         // Admin pages
-        http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("ADMIN");
 
         // Login form
@@ -68,7 +67,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // Logout
         http.logout().logoutUrl("/logout");
         http.logout().logoutSuccessUrl("/");
-
 
     }
 }

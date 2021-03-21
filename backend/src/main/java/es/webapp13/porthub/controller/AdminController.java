@@ -53,13 +53,12 @@ public class AdminController {
 
     @PostMapping("/admin/templates/list/add/new")
     public String addNewTemplate(Model model, Template template) {
-        if (template.getPrice() == 0){
+        if (template.getPrice() == 0) {
             template.setFree(true);
-            template.setHtmlPath(template.getHtmlPath()+"free/index");
-        }
-        else{
+            template.setHtmlPath(template.getHtmlPath() + "free/index");
+        } else {
             template.setFree(false);
-            template.setHtmlPath(template.getHtmlPath()+"premium/index");
+            template.setHtmlPath(template.getHtmlPath() + "premium/index");
         }
         templateService.createTemplate(template);
         List<Template> templates = templateService.findAll();
@@ -68,7 +67,7 @@ public class AdminController {
     }
 
     @GetMapping("/admin/delete/{id}")
-    public String deleteUser(Model model, @PathVariable String id){
+    public String deleteUser(Model model, @PathVariable String id) {
         User user = userService.findUser(id);
         userService.deleteUser(user);
         List<User> users = userService.findAllUsers();

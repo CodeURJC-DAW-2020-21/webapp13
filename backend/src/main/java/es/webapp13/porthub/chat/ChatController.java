@@ -48,7 +48,7 @@ public class ChatController {
         if (user.getid().equals(id))
             return "error";
         List<Message> messages = new LinkedList<>();
-        User u =userService.findUser(id);
+        User u = userService.findUser(id);
         List<Message> messagesSender = messageService.findMessages(user, u);
         List<Message> messagesReceiver = messageService.findMessages(u, user);
         messages.addAll(messagesSender);
@@ -62,16 +62,16 @@ public class ChatController {
     }
 
     @GetMapping("/active_chats")
-    public String activeChatLink(Model model,HttpServletRequest request) {
+    public String activeChatLink(Model model, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
         Set<String> userIdList = userService.findChats(user);
         List<User> userList = new LinkedList<>();
-        for (String u: userIdList){
+        for (String u : userIdList) {
             userList.add(userService.findUser(u));
         }
-        model.addAttribute("users",userList);
-        model.addAttribute("active_chat",true);
+        model.addAttribute("users", userList);
+        model.addAttribute("active_chat", true);
         return "active_chat";
     }
 

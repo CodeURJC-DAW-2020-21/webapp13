@@ -81,74 +81,103 @@ public class DataBaseController implements CommandLineRunner {
         portfolioItemList.add(portfolioItem7);
 
         User user = new User("id", "José Luis", "Martinez Almeida", "joselu@pp.com", passwordEncoder.encode("pass"), "618 99 55 66",
-                "www.web.es", "Madrid", "Grado en Política", "No", "Abogado del Estado y alcalde de Madrid desde 2019", "Empresario", free, new Date(1669176000), portfolioItemList, "USER");
-        this.setBookImage(user, "/static/app/assets/images/almeida.jpg");
+                "www.web.es", "Madrid", "Política", "No", "Abogado del Estado y alcalde de Madrid desde 2019", "Empresario", free, new Date(1669176000), portfolioItemList, "USER");
+        this.setUserImage(user, "/static/app/assets/images/almeida.jpg");
         userRepository.save(user);
         user.getTemplates().add(free);
         activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
         purchasedTemplateService.init(user.getTemplates());
 
-        userRepository.save(new User("id2", "name2", "surname2", "email2", passwordEncoder.encode("1234"), "phoneNumber2",
-                "website2", "city2", "degree2", "freelance2", "description2", "Fotografo", premium, new Date(161598600), "USER", "ADMIN"));
+        user = new User("admin", "admin", "admin", "admin@gmail.com",passwordEncoder.encode("admin"), "635 890 173",
+                "www.admin.com", "admin", "admin", "admin", "admin", "Fotografo", premium, new Date(162598600),"USER", "ADMIN");
+        this.setUserImage(user, "/static/app/assets/images/people/110/guy-1.jpg");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
 
-        userRepository.save(new User("id23", "name3", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
+        user = new User("lmessi10", "Lionel", "Messi", "lionelamessi10@gmail.com",passwordEncoder.encode("1234"), "635 890 173",
+                "www.pinterest.com", "Barcelona", "Técnico de imagen y sonido", "freelance2", "Persona con rápido aprendizaje y adaptación", "Fotografo", premium, new Date(162598600),"USER", "ADMIN");
+        this.setUserImage(user, "/static/app/assets/images/people/110/guy-2.jpg");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
 
-        userRepository.save(new User("id3", "name4", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
+        user = new User("jdelgado00", "Juan", "Delgado", "jdelgado2020@gmail.com",passwordEncoder.encode("pass"), "624 563 789",
+                "www.twitch.com", "San Sebastián", "Ingenieria de Caminos", "freelance", "description", "Ingeniero", free,new Date(151598600), "USER");
+        this.setUserImage(user, "/static/app/assets/images/people/110/guy-3.jpg");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
 
-        userRepository.save(new User("id4", "name5", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
+        user = new User("dperez15", "David", "Perez", "davidperez10@yahoo.com",passwordEncoder.encode("pass"), "623 768 654",
+                "www.youtube.com", "París", "Diseño de Interiores", "freelance", "description", "Diseñador", free,new Date(163598600), "USER");
+        this.setUserImage(user, "/static/app/assets/images/people/110/guy-4.jpg");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
 
-        userRepository.save(new User("id5", "name6", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
+        user = new User("csanchez85", "Carlos", "Sanchez", "carlossanchez99@oulook.com",passwordEncoder.encode("pass"), "629 798 657",
+                "www.bitpanda.com", "Valladolid", "Ingenieria de la Energía", "freelance", "description", "Ingeniero", free,new Date(181598600), "USER");
+        this.setUserImage(user, "/static/app/assets/images/people/110/guy-5.jpg");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
 
-        userRepository.save(new User("id6", "name7", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
+        user = new User("rogonza987", "Rodrigo", "Gonzalez", "rodrigonzalez7@gmail.com",passwordEncoder.encode("pass"), "604 347 927",
+                "www.telegram.com", "Toledo", "Ingeniería Medioambiental", "freelance", "", "Ingeniero", free,new Date(167598600), "USER");
+        this.setUserImage(user, "/static/app/assets/images/people/110/guy-6.jpg");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
 
-        userRepository.save(new User("id7", "name8", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
+        user = new User("anitarom56", "Ana", "Romero", "anaromeroest79@gmail.com",passwordEncoder.encode("pass"), "690 216 237",
+                "www.instagram.com", "Cáceres", "Ingenieria Electrica", "freelance", "description", "Ingeniero", free,new Date(169598600), "USER");
+        this.setUserImage(user, "/static/app/assets/images/people/110/woman-1.jpg");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
 
-        userRepository.save(new User("id8", "name9", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
+        user = new User("siiil99", "Silvia", "Ballesteros", "silviaballesteros98@outlook.com",passwordEncoder.encode("pass"), "639 289 038",
+                "www.tuenti.com", "Badajoz", "Fundamentos de la fotografia", "freelance", "description", "Fotografo", free,new Date(161298600), "USER");
+        this.setUserImage(user, "/static/app/assets/images/people/110/woman-2.jpg");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
 
-        userRepository.save(new User("id9", "name10", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
+        user = new User("lauradiaz67", "Laura", "Díaz", "lauradiezmad20@telefonica.net",passwordEncoder.encode("pass"), "699 236 546",
+                "www.facebook.com", "Londres", "Ingeniería del software", "freelance", "description", "Ingeniero", free,new Date(161558600), "USER");
+        this.setUserImage(user, "/static/app/assets/images/people/110/woman-3.jpg");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
 
-        userRepository.save(new User("id10", "name11", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
+        user = new User("bertacabello25", "Berta", "Cabello", "bertacabello50@gmail.com",passwordEncoder.encode("pass"), "634 847 935",
+                "www.snapchat.com", "Vigo", "Ingeniería Geologica", "freelance", "description", "Ingeniero", free, new Date(166598600),"USER");
+        this.setUserImage(user, "/static/app/assets/images/people/110/woman-4.jpg");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
 
-        userRepository.save(new User("id234", "name12", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
-
-        userRepository.save(new User("id35", "name13", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
-
-        userRepository.save(new User("id46", "name14", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
-
-        userRepository.save(new User("id56", "name15", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
-
-        userRepository.save(new User("id66", "name16", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
-
-        userRepository.save(new User("id76", "name17", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
-
-        userRepository.save(new User("id88", "name18", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
-
-        userRepository.save(new User("id99", "name19", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
-
-        userRepository.save(new User("id108", "name20", "surname", "email", passwordEncoder.encode("pass"), "phoneNumber",
-                "website", "city", "degree", "freelance", "description", "Ingeniero", free, new Date(161598600), "USER"));
-
-
+        user = new User("crisheredia10", "Cristina", "Heredia", "crisheredia11@hotmail.com",passwordEncoder.encode("pass"), "619 025 549",
+                "www.elmundo.com", "A Coruña", "Doble Ingenieria Informatica y Software", "freelance", "description", "Ingeniero", free,new Date(111598600), "USER");
+        this.setUserImage(user, "/static/app/assets/images/people/110/woman-5.jpg");
+        userRepository.save(user);
+        user.getTemplates().add(free);
+        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getTemplates());
     }
 
-    public void setBookImage(User user, String classpathResource) throws IOException {
+    public void setUserImage(User user, String classpathResource) throws IOException {
         Resource image = new ClassPathResource(classpathResource);
         user.setProfilePhoto(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
     }

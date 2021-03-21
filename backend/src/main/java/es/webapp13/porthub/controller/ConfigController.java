@@ -118,9 +118,9 @@ public class ConfigController {
 
     @PostMapping("/settings/edit/account/change-password")
     public String studentEditAccountChangePasswordLink(Model model, @RequestParam String newPassword, @RequestParam String confirmPassword, HttpServletRequest request) {
-        if (!newPassword.contentEquals(confirmPassword)){
+        if (!newPassword.contentEquals(confirmPassword)) {
             return "change-password-error";
-        }else{
+        } else {
             Principal principal = request.getUserPrincipal();
             User user = userService.findUser(principal.getName());
             userService.updatePassword(user, newPassword);
