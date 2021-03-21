@@ -12,5 +12,8 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
     List<Message> findAllBySenderAndReceiver(User sender, User receiver);
 
     @Query("SELECT m.receiver.id FROM Message m WHERE m.sender.id = ?1 GROUP BY m.receiver.id")
-    List<String> findChats(String id);
+    List<String> findSentChats(String id);
+
+    @Query("SELECT m.sender.id FROM Message m WHERE m.receiver.id = ?1 GROUP BY m.sender.id")
+    List<String> findReceivedChats(String id);
 }

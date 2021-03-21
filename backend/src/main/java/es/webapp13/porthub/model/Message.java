@@ -23,17 +23,17 @@ public class Message {
 
     private String text;
 
-    private Date send_date;
+    private Date sendDate;
 
     protected Message() {
     }
 
-    public Message(User sender, User receiver, String text, Date send_date) {
+    public Message(User sender, User receiver, String text, Date sendDate) {
         super();
         this.sender = sender;
         this.receiver = receiver;
         this.text = text;
-        this.send_date = send_date;
+        this.sendDate = sendDate;
     }
 
     public long getId() {
@@ -68,11 +68,11 @@ public class Message {
         this.text = text;
     }
 
-    public Date getSend_date() {
-        return send_date;
+    public Date getSendDate() {
+        return sendDate;
     }
 
-    public void setSend_date(Date send_date) {
-        this.send_date = send_date;
+    public void setSendDate(Date sendDate) {
+        this.sendDate = sendDate;
     }
 }
