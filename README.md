@@ -237,20 +237,23 @@ In general I have worked on the most intrinsic parts of the application.
 
 #### Aitor
 ##### Description
-
+My principal task in this phase has been to do the admin functionallity. All the admin screens and the functions to manage the app without coding from the administrators
+of the app. First of all, I did the front-end of all admin screens and prepared them to implement the database petition requests. Then, I implemented the list of all users
+of the app with the button 'Delete user'. After that, I did the list of templates avaible on the app and added the option to add new templates. And then I coded the dinamic
+graphic that tracks the total number of users registered on the app.
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5.
+1. [Done the admin users list in admin.html](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/1419710632466f83360f74ba66fc0d49c3db81f7)
+2. [Added to admin users the option to enter on admin.html. admin-app-graphics.html graphic changed some colors for better seeing](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/ec3f633991ca676a9ab16319fd95b7b5cf916033)
+3. [admin.html delete user done, started the add template function](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/7808de6ee72fc605d8433d3550cf2a8c14a161ba)
+4. [Add new template to admin-templates-list.html done and operative](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/a58da8e5410e94f90174c7644331cfce422b0fbc)
+5. [Fixed links in admin-templates-list.html](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/247934921372f1de56391f0d97c18f4dda7ea395)
 
 ##### Top 5 files
-1. 
-2. 
-3. 
-4.
-5.
+1. AdminController.java
+2. TemplateControler.java
+3. admin.html
+4. admin-templates-list.html
+5. admin-app-graphics.html
 
 
 ## Phase 3

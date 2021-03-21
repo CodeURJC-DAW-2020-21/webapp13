@@ -29,10 +29,6 @@ public class AdminController {
         return "admin";
     }
 
-    @GetMapping("/admin/banned/users")
-    public String adminBannedUsersLink() {
-        return "admin-banned-users";
-    }
 
     @GetMapping("/admin/app/graphics")
     public String adminAppGraphicsLink(Model model) {
