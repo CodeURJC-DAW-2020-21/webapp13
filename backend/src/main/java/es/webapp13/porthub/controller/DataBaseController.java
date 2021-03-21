@@ -88,7 +88,8 @@ public class DataBaseController implements CommandLineRunner {
         activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
         purchasedTemplateService.init(user.getTemplates());
 
-
+        userRepository.save(new User("admin", "admin", "admin", "admin@gmail.com",passwordEncoder.encode("admin"), "635 890 173",
+                "www.admin.com", "amin", "admin", "admin", "admin", "Fotografo", premium, new Date(162598600),"USER", "ADMIN"));
 
         userRepository.save(new User("lmessi10", "Lionel", "Messi", "lionelamessi10@gmail.com",passwordEncoder.encode("1234"), "635 890 173",
                 "www.pinterest.com", "Barcelona", "Técnico de imagen y sonido", "freelance2", "Persona con rápido aprendizaje y adaptación", "Fotografo", premium, new Date(162598600),"USER", "ADMIN"));
