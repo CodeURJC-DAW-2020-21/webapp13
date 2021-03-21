@@ -25,6 +25,13 @@ public class Template {
 
     public Template() {
     }
+    public Template(String name, String htmlPath, String description, int price){
+        this.name = name;
+        this.htmlPath = htmlPath;
+        this.description = description;
+        this.price = price;
+        this.isFree = price == 0;
+    }
 
     public Template(String htmlPath, String name, int price, boolean isFree, String description) {
         this.htmlPath = htmlPath;

@@ -48,7 +48,8 @@
 
 
             <div class="container page__container">
-                <form action="/settings/edit/account">
+
+
                     <div class="row">
                         <div class="col-lg-9">
 
@@ -59,16 +60,17 @@
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-3">Nombre</label>
                                             <label class="col-form-label col-sm-6">Email</label>
-                                            <!--
-                                            <div class="col-sm-3">
-                                                <button class="btn btn-accent">Penalizar</button>
-                                            </div>
-                                            -->
                                         </div>
                                         {{#users}}
-                                        <div class="form-group row mb-0">
+                                        <div class="form-group row mb-3">
                                             <label class="col-form-label col-sm-3">{{name}}</label>
                                             <label class="col-form-label col-sm-6">{{email}}</label>
+                                            <!-- <input type="hidden" value="{{id}}" name="id" id="id"> -->
+                                            <div class="col-sm-3">
+                                                <div class="row card-group-row mb-16pt mb-lg-40pt d-flex justify-content-center">
+                                                    <a class="btn btn-accent" href="/admin/delete/{{id}}">Eliminar usuario</a>
+                                                </div>
+                                            </div>
                                         </div>
                                         {{/users}}
                                     </div>
@@ -79,8 +81,7 @@
                         </div>
 
                     </div>
-                    <input type="hidden" name="_csrf" value="{{token}}"/>
-                </form>
+                    <!--<input type="hidden" name="_csrf" value="{{token}}"/> -->
             </div>
         </div>
 

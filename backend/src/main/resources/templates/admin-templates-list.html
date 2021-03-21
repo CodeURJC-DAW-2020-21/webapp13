@@ -83,7 +83,6 @@
                                         </div>
 
                                         <div class="col-6">
-
                                             <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
                                                  data-partial-height="40" data-toggle="popover" data-trigger="click">
 
@@ -97,7 +96,6 @@
                                                 </span>
                                             </span>
                                                 </a>
-
                                                 <div class="mdk-reveal__content">
                                                     <div class="card-body">
                                                         <div class="d-flex">
@@ -105,12 +103,61 @@
                                                                 <a class="card-title" href="/templates/premium/index">Premium</a>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- ADD NEW TEMPLATE -->
+                                    <form action="/admin/templates/list/add/new" method="post">
+                                        <input type="hidden" name="_csrf" value="{{token}}"/>
+                                        <div class="row">
+                                            <div class="col-lg-9">
+                                                <div class="page-section">
+                                                    <h4>Añadir template</h4>
+                                                    <div class="list-group list-group-form">
+
+                                                        <div class="list-group-item">
+                                                            <div class="form-group row mb-0">
+                                                                <label class="col-form-label col-sm-3">Nombre</label>
+                                                                <div class="col-sm-9">
+                                                                    <input id="name" name="name" type="text" class="form-control" placeholder="Escriba un nombre para el template...">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="list-group-item">
+                                                            <div class="form-group row mb-0">
+                                                                <label class="col-form-label col-sm-3"></label>
+                                                                <div class="col-sm-9">
+                                                                    <input id="htmlPath" name="htmlPath" type="hidden" class="form-control" value="/templates/" placeholder="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="list-group-item">
+                                                            <div class="form-group row mb-0">
+                                                                <label class="col-form-label col-sm-3">Descripción</label>
+                                                                <div class="col-sm-9">
+                                                                    <textarea id="description" name="description" rows="3" class="form-control" placeholder="Escriba la descripción del template..."></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="list-group-item">
+                                                            <div class="form-group row mb-0">
+                                                                <label class="col-form-label col-sm-3">Precio</label>
+                                                                <div class="col-sm-9">
+                                                                    <input id="price" name="price" type="number" class="form-control" placeholder="Escriba un precio para el template...">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <button type="submit" class="btn btn-accent">Añadir</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

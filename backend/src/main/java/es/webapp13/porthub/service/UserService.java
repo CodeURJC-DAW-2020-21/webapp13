@@ -108,6 +108,12 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public void deleteUser(User user){userRepository.delete(user);}
+
+    public long getCountAll(){return userRepository.count();}
+
+    public List<User> findAllUsers(){return userRepository.findAll();}
+
     /**
      * Update profile photo by a given user
      * @param user
