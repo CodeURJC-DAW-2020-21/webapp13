@@ -154,6 +154,24 @@ Once we have stablished which are the pages that compose our system, we shall ta
 
 
 ## Phase 2
+### Participation
+#### Cristian
+##### Description
+In this phase, I worked a lot with ajax, implementing it in different pages like the search page, projects page or in your main portfolio to show you projects. I worked too with images uploading and updating them to the database, I got in some troubles, but in the end I manage to solve all the issues. The most important commit that I perform is the chat, that I achieve to work dynamically with some JavaScript tricks. Other stuff that I have made it's to fix some CSS, because despite to not being evaluable, from my point of view it's important to keep the aplicaction as aesthetic as possible.
+
+##### Top 5 commits
+1. Full chat implementation: https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/e2f33cba82aecee6d9253504f5f4a8e3153ce579
+2. Completed ajax on search page: https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/41e1aa9ab9c9a123e0ab1766d3282e5fc3e543fd
+3. Fixed portfolio items images on update: https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/b3a798ae267a0f44433e0668dfbae0cbf07e49a8
+4. Update portfolio item info: https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/145737d5187b879f163ea34b07fee716a341e6df
+5. Search bar: https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/33946eef4a5e56aba9ea08d368a56ee2cc4d3ae0
+
+##### Top 5 files
+1. SearchController.java
+2. PortfolioItemService.java
+3. SearchService.js
+4. ajax.js
+5. chat.js
 ## Phase 3
 ## Phase 4
  
