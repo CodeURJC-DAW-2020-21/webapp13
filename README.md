@@ -1,5 +1,5 @@
 # Porthub
-![Logo](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/logo.png)
+![Logo](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/logo.png)
 
 ## Description
 Porthub is a social network about sharing your personal portfolios to meet profesionals from many different ambits. 
