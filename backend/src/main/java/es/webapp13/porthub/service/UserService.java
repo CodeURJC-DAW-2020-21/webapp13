@@ -191,7 +191,7 @@ public class UserService {
             }
         }
         if (topId==null){
-            return null;
+            return Optional.empty();
         }
         return Optional.of(purchasedTemplateService.getPurchased(topId));
     }

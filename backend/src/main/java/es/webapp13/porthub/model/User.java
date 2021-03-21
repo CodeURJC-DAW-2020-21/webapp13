@@ -59,7 +59,7 @@ public class User {
     public User() {
     }
 
-    public User(String id, String name, String surname, String email, String password, String phoneNumber,
+    public User(String id, String name, String surname, String email, String password, long age, String phoneNumber,
                 String website, String city, String degree, String freelance, String description, String category, Template activeTemplate, Date date,String... roles) {
         super();
         this.id = id;
@@ -67,6 +67,7 @@ public class User {
         this.surname = surname;
         this.email = email;
         this.password = password;
+        this.age = age;
         this.phoneNumber = phoneNumber;
         this.website = website;
         this.city = city;
@@ -79,7 +80,7 @@ public class User {
         this.roles = List.of(roles);
     }
 
-    public User(String id, String name, String surname, String email, String password, String phoneNumber,
+    public User(String id, String name, String surname, String email, String password, long age, String phoneNumber,
                 String website, String city, String degree, String freelance, String description, String category, Template activeTemplate, Date date,List<PortfolioItem> portfolioItemList,String... roles) {
         super();
         this.id = id;
@@ -87,6 +88,7 @@ public class User {
         this.surname = surname;
         this.email = email;
         this.password = password;
+        this.age = age;
         this.phoneNumber = phoneNumber;
         this.website = website;
         this.city = city;
