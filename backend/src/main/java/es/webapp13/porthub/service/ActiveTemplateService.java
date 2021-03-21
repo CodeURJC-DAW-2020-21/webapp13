@@ -14,7 +14,6 @@ public class ActiveTemplateService {
 
     private Map<Long, ActiveTemplate> activeTemplateMap;
 
-
     /**
      * Initialize users active templates
      *

@@ -172,6 +172,26 @@ In this phase, I worked a lot with ajax, implementing it in different pages like
 3. __SearchService.js__
 4. __ajax.js__
 5. __chat.js__
+
+#### José Manuel
+##### Description
+My priority in this phase has been working in the application's security. I've implemented the login and CSRF functionalities and URLs security configuration depending on the user's role. Also, I've worked in a first part of the chat functionality, setting the default users in the database, creating the error page, and I've helped my teammates in the development of the rest of the application's backend and solving problems and errors which couldn't be solved.
+
+##### Top 5 commits
+1. [Functional login](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/33a59863fddb84d2f2f546d865ca9583d77c3cae)
+2. [First part of login](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/40155d79008a1a585e160ac865afe273b672e1cb)
+3. [Basic chat implementation](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/ffc5b35ed8e0d50a85ec7c722608c0eff8a87f84)
+4. [Enabled CSRF and login with new users](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/ac201c505fc8a16e0b34e33171e5a6708871c3b2)
+5. [Set images in default users](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/691aca77e8a30a000eeaa780f1c40e53d510455a)
+
+##### Top 5 files
+1. __SecurityConfiguration.java__
+2. __CSRFHandlerConfiguration.java__
+3. __RepositoryUserDetailsService.java__
+4. __WebSocketConfig.java__
+5. __DataBaseController.java__
+
+
 ## Phase 3
 ## Phase 4
  

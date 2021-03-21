@@ -22,14 +22,13 @@ public class PortfolioItemService {
 
     private final UserRepository userRepository;
 
-
     private final PortfolioItemRepository portfolioItemRepository;
+
 
     public PortfolioItemService(UserRepository userRepository, PortfolioItemRepository portfolioItemRepository) {
         this.userRepository = userRepository;
         this.portfolioItemRepository = portfolioItemRepository;
     }
-
 
     /**
      * Add portfolio item to a user by a given id
@@ -67,7 +66,6 @@ public class PortfolioItemService {
         throw new NoSuchElementException("No portfolio item associated to this user id");
     }
 
-
     /**
      * Update a portfolio item fields
      *
@@ -88,7 +86,6 @@ public class PortfolioItemService {
         portfolioItem.setDescription(item.getDescription());
         portfolioItemRepository.save(portfolioItem);
     }
-
 
     /**
      * Update Preview image
@@ -169,7 +166,6 @@ public class PortfolioItemService {
                 item.setImage3(BlobProxy.generateProxy(dbItem.getImage3().getBinaryStream(), dbItem.getImage3().length()));
         }
     }
-
 
     /**
      * Delete a portfolio item by a given userId and itemId

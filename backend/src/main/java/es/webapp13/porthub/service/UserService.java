@@ -160,12 +160,10 @@ public class UserService {
         return userRepository.findById(name);
     }
 
-
     public List<Message> getMessageList(String id) {
         User user = userRepository.findById(id).orElseThrow();
         return user.getMessages();
     }
-
 
     public PurchasedTemplate getPopularTemplate(String id) {
         User user = userRepository.findById(id).orElseThrow();

@@ -39,9 +39,9 @@ public class ShopController {
     public String shopLink(Model model, HttpServletRequest request) {
         model.addAttribute("active_shop", true);
         Principal principal = request.getUserPrincipal();
-        if (principal==null){
+        if (principal == null) {
             model.addAttribute("templates", templateService.findAll());
-        }else{
+        } else {
             model.addAttribute("templates", purchasedTemplateService.getTemplateList());
         }
         return "shop";
@@ -59,7 +59,7 @@ public class ShopController {
     }
 
     @GetMapping("/recommendTemplate")
-    public String recommendTemplate(Model model, HttpServletRequest request){
+    public String recommendTemplate(Model model, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
         List<PurchasedTemplate> purchasedTemplates = new LinkedList<>();
