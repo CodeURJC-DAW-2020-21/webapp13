@@ -44,7 +44,10 @@ public class AdminController {
     }
 
     @GetMapping("/admin/templates/list")
-    public String adminTemplatesListLink() {
+    public String adminTemplatesListLink(Model model) {
+
+        List<Template> templates = templateService.findAll();
+        model.addAttribute("templates", templates);
         return "admin-templates-list";
     }
 
@@ -59,7 +62,8 @@ public class AdminController {
             template.setHtmlPath(template.getHtmlPath()+"premium/index");
         }
         templateService.createTemplate(template);
-        //TODO: INSERT MODEL ATTRIBUTE OF ALL TEMPLATES TO SHOW IN THE LIST
+        List<Template> templates = templateService.findAll();
+        model.addAttribute("templates", templates);
         return "admin-templates-list";
     }
 
