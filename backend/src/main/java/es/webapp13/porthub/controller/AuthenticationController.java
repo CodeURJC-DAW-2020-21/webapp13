@@ -57,7 +57,6 @@ public class AuthenticationController {
             request.login(user.getid(), password);
             model.addAttribute("loginProcess", true);
         } catch (ServletException e) {
-            //LOGGER.error("Error while login ", e);
         }
         return "signup-confirmation";
     }
@@ -66,7 +65,7 @@ public class AuthenticationController {
     public String logoutConfirmationLink(Model model, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
-        userService.saveChanges(user);
+        userService.save(user);
         model.addAttribute("logued", false);
         return "logout-confirmation";
     }

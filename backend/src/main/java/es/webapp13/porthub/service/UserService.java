@@ -98,7 +98,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void saveChanges(User user) {
+    public void save(User user) {
         userRepository.save(user);
     }
 

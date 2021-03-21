@@ -2,10 +2,8 @@ package es.webapp13.porthub.controller;
 
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
-import es.webapp13.porthub.repository.TemplateRepository;
 import es.webapp13.porthub.service.TemplateService;
 import es.webapp13.porthub.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,14 +13,14 @@ import java.util.List;
 @Controller
 public class AdminController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    private TemplateRepository templateRepository;
+    private final TemplateService templateService;
 
-    @Autowired
-    private TemplateService templateService;
+    public AdminController(UserService userService, TemplateService templateService) {
+        this.userService = userService;
+        this.templateService = templateService;
+    }
 
     @RequestMapping("/admin")
     public String adminLink(Model model) {

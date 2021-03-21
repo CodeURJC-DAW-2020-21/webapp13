@@ -61,4 +61,8 @@ public class TemplateService {
     public void createTemplate(Template template) {
         templateRepository.save(template);
     }
+
+    public void save(Template template) {
+        templateRepository.save(template);
+    }
 }

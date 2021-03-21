@@ -7,8 +7,6 @@ import es.webapp13.porthub.service.ActiveTemplateService;
 import es.webapp13.porthub.service.PortfolioItemService;
 import es.webapp13.porthub.service.TemplateService;
 import es.webapp13.porthub.service.UserService;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
@@ -32,17 +30,20 @@ import java.util.Optional;
 @Controller
 public class ConfigController {
 
-    @Autowired
-    private ActiveTemplateService activeTemplateService;
+    private final ActiveTemplateService activeTemplateService;
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    private TemplateService templateService;
+    private final TemplateService templateService;
 
-    @Autowired
-    private PortfolioItemService portfolioItemService;
+    private final PortfolioItemService portfolioItemService;
+
+    public ConfigController(ActiveTemplateService activeTemplateService, UserService userService, TemplateService templateService, PortfolioItemService portfolioItemService) {
+        this.activeTemplateService = activeTemplateService;
+        this.userService = userService;
+        this.templateService = templateService;
+        this.portfolioItemService = portfolioItemService;
+    }
 
     @GetMapping("/settings/edit/account")
     public String studentEditAccountLink(Model model, HttpServletRequest request) {
@@ -142,7 +143,7 @@ public class ConfigController {
         activeTemplateService.changeActiveTemplate(oldId, id);
         Template activeTemplate = templateService.findFirstById(id);
         user.setActiveTemplate(activeTemplate);
-        userService.saveChanges(user);
+        userService.save(user);
         return "change-active-template-confirmation";
     }
 
