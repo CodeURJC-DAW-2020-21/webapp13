@@ -1,5 +1,5 @@
 # Porthub
-![Logo](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/logo.png)
+![Logo](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/logo.png)
 
 ## Description
 Porthub is a social network about sharing your personal portfolios to meet profesionals from many different ambits. 
@@ -62,95 +62,95 @@ During this phase we have worked defining the frontend of our web application, a
 ### Home Page
 The initial page where you have a general overview of the system.
 
-![Home](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/index.png)
+![Home](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/index.png)
 
 
 ### Sign Page
 The screen used to register a new user on our system.
 
-![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/sign.png)
+![Sign](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/sign.png)
 
 
 ### Login Page
 The screen used to login an existing user on the system.
 
-![Login](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/login.png)
+![Login](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/login.png)
 
 ### Profile Page
 
 This screen shows you the active template which represents your profile in the system.
 
-![Profile](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/portfolioPremium.PNG)
+![Profile](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/portfolioPremium.PNG)
 
 ### Portfolio Item Page
 
 This screen shows you one of the items that compose your template, containing the neccesary information to represent a project.
 
-![Item](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/portfolioItemPremium.PNG)
+![Item](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/portfolioItemPremium.PNG)
 
 ### My Templates Page
 
 This screen shows you a catalog within the templates you own.
 
-![Templates](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/myTemplates.png)
+![Templates](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/myTemplates.png)
 
 ### Configuration Page for Basic Information
 
 This screen allows the user to modify his personal information such as name, age, etc.
 
-![ConfigurationBasic](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configBasic.png)
+![ConfigurationBasic](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/configBasic.png)
 
 ### Configuration Page for Advanced Information
 
 This screen allows the user to modify more complex information, for example its profile pic or its personal description.
 
-![ConfigurationAdvanced](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configAdvanced.png)
+![ConfigurationAdvanced](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/configAdvanced.png)
 
 ### Configuration Page for Portfolio Item Information
 
 This screen allows to upload or delete portfolio items to your personal template.
 
-![ConfigurationItem](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configBasic.png)
+![ConfigurationItem](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/configBasic.png)
 
 ### Configuration Page for Password
 
 This screen allows to reset the password of your account.
 
-![ConfigurationPassword](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/configPassword.png)
+![ConfigurationPassword](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/configPassword.png)
 
 ### Search Page
 
 The screen used to find new users, filtered by categories, which you can talk to and take a look on its Template.
 
-![Search](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/search.png)
+![Search](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/search.png)
 
 
 ### Shop Page
 
 The screen used to get new Templates, either free or premium.
 
-![Shop](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/shop.png)
+![Shop](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/shop.png)
 
 
-###Admin Users Page
+### Admin Users Page
 This screen shows a list of all users in Porthub
 
-![AdminUsers](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/adminUserList.png)
+![AdminUsers](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/adminUserList.png)
 
-###Admin Banned Users Page
+### Admin Banned Users Page
 This screen shows a list of all banned users in Porthub
 
-![AdminBannedUsers](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/adminBannedUsers.png)
+![AdminBannedUsers](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/adminBannedUsers.png)
 
-###Admin Templates List Page
+### Admin Templates List Page
 This screen shows a list of all templates avaible in Porthub
 
-![AdminTemplatesList](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/adminTemplatesList.png)
+![AdminTemplatesList](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/adminTemplatesList.png)
 
 ## Navigation diagram
 
 Once we have stablished which are the pages that compose our system, we shall take a look at the flow between pages that emerges through the interaction with them.
-![Diagramm](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/screen_diagram.png)
+![Diagramm](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase1/screen_diagram.png)
 
 
 ## Phase 2
@@ -164,6 +164,10 @@ Once we have stablished which are the pages that compose our system, we shall ta
 ### Instructions for implementation
 
 ### Diagram with the entities in the database
+Below is the diagram with the database entities, their fields and the relationships between them.
+entities, their fields and the relationships between them. 
+
+![Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase2/entityDiagram.png)
 
 ### Class diagram and templates
 
@@ -207,20 +211,26 @@ My priority in this phase has been working in the application's security. I've i
 
 #### José Justo 
 ##### Description
+In this phase I have worked mainly on the use of user information, allowing it to be displayed and implemented clearly in the templates.
+Therefore I have worked on everything that had to do with the use of templates and portfolio items, allowing its correct creation, viewing and listing.
+In the shop page I have implemented that the templates are shown, you can buy them and you can preview them.
+On the my templates page I have implemented that the user can select which of the templates that he/she has wants to activate.
+In addition to implementing the advanced query.
+In general I have worked on the most intrinsic parts of the application.
 
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5.
+1. [Fixed link to other users templates](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/4451b25ab6dfbabfd58436895db8063bcd517e34)
+2. [Store and my-templates screens synchronized with user data](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/591d935de12af097348bddc118dd07b658f5c2c8)
+3. [Improved my-templates screen showing which is your active template](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/5be545504248d4bd2594ed6a39b2c69ea121436a)
+4. [Improved the shop page](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/d962f85895c9b5df089a99b84c33e3794b2347bf) 
+5. [Added the sign up fuctionality](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/90d9da358f6e7dba519b6a2070f0eea1b3aaa7cd)
 
 ##### Top 5 files
-1. 
-2. 
-3. 
-4.
-5.
+1. __TemplateController.java__
+2. __ShopController.java__ 
+3. __ActiveTemplateService.java__
+4. __PurchasedTemplateService.java__ 
+5. __ConfigController.java__
 
 #### Aitor
 ##### Description

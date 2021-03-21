@@ -10,9 +10,11 @@
                         <p class="text-white-50 lead measure-hero-lead mx-auto">Elige entre múltiples portfolios diseñados por profesionales del sector.</p>
                     </div>
                     {{#logued}}
+                    {{^recommended}}
                     <div class="row card-group-row mb-16pt mb-lg-40pt d-flex justify-content-center">
                          <a class="btn btn-accent" href="/recommendTemplate">Recomendarme</a>
                     </div>
+                    {{/recommended}}
                     {{/logued}}
                     <div class="row card-group-row mb-16pt mb-lg-40pt d-flex justify-content-center">
                         {{#templates}}
@@ -56,6 +58,9 @@
                                 </div>
                             </div>
                         </div>
+                        {{/templates}}
+                        {{^templates}}
+                        <h2 class="text-white">No tenemos nada que recomendarte</h2>
                         {{/templates}}
                     </div>
                 </div>

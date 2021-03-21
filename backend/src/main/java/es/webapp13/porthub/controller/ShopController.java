@@ -7,6 +7,7 @@ import es.webapp13.porthub.service.ActiveTemplateService;
 import es.webapp13.porthub.service.PurchasedTemplateService;
 import es.webapp13.porthub.service.TemplateService;
 import es.webapp13.porthub.service.UserService;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ShopController {
@@ -63,8 +65,12 @@ public class ShopController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
         List<PurchasedTemplate> purchasedTemplates = new LinkedList<>();
-        purchasedTemplates.add(userService.getPopularTemplate(user.getid()));
-        model.addAttribute("templates", purchasedTemplates);
+        Optional<PurchasedTemplate> purchasedTemplate = userService.getPopularTemplate(user.getid());
+        if (purchasedTemplate != null){
+            purchasedTemplates.add(purchasedTemplate.get());
+            model.addAttribute("templates", purchasedTemplates);
+        }
+        model.addAttribute("recommended", true);
         return "shop";
     }
 
