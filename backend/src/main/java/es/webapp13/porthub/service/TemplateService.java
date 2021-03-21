@@ -25,4 +25,11 @@ public class TemplateService {
     public List<Template> findAll(){
         return templateRepository.findAll();
     }
+
+    public long getCountAll(){return templateRepository.count();}
+
+    public void createTemplate(Template template){
+        //template.setId(templateRepository.count()+1);
+        templateRepository.save(template);
+    }
 }
