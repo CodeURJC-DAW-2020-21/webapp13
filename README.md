@@ -171,6 +171,7 @@ entities, their fields and the relationships between them.
 
 ### Class diagram and templates
 This is the class diagram with all the relations between the different classes in the project.
+
 ![Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/diagrams/Class%20Diagram.svg)
 
 ### Participation
