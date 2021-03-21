@@ -5,6 +5,8 @@ import es.webapp13.porthub.model.*;
 import es.webapp13.porthub.repository.MessageRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.data.domain.Page;
@@ -63,7 +65,7 @@ public class UserService {
      *
      * @param user User received from a form
      */
-    public void createUser(User user) {
+    public void createUser(User user) throws IOException {
         Template free = templateService.findFirstById(1);
         user.getTemplates().add(free);
         user.setActiveTemplate(free);
@@ -80,6 +82,8 @@ public class UserService {
         long age = calculateAge(user);
         user.setAge(age);
         user.setActiveTemplate(templateService.findFirstById(1));
+        Resource image = new ClassPathResource("/static/app/assets/images/default-profile.jpg");
+        user.setProfilePhoto(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
         userRepository.save(user);
     }
 
@@ -191,7 +195,7 @@ public class UserService {
             }
         }
         if (topId==null){
-            return null;
+            return Optional.empty();
         }
         return Optional.of(purchasedTemplateService.getPurchased(topId));
     }
