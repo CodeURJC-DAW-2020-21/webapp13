@@ -1,11 +1,14 @@
 package es.webapp13.porthub.controller;
 
+import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.PortfolioItemService;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -64,10 +67,18 @@ public class TemplateController {
     }
 
     @GetMapping("/template/{id}")
-    public String templateFromSearchLink(Model model, @PathVariable String id, HttpServletRequest request) {
+    public String templateFromSearchLink(Model model, @PathVariable String id, HttpServletRequest request, Pageable pageable) {
         User portfolioUser = userService.findUser(id);
         model.addAttribute("portfolioUser", portfolioUser);
         model.addAttribute("external", true);
+
+        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(portfolioUser.getid(), pageable);
+        model.addAttribute("hasNext", portfolioItems.hasNext());
+        model.addAttribute("portfolioItemsPage", portfolioItems);
+
+        System.out.println("###");
+        System.out.println(portfolioItems.getNumberOfElements());
+
         Principal principal = request.getUserPrincipal();
         if (principal != null) {
             User activeUser = userService.findUser(principal.getName());

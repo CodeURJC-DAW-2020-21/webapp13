@@ -28,9 +28,10 @@ function loadMoreP() {
 }
 
 
-function loadMoreT(){
-    $("#result").append($("<div class=\"row no-gutters\">").load("/settings/edit/account/portfolioitems/?page=" + (page) + "&size=3 .portfolioitem-item", function(){
-        $("#hasNextPage").load("/settings/edit/account/portfolioitems/?page=" + (page) + "&size=3 #button-replace", function () {
+function loadMoreT() {
+    console.log($("#user-id").text().trim())
+    $("#result").append($("<div class='row no-gutters' id='users-to-load'>").load("/template/" + $("#user-id").text().trim() + "/?page=" + (page) + "&size=3 .portfolioitem-item", function () {
+        $("#hasNextPage").load("/template/" + $("#user-id").text().trim()  + "/?page=" + (page) + "&size=3 #button-replace", function () {
             $("#load-more2").click(loadMoreT)
             page++
         })
