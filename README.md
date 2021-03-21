@@ -154,7 +154,21 @@ Once we have stablished which are the pages that compose our system, we shall ta
 
 
 ## Phase 2
+
+### Navigation
+
+#### Pages
+
+#### Navigation diagram
+
+### Instructions for implementation
+
+### Diagram with the entities in the database
+
+### Class diagram and templates
+
 ### Participation
+
 #### Cristian
 ##### Description
 In this phase, I worked a lot with ajax, implementing it in different pages like the search page, projects page or in your main portfolio to show you projects. I worked too with images uploading and updating them to the database, I got in some troubles, but in the end I manage to solve all the issues. The most important commit that I perform is the chat, that I achieve to work dynamically with some JavaScript tricks. Other stuff that I have made it's to fix some CSS, because despite to not being evaluable, from my point of view it's important to keep the aplicaction as aesthetic as possible.
@@ -190,6 +204,40 @@ My priority in this phase has been working in the application's security. I've i
 3. __RepositoryUserDetailsService.java__
 4. __WebSocketConfig.java__
 5. __DataBaseController.java__
+
+#### José Justo 
+##### Description
+
+##### Top 5 commits
+1. 
+2. 
+3. 
+4. 
+5.
+
+##### Top 5 files
+1. 
+2. 
+3. 
+4.
+5.
+
+#### Aitor
+##### Description
+
+##### Top 5 commits
+1. 
+2. 
+3. 
+4. 
+5.
+
+##### Top 5 files
+1. 
+2. 
+3. 
+4.
+5.
 
 
 ## Phase 3
