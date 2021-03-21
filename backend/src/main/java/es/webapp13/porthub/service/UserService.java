@@ -199,4 +199,9 @@ public class UserService {
         chats.addAll(ReceivedMessagesId);
         return chats;
     }
+
+    public void updatePassword(User user, String newPassword){
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
+    }
 }
