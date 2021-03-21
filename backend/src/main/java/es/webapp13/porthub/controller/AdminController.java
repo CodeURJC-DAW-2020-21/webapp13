@@ -24,7 +24,7 @@ public class AdminController {
     @Autowired
     private TemplateService templateService;
 
-    @GetMapping("/admin")
+    @RequestMapping("/admin")
     public String adminLink(Model model) {
         List<User> users = userService.findAllUsers();
         model.addAttribute("users", users);
@@ -52,11 +52,14 @@ public class AdminController {
     public String addNewTemplate(Model model, Template template) {
         if (template.getPrice() == 0){
             template.setFree(true);
+            template.setHtmlPath(template.getHtmlPath()+"free/index");
         }
         else{
             template.setFree(false);
+            template.setHtmlPath(template.getHtmlPath()+"premium/index");
         }
         templateService.createTemplate(template);
+        //TODO: INSERT MODEL ATTRIBUTE OF ALL TEMPLATES TO SHOW IN THE LIST
         return "admin-templates-list";
     }
 
