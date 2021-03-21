@@ -79,14 +79,14 @@
                         {{/profilePhoto}}
                         {{^profilePhoto}}
                         <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
-                             src="/app/assets/images/people/256/256_rsz_florian-perennes-594195-unsplash.jpg" alt="profile-img">
+                             src="/app/assets/images/default-profile.jpg" alt="profile-img">
                         {{/profilePhoto}}
                     {{/portfolioUser}}
                 {{/external}}
 
                 {{^external}}
                 <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
-                     src="/templates/free/img/profile-img.jpg" alt="profile-img">
+                     src="/app/assets/images/default-profile.jpg" alt="profile-img">
                 {{/external}}
                 <p id="about-complete-name" class="text-white mt-0 text-uppercase h3">
                     {{^external}}
@@ -224,10 +224,9 @@
         {{^external}}
         <h4 id="about-tittle" class="text-white mt-0 text-center">No tiene proyectos todavia.</h4>
         {{/external}}
-
-
+        {{#external}}
                 <div id="result">
-                    <div class="row no-gutters" id="users-to-load">
+                    <div id="users-to-load">
 
                         {{#portfolioItemsPage}}
                         <div class="col-lg-4 col-sm-6 portfolioitem-item" id="portfolio-visual-item">
@@ -242,7 +241,9 @@
                         {{/portfolioItemsPage}}
 
                         {{^portfolioItemsPage}}
+                        <div class="d-flex justify-content-center">
                         <h4 id="about-tittle" class="text-white mt-0 text-center">No tiene proyectos todavia.</h4>
+                        </div>
                         {{/portfolioItemsPage}}
 
                     </div>
@@ -256,7 +257,7 @@
                     {{/hasNext}}
                 </ul>
             </div>
-
+        {{/external}}
 
 
     </div>
