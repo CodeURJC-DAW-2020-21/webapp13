@@ -10,11 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, String> {
-    User findFirstById(String id);
 
     Page<User> findByCategory(String category, Pageable pageable);
-
-    //List<User> findAllByOrderById();
 
     Optional<User> findById(String name);
 

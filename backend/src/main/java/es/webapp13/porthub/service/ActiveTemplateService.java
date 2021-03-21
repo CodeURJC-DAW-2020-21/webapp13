@@ -14,43 +14,61 @@ public class ActiveTemplateService {
 
     private Map<Long, ActiveTemplate> activeTemplateMap;
 
-    public ActiveTemplateService() {
-    }
 
-
-
+    /**
+     * Initialize users active templates
+     *
+     * @param templates          List of templates in the app
+     * @param userActiveTemplate Current user active template
+     */
     public void init(List<Template> templates, Template userActiveTemplate) {
         activeTemplateMap = new HashMap<>();
-        for (Template template: templates){
+        for (Template template : templates) {
             long id = template.getId();
             String name = template.getName();
             String htmlPath = template.getHtmlPath();
             boolean active = false;
-            if (template == userActiveTemplate){
+            if (template == userActiveTemplate) {
                 active = true;
             }
-            ActiveTemplate activeTemplate = new ActiveTemplate(id,htmlPath, name, active);
+            ActiveTemplate activeTemplate = new ActiveTemplate(id, htmlPath, name, active);
             activeTemplateMap.put(id, activeTemplate);
         }
     }
 
-    public Collection<ActiveTemplate> getActiveTemplateList(){
+    /**
+     * Get actives templates of the user
+     *
+     * @return A collection of active templates
+     */
+    public Collection<ActiveTemplate> getActiveTemplateList() {
         return activeTemplateMap.values();
     }
 
-    public void changeActiveTemplate(long oldId, long newId){
+    /**
+     * Change the current active template
+     *
+     * @param oldId Id of the current template
+     * @param newId Id of the new template to be active
+     */
+    public void changeActiveTemplate(long oldId, long newId) {
         ActiveTemplate oldActiveTemplate = activeTemplateMap.get(oldId);
         oldActiveTemplate.setActive(false);
         ActiveTemplate newActiveTemplate = activeTemplateMap.get(newId);
         newActiveTemplate.setActive(true);
     }
 
-    public void addTemplate(Template template){
+    /**
+     * Add new template to the templates map
+     *
+     * @param template Template to add
+     */
+    public void addTemplate(Template template) {
         long id = template.getId();
         String name = template.getName();
         String htmlPath = template.getHtmlPath();
         boolean active = false;
-        ActiveTemplate activeTemplate = new ActiveTemplate(id,htmlPath, name, active);
+        ActiveTemplate activeTemplate = new ActiveTemplate(id, htmlPath, name, active);
         activeTemplateMap.put(id, activeTemplate);
     }
 

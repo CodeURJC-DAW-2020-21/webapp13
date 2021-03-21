@@ -1,35 +1,64 @@
 package es.webapp13.porthub.service;
 
 import es.webapp13.porthub.model.Template;
-import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.TemplateRepository;
-import es.webapp13.porthub.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 public class TemplateService {
-    @Autowired
-    private TemplateRepository templateRepository;
 
-    public Template findFirstById(long id){
+    private final TemplateRepository templateRepository;
+
+    public TemplateService(TemplateRepository templateRepository) {
+        this.templateRepository = templateRepository;
+    }
+
+    /**
+     * Find a template by a given id
+     *
+     * @param id Id of the template
+     * @return A template
+     */
+    public Template findFirstById(long id) {
         return templateRepository.findFirstById(id);
     }
 
-    public Template findFirstByName(String name){
+    /**
+     * Find a template by a given name
+     *
+     * @param name Name of the template
+     * @return A template
+     */
+    public Template findFirstByName(String name) {
         return templateRepository.findFirstByName(name);
     }
 
-    public List<Template> findAll(){
+    /**
+     * Find all templates
+     *
+     * @return A list of templates
+     */
+    public List<Template> findAll() {
         return templateRepository.findAll();
     }
 
-    public long getCountAll(){return templateRepository.count();}
+    /**
+     * Number of templates
+     *
+     * @return Number of templates
+     */
+    public long getCountAll() {
+        return templateRepository.count();
+    }
 
-    public void createTemplate(Template template){
-        //template.setId(templateRepository.count()+1);
+    /**
+     * Create a new template
+     *
+     * @param template A given template
+     */
+    public void createTemplate(Template template) {
         templateRepository.save(template);
     }
 }
