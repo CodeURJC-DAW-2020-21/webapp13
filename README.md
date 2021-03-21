@@ -164,6 +164,10 @@ Once we have stablished which are the pages that compose our system, we shall ta
 ### Instructions for implementation
 
 ### Diagram with the entities in the database
+Below is the diagram with the database entities, their fields and the relationships between them.
+entities, their fields and the relationships between them. 
+
+![Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/entityDiagram.png)
 
 ### Class diagram and templates
 
