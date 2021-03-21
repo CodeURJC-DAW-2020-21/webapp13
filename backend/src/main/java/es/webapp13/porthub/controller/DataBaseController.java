@@ -82,7 +82,7 @@ public class DataBaseController implements CommandLineRunner {
 
         User user = new User("id", "José Luis", "Martinez Almeida", "joselu@pp.com", passwordEncoder.encode("pass"), "618 99 55 66",
                 "www.web.es", "Madrid", "Grado en Política", "No", "Abogado del Estado y alcalde de Madrid desde 2019", "Empresario", free, new Date(1669176000), portfolioItemList, "USER");
-        this.setBookImage(user, "/static/app/assets/images/almeida.jpg");
+        this.setUserImage(user, "/static/app/assets/images/almeida.jpg");
         userRepository.save(user);
         user.getTemplates().add(free);
         activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
@@ -151,7 +151,7 @@ public class DataBaseController implements CommandLineRunner {
 
     }
 
-    public void setBookImage(User user, String classpathResource) throws IOException {
+    public void setUserImage(User user, String classpathResource) throws IOException {
         Resource image = new ClassPathResource(classpathResource);
         user.setProfilePhoto(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
     }
