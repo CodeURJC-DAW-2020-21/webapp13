@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.rmi.ServerException;
 import java.security.Principal;
 
 @Controller
@@ -57,6 +58,7 @@ public class AuthenticationController {
             request.login(user.getid(), password);
             model.addAttribute("loginProcess", true);
         } catch (ServletException e) {
+            throw new ServerException("ServletException at signup");
         }
         return "signup-confirmation";
     }

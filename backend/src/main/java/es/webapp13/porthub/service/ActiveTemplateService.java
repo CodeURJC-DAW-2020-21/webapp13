@@ -66,8 +66,7 @@ public class ActiveTemplateService {
         long id = template.getId();
         String name = template.getName();
         String htmlPath = template.getHtmlPath();
-        boolean active = false;
-        ActiveTemplate activeTemplate = new ActiveTemplate(id, htmlPath, name, active);
+        ActiveTemplate activeTemplate = new ActiveTemplate(id, htmlPath, name, false);
         activeTemplateMap.put(id, activeTemplate);
     }
 

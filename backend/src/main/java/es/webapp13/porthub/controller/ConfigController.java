@@ -118,7 +118,7 @@ public class ConfigController {
     }
 
     @PostMapping("/settings/edit/account/change-password")
-    public String studentEditAccountChangePasswordLink(Model model, @RequestParam String newPassword, @RequestParam String confirmPassword, HttpServletRequest request) {
+    public String studentEditAccountChangePasswordLink(@RequestParam String newPassword, @RequestParam String confirmPassword, HttpServletRequest request) {
         if (!newPassword.contentEquals(confirmPassword)) {
             return "change-password-error";
         } else {

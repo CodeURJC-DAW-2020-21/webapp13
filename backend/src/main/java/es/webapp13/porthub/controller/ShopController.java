@@ -7,7 +7,6 @@ import es.webapp13.porthub.service.ActiveTemplateService;
 import es.webapp13.porthub.service.PurchasedTemplateService;
 import es.webapp13.porthub.service.TemplateService;
 import es.webapp13.porthub.service.UserService;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -66,7 +65,7 @@ public class ShopController {
         User user = userService.findUser(principal.getName());
         List<PurchasedTemplate> purchasedTemplates = new LinkedList<>();
         Optional<PurchasedTemplate> purchasedTemplate = userService.getPopularTemplate(user.getid());
-        if (purchasedTemplate != null){
+        if (purchasedTemplate.isPresent()){
             purchasedTemplates.add(purchasedTemplate.get());
             model.addAttribute("templates", purchasedTemplates);
         }

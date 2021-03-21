@@ -45,13 +45,6 @@ public class PortfolioItem {
 
     }
 
-    public PortfolioItem(String userId, String name) {
-        super();
-        this.userId = userId;
-        this.name = name;
-
-    }
-
     public PortfolioItem(String userId, String name, String description, String category, String client, String url, Date date) {
         super();
         this.userId = userId;

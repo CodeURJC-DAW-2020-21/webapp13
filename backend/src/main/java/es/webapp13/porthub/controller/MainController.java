@@ -21,7 +21,7 @@ public class MainController {
     }
 
     @GetMapping("/error")
-    public String errorLink(Model model) {
+    public String errorLink() {
         return "error";
     }
 
