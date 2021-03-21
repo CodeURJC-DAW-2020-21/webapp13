@@ -5,6 +5,7 @@ import es.webapp13.porthub.model.*;
 import es.webapp13.porthub.repository.MessageRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.data.domain.Page;
@@ -16,8 +17,11 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
 
+
+
 @Component
 public class UserService {
+
 
     private final UserRepository userRepository;
 
@@ -165,7 +169,7 @@ public class UserService {
         return user.getMessages();
     }
 
-    public PurchasedTemplate getPopularTemplate(String id) {
+    public Optional<PurchasedTemplate> getPopularTemplate(String id) {
         User user = userRepository.findById(id).orElseThrow();
         List<User> userList = userRepository.findSimilarUser(user.getCategory());
         Map<Long, Integer> templateMap = new HashMap<>();
@@ -182,12 +186,15 @@ public class UserService {
         Long topId = null;
         for (long k : templateMap.keySet()) {
             int currentValue = templateMap.get(k);
-            if (currentValue > maxValue) {
+            if ((currentValue > maxValue)&&(!purchasedTemplateService.getPurchased(k).isPurchased())) {
                 maxValue = currentValue;
                 topId = k;
             }
         }
-        return purchasedTemplateService.getPurchased(topId);
+        if (topId==null){
+            return null;
+        }
+        return Optional.of(purchasedTemplateService.getPurchased(topId));
     }
 
     public Set<String> findChats(User user) {
