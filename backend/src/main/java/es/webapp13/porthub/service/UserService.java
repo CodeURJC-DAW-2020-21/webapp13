@@ -3,10 +3,8 @@ package es.webapp13.porthub.service;
 
 import es.webapp13.porthub.model.*;
 import es.webapp13.porthub.repository.MessageRepository;
-import es.webapp13.porthub.repository.PortfolioItemRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.data.domain.Page;
@@ -14,34 +12,31 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.security.Key;
-import java.security.Principal;
-import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.*;
 
 @Component
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private MessageRepository messageRepository;
+    private final MessageRepository messageRepository;
 
-    @Autowired
-    private TemplateService templateService;
+    private final TemplateService templateService;
 
-    @Autowired
-    private PortfolioItemRepository portfolioItemRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private PurchasedTemplateService purchasedTemplateService;
+    private final PurchasedTemplateService purchasedTemplateService;
+
+    public UserService(UserRepository userRepository, MessageRepository messageRepository, TemplateService templateService, PasswordEncoder passwordEncoder, PurchasedTemplateService purchasedTemplateService) {
+        this.userRepository = userRepository;
+        this.messageRepository = messageRepository;
+        this.templateService = templateService;
+        this.passwordEncoder = passwordEncoder;
+        this.purchasedTemplateService = purchasedTemplateService;
+    }
 
 
     /**
@@ -57,8 +52,7 @@ public class UserService {
         long ageMinutes = ageSeconds / 60;
         long ageHours = ageMinutes / 60;
         long ageDays = ageHours / 24;
-        long ageYears = ageDays / 365;
-        return ageYears;
+        return ageDays / 365;
     }
 
     /**
@@ -76,7 +70,7 @@ public class UserService {
         user.setRoles(roles);
 
         List<Message> messages = new LinkedList<>();
-        System.out.println("### Lista mensajes creada"+ messages);
+        System.out.println("### Lista mensajes creada" + messages);
         user.setMessages(messages);
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -86,7 +80,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void updateUser(User newUser, String id,MultipartFile profileImg) throws IOException, SQLException {
+    public void updateUser(User newUser, String id, MultipartFile profileImg) throws IOException, SQLException {
         User user = userRepository.findById(id).orElseThrow();
         if (!profileImg.isEmpty()) {
             updateProfilePhoto(user, profileImg);
@@ -108,27 +102,33 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void deleteUser(User user){userRepository.delete(user);}
+    public void deleteUser(User user) {
+        userRepository.delete(user);
+    }
 
-    public long getCountAll(){return userRepository.count();}
+    public long getCountAll() {
+        return userRepository.count();
+    }
 
-    public List<User> findAllUsers(){return userRepository.findAll();}
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
+    }
 
     /**
      * Update profile photo by a given user
-     * @param user
-     * @param profileImg
-     * @throws IOException
-     * @throws SQLException
+     *
+     * @param user       User to update his profile photo
+     * @param profileImg Image to set
+     * @throws IOException  Not found input image
+     * @throws SQLException Not found in DB
      */
     private void updateProfilePhoto(User user, MultipartFile profileImg) throws IOException, SQLException {
         if (!profileImg.isEmpty())
             user.setProfilePhoto(BlobProxy.generateProxy(profileImg.getInputStream(), profileImg.getSize()));
         else {
 
-            // Maintain the same image loading it before updating the book
             User dbUser = findById(user.getid()).orElseThrow();
-            if (dbUser.getProfilePhoto().length()==0)
+            if (dbUser.getProfilePhoto().length() == 0)
                 user.setProfilePhoto(BlobProxy.generateProxy(dbUser.getProfilePhoto().getBinaryStream(), dbUser.getProfilePhoto().length()));
         }
     }
@@ -143,7 +143,7 @@ public class UserService {
     }
 
     public User findUser(String id) {
-        return userRepository.findFirstById(id);
+        return userRepository.findById(id).orElseThrow();
     }
 
     public User findName(String name) {
@@ -161,30 +161,30 @@ public class UserService {
     }
 
 
-    public List<Message> getMessageList(String id){
+    public List<Message> getMessageList(String id) {
         User user = userRepository.findById(id).orElseThrow();
         return user.getMessages();
     }
 
 
-    public PurchasedTemplate getPopularTemplate(String id){
+    public PurchasedTemplate getPopularTemplate(String id) {
         User user = userRepository.findById(id).orElseThrow();
         List<User> userList = userRepository.findSimilarUser(user.getCategory());
         Map<Long, Integer> templateMap = new HashMap<>();
-        for (User u: userList){
+        for (User u : userList) {
             long templateId = u.getActiveTemplate().getId();
             Integer currentValue = templateMap.get(templateId);
-            if (currentValue==null){
+            if (currentValue == null) {
                 templateMap.put(templateId, 1);
-            }else{
-                templateMap.put(templateId, currentValue++);
+            } else {
+                templateMap.put(templateId, templateMap.get(templateId) + 1);
             }
         }
         Integer maxValue = -1;
         Long topId = null;
-        for (long k: templateMap.keySet()){
+        for (long k : templateMap.keySet()) {
             int currentValue = templateMap.get(k);
-            if (currentValue>maxValue){
+            if (currentValue > maxValue) {
                 maxValue = currentValue;
                 topId = k;
             }
@@ -200,7 +200,7 @@ public class UserService {
         return chats;
     }
 
-    public void updatePassword(User user, String newPassword){
+    public void updatePassword(User user, String newPassword) {
         user.setPassword(passwordEncoder.encode(newPassword));
         userRepository.save(user);
     }

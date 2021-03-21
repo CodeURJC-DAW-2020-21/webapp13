@@ -5,7 +5,6 @@ import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.User;
 import org.hibernate.engine.jdbc.BlobProxy;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,12 +20,15 @@ import java.util.Optional;
 @Component
 public class PortfolioItemService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
 
-    @Autowired
-    private PortfolioItemRepository portfolioItemRepository;
+    private final PortfolioItemRepository portfolioItemRepository;
+
+    public PortfolioItemService(UserRepository userRepository, PortfolioItemRepository portfolioItemRepository) {
+        this.userRepository = userRepository;
+        this.portfolioItemRepository = portfolioItemRepository;
+    }
 
 
     /**
@@ -47,18 +49,6 @@ public class PortfolioItemService {
         user.addPortfolioItem(item);
         userRepository.save(user);
     }
-
-    /**
-     * Get a portfolio item by a given user id
-     *
-     * @param userId Id of the user
-     * @return Iterable of portfolio items
-
-    public List<PortfolioItem> getPortfolioItems(String userId) {
-        User user = userRepository.findById(userId).orElseThrow();
-        return user.getPortfolioItems();
-    }
-     */
 
     /**
      * Return a portfolio item by a given user id and portfolio item id
@@ -99,12 +89,14 @@ public class PortfolioItemService {
         portfolioItemRepository.save(portfolioItem);
     }
 
+
     /**
+     * Update Preview image
      *
-     * @param item
-     * @param previewImg
-     * @throws IOException
-     * @throws SQLException
+     * @param item       Portfolio item to update preview image
+     * @param previewImg Portfolio preview image
+     * @throws IOException  Not found input image
+     * @throws SQLException Not found in DB
      */
     private void updatePreviewImg(PortfolioItem item, MultipartFile previewImg) throws IOException, SQLException {
         if (!previewImg.isEmpty())
@@ -119,11 +111,12 @@ public class PortfolioItemService {
     }
 
     /**
+     * Update image 1
      *
-     * @param item
-     * @param img
-     * @throws IOException
-     * @throws SQLException
+     * @param item Portfolio item to update image
+     * @param img  Portfolio image
+     * @throws IOException  Not found input image
+     * @throws SQLException Not found in DB
      */
     private void updateImg1(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
         if (!img.isEmpty())
@@ -138,11 +131,12 @@ public class PortfolioItemService {
     }
 
     /**
+     * Update image 2
      *
-     * @param item
-     * @param img
-     * @throws IOException
-     * @throws SQLException
+     * @param item Portfolio item to update image
+     * @param img  Portfolio image
+     * @throws IOException  Not found input image
+     * @throws SQLException Not found in DB
      */
     private void updateImg2(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
         if (!img.isEmpty())
@@ -157,11 +151,12 @@ public class PortfolioItemService {
     }
 
     /**
+     * Update image 1
      *
-     * @param item
-     * @param img
-     * @throws IOException
-     * @throws SQLException
+     * @param item Portfolio item to update image
+     * @param img  Portfolio image
+     * @throws IOException  Not found input image
+     * @throws SQLException Not found in DB
      */
     private void updateImg3(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
         if (!img.isEmpty())
@@ -192,12 +187,25 @@ public class PortfolioItemService {
         userRepository.save(user);
     }
 
+    /**
+     * Get a portfolio item by a given id
+     *
+     * @param id Id of the portfolio item
+     * @return Optional value
+     */
     public Optional<PortfolioItem> findById(long id) {
         return portfolioItemRepository.findById(id);
     }
 
-    public Page<PortfolioItem> findPortfolioItems(String userId,Pageable pageable) {
-        return portfolioItemRepository.findByUserId(userId,PageRequest.of(pageable.getPageNumber(), 3));
+    /**
+     * Get a page with 3 portfolio items
+     *
+     * @param userId   Id of the user
+     * @param pageable Pageable param
+     * @return A page with 3 portfolio items
+     */
+    public Page<PortfolioItem> findPortfolioItems(String userId, Pageable pageable) {
+        return portfolioItemRepository.findByUserId(userId, PageRequest.of(pageable.getPageNumber(), 3));
     }
 
 }
