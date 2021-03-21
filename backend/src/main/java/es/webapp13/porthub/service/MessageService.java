@@ -16,7 +16,14 @@ public class MessageService {
         this.messageRepository = messageRepository;
     }
 
-    public List<Message> findMessages(User sender, User receiver){
-       return messageRepository.findAllBySenderAndReceiver(sender,receiver);
+    /**
+     * Get all the messages between two users
+     *
+     * @param sender   The user who sent the messages
+     * @param receiver The user who receive the messages
+     * @return A list of all messages
+     */
+    public List<Message> findMessages(User sender, User receiver) {
+        return messageRepository.findAllBySenderAndReceiver(sender, receiver);
     }
 }

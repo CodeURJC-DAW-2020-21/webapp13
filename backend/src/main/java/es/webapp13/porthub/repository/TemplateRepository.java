@@ -9,8 +9,9 @@ import java.util.List;
 public interface TemplateRepository extends JpaRepository<Template, Long> {
 
     Template findFirstById(long id);
+
     Template findFirstByName(String name);
-    @Override
+
     List<Template> findAll();
 
 }

@@ -9,13 +9,17 @@ import es.webapp13.porthub.model.*;
 import es.webapp13.porthub.service.ActiveTemplateService;
 import es.webapp13.porthub.service.PurchasedTemplateService;
 import es.webapp13.porthub.service.UserService;
+import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
 
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -47,24 +51,24 @@ public class DataBaseController implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Template free = new Template("/templates/free/index","Free",0, true, "Un diseño orientado a una clara visualización de tu trabajo");
-        Template premium = new Template("/templates/premium/index","Premium",20, false, "Un diseño de corte serio dirigido a empresas");
+        Template free = new Template("/templates/free/index", "Free", 0, true, "Un diseño orientado a una clara visualización de tu trabajo");
+        Template premium = new Template("/templates/premium/index", "Premium", 20, false, "Un diseño de corte serio dirigido a empresas");
         templateRepository.save(free);
         templateRepository.save(premium);
 
-        PortfolioItem portfolioItem1 = new PortfolioItem("id","proyecto1", "Description", "Category", "Client", "URL", new Date(161598600));
+        PortfolioItem portfolioItem1 = new PortfolioItem("id", "proyecto1", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem1);
-        PortfolioItem portfolioItem2 = new PortfolioItem("id","proyecto2", "Description", "Category", "Client", "URL", new Date(161598600));
+        PortfolioItem portfolioItem2 = new PortfolioItem("id", "proyecto2", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem2);
-        PortfolioItem portfolioItem3 = new PortfolioItem("id","proyecto3", "Description", "Category", "Client", "URL", new Date(161598600));
+        PortfolioItem portfolioItem3 = new PortfolioItem("id", "proyecto3", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem3);
-        PortfolioItem portfolioItem4 = new PortfolioItem("id","proyecto4", "Description", "Category", "Client", "URL", new Date(161598600));
+        PortfolioItem portfolioItem4 = new PortfolioItem("id", "proyecto4", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem4);
-        PortfolioItem portfolioItem5 = new PortfolioItem("id","proyecto5", "Description", "Category", "Client", "URL", new Date(161598600));
+        PortfolioItem portfolioItem5 = new PortfolioItem("id", "proyecto5", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem5);
-        PortfolioItem portfolioItem6 = new PortfolioItem("id","proyecto6", "Description", "Category", "Client", "URL", new Date(161598600));
+        PortfolioItem portfolioItem6 = new PortfolioItem("id", "proyecto6", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem6);
-        PortfolioItem portfolioItem7 = new PortfolioItem("id","proyecto7", "Description", "Category", "Client", "URL", new Date(161598600));
+        PortfolioItem portfolioItem7 = new PortfolioItem("id", "proyecto7", "Description", "Category", "Client", "URL", new Date(161598600));
         portfolioItemRepository.save(portfolioItem7);
 
         List<PortfolioItem> portfolioItemList = new LinkedList<>();
@@ -76,8 +80,9 @@ public class DataBaseController implements CommandLineRunner {
         portfolioItemList.add(portfolioItem6);
         portfolioItemList.add(portfolioItem7);
 
-        User user = new User("educam17", "Eduardo", "Camero", "educam123@gmail.com",passwordEncoder.encode("pass"), "618 99 55 66",
-                "www.urjc.es", "Madrid", "Grado en Ingeniería Informática", "freelance", "Persona trabajadora y constante", "Ingeniero", free,new Date(161588600),portfolioItemList, "USER");
+        User user = new User("id", "José Luis", "Martinez Almeida", "joselu@pp.com", passwordEncoder.encode("pass"), "618 99 55 66",
+                "www.web.es", "Madrid", "Grado en Política", "No", "Abogado del Estado y alcalde de Madrid desde 2019", "Empresario", free, new Date(1669176000), portfolioItemList, "USER");
+        this.setBookImage(user, "/static/app/assets/images/almeida.jpg");
         userRepository.save(user);
         user.getTemplates().add(free);
         activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
@@ -88,8 +93,8 @@ public class DataBaseController implements CommandLineRunner {
         userRepository.save(new User("lmessi10", "Lionel", "Messi", "lionelamessi10@gmail.com",passwordEncoder.encode("1234"), "635 890 173",
                 "www.pinterest.com", "Barcelona", "Técnico de imagen y sonido", "freelance2", "Persona con rápido aprendizaje y adaptación", "Fotografo", premium, new Date(162598600),"USER", "ADMIN"));
 
-        userRepository.save(new User("ppdomi3", "José", "Dominguez", "ppdominguez14@hotmail.com",passwordEncoder.encode("pass"), "phoneNumber",
-                "www.radiomarca.com", "Valencia", "Grado de Ingeniería de Telecomunicaciones", "freelance", "Amplia experiencia laboral trabajando para empresas como Telefonica", "Ingeniero", free,new Date(141598600), "USER"));
+        userRepository.save(new User("id23", "name3", "surname", "email",passwordEncoder.encode("pass"), "phoneNumber",
+                "website", "city", "degree", "freelance", "description", "Ingeniero", free,new Date(161598600), "USER"));
 
         userRepository.save(new User("jdelgado00", "Juan", "Delgado", "jdelgado2020@gmail.com",passwordEncoder.encode("pass"), "624 563 789",
                 "www.twitch.com", "San Sebastián", "Grado de Ingenieria de Caminos", "freelance", "description", "Ingeniero", free,new Date(151598600), "USER"));
@@ -144,6 +149,12 @@ public class DataBaseController implements CommandLineRunner {
 
 
     }
+
+    public void setBookImage(User user, String classpathResource) throws IOException {
+        Resource image = new ClassPathResource(classpathResource);
+        user.setProfilePhoto(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
+    }
+
 }
 
 
