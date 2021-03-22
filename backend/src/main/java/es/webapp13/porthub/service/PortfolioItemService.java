@@ -204,6 +204,10 @@ public class PortfolioItemService {
         return portfolioItemRepository.findByUserId(userId, PageRequest.of(pageable.getPageNumber(), 3));
     }
 
+    /**
+     * Save a portfolio item
+     * @param portfolioItem A given portfolio item
+     */
     public void save(PortfolioItem portfolioItem) {
         portfolioItemRepository.save(portfolioItem);
     }

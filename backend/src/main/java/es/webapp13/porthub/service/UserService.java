@@ -19,7 +19,6 @@ import java.sql.SQLException;
 import java.util.*;
 
 
-
 @Component
 public class UserService {
 
@@ -149,29 +148,65 @@ public class UserService {
         return userRepository.findAll(PageRequest.of(pageable.getPageNumber(), 8));
     }
 
+    /**
+     * Find user by id
+     *
+     * @param id A given id
+     * @return A  user
+     */
     public User findUser(String id) {
         return userRepository.findById(id).orElseThrow();
     }
 
+    /**
+     * Find a user by name
+     *
+     * @param name A given name
+     * @return A user
+     */
     public User findName(String name) {
         return userRepository.findFirstByName(name);
     }
 
+    /**
+     * Get template path
+     *
+     * @param id A given id
+     * @return A path
+     */
     public String getTemplateHtmlPath(String id) {
         User user = userRepository.findById(id).orElseThrow();
         Template template = user.getActiveTemplate();
         return template.getHtmlPath();
     }
 
+    /**
+     * Get an optional
+     *
+     * @param name A given name
+     * @return An optional data type
+     */
     public Optional<User> findById(String name) {
         return userRepository.findById(name);
     }
 
+    /**
+     * Get the messages list
+     *
+     * @param id A given id
+     * @return A list of messafes
+     */
     public List<Message> getMessageList(String id) {
         User user = userRepository.findById(id).orElseThrow();
         return user.getMessages();
     }
 
+    /**
+     * Get a a popular template
+     *
+     * @param id A given id
+     * @return An optional data type
+     */
     public Optional<PurchasedTemplate> getPopularTemplate(String id) {
         User user = userRepository.findById(id).orElseThrow();
         List<User> userList = userRepository.findSimilarUser(user.getCategory());
@@ -189,17 +224,23 @@ public class UserService {
         Long topId = null;
         for (long k : templateMap.keySet()) {
             int currentValue = templateMap.get(k);
-            if ((currentValue > maxValue)&&(!purchasedTemplateService.getPurchased(k).isPurchased())) {
+            if ((currentValue > maxValue) && (!purchasedTemplateService.getPurchased(k).isPurchased())) {
                 maxValue = currentValue;
                 topId = k;
             }
         }
-        if (topId==null){
+        if (topId == null) {
             return Optional.empty();
         }
         return Optional.of(purchasedTemplateService.getPurchased(topId));
     }
 
+    /**
+     * Get chats by a given user
+     *
+     * @param user A given user
+     * @return A set with all the ids od the users
+     */
     public Set<String> findChats(User user) {
         List<String> SentMessagesId = messageRepository.findSentChats(user.getid());
         Set<String> chats = new HashSet<>(SentMessagesId);
@@ -208,6 +249,12 @@ public class UserService {
         return chats;
     }
 
+    /**
+     * Update password by a given user
+     *
+     * @param user        A given user
+     * @param newPassword The new password
+     */
     public void updatePassword(User user, String newPassword) {
         user.setPassword(passwordEncoder.encode(newPassword));
         userRepository.save(user);

@@ -100,6 +100,7 @@ public class DataBaseController implements CommandLineRunner {
         this.setUserImage(user1, "/static/app/assets/images/people/110/guy-1.jpg");
         userService.save(user1);
         user1.getTemplates().add(free);
+        user1.setActiveTemplate(free);
         activeTemplateService.init(user1.getTemplates(), user1.getActiveTemplate());
         purchasedTemplateService.init(user1.getTemplates());
 
@@ -108,6 +109,7 @@ public class DataBaseController implements CommandLineRunner {
         this.setUserImage(user2, "/static/app/assets/images/people/110/guy-2.jpg");
         userService.save(user2);
         user2.getTemplates().add(free);
+        user2.setActiveTemplate(free);
         activeTemplateService.init(user2.getTemplates(), user2.getActiveTemplate());
         purchasedTemplateService.init(user2.getTemplates());
 
@@ -117,6 +119,7 @@ public class DataBaseController implements CommandLineRunner {
         userService.save(user3);
         user3.getTemplates().add(free);
         user3.getTemplates().add(premium);
+        user3.setActiveTemplate(free);
         activeTemplateService.init(user3.getTemplates(), user3.getActiveTemplate());
         purchasedTemplateService.init(user3.getTemplates());
 
@@ -125,6 +128,7 @@ public class DataBaseController implements CommandLineRunner {
         this.setUserImage(user4, "/static/app/assets/images/people/110/guy-4.jpg");
         userService.save(user4);
         user4.getTemplates().add(free);
+        user4.setActiveTemplate(free);
         activeTemplateService.init(user4.getTemplates(), user4.getActiveTemplate());
         purchasedTemplateService.init(user4.getTemplates());
 
@@ -134,6 +138,7 @@ public class DataBaseController implements CommandLineRunner {
         userService.save(user5);
         user5.getTemplates().add(free);
         user5.getTemplates().add(premium);
+        user5.setActiveTemplate(free);
         activeTemplateService.init(user.getTemplates(), user5.getActiveTemplate());
         purchasedTemplateService.init(user5.getTemplates());
 
@@ -143,6 +148,7 @@ public class DataBaseController implements CommandLineRunner {
         userService.save(user6);
         user6.getTemplates().add(free);
         user6.getTemplates().add(premium);
+        user6.setActiveTemplate(free);
         activeTemplateService.init(user6.getTemplates(), user.getActiveTemplate());
         purchasedTemplateService.init(user6.getTemplates());
 
@@ -152,6 +158,7 @@ public class DataBaseController implements CommandLineRunner {
         userService.save(user7);
         user7.getTemplates().add(free);
         user7.getTemplates().add(premium);
+        user7.setActiveTemplate(free);
         activeTemplateService.init(user7.getTemplates(), user7.getActiveTemplate());
         purchasedTemplateService.init(user7.getTemplates());
 
@@ -160,6 +167,7 @@ public class DataBaseController implements CommandLineRunner {
         this.setUserImage(user8, "/static/app/assets/images/people/110/woman-2.jpg");
         userService.save(user8);
         user8.getTemplates().add(free);
+        user8.setActiveTemplate(free);
         activeTemplateService.init(user8.getTemplates(), user8.getActiveTemplate());
         purchasedTemplateService.init(user8.getTemplates());
 
@@ -169,6 +177,7 @@ public class DataBaseController implements CommandLineRunner {
         userService.save(user9);
         user9.getTemplates().add(free);
         user9.getTemplates().add(premium);
+        user9.setActiveTemplate(free);
         activeTemplateService.init(user9.getTemplates(), user9.getActiveTemplate());
         purchasedTemplateService.init(user9.getTemplates());
 
@@ -178,6 +187,7 @@ public class DataBaseController implements CommandLineRunner {
         userService.save(user10);
         user10.getTemplates().add(free);
         user10.getTemplates().add(premium);
+        user10.setActiveTemplate(free);
         activeTemplateService.init(user10.getTemplates(), user10.getActiveTemplate());
         purchasedTemplateService.init(user10.getTemplates());
 
@@ -187,6 +197,7 @@ public class DataBaseController implements CommandLineRunner {
         userService.save(user11);
         user11.getTemplates().add(free);
         user11.getTemplates().add(premium);
+        user11.setActiveTemplate(free);
         activeTemplateService.init(user11.getTemplates(), user11.getActiveTemplate());
         purchasedTemplateService.init(user11.getTemplates());
     }
