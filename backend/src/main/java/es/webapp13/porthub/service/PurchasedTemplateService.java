@@ -45,6 +45,17 @@ public class PurchasedTemplateService {
         }
     }
 
+    public void addPurchasedTemplate(long id){
+        Template template = templateService.findFirstById(id);
+        String name = template.getName();
+        String htmlPath = template.getHtmlPath();
+        String description = template.getDescription();
+        int price = template.getPrice();
+        boolean isFree = template.isFree();
+        PurchasedTemplate purchasedTemplate = new PurchasedTemplate(id, htmlPath, name, false, price, isFree, description);
+        purchasedTemplateMap.put(id, purchasedTemplate);
+    }
+
     /**
      * Get the purchased templates list
      *

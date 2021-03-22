@@ -2,6 +2,7 @@ package es.webapp13.porthub.controller;
 
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
+import es.webapp13.porthub.service.PurchasedTemplateService;
 import es.webapp13.porthub.service.TemplateService;
 import es.webapp13.porthub.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -13,13 +14,16 @@ import java.util.List;
 @Controller
 public class AdminController {
 
+    private final PurchasedTemplateService purchasedTemplateService;
+
     private final UserService userService;
 
     private final TemplateService templateService;
 
-    public AdminController(UserService userService, TemplateService templateService) {
+    public AdminController(UserService userService, TemplateService templateService, PurchasedTemplateService purchasedTemplateService) {
         this.userService = userService;
         this.templateService = templateService;
+        this.purchasedTemplateService = purchasedTemplateService;
     }
 
     @RequestMapping("/admin")
@@ -57,6 +61,7 @@ public class AdminController {
         templateService.createTemplate(template);
         List<Template> templates = templateService.findAll();
         model.addAttribute("templates", templates);
+        purchasedTemplateService.addPurchasedTemplate(template.getId());
         return "admin-templates-list";
     }
 
