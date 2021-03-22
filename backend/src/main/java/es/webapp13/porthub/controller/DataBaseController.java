@@ -52,21 +52,28 @@ public class DataBaseController implements CommandLineRunner {
 
 
         PortfolioItem portfolioItem2 = new PortfolioItem("id", "proyecto2", "Description", "Category", "Client", "URL", new Date(161598600));
+        this.setPortfolioItemImage(portfolioItem2, "/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg");
         portfolioItemService.save(portfolioItem2);
 
         PortfolioItem portfolioItem3 = new PortfolioItem("id", "proyecto3", "Description", "Category", "Client", "URL", new Date(161598600));
+        this.setPortfolioItemImage(portfolioItem3, "/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg");
         portfolioItemService.save(portfolioItem3);
 
+
         PortfolioItem portfolioItem4 = new PortfolioItem("id", "proyecto4", "Description", "Category", "Client", "URL", new Date(161598600));
+        this.setPortfolioItemImage(portfolioItem4, "/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg");
         portfolioItemService.save(portfolioItem4);
 
         PortfolioItem portfolioItem5 = new PortfolioItem("id", "proyecto5", "Description", "Category", "Client", "URL", new Date(161598600));
+        this.setPortfolioItemImage(portfolioItem5, "/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg");
         portfolioItemService.save(portfolioItem5);
 
         PortfolioItem portfolioItem6 = new PortfolioItem("id", "proyecto6", "Description", "Category", "Client", "URL", new Date(161598600));
+        this.setPortfolioItemImage(portfolioItem6, "/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg");
         portfolioItemService.save(portfolioItem6);
 
         PortfolioItem portfolioItem7 = new PortfolioItem("id", "proyecto7", "Description", "Category", "Client", "URL", new Date(161598600));
+        this.setPortfolioItemImage(portfolioItem7, "/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg","/static/app/assets/images/almeida.jpg");
         portfolioItemService.save(portfolioItem7);
 
         List<PortfolioItem> portfolioItemList = new LinkedList<>();
@@ -84,103 +91,104 @@ public class DataBaseController implements CommandLineRunner {
         userService.save(user);
         user.getTemplates().add(free);
         user.getTemplates().add(premium);
+        user.setActiveTemplate(free);
         activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
         purchasedTemplateService.init(user.getTemplates());
 
-        user = new User("admin", "Roberto", "Fernánndez", "admin@gmail.com",passwordEncoder.encode("admin"), 51,"635 890 173",
+        User user1 = new User("admin", "Roberto", "Fernánndez", "admin@gmail.com",passwordEncoder.encode("admin"), 51,"635 890 173",
                 "www.admin.com", "admin", "admin", "admin", "admin", "Fotografo", premium, new Date(162598600),"USER", "ADMIN");
-        this.setUserImage(user, "/static/app/assets/images/people/110/guy-1.jpg");
-        userService.save(user);
-        user.getTemplates().add(free);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        this.setUserImage(user1, "/static/app/assets/images/people/110/guy-1.jpg");
+        userService.save(user1);
+        user1.getTemplates().add(free);
+        activeTemplateService.init(user1.getTemplates(), user1.getActiveTemplate());
+        purchasedTemplateService.init(user1.getTemplates());
 
-        user = new User("lmessi10", "Lionel", "Messi", "lionelamessi10@gmail.com",passwordEncoder.encode("1234"), 51,"635 890 173",
+        User user2 = new User("lmessi10", "Lionel", "Messi", "lionelamessi10@gmail.com",passwordEncoder.encode("1234"), 51,"635 890 173",
                 "www.pinterest.com", "Barcelona", "Técnico de imagen y sonido", "freelance2", "Persona con rápido aprendizaje y adaptación", "Fotografo", premium, new Date(162598600),"USER", "ADMIN");
-        this.setUserImage(user, "/static/app/assets/images/people/110/guy-2.jpg");
-        userService.save(user);
-        user.getTemplates().add(free);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        this.setUserImage(user2, "/static/app/assets/images/people/110/guy-2.jpg");
+        userService.save(user2);
+        user2.getTemplates().add(free);
+        activeTemplateService.init(user2.getTemplates(), user2.getActiveTemplate());
+        purchasedTemplateService.init(user2.getTemplates());
 
-        user = new User("jdelgado00", "Juan", "Delgado", "jdelgado2020@gmail.com",passwordEncoder.encode("pass"), 51,"624 563 789",
+        User user3 = new User("jdelgado00", "Juan", "Delgado", "jdelgado2020@gmail.com",passwordEncoder.encode("pass"), 51,"624 563 789",
                 "www.twitch.com", "San Sebastián", "Ingenieria de Caminos", "freelance", "description", "Ingeniero", free,new Date(151598600), "USER");
-        this.setUserImage(user, "/static/app/assets/images/people/110/guy-3.jpg");
-        userService.save(user);
-        user.getTemplates().add(free);
-        user.getTemplates().add(premium);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        this.setUserImage(user3, "/static/app/assets/images/people/110/guy-3.jpg");
+        userService.save(user3);
+        user3.getTemplates().add(free);
+        user3.getTemplates().add(premium);
+        activeTemplateService.init(user3.getTemplates(), user3.getActiveTemplate());
+        purchasedTemplateService.init(user3.getTemplates());
 
-        user = new User("dperez15", "David", "Perez", "davidperez10@yahoo.com",passwordEncoder.encode("pass"), 51,"623 768 654",
+        User user4 = new User("dperez15", "David", "Perez", "davidperez10@yahoo.com",passwordEncoder.encode("pass"), 51,"623 768 654",
                 "www.youtube.com", "París", "Diseño de Interiores", "freelance", "description", "Diseñador", free,new Date(163598600), "USER");
-        this.setUserImage(user, "/static/app/assets/images/people/110/guy-4.jpg");
-        userService.save(user);
-        user.getTemplates().add(free);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        this.setUserImage(user4, "/static/app/assets/images/people/110/guy-4.jpg");
+        userService.save(user4);
+        user4.getTemplates().add(free);
+        activeTemplateService.init(user4.getTemplates(), user4.getActiveTemplate());
+        purchasedTemplateService.init(user4.getTemplates());
 
-        user = new User("csanchez85", "Carlos", "Sanchez", "carlossanchez99@oulook.com",passwordEncoder.encode("pass"), 51,"629 798 657",
+        User user5 = new User("csanchez85", "Carlos", "Sanchez", "carlossanchez99@oulook.com",passwordEncoder.encode("pass"), 51,"629 798 657",
                 "www.bitpanda.com", "Valladolid", "Ingenieria de la Energía", "freelance", "description", "Ingeniero", free,new Date(181598600), "USER");
-        this.setUserImage(user, "/static/app/assets/images/people/110/guy-5.jpg");
-        userService.save(user);
-        user.getTemplates().add(free);
-        user.getTemplates().add(premium);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        this.setUserImage(user5, "/static/app/assets/images/people/110/guy-5.jpg");
+        userService.save(user5);
+        user5.getTemplates().add(free);
+        user5.getTemplates().add(premium);
+        activeTemplateService.init(user.getTemplates(), user5.getActiveTemplate());
+        purchasedTemplateService.init(user5.getTemplates());
 
-        user = new User("rogonza987", "Rodrigo", "Gonzalez", "rodrigonzalez7@gmail.com",passwordEncoder.encode("pass"), 51,"604 347 927",
+        User user6 = new User("rogonza987", "Rodrigo", "Gonzalez", "rodrigonzalez7@gmail.com",passwordEncoder.encode("pass"), 51,"604 347 927",
                 "www.telegram.com", "Toledo", "Ingeniería Medioambiental", "freelance", "", "Ingeniero", free,new Date(167598600), "USER");
-        this.setUserImage(user, "/static/app/assets/images/people/110/guy-6.jpg");
-        userService.save(user);
-        user.getTemplates().add(free);
-        user.getTemplates().add(premium);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        this.setUserImage(user6, "/static/app/assets/images/people/110/guy-6.jpg");
+        userService.save(user6);
+        user6.getTemplates().add(free);
+        user6.getTemplates().add(premium);
+        activeTemplateService.init(user6.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user6.getTemplates());
 
-        user = new User("anitarom56", "Ana", "Romero", "anaromeroest79@gmail.com",passwordEncoder.encode("pass"), 51,"690 216 237",
+        User user7 = new User("anitarom56", "Ana", "Romero", "anaromeroest79@gmail.com",passwordEncoder.encode("pass"), 51,"690 216 237",
                 "www.instagram.com", "Cáceres", "Ingenieria Electrica", "freelance", "description", "Ingeniero", free,new Date(169598600), "USER");
-        this.setUserImage(user, "/static/app/assets/images/people/110/woman-1.jpg");
-        userService.save(user);
-        user.getTemplates().add(free);
-        user.getTemplates().add(premium);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        this.setUserImage(user7, "/static/app/assets/images/people/110/woman-1.jpg");
+        userService.save(user7);
+        user7.getTemplates().add(free);
+        user7.getTemplates().add(premium);
+        activeTemplateService.init(user7.getTemplates(), user7.getActiveTemplate());
+        purchasedTemplateService.init(user7.getTemplates());
 
-        user = new User("siiil99", "Silvia", "Ballesteros", "silviaballesteros98@outlook.com",passwordEncoder.encode("pass"), 51,"639 289 038",
+        User user8 = new User("siiil99", "Silvia", "Ballesteros", "silviaballesteros98@outlook.com",passwordEncoder.encode("pass"), 51,"639 289 038",
                 "www.tuenti.com", "Badajoz", "Fundamentos de la fotografia", "freelance", "description", "Fotografo", free,new Date(161298600), "USER");
-        this.setUserImage(user, "/static/app/assets/images/people/110/woman-2.jpg");
-        userService.save(user);
-        user.getTemplates().add(free);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        this.setUserImage(user8, "/static/app/assets/images/people/110/woman-2.jpg");
+        userService.save(user8);
+        user8.getTemplates().add(free);
+        activeTemplateService.init(user8.getTemplates(), user8.getActiveTemplate());
+        purchasedTemplateService.init(user8.getTemplates());
 
-        user = new User("lauradiaz67", "Laura", "Díaz", "lauradiezmad20@telefonica.net",passwordEncoder.encode("pass"), 51,"699 236 546",
+        User user9 = new User("lauradiaz67", "Laura", "Díaz", "lauradiezmad20@telefonica.net",passwordEncoder.encode("pass"), 51,"699 236 546",
                 "www.facebook.com", "Londres", "Ingeniería del software", "freelance", "description", "Ingeniero", free,new Date(161558600), "USER");
-        this.setUserImage(user, "/static/app/assets/images/people/110/woman-3.jpg");
-        userService.save(user);
-        user.getTemplates().add(free);
-        user.getTemplates().add(premium);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        this.setUserImage(user9, "/static/app/assets/images/people/110/woman-3.jpg");
+        userService.save(user9);
+        user9.getTemplates().add(free);
+        user9.getTemplates().add(premium);
+        activeTemplateService.init(user9.getTemplates(), user9.getActiveTemplate());
+        purchasedTemplateService.init(user9.getTemplates());
 
-        user = new User("bertacabello25", "Berta", "Cabello", "bertacabello50@gmail.com",passwordEncoder.encode("pass"), 51,"634 847 935",
+        User user10 = new User("bertacabello25", "Berta", "Cabello", "bertacabello50@gmail.com",passwordEncoder.encode("pass"), 51,"634 847 935",
                 "www.snapchat.com", "Vigo", "Ingeniería Geologica", "freelance", "description", "Ingeniero", free, new Date(166598600),"USER");
-        this.setUserImage(user, "/static/app/assets/images/people/110/woman-4.jpg");
-        userService.save(user);
-        user.getTemplates().add(free);
-        user.getTemplates().add(premium);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        this.setUserImage(user10, "/static/app/assets/images/people/110/woman-4.jpg");
+        userService.save(user10);
+        user10.getTemplates().add(free);
+        user10.getTemplates().add(premium);
+        activeTemplateService.init(user10.getTemplates(), user10.getActiveTemplate());
+        purchasedTemplateService.init(user10.getTemplates());
 
-        user = new User("crisheredia10", "Cristina", "Heredia", "crisheredia11@hotmail.com",passwordEncoder.encode("pass"), 51,"619 025 549",
+        User user11 = new User("crisheredia10", "Cristina", "Heredia", "crisheredia11@hotmail.com",passwordEncoder.encode("pass"), 51,"619 025 549",
                 "www.elmundo.com", "A Coruña", "Doble Ingenieria Informatica y Software", "freelance", "description", "Ingeniero", free,new Date(111598600), "USER");
-        this.setUserImage(user, "/static/app/assets/images/people/110/woman-5.jpg");
-        userService.save(user);
-        user.getTemplates().add(free);
-        user.getTemplates().add(premium);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        this.setUserImage(user11, "/static/app/assets/images/people/110/woman-5.jpg");
+        userService.save(user11);
+        user11.getTemplates().add(free);
+        user11.getTemplates().add(premium);
+        activeTemplateService.init(user11.getTemplates(), user11.getActiveTemplate());
+        purchasedTemplateService.init(user11.getTemplates());
     }
 
     public void setUserImage(User user, String classpathResource) throws IOException {
