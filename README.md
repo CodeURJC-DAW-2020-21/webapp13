@@ -157,11 +157,9 @@ Once we have stablished which are the pages that compose our system, we shall ta
 
 ### Navigation
 
-#### Pages
-
 #### Navigation diagram
 
-### Instructions for implementation
+![Diagramm](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/images/phase2/screen_diagram.png)
 
 ### Diagram with the entities in the database
 Below is the diagram with the database entities, their fields and the relationships between them.
