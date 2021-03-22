@@ -252,11 +252,11 @@ graphic that tracks the total number of users registered on the app.
 5. [Fixed links in admin-templates-list.html](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/247934921372f1de56391f0d97c18f4dda7ea395)
 
 ##### Top 5 files
-1. AdminController.java
-2. TemplateControler.java
-3. admin.html
-4. admin-templates-list.html
-5. admin-app-graphics.html
+1. __AdminController.java__
+2. __TemplateControler.java__
+3. __admin.html__
+4. __admin-templates-list.html__
+5. __admin-app-graphics.html__
 
 
 ## Phase 3
