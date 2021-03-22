@@ -62,6 +62,10 @@ public class TemplateService {
         templateRepository.save(template);
     }
 
+    /**
+     * Save a template
+     * @param template A given template
+     */
     public void save(Template template) {
         templateRepository.save(template);
     }

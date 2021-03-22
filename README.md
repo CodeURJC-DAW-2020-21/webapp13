@@ -179,6 +179,8 @@ This is the class diagram with all the relations between the different classes i
 ### Execution instructions
 First of all, in our project we are using Java 11, MySQL community server 8.0.23, Spring Boot 2.4.3, Maven 4 and some other dependencies that are installed in the pom.xml file. We are using the intelliJ Ultimate Edition IDE but Visual Studio Code or Eclipse STS can be used too. We just need to download the zip project from our repository and open it in your IDE or directly synchronize with VCS using the HTTP in the IDE. After that, you have to open the project, install the dependencies and run the project.
 
+To make sure the application works, you have to create a schema in the database and remember your username and password of MySQL database, because the same data must be inserted in the application.properties file in the spring.datasource.url/.username/.password attributes. 
+
 ### Participation
 
 #### Cristian
