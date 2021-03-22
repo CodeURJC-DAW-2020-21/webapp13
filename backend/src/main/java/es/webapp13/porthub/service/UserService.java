@@ -81,7 +81,7 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         long age = calculateAge(user);
         user.setAge(age);
-        user.setActiveTemplate(templateService.findFirstById(1));
+        //user.setActiveTemplate(templateService.findFirstById(1));
         Resource image = new ClassPathResource("/static/app/assets/images/default-profile.jpg");
         user.setProfilePhoto(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
         userRepository.save(user);

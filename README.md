@@ -174,6 +174,9 @@ This is the class diagram with all the relations between the different classes i
 
 ![Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/diagrams/Class%20Diagram.svg)
 
+### Execution instructions
+First of all, in our project we are using Java 11, MySQL community server 8.0.23, Spring Boot 2.4.3, Maven 4 and some other dependencies that are installed in the pom.xml file. We are using the intelliJ Ultimate Edition IDE but Visual Studio Code or Eclipse STS can be used too. We just need to download the zip project from our repository and open it in your IDE or directly synchronize with VCS using the HTTP in the IDE. After that, you have to open the project, install the dependencies and run the project.
+
 ### Participation
 
 #### Cristian
