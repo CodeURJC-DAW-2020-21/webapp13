@@ -74,7 +74,7 @@ public class TemplateController {
         model.addAttribute("portfolioUser", portfolioUser);
         model.addAttribute("external", true);
 
-        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(portfolioUser.getid(), pageable);
+        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(portfolioUser.getId(), pageable);
         model.addAttribute("hasNext", portfolioItems.hasNext());
         model.addAttribute("portfolioItemsPage", portfolioItems);
 

@@ -64,7 +64,7 @@ public class ShopController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
         List<PurchasedTemplate> purchasedTemplates = new LinkedList<>();
-        Optional<PurchasedTemplate> purchasedTemplate = userService.getPopularTemplate(user.getid());
+        Optional<PurchasedTemplate> purchasedTemplate = userService.getPopularTemplate(user.getId());
         if (purchasedTemplate.isPresent()){
             purchasedTemplates.add(purchasedTemplate.get());
             model.addAttribute("templates", purchasedTemplates);

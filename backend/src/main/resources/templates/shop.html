@@ -50,7 +50,7 @@
                                     {{^purchased}}
                                     <form action="/purchase/confirmation">
                                         <input type="hidden" name='id' value="{{id}}"/>
-                                        <input type="hidden" name="_csrf" value="{{token}}"/>
+                                        <!--<input type="hidden" name="_csrf" value="csrfTokenValue"/>-->
                                         <input type='submit' class="btn btn-outline-accent w-100" value='Comprar'/>
                                     </form>
                                     {{/purchased}}

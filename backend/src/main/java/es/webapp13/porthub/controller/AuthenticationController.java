@@ -55,7 +55,7 @@ public class AuthenticationController {
         activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
         purchasedTemplateService.init(user.getTemplates());
         try {
-            request.login(user.getid(), password);
+            request.login(user.getId(), password);
             model.addAttribute("loginProcess", true);
         } catch (ServletException e) {
             throw new ServerException("ServletException at signup");

@@ -74,13 +74,12 @@ public class UserService {
         user.setRoles(roles);
 
         List<Message> messages = new LinkedList<>();
-        System.out.println("### Lista mensajes creada" + messages);
         user.setMessages(messages);
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         long age = calculateAge(user);
         user.setAge(age);
-        //user.setActiveTemplate(templateService.findFirstById(1));
+
         Resource image = new ClassPathResource("/static/app/assets/images/default-profile.jpg");
         user.setProfilePhoto(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
         userRepository.save(user);
@@ -133,7 +132,7 @@ public class UserService {
             user.setProfilePhoto(BlobProxy.generateProxy(profileImg.getInputStream(), profileImg.getSize()));
         else {
 
-            User dbUser = findById(user.getid()).orElseThrow();
+            User dbUser = findById(user.getId()).orElseThrow();
             if (dbUser.getProfilePhoto().length() == 0)
                 user.setProfilePhoto(BlobProxy.generateProxy(dbUser.getProfilePhoto().getBinaryStream(), dbUser.getProfilePhoto().length()));
         }
@@ -155,7 +154,7 @@ public class UserService {
      * @return A  user
      */
     public User findUser(String id) {
-        return userRepository.findById(id).orElseThrow();
+        return userRepository.findById(id).orElse(null);
     }
 
     /**
@@ -242,9 +241,9 @@ public class UserService {
      * @return A set with all the ids od the users
      */
     public Set<String> findChats(User user) {
-        List<String> SentMessagesId = messageRepository.findSentChats(user.getid());
+        List<String> SentMessagesId = messageRepository.findSentChats(user.getId());
         Set<String> chats = new HashSet<>(SentMessagesId);
-        List<String> ReceivedMessagesId = messageRepository.findReceivedChats(user.getid());
+        List<String> ReceivedMessagesId = messageRepository.findReceivedChats(user.getId());
         chats.addAll(ReceivedMessagesId);
         return chats;
     }

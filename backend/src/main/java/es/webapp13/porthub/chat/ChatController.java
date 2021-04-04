@@ -45,7 +45,7 @@ public class ChatController {
     public String chat(Model model, @PathVariable String id, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
-        if (user.getid().equals(id))
+        if (user.getId().equals(id))
             return "error";
         List<Message> messages = new LinkedList<>();
         User u = userService.findUser(id);

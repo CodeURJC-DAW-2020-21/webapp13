@@ -61,7 +61,7 @@ public class ConfigController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
 
-        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getid(), pageable);
+        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getId(), pageable);
         model.addAttribute("hasNext", portfolioItems.hasNext());
         model.addAttribute("portfolioItemsPage", portfolioItems);
         return "settings-edit-account-portfolioitems";
@@ -77,7 +77,7 @@ public class ConfigController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
 
-        portfolioItemService.addPortfolioItem(user.getid(), portfolioItem, preImg, img1, img2, img3);
+        portfolioItemService.addPortfolioItem(user.getId(), portfolioItem, preImg, img1, img2, img3);
         return "confirm-portfolioitem";
     }
 
@@ -86,7 +86,7 @@ public class ConfigController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
 
-        portfolioItemService.deletePortfolioItem(user.getid(), id);
+        portfolioItemService.deletePortfolioItem(user.getId(), id);
         return "deleted-portfolioitem";
     }
 
@@ -94,7 +94,7 @@ public class ConfigController {
     public String portfolioItemEditLink(Model model, HttpServletRequest request, @PathVariable long id, @PathVariable String userId) {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
-        if (!userId.equals(user.getid()))
+        if (!userId.equals(user.getId()))
             return "error";
         model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(userId, id));
         return "settings-edit-account-edit-portfolioitem";
@@ -104,7 +104,7 @@ public class ConfigController {
     public String portfolioItemEditForm(HttpServletRequest request, @PathVariable long id, @PathVariable String userId, PortfolioItem newPortfolioItem, MultipartFile preImg, MultipartFile img1, MultipartFile img2, MultipartFile img3) throws IOException, SQLException {
         Principal principal = request.getUserPrincipal();
         User user = userService.findUser(principal.getName());
-        if (!userId.equals(user.getid()))
+        if (!userId.equals(user.getId()))
             return "error";
 
         portfolioItemService.updatePortfolioItem(newPortfolioItem, id, preImg, img1, img2, img3);
@@ -224,7 +224,7 @@ public class ConfigController {
 
     @PostMapping("/settings/edit/account/set/new/info")
     public String setNewInfoCurrentUser(User user, MultipartFile profileImg) throws IOException, SQLException {
-        userService.updateUser(user, user.getid(), profileImg);
+        userService.updateUser(user, user.getId(), profileImg);
         return "update-profile-confirmation";
     }
 
