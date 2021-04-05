@@ -25,13 +25,11 @@ import java.util.*;
 @Component
 public class UserService {
 
-
     private final UserRepository userRepository;
 
     private final MessageRepository messageRepository;
 
     private final TemplateService templateService;
-
 
     private final PasswordEncoder passwordEncoder;
 
@@ -69,6 +67,22 @@ public class UserService {
         Resource image = new ClassPathResource("/static/app/assets/images/default-profile.jpg");
         user.setProfilePhoto(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
         userRepository.save(user);
+    }
+
+    /**
+     * Calculate the user age
+     *
+     * @param user A given user
+     * @return The age of the user
+     */
+    private long calculateAge(User user) {
+        java.util.Date currentTime = new java.util.Date();
+        long ageMilliseconds = currentTime.getTime() - user.getBornDate().getTime();
+        long ageSeconds = ageMilliseconds / 1000;
+        long ageMinutes = ageSeconds / 60;
+        long ageHours = ageMinutes / 60;
+        long ageDays = ageHours / 24;
+        return ageDays / 365;
     }
 
     /**
@@ -184,11 +198,30 @@ public class UserService {
      * @throws IOException When no photo is present
      * @throws SQLException When updateProfilePhoto() has problems
      */
-    public void updateUser(User newUser, String id, MultipartFile profileImg) throws IOException, SQLException {
+    public void updateFullUser(User newUser, String id, MultipartFile profileImg) throws IOException, SQLException {
         User user = userRepository.findById(id).orElseThrow();
         if (!profileImg.isEmpty()) {
             updateProfilePhoto(user, profileImg);
         }
+        updateInfo(newUser, user);
+    }
+
+    /**
+     * Update only user text info
+     * @param newUser The new info
+     * @param id The user id to be update
+     */
+    public void updateUser(User newUser, String id){
+        User user = userRepository.findById(id).orElseThrow();
+        updateInfo(newUser, user);
+    }
+
+    /**
+     * Update info
+     * @param newUser New info to update the user
+     * @param user User to be updated
+     */
+    private void updateInfo(User newUser, User user) {
         user.setName(newUser.getName());
         user.setSurname(newUser.getSurname());
         user.setEmail(newUser.getEmail());
@@ -210,7 +243,7 @@ public class UserService {
      * @throws IOException  Not found input image
      * @throws SQLException Not found in DB
      */
-    private void updateProfilePhoto(User user, MultipartFile profileImg) throws IOException, SQLException {
+    public void updateProfilePhoto(User user, MultipartFile profileImg) throws IOException, SQLException {
         if (!profileImg.isEmpty())
             user.setProfilePhoto(BlobProxy.generateProxy(profileImg.getInputStream(), profileImg.getSize()));
         else {
@@ -219,6 +252,7 @@ public class UserService {
             if (dbUser.getProfilePhoto().length() == 0)
                 user.setProfilePhoto(BlobProxy.generateProxy(dbUser.getProfilePhoto().getBinaryStream(), dbUser.getProfilePhoto().length()));
         }
+        userRepository.save(user);
     }
 
     /**
@@ -240,22 +274,5 @@ public class UserService {
     public void deleteUser(User user) {
         userRepository.delete(user);
     }
-
-    /**
-     * Calculate the user age
-     *
-     * @param user A given user
-     * @return The age of the user
-     */
-    private long calculateAge(User user) {
-        java.util.Date currentTime = new java.util.Date();
-        long ageMilliseconds = currentTime.getTime() - user.getBornDate().getTime();
-        long ageSeconds = ageMilliseconds / 1000;
-        long ageMinutes = ageSeconds / 60;
-        long ageHours = ageMinutes / 60;
-        long ageDays = ageHours / 24;
-        return ageDays / 365;
-    }
-
 
 }
