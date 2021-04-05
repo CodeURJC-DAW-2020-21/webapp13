@@ -49,6 +49,15 @@ public class PortfolioItemService {
         userRepository.save(user);
     }
 
+    public void addPortfolioItem(String userId, PortfolioItem item) throws IOException {
+        item.setUserId(userId);
+        portfolioItemRepository.save(item);
+
+        User user = userRepository.findById(userId).orElseThrow();
+        user.addPortfolioItem(item);
+        userRepository.save(user);
+    }
+
     /**
      * Return a portfolio item by a given user id and portfolio item id
      *
@@ -78,6 +87,25 @@ public class PortfolioItemService {
         updateImg1(portfolioItem, image1);
         updateImg2(portfolioItem, image2);
         updateImg3(portfolioItem, image3);
+        portfolioItem.setName(item.getName());
+        portfolioItem.setCategory(item.getCategory());
+        portfolioItem.setClient(item.getClient());
+        portfolioItem.setDate(item.getDate());
+        portfolioItem.setUrl(item.getUrl());
+        portfolioItem.setDescription(item.getDescription());
+        portfolioItemRepository.save(portfolioItem);
+    }
+
+    /**
+     * Update a portfolio item without modifying the images
+     *
+     * @param item
+     * @param id
+     * @throws IOException
+     * @throws SQLException
+     */
+    public void updatePortfolioItem(PortfolioItem item, long id) throws IOException, SQLException {
+        PortfolioItem portfolioItem = portfolioItemRepository.findById(id).orElseThrow();
         portfolioItem.setName(item.getName());
         portfolioItem.setCategory(item.getCategory());
         portfolioItem.setClient(item.getClient());
