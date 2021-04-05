@@ -1,7 +1,11 @@
 package es.webapp13.porthub.service;
 
 import es.webapp13.porthub.model.Template;
+import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.TemplateRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -45,6 +49,15 @@ public class TemplateService {
     }
 
     /**
+     * Get a page of templates stored in database
+     *
+     * @return Page of templates
+     */
+    public Page<Template> findPageTemplates(Pageable pageable) {
+        return templateRepository.findAll(PageRequest.of(pageable.getPageNumber(), 8));
+    }
+
+    /**
      * Number of templates
      *
      * @return Number of templates
@@ -69,4 +82,11 @@ public class TemplateService {
     public void save(Template template) {
         templateRepository.save(template);
     }
+
+    /**
+     * Delete an template from the database
+     * @param template A given template to be deleted
+     */
+    public void deleteTemplate (Template template){templateRepository.delete(template);}
+
 }
