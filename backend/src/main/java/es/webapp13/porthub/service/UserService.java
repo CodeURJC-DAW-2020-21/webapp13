@@ -1,16 +1,19 @@
 package es.webapp13.porthub.service;
 
 
-import es.webapp13.porthub.model.*;
+import es.webapp13.porthub.model.Message;
+import es.webapp13.porthub.model.PurchasedTemplate;
+import es.webapp13.porthub.model.Template;
+import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.MessageRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -42,23 +45,6 @@ public class UserService {
         this.purchasedTemplateService = purchasedTemplateService;
     }
 
-
-    /**
-     * Calculate the user age
-     *
-     * @param user A given user
-     * @return The age of the user
-     */
-    private long calculateAge(User user) {
-        java.util.Date currentTime = new java.util.Date();
-        long ageMilliseconds = currentTime.getTime() - user.getBornDate().getTime();
-        long ageSeconds = ageMilliseconds / 1000;
-        long ageMinutes = ageSeconds / 60;
-        long ageHours = ageMinutes / 60;
-        long ageDays = ageHours / 24;
-        return ageDays / 365;
-    }
-
     /**
      * Creates, configure and add a new user to the database
      *
@@ -85,98 +71,30 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void updateUser(User newUser, String id, MultipartFile profileImg) throws IOException, SQLException {
-        User user = userRepository.findById(id).orElseThrow();
-        if (!profileImg.isEmpty()) {
-            updateProfilePhoto(user, profileImg);
-        }
-        user.setName(newUser.getName());
-        user.setSurname(newUser.getSurname());
-        user.setEmail(newUser.getEmail());
-        user.setPhoneNumber(newUser.getPhoneNumber());
-        user.setAge(newUser.getAge());
-        user.setCity(newUser.getCity());
-        user.setDegree(newUser.getDegree());
-        user.setCategory(newUser.getCategory());
-        user.setFreelance(newUser.getFreelance());
-
-        userRepository.save(user);
-    }
-
+    /**
+     * Save an user in the database
+     * @param user A given user to be saved
+     */
     public void save(User user) {
         userRepository.save(user);
     }
 
-    public void deleteUser(User user) {
-        userRepository.delete(user);
-    }
-
-    public long getCountAll() {
-        return userRepository.count();
-    }
-
-    public List<User> findAllUsers() {
+    /**
+     * Get all users stored in the database
+     *
+     * @return A collection of users
+     */
+    public Collection<User> findAllUsers() {
         return userRepository.findAll();
     }
 
     /**
-     * Update profile photo by a given user
+     * Get a page of users stored in database
      *
-     * @param user       User to update his profile photo
-     * @param profileImg Image to set
-     * @throws IOException  Not found input image
-     * @throws SQLException Not found in DB
+     * @return Page of users
      */
-    private void updateProfilePhoto(User user, MultipartFile profileImg) throws IOException, SQLException {
-        if (!profileImg.isEmpty())
-            user.setProfilePhoto(BlobProxy.generateProxy(profileImg.getInputStream(), profileImg.getSize()));
-        else {
-
-            User dbUser = findById(user.getId()).orElseThrow();
-            if (dbUser.getProfilePhoto().length() == 0)
-                user.setProfilePhoto(BlobProxy.generateProxy(dbUser.getProfilePhoto().getBinaryStream(), dbUser.getProfilePhoto().length()));
-        }
-    }
-
-    /**
-     * Get all the users in the database (at the moment, later on we should get pageable elements)
-     *
-     * @return List of users
-     */
-    public Page<User> findUsers(Pageable pageable) {
+    public Page<User> findPageUsers(Pageable pageable) {
         return userRepository.findAll(PageRequest.of(pageable.getPageNumber(), 8));
-    }
-
-    /**
-     * Find user by id
-     *
-     * @param id A given id
-     * @return A  user
-     */
-    public User findUser(String id) {
-        return userRepository.findById(id).orElse(null);
-    }
-
-    /**
-     * Find a user by name
-     *
-     * @param name A given name
-     * @return A user
-     */
-    public User findName(String name) {
-        return userRepository.findFirstByName(name);
-    }
-
-    /**
-     * Get template path
-     *
-     * @param id A given id
-     * @return A path
-     */
-    public String getTemplateHtmlPath(String id) {
-        User user = userRepository.findById(id).orElseThrow();
-        Template template = user.getActiveTemplate();
-        return template.getHtmlPath();
     }
 
     /**
@@ -190,23 +108,38 @@ public class UserService {
     }
 
     /**
-     * Get the messages list
+     * Get template path
      *
      * @param id A given id
-     * @return A list of messafes
+     * @return A path
      */
-    public List<Message> getMessageList(String id) {
+    public String findTemplateHtmlPath(String id) {
         User user = userRepository.findById(id).orElseThrow();
-        return user.getMessages();
+        Template template = user.getActiveTemplate();
+        return template.getHtmlPath();
     }
 
     /**
-     * Get a a popular template
+     * Get chats by a given user
+     *
+     * @param user A given user
+     * @return A set with all the ids od the users
+     */
+    public Set<String> findChats(User user) {
+        List<String> SentMessagesId = messageRepository.findSentChats(user.getId());
+        Set<String> chats = new HashSet<>(SentMessagesId);
+        List<String> ReceivedMessagesId = messageRepository.findReceivedChats(user.getId());
+        chats.addAll(ReceivedMessagesId);
+        return chats;
+    }
+
+    /**
+     * Get a popular template
      *
      * @param id A given id
      * @return An optional data type
      */
-    public Optional<PurchasedTemplate> getPopularTemplate(String id) {
+    public Optional<PurchasedTemplate> findPopularTemplate(String id) {
         User user = userRepository.findById(id).orElseThrow();
         List<User> userList = userRepository.findSimilarUser(user.getCategory());
         Map<Long, Integer> templateMap = new HashMap<>();
@@ -235,17 +168,57 @@ public class UserService {
     }
 
     /**
-     * Get chats by a given user
+     * Get the number of users in the database
      *
-     * @param user A given user
-     * @return A set with all the ids od the users
+     * @return A long number
      */
-    public Set<String> findChats(User user) {
-        List<String> SentMessagesId = messageRepository.findSentChats(user.getId());
-        Set<String> chats = new HashSet<>(SentMessagesId);
-        List<String> ReceivedMessagesId = messageRepository.findReceivedChats(user.getId());
-        chats.addAll(ReceivedMessagesId);
-        return chats;
+    public long countAll() {
+        return userRepository.count();
+    }
+
+    /**
+     * Update user info by given parameters
+     * @param newUser The new info
+     * @param id The id of the user
+     * @param profileImg The profile photo to be updated
+     * @throws IOException When no photo is present
+     * @throws SQLException When updateProfilePhoto() has problems
+     */
+    public void updateUser(User newUser, String id, MultipartFile profileImg) throws IOException, SQLException {
+        User user = userRepository.findById(id).orElseThrow();
+        if (!profileImg.isEmpty()) {
+            updateProfilePhoto(user, profileImg);
+        }
+        user.setName(newUser.getName());
+        user.setSurname(newUser.getSurname());
+        user.setEmail(newUser.getEmail());
+        user.setPhoneNumber(newUser.getPhoneNumber());
+        user.setAge(newUser.getAge());
+        user.setCity(newUser.getCity());
+        user.setDegree(newUser.getDegree());
+        user.setCategory(newUser.getCategory());
+        user.setFreelance(newUser.getFreelance());
+
+        userRepository.save(user);
+    }
+
+    /**
+     * Update profile photo by a given user
+     *
+     * @param user       User to update his profile photo
+     * @param profileImg Image to set
+     * @throws IOException  Not found input image
+     * @throws SQLException Not found in DB
+     */
+    private void updateProfilePhoto(User user, MultipartFile profileImg) throws IOException, SQLException {
+        if (!profileImg.isEmpty())
+            user.setProfilePhoto(BlobProxy.generateProxy(profileImg.getInputStream(), profileImg.getSize()));
+        else {
+
+            User dbUser = findById(user.getId()).orElseThrow();
+            if (dbUser.getProfilePhoto().length() == 0)
+                user.setProfilePhoto(BlobProxy.generateProxy(dbUser.getProfilePhoto().getBinaryStream(), dbUser.getProfilePhoto().length()));
+        }
     }
 
     /**
@@ -258,4 +231,31 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(newPassword));
         userRepository.save(user);
     }
+
+
+    /**
+     * Delete an user from the database
+     * @param user A given user to be deleted
+     */
+    public void deleteUser(User user) {
+        userRepository.delete(user);
+    }
+
+    /**
+     * Calculate the user age
+     *
+     * @param user A given user
+     * @return The age of the user
+     */
+    private long calculateAge(User user) {
+        java.util.Date currentTime = new java.util.Date();
+        long ageMilliseconds = currentTime.getTime() - user.getBornDate().getTime();
+        long ageSeconds = ageMilliseconds / 1000;
+        long ageMinutes = ageSeconds / 60;
+        long ageHours = ageMinutes / 60;
+        long ageDays = ageHours / 24;
+        return ageDays / 365;
+    }
+
+
 }

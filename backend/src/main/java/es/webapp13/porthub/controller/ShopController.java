@@ -53,7 +53,7 @@ public class ShopController {
         purchasedTemplateService.purchase(id);
         Template template = templateService.findFirstById(id);
         Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findById(principal.getName()).orElseThrow();
         user.getTemplates().add(template);
         activeTemplateService.addTemplate(template);
         return "purchase-confirmation";
@@ -62,9 +62,9 @@ public class ShopController {
     @GetMapping("/recommendTemplate")
     public String recommendTemplate(Model model, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findById(principal.getName()).orElseThrow();
         List<PurchasedTemplate> purchasedTemplates = new LinkedList<>();
-        Optional<PurchasedTemplate> purchasedTemplate = userService.getPopularTemplate(user.getId());
+        Optional<PurchasedTemplate> purchasedTemplate = userService.findPopularTemplate(user.getId());
         if (purchasedTemplate.isPresent()){
             purchasedTemplates.add(purchasedTemplate.get());
             model.addAttribute("templates", purchasedTemplates);

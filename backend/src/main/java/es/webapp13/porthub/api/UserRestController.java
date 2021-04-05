@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLException;
+import java.util.Optional;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
@@ -27,7 +28,7 @@ public class UserRestController {
     @GetMapping("/")
     public ResponseEntity<Page<User>> getUsers(Pageable pageable) {
 
-        Page<User> users = userService.findUsers(pageable);
+        Page<User> users = userService.findPageUsers(pageable);
 
         if (!users.isEmpty())
             return ResponseEntity.ok(users);
@@ -38,12 +39,9 @@ public class UserRestController {
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable String id) {
 
-        User user = userService.findUser(id);
+        Optional<User> user = userService.findById(id);
 
-        if (user != null)
-            return ResponseEntity.ok(user);
-        else
-            return ResponseEntity.notFound().build();
+        return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 
     }
 
@@ -58,12 +56,11 @@ public class UserRestController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable String id) {
-        //System.out.println("#####");
-        User user = userService.findUser(id);
+        Optional<User> user = userService.findById(id);
 
-        if (user != null) {
+        if (user.isPresent()) {
             //System.out.println("Antes:"+user.toString());
-            userService.deleteUser(user);
+            userService.deleteUser(user.get());
             //System.out.println("Despues:"+user.toString());
             return ResponseEntity.ok().build();
         } else {
@@ -74,10 +71,10 @@ public class UserRestController {
 
     @PutMapping("/{id}")
     public ResponseEntity<User> putUser(@PathVariable String id, @RequestBody User newUser) throws IOException, SQLException {
-        User user = userService.findUser(id);
+        Optional<User> user = userService.findById(id);
 
-        if (user != null) {
-            user.setId(id);
+        if (user.isPresent()) {
+            user.get().setId(id);
             //userService.updateUser(newUser,id);
             return ResponseEntity.ok().build();
         } else {

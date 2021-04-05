@@ -66,7 +66,7 @@ public class AuthenticationController {
     @GetMapping("/logout/confirmation")
     public String logoutConfirmationLink(Model model, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findById(principal.getName()).orElseThrow();
         userService.save(user);
         model.addAttribute("logued", false);
         return "logout-confirmation";

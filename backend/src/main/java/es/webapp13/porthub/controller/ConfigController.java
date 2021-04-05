@@ -49,7 +49,7 @@ public class ConfigController {
     public String studentEditAccountLink(Model model, HttpServletRequest request) {
         model.addAttribute("active_main", true);
         Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findById(principal.getName()).orElseThrow();
         model.addAttribute("user", user);
         return "settings-edit-account";
     }
@@ -59,7 +59,7 @@ public class ConfigController {
     public String studentEditAccountPortfolioitemsLink(Model model, HttpServletRequest request, Pageable pageable) {
         model.addAttribute("active_notifications", true);
         Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findById(principal.getName()).orElseThrow();
 
         Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getId(), pageable);
         model.addAttribute("hasNext", portfolioItems.hasNext());
@@ -75,7 +75,7 @@ public class ConfigController {
         model.addAttribute("active_notifications", true);
 
         Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findById(principal.getName()).orElseThrow();
 
         portfolioItemService.addPortfolioItem(user.getId(), portfolioItem, preImg, img1, img2, img3);
         return "confirm-portfolioitem";
@@ -84,7 +84,7 @@ public class ConfigController {
     @GetMapping("/settings/edit/account/{id}/deleted/portfolio-item")
     public String portfolioItemDeleteLink(@PathVariable long id, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findById(principal.getName()).orElseThrow();
 
         portfolioItemService.deletePortfolioItem(user.getId(), id);
         return "deleted-portfolioitem";
@@ -93,7 +93,7 @@ public class ConfigController {
     @GetMapping("/settings/edit/account/edit/portfolioitem/{userId}/{id}")
     public String portfolioItemEditLink(Model model, HttpServletRequest request, @PathVariable long id, @PathVariable String userId) {
         Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findById(principal.getName()).orElseThrow();
         if (!userId.equals(user.getId()))
             return "error";
         model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(userId, id));
@@ -103,7 +103,7 @@ public class ConfigController {
     @PostMapping("/settings/edit/account/edit/portfolioitem/{userId}/{id}")
     public String portfolioItemEditForm(HttpServletRequest request, @PathVariable long id, @PathVariable String userId, PortfolioItem newPortfolioItem, MultipartFile preImg, MultipartFile img1, MultipartFile img2, MultipartFile img3) throws IOException, SQLException {
         Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findById(principal.getName()).orElseThrow();
         if (!userId.equals(user.getId()))
             return "error";
 
@@ -123,7 +123,7 @@ public class ConfigController {
             return "change-password-error";
         } else {
             Principal principal = request.getUserPrincipal();
-            User user = userService.findUser(principal.getName());
+            User user = userService.findById(principal.getName()).orElseThrow();
             userService.updatePassword(user, newPassword);
             return "update-profile-confirmation";
         }
@@ -138,7 +138,7 @@ public class ConfigController {
     @GetMapping("/set/active/template")
     public String activeTemplateLink(HttpServletRequest request, @RequestParam long id) {
         Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findById(principal.getName()).orElseThrow();
         long oldId = user.getActiveTemplate().getId();
         activeTemplateService.changeActiveTemplate(oldId, id);
         Template activeTemplate = templateService.findFirstById(id);
@@ -209,7 +209,7 @@ public class ConfigController {
 
     @GetMapping("/profilePhoto/{id}")
     public ResponseEntity<Object> downloadProfilePhoto(@PathVariable String id) throws SQLException {
-        User user = userService.findUser(id);
+        User user = userService.findById(id).orElseThrow();
         if (user.getProfilePhoto() != null) {
 
             Resource file = new InputStreamResource(user.getProfilePhoto().getBinaryStream());

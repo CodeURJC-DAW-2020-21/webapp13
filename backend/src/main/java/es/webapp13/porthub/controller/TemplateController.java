@@ -36,7 +36,7 @@ public class TemplateController {
     @GetMapping("/profile")
     public String profileLink(Model model, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
-        User user = userService.findUser(principal.getName());
+        User user = userService.findById(principal.getName()).orElseThrow();
         model.addAttribute("portfolioItems", user.getPortfolioItems());
         Template template = user.getActiveTemplate();
         return template.getHtmlPath();
@@ -56,21 +56,21 @@ public class TemplateController {
 
     @GetMapping("/template/premium/{userId}/portfolioitem/{itemId}")
     public String templatePremiumPortfolioItemLink(Model model, @PathVariable String userId, @PathVariable long itemId) {
-        model.addAttribute("portfolioUser", userService.findUser(userId));
+        model.addAttribute("portfolioUser", userService.findById(userId).orElseThrow());
         model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(userId, itemId));
         return "templates/premium/portfolio-item";
     }
 
     @GetMapping("/template/free/{userId}/portfolioitem/{itemId}")
     public String templateFreePortfolioItemLink(Model model, @PathVariable String userId, @PathVariable long itemId) {
-        model.addAttribute("portfolioUser", userService.findUser(userId));
+        model.addAttribute("portfolioUser", userService.findById(userId).orElseThrow());
         model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(userId, itemId));
         return "templates/free/portfolio-item";
     }
 
     @GetMapping("/template/{id}")
     public String templateFromSearchLink(Model model, @PathVariable String id, HttpServletRequest request, Pageable pageable) {
-        User portfolioUser = userService.findUser(id);
+        User portfolioUser = userService.findById(id).orElseThrow();
         model.addAttribute("portfolioUser", portfolioUser);
         model.addAttribute("external", true);
 
@@ -80,14 +80,14 @@ public class TemplateController {
 
         Principal principal = request.getUserPrincipal();
         if (principal != null) {
-            User activeUser = userService.findUser(principal.getName());
+            User activeUser = userService.findById(principal.getName()).orElseThrow();
             if (activeUser != portfolioUser) {
                 model.addAttribute("chat", true);
             }
         } else {
             model.addAttribute("chat", true);
         }
-        return userService.getTemplateHtmlPath(id);
+        return userService.findTemplateHtmlPath(id);
     }
 
     @GetMapping("/users/{id}/image")

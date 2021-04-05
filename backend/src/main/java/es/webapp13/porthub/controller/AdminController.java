@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -28,7 +29,7 @@ public class AdminController {
 
     @RequestMapping("/admin")
     public String adminLink(Model model) {
-        List<User> users = userService.findAllUsers();
+        Collection<User> users = userService.findAllUsers();
         model.addAttribute("users", users);
         return "admin";
     }
@@ -36,7 +37,7 @@ public class AdminController {
 
     @GetMapping("/admin/app/graphics")
     public String adminAppGraphicsLink(Model model) {
-        long totalUsers = userService.getCountAll();
+        long totalUsers = userService.countAll();
         model.addAttribute("totalUsers", totalUsers);
         return "admin-app-graphics";
     }
@@ -67,9 +68,9 @@ public class AdminController {
 
     @GetMapping("/admin/delete/{id}")
     public String deleteUser(Model model, @PathVariable String id) {
-        User user = userService.findUser(id);
+        User user = userService.findById(id).orElseThrow();
         userService.deleteUser(user);
-        List<User> users = userService.findAllUsers();
+        Collection<User> users = userService.findAllUsers();
         model.addAttribute("users", users);
         return "admin";
     }

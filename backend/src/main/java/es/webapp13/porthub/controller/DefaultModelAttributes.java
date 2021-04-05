@@ -26,7 +26,7 @@ public class DefaultModelAttributes {
 
         if (principal != null) {
             String name = principal.getName();
-            User user = userService.findUser(name);
+            User user = userService.findById(name).orElseThrow();
             model.addAttribute("logued", true);
             model.addAttribute("username", principal.getName());
             model.addAttribute("user", user);
