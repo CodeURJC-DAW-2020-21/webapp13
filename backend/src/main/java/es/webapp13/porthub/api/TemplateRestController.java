@@ -26,7 +26,7 @@ public class TemplateRestController {
 
     @GetMapping("/")
     public ResponseEntity<Page<Template>> getTemplates (Pageable pageable){
-        Page<Template> templates = templateService.findPageTemplates(pageable);
+        Page<Template> templates = templateService.findPage(pageable);
 
         if (!templates.isEmpty()){
             return ResponseEntity.ok(templates);
@@ -37,22 +37,14 @@ public class TemplateRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Template> getTemplate (@PathVariable String id){
-        Long longId = Long.parseLong(id);
-        Template template = templateService.findFirstById(longId);
-
-        if (template != null){
-            return ResponseEntity.ok(template);
-        }
-        else {
-            return ResponseEntity.notFound().build();
-        }
-
+    public ResponseEntity<Template> getTemplate (@PathVariable long id){
+        Optional<Template> template = templateService.findById(id);
+        return template.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping("/")
     public ResponseEntity<Template> postTemplate (@RequestBody Template template) throws IOException {
-        templateService.createTemplate(template);
+        templateService.create(template);
 
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(template.getId()).toUri();
 
@@ -60,13 +52,13 @@ public class TemplateRestController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Template> deleteTemplate (@PathVariable String id){
-        Long longId = Long.parseLong(id);
-        Template template = templateService.findFirstById(longId);
+    public ResponseEntity<Template> deleteTemplate (@PathVariable long id){
+        Optional<Template> optionalTemplate = templateService.findById(id);
 
-        if (template != null){
-            templateService.deleteTemplate(template);
-            return ResponseEntity.ok().build();
+        if (optionalTemplate.isPresent()){
+            Template template = optionalTemplate.get();
+            templateService.delete(template);
+            return ResponseEntity.ok(template);
         }
         else {
             return ResponseEntity.notFound().build();

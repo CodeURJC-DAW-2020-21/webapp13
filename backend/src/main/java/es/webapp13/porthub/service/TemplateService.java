@@ -1,7 +1,6 @@
 package es.webapp13.porthub.service;
 
 import es.webapp13.porthub.model.Template;
-import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.TemplateRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -9,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class TemplateService {
@@ -20,23 +20,21 @@ public class TemplateService {
     }
 
     /**
-     * Find a template by a given id
+     * Create a new template
      *
-     * @param id Id of the template
-     * @return A template
+     * @param template A given template
      */
-    public Template findFirstById(long id) {
-        return templateRepository.findFirstById(id);
+    public void create(Template template) {
+        templateRepository.save(template);
     }
 
     /**
-     * Find a template by a given name
+     * Save a template
      *
-     * @param name Name of the template
-     * @return A template
+     * @param template A given template
      */
-    public Template findFirstByName(String name) {
-        return templateRepository.findFirstByName(name);
+    public void save(Template template) {
+        templateRepository.save(template);
     }
 
     /**
@@ -53,40 +51,27 @@ public class TemplateService {
      *
      * @return Page of templates
      */
-    public Page<Template> findPageTemplates(Pageable pageable) {
+    public Page<Template> findPage(Pageable pageable) {
         return templateRepository.findAll(PageRequest.of(pageable.getPageNumber(), 8));
     }
 
     /**
-     * Number of templates
+     * Find a template by a given id
      *
-     * @return Number of templates
+     * @param id Id of the template
+     * @return A template
      */
-    public long getCountAll() {
-        return templateRepository.count();
-    }
-
-    /**
-     * Create a new template
-     *
-     * @param template A given template
-     */
-    public void createTemplate(Template template) {
-        templateRepository.save(template);
-    }
-
-    /**
-     * Save a template
-     * @param template A given template
-     */
-    public void save(Template template) {
-        templateRepository.save(template);
+    public Optional<Template> findById(long id) {
+        return templateRepository.findById(id);
     }
 
     /**
      * Delete an template from the database
+     *
      * @param template A given template to be deleted
      */
-    public void deleteTemplate (Template template){templateRepository.delete(template);}
+    public void delete(Template template) {
+        templateRepository.delete(template);
+    }
 
 }

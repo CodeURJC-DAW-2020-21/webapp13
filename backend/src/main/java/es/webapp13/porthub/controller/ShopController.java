@@ -51,7 +51,7 @@ public class ShopController {
     @GetMapping("/purchase/confirmation")
     public String purchaseConfirmationLink(HttpServletRequest request, @RequestParam long id) {
         purchasedTemplateService.purchase(id);
-        Template template = templateService.findFirstById(id);
+        Template template = templateService.findById(id).orElseThrow();
         Principal principal = request.getUserPrincipal();
         User user = userService.findById(principal.getName()).orElseThrow();
         user.getTemplates().add(template);

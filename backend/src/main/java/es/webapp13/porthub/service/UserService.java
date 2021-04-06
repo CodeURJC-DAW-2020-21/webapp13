@@ -48,8 +48,8 @@ public class UserService {
      *
      * @param user User received from a form
      */
-    public void createUser(User user) throws IOException {
-        Template free = templateService.findFirstById(1);
+    public void create(User user) throws IOException {
+        Template free = templateService.findById(1).orElseThrow();
         user.getTemplates().add(free);
         user.setActiveTemplate(free);
 
@@ -98,7 +98,7 @@ public class UserService {
      *
      * @return A collection of users
      */
-    public Collection<User> findAllUsers() {
+    public Collection<User> findAll() {
         return userRepository.findAll();
     }
 
@@ -107,7 +107,7 @@ public class UserService {
      *
      * @return Page of users
      */
-    public Page<User> findPageUsers(Pageable pageable) {
+    public Page<User> findPage(Pageable pageable) {
         return userRepository.findAll(PageRequest.of(pageable.getPageNumber(), 8));
     }
 
@@ -198,7 +198,7 @@ public class UserService {
      * @throws IOException When no photo is present
      * @throws SQLException When updateProfilePhoto() has problems
      */
-    public void updateFullUser(User newUser, String id, MultipartFile profileImg) throws IOException, SQLException {
+    public void updateFull(User newUser, String id, MultipartFile profileImg) throws IOException, SQLException {
         User user = userRepository.findById(id).orElseThrow();
         if (!profileImg.isEmpty()) {
             updateProfilePhoto(user, profileImg);
@@ -211,7 +211,7 @@ public class UserService {
      * @param newUser The new info
      * @param id The user id to be update
      */
-    public void updateUser(User newUser, String id){
+    public void update(User newUser, String id){
         User user = userRepository.findById(id).orElseThrow();
         updateInfo(newUser, user);
     }
@@ -271,7 +271,7 @@ public class UserService {
      * Delete an user from the database
      * @param user A given user to be deleted
      */
-    public void deleteUser(User user) {
+    public void delete(User user) {
         userRepository.delete(user);
     }
 

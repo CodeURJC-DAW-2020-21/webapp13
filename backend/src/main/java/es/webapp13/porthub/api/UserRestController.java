@@ -31,7 +31,7 @@ public class UserRestController {
     @GetMapping("/")
     public ResponseEntity<Page<User>> getUsers(Pageable pageable) {
 
-        Page<User> users = userService.findPageUsers(pageable);
+        Page<User> users = userService.findPage(pageable);
 
         if (!users.isEmpty())
             return ResponseEntity.ok(users);
@@ -61,7 +61,7 @@ public class UserRestController {
 
     @PostMapping("/")
     public ResponseEntity<User> postUsers(@RequestBody User user) throws IOException {
-        userService.createUser(user);
+        userService.create(user);
 
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
 
@@ -74,7 +74,7 @@ public class UserRestController {
 
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
-            userService.deleteUser(user);
+            userService.delete(user);
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();
@@ -88,7 +88,7 @@ public class UserRestController {
 
         if (user.isPresent()) {
             user.get().setId(id);
-            userService.updateUser(newUser, id);
+            userService.update(newUser, id);
             return ResponseEntity.ok(user.get());
         } else {
             return ResponseEntity.notFound().build();
