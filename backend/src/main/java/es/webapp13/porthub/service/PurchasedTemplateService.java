@@ -46,7 +46,7 @@ public class PurchasedTemplateService {
     }
 
     public void addPurchasedTemplate(long id){
-        Template template = templateService.findFirstById(id);
+        Template template = templateService.findById(id).orElseThrow();
         String name = template.getName();
         String htmlPath = template.getHtmlPath();
         String description = template.getDescription();

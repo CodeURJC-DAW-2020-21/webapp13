@@ -29,7 +29,7 @@ public class AdminController {
 
     @RequestMapping("/admin")
     public String adminLink(Model model) {
-        Collection<User> users = userService.findAllUsers();
+        Collection<User> users = userService.findAll();
         model.addAttribute("users", users);
         return "admin";
     }
@@ -59,7 +59,7 @@ public class AdminController {
             template.setFree(false);
             template.setHtmlPath(template.getHtmlPath() + "premium/index");
         }
-        templateService.createTemplate(template);
+        templateService.create(template);
         List<Template> templates = templateService.findAll();
         model.addAttribute("templates", templates);
         purchasedTemplateService.addPurchasedTemplate(template.getId());
@@ -69,8 +69,8 @@ public class AdminController {
     @GetMapping("/admin/delete/{id}")
     public String deleteUser(Model model, @PathVariable String id) {
         User user = userService.findById(id).orElseThrow();
-        userService.deleteUser(user);
-        Collection<User> users = userService.findAllUsers();
+        userService.delete(user);
+        Collection<User> users = userService.findAll();
         model.addAttribute("users", users);
         return "admin";
     }

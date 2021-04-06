@@ -51,7 +51,7 @@ public class AuthenticationController {
     @PostMapping("/signup/confirmation")
     public String signupConfirmationLink(Model model, User user, HttpServletRequest request) throws IOException {
         String password = user.getPassword();
-        userService.createUser(user);
+        userService.create(user);
         activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
         purchasedTemplateService.init(user.getTemplates());
         try {

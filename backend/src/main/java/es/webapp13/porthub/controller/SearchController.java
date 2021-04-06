@@ -27,7 +27,7 @@ public class SearchController {
 
     @GetMapping("/search")
     public String searchLink(Model model, Pageable pageable) {
-        Page<User> userPage = userService.findPageUsers(pageable);
+        Page<User> userPage = userService.findPage(pageable);
         addAttributes(model, userPage, "Todas", "active_all");
         return "search";
     }

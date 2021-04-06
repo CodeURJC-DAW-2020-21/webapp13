@@ -76,7 +76,7 @@ public class PortfolioItemRestController {
 
         if (oldPortfolioItem.isPresent()) {
             portfolioItemService.updatePortfolioItem(newPortfolioItem, portfolioItemId);
-            //userService.updateUser(newUser,id);
+            //userService.update(newUser,id);
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();

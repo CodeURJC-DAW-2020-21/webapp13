@@ -141,7 +141,7 @@ public class ConfigController {
         User user = userService.findById(principal.getName()).orElseThrow();
         long oldId = user.getActiveTemplate().getId();
         activeTemplateService.changeActiveTemplate(oldId, id);
-        Template activeTemplate = templateService.findFirstById(id);
+        Template activeTemplate = templateService.findById(id).orElseThrow();
         user.setActiveTemplate(activeTemplate);
         userService.save(user);
         return "change-active-template-confirmation";
@@ -224,7 +224,7 @@ public class ConfigController {
 
     @PostMapping("/settings/edit/account/set/new/info")
     public String setNewInfoCurrentUser(User user, MultipartFile profileImg) throws IOException, SQLException {
-        userService.updateFullUser(user, user.getId(), profileImg);
+        userService.updateFull(user, user.getId(), profileImg);
         return "update-profile-confirmation";
     }
 
