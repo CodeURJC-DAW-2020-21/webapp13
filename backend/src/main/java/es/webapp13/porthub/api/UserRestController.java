@@ -52,7 +52,6 @@ public class UserRestController {
 
         Optional<User> user = userService.findById(id);
 
-
         if (user.isPresent()) {
             int profilePhotoLength = (int) user.get().getProfilePhoto().length();
             return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(new ByteArrayResource(user.get().getProfilePhoto().getBytes(1, profilePhotoLength)));
