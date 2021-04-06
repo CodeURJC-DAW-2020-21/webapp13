@@ -116,14 +116,14 @@ public class PortfolioItemService {
     }
 
     /**
-     * Update Preview image
+     * Set Preview image
      *
-     * @param item       Portfolio item to update preview image
+     * @param item       Portfolio item to set preview image
      * @param previewImg Portfolio preview image
      * @throws IOException  Not found input image
      * @throws SQLException Not found in DB
      */
-    private void updatePreviewImg(PortfolioItem item, MultipartFile previewImg) throws IOException, SQLException {
+    public void setPreviewImg(PortfolioItem item, MultipartFile previewImg) throws IOException, SQLException {
         if (!previewImg.isEmpty())
             item.setPreviewImg(BlobProxy.generateProxy(previewImg.getInputStream(), previewImg.getSize()));
         else {
@@ -136,14 +136,34 @@ public class PortfolioItemService {
     }
 
     /**
-     * Update image 1
+     * Update Preview image
      *
-     * @param item Portfolio item to update image
+     * @param item       Portfolio item to update preview image
+     * @param previewImg Portfolio preview image
+     * @throws IOException  Not found input image
+     * @throws SQLException Not found in DB
+     */
+    public void updatePreviewImg(PortfolioItem item, MultipartFile previewImg) throws IOException, SQLException {
+        if (!previewImg.isEmpty())
+            item.setPreviewImg(BlobProxy.generateProxy(previewImg.getInputStream(), previewImg.getSize()));
+        else {
+
+            // Maintain the same image loading it before updating the book
+            PortfolioItem dbItem = findById(item.getId()).orElseThrow();
+            if (dbItem.getPreviewImg().length() == 0)
+                item.setPreviewImg(BlobProxy.generateProxy(dbItem.getPreviewImg().getBinaryStream(), dbItem.getPreviewImg().length()));
+        }
+    }
+
+    /**
+     * Set image 1
+     *
+     * @param item Portfolio item to set image
      * @param img  Portfolio image
      * @throws IOException  Not found input image
      * @throws SQLException Not found in DB
      */
-    private void updateImg1(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
+    public void setImg1(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
         if (!img.isEmpty())
             item.setImage1(BlobProxy.generateProxy(img.getInputStream(), img.getSize()));
         else {
@@ -156,14 +176,34 @@ public class PortfolioItemService {
     }
 
     /**
-     * Update image 2
+     * Update image 1
      *
      * @param item Portfolio item to update image
      * @param img  Portfolio image
      * @throws IOException  Not found input image
      * @throws SQLException Not found in DB
      */
-    private void updateImg2(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
+    public void updateImg1(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
+        if (!img.isEmpty())
+            item.setImage1(BlobProxy.generateProxy(img.getInputStream(), img.getSize()));
+        else {
+
+            // Maintain the same image loading it before updating the book
+            PortfolioItem dbItem = findById(item.getId()).orElseThrow();
+            if (dbItem.getImage1().length() == 0)
+                item.setImage1(BlobProxy.generateProxy(dbItem.getImage1().getBinaryStream(), dbItem.getImage1().length()));
+        }
+    }
+
+    /**
+     * Set image 2
+     *
+     * @param item Portfolio item to set image
+     * @param img  Portfolio image
+     * @throws IOException  Not found input image
+     * @throws SQLException Not found in DB
+     */
+    public void setImg2(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
         if (!img.isEmpty())
             item.setImage2(BlobProxy.generateProxy(img.getInputStream(), img.getSize()));
         else {
@@ -176,14 +216,54 @@ public class PortfolioItemService {
     }
 
     /**
-     * Update image 1
+     * Update image 2
      *
      * @param item Portfolio item to update image
      * @param img  Portfolio image
      * @throws IOException  Not found input image
      * @throws SQLException Not found in DB
      */
-    private void updateImg3(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
+    public void updateImg2(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
+        if (!img.isEmpty())
+            item.setImage2(BlobProxy.generateProxy(img.getInputStream(), img.getSize()));
+        else {
+
+            // Maintain the same image loading it before updating the book
+            PortfolioItem dbItem = findById(item.getId()).orElseThrow();
+            if (dbItem.getImage2().length() == 0)
+                item.setImage2(BlobProxy.generateProxy(dbItem.getImage2().getBinaryStream(), dbItem.getImage2().length()));
+        }
+    }
+
+    /**
+     * Set image 3
+     *
+     * @param item Portfolio item to set image
+     * @param img  Portfolio image
+     * @throws IOException  Not found input image
+     * @throws SQLException Not found in DB
+     */
+    public void setImg3(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
+        if (!img.isEmpty())
+            item.setImage3(BlobProxy.generateProxy(img.getInputStream(), img.getSize()));
+        else {
+
+            // Maintain the same image loading it before updating the book
+            PortfolioItem dbItem = findById(item.getId()).orElseThrow();
+            if (dbItem.getImage3().length() == 0)
+                item.setImage3(BlobProxy.generateProxy(dbItem.getImage3().getBinaryStream(), dbItem.getImage3().length()));
+        }
+    }
+
+    /**
+     * Update image 3
+     *
+     * @param item Portfolio item to update image
+     * @param img  Portfolio image
+     * @throws IOException  Not found input image
+     * @throws SQLException Not found in DB
+     */
+    public void updateImg3(PortfolioItem item, MultipartFile img) throws IOException, SQLException {
         if (!img.isEmpty())
             item.setImage3(BlobProxy.generateProxy(img.getInputStream(), img.getSize()));
         else {
