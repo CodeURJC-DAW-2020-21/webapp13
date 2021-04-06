@@ -26,17 +26,11 @@ public class PurchasedTemplateService {
      *
      * @param purchasedTemplates List of purchased templates
      */
-    public void init(List<Template> purchasedTemplates) {
+    public void create(List<Template> purchasedTemplates) {
         purchasedTemplateMap = new HashMap<>();
         for (Template template : templateService.findAll()) {
             long id = template.getId();
-            String name = template.getName();
-            String htmlPath = template.getHtmlPath();
-            String description = template.getDescription();
-            int price = template.getPrice();
-            boolean isFree = template.isFree();
-            PurchasedTemplate purchasedTemplate = new PurchasedTemplate(id, htmlPath, name, false, price, isFree, description);
-            purchasedTemplateMap.put(id, purchasedTemplate);
+            setInfo(id, template);
         }
         for (Template template : purchasedTemplates) {
             long id = template.getId();
@@ -45,8 +39,22 @@ public class PurchasedTemplateService {
         }
     }
 
-    public void addPurchasedTemplate(long id){
+    /**
+     * Add a template that has been purchased by the user
+     *
+     * @param id Id of the template
+     */
+    public void add(long id) {
         Template template = templateService.findById(id).orElseThrow();
+        setInfo(id, template);
+    }
+
+    /**
+     * Set info about a purchased template
+     * @param id Id of the template
+     * @param template A template with the info to be set
+     */
+    private void setInfo(long id, Template template) {
         String name = template.getName();
         String htmlPath = template.getHtmlPath();
         String description = template.getDescription();
@@ -54,15 +62,6 @@ public class PurchasedTemplateService {
         boolean isFree = template.isFree();
         PurchasedTemplate purchasedTemplate = new PurchasedTemplate(id, htmlPath, name, false, price, isFree, description);
         purchasedTemplateMap.put(id, purchasedTemplate);
-    }
-
-    /**
-     * Get the purchased templates list
-     *
-     * @return List with the purchased templates
-     */
-    public Collection<PurchasedTemplate> getTemplateList() {
-        return purchasedTemplateMap.values();
     }
 
     /**
@@ -75,13 +74,23 @@ public class PurchasedTemplateService {
     }
 
     /**
+     * Get the purchased templates list
+     *
+     * @return List with the purchased templates
+     */
+    public Collection<PurchasedTemplate> findAll() {
+        return purchasedTemplateMap.values();
+    }
+
+    /**
      * Get a purchased template by a given id
      *
      * @param id Template id
      * @return A purchased template
      */
-    public PurchasedTemplate getPurchased(long id) {
+    public PurchasedTemplate findPurchased(long id) {
         return purchasedTemplateMap.get(id);
     }
+
 
 }

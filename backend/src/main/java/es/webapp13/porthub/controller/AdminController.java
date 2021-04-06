@@ -62,7 +62,7 @@ public class AdminController {
         templateService.create(template);
         List<Template> templates = templateService.findAll();
         model.addAttribute("templates", templates);
-        purchasedTemplateService.addPurchasedTemplate(template.getId());
+        purchasedTemplateService.add(template.getId());
         return "admin-templates-list";
     }
 

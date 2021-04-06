@@ -24,7 +24,7 @@ public class SearchService {
      * @param pageable A pageable param
      * @return A page with users
      */
-    public Page<User> getUsersByCategory(String category, Pageable pageable) {
+    public Page<User> findByCategory(String category, Pageable pageable) {
         return userRepository.findByCategory(category, PageRequest.of(pageable.getPageNumber(), 8));
     }
 
@@ -35,7 +35,7 @@ public class SearchService {
      * @param pageable A pageable param
      * @return A page with users that matches the string
      */
-    public Page<User> getUsersBySearch(String search, Pageable pageable) {
+    public Page<User> findUsersBySearchBar(String search, Pageable pageable) {
         return userRepository.findSearching(search, PageRequest.of(pageable.getPageNumber(), 8));
     }
 

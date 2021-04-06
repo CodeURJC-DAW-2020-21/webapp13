@@ -43,7 +43,7 @@ public class ShopController {
         if (principal == null) {
             model.addAttribute("templates", templateService.findAll());
         } else {
-            model.addAttribute("templates", purchasedTemplateService.getTemplateList());
+            model.addAttribute("templates", purchasedTemplateService.findAll());
         }
         return "shop";
     }

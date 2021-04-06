@@ -53,7 +53,7 @@ public class AuthenticationController {
         String password = user.getPassword();
         userService.create(user);
         activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.init(user.getTemplates());
+        purchasedTemplateService.create(user.getTemplates());
         try {
             request.login(user.getId(), password);
             model.addAttribute("loginProcess", true);

@@ -40,35 +40,35 @@ public class SearchController {
 
     @PostMapping("/searchbar")
     public String searchBarForm(Model model, String search, Pageable pageable) {
-        Page<User> userPage = searchService.getUsersBySearch(search, pageable);
+        Page<User> userPage = searchService.findUsersBySearchBar(search, pageable);
         addAttributes(model, userPage, "Búsqueda", "active_all");
         return "search";
     }
 
     @GetMapping("/search/ingenieria")
     public String searchLinkEngineer(Model model, Pageable pageable) {
-        Page<User> userPage = searchService.getUsersByCategory("Ingeniero", pageable);
+        Page<User> userPage = searchService.findByCategory("Ingeniero", pageable);
         addAttributes(model, userPage, "Ingeniería", "active_engineer");
         return "search";
     }
 
     @GetMapping("/search/diseño")
     public String searchLinkDesigner(Model model, Pageable pageable) {
-        Page<User> userPage = searchService.getUsersByCategory("Diseñador", pageable);
+        Page<User> userPage = searchService.findByCategory("Diseñador", pageable);
         addAttributes(model, userPage, "Diseño", "active_designer");
         return "search";
     }
 
     @GetMapping("/search/fotografia")
     public String searchLinkPhotographer(Model model, Pageable pageable) {
-        Page<User> userPage = searchService.getUsersByCategory("Fotografo", pageable);
+        Page<User> userPage = searchService.findByCategory("Fotografo", pageable);
         addAttributes(model, userPage, "Fotografía", "active_photographer");
         return "search";
     }
 
     @GetMapping("/search/empresa")
     public String searchLinkBusinessman(Model model, Pageable pageable) {
-        Page<User> userPage = searchService.getUsersByCategory("Empresario", pageable);
+        Page<User> userPage = searchService.findByCategory("Empresario", pageable);
         addAttributes(model, userPage, "Empresa", "active_businessman");
         return "search";
     }
