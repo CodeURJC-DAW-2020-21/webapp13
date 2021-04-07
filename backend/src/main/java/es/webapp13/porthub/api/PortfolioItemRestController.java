@@ -83,7 +83,7 @@ public class PortfolioItemRestController {
             return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/{id}/image1")
+    @GetMapping("/{id}/image3")
     public ResponseEntity<Object> getImage3(@PathVariable long id) throws SQLException {
 
         Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);

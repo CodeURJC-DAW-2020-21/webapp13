@@ -4,6 +4,8 @@ import es.webapp13.porthub.model.Message;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.MessageService;
 import es.webapp13.porthub.service.UserService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
