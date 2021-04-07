@@ -1,14 +1,15 @@
-package es.webapp13.porthub.api;
+package es.webapp13.porthub.api.user;
 
 import es.webapp13.porthub.model.User;
+import es.webapp13.porthub.service.SearchService;
 import es.webapp13.porthub.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.net.URI;
@@ -22,10 +23,16 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 @RequestMapping("/api/users")
 public class UserRestController {
 
+    private final SearchService searchService;
+
+    private final ModelMapper modelMapper;
+
     private final UserService userService;
 
-    public UserRestController(UserService userService) {
+    public UserRestController(UserService userService, ModelMapper modelMapper, SearchService searchService) {
         this.userService = userService;
+        this.modelMapper = modelMapper;
+        this.searchService = searchService;
     }
 
     @GetMapping("/")
@@ -59,9 +66,57 @@ public class UserRestController {
             return ResponseEntity.notFound().build();
     }
 
+    @GetMapping("/engineers")
+    public ResponseEntity<Page<User>> getEngineers(Pageable pageable) {
+
+        Page<User> users = searchService.findByCategory("Ingeniero", pageable);
+
+        if (!users.isEmpty())
+            return ResponseEntity.ok(users);
+        else
+            return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/designers")
+    public ResponseEntity<Page<User>> getDesigners(Pageable pageable) {
+
+        Page<User> users = searchService.findByCategory("Diseñador", pageable);
+
+        if (!users.isEmpty())
+            return ResponseEntity.ok(users);
+        else
+            return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/photographer")
+    public ResponseEntity<Page<User>> getPhotographer(Pageable pageable) {
+
+        Page<User> users = searchService.findByCategory("Fotografo", pageable);
+
+        if (!users.isEmpty())
+            return ResponseEntity.ok(users);
+        else
+            return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/businessman")
+    public ResponseEntity<Page<User>> getBusinessman(Pageable pageable) {
+
+        Page<User> users = searchService.findByCategory("Empresario", pageable);
+
+        if (!users.isEmpty())
+            return ResponseEntity.ok(users);
+        else
+            return ResponseEntity.notFound().build();
+    }
+
     @PostMapping("/")
-    public ResponseEntity<User> postUsers(@RequestBody User user) throws IOException {
+    public ResponseEntity<User> postUsers(@ModelAttribute UserDTO userDTO) throws IOException, SQLException {
+        User user = modelMapper.map(userDTO, User.class);
         userService.create(user);
+        if (userDTO.getProfilePhoto() != null)
+            userService.updateProfilePhoto(user, userDTO.getProfilePhoto());
+
 
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
 
@@ -82,28 +137,14 @@ public class UserRestController {
 
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<User> putUser(@PathVariable String id, @RequestBody User newUser) {
-        Optional<User> user = userService.findById(id);
+    @PatchMapping("/{id}")
+    public ResponseEntity<User> putUser(@PathVariable String id, @ModelAttribute UserDTO userDTO) throws SQLException, IOException {
+        Optional<User> optionalUser = userService.findById(id);
+        User user = modelMapper.map(userDTO, User.class);
 
-        if (user.isPresent()) {
-            user.get().setId(id);
-            userService.update(newUser, id);
-            return ResponseEntity.ok(user.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @PutMapping("/{id}/image")
-    public ResponseEntity<Object> putImage(@PathVariable String id, @RequestParam MultipartFile imageFile) throws IOException, SQLException {
-        Optional<User> user = userService.findById(id);
-
-        if (user.isPresent()) {
-            URI location = fromCurrentRequest().build().toUri();
-
-            userService.updateProfilePhoto(user.get(), imageFile);
-            return ResponseEntity.ok(location);
+        if (optionalUser.isPresent()) {
+            userService.update(user, id, userDTO.getProfilePhoto());
+            return ResponseEntity.ok(optionalUser.get());
         } else {
             return ResponseEntity.notFound().build();
         }

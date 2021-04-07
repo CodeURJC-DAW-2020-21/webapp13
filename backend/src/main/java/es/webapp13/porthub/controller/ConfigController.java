@@ -224,7 +224,7 @@ public class ConfigController {
 
     @PostMapping("/settings/edit/account/set/new/info")
     public String setNewInfoCurrentUser(User user, MultipartFile profileImg) throws IOException, SQLException {
-        userService.updateFull(user, user.getId(), profileImg);
+        userService.update(user, user.getId(), profileImg);
         return "update-profile-confirmation";
     }
 

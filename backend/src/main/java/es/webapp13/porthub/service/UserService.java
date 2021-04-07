@@ -198,21 +198,11 @@ public class UserService {
      * @throws IOException When no photo is present
      * @throws SQLException When updateProfilePhoto() has problems
      */
-    public void updateFull(User newUser, String id, MultipartFile profileImg) throws IOException, SQLException {
+    public void update(User newUser, String id, MultipartFile profileImg) throws IOException, SQLException {
         User user = userRepository.findById(id).orElseThrow();
         if (!profileImg.isEmpty()) {
             updateProfilePhoto(user, profileImg);
         }
-        updateInfo(newUser, user);
-    }
-
-    /**
-     * Update only user text info
-     * @param newUser The new info
-     * @param id The user id to be update
-     */
-    public void update(User newUser, String id){
-        User user = userRepository.findById(id).orElseThrow();
         updateInfo(newUser, user);
     }
 
@@ -252,7 +242,6 @@ public class UserService {
             if (dbUser.getProfilePhoto().length() == 0)
                 user.setProfilePhoto(BlobProxy.generateProxy(dbUser.getProfilePhoto().getBinaryStream(), dbUser.getProfilePhoto().length()));
         }
-        userRepository.save(user);
     }
 
     /**
