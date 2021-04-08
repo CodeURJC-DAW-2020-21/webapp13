@@ -30,7 +30,7 @@ function loadMoreP() {
 
 function loadMoreT() {
     console.log($("#user-id").text().trim())
-    $("#result").append($("<div class='row no-gutters' id='users-to-load'>").load("/template/" + $("#user-id").text().trim() + "/?page=" + (page) + "&size=3 .portfolioitem-item", function () {
+    $("#result").append($("<div class='row no-gutters w-100 h-100' id='users-to-load'>").load("/template/" + $("#user-id").text().trim() + "/?page=" + (page) + "&size=3 .portfolioitem-item", function () {
         $("#hasNextPage").load("/template/" + $("#user-id").text().trim()  + "/?page=" + (page) + "&size=3 #button-replace", function () {
             $("#load-more2").click(loadMoreT)
             page++
