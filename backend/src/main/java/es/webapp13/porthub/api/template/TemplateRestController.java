@@ -1,7 +1,8 @@
-package es.webapp13.porthub.api;
+package es.webapp13.porthub.api.template;
 
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.service.TemplateService;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +20,11 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 public class TemplateRestController {
 
     private final TemplateService templateService;
+    private final ModelMapper modelMapper;
 
-    public TemplateRestController(TemplateService templateService) {
+    public TemplateRestController(TemplateService templateService, ModelMapper modelMapper) {
         this.templateService = templateService;
+        this.modelMapper = modelMapper;
     }
 
     @GetMapping("/")
@@ -43,7 +46,8 @@ public class TemplateRestController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Template> postTemplate (@RequestBody Template template) throws IOException {
+    public ResponseEntity<Template> postTemplate (@ModelAttribute TemplateDTO templateDTO) throws IOException {
+        Template template = modelMapper.map(templateDTO, Template.class);
         templateService.create(template);
 
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(template.getId()).toUri();
