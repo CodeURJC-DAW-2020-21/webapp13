@@ -47,7 +47,8 @@ function organize() {
             messages.eq(i).addClass("text-right")
             let arr = messages.eq(i).text().split(" ").reverse()
             messages.eq(i).text("")
-            messages.eq(i).append(arr[0] + " : <b class='sender-id'>" + arr[1].slice(0, -1) + "</b>")
+            let content = arr.toString().replaceAll(",", " ").slice(0, -2-sender[i].length)
+            messages.eq(i).append(content + " : <b class='sender-id'>" + sender[i] + "</b>")
 
         } else
             messages.eq(i).addClass("text-left")
