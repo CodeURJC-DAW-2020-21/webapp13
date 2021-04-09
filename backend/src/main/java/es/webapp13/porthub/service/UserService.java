@@ -197,7 +197,7 @@ public class UserService {
      */
     public void update(User newUser, String id, MultipartFile profileImg) throws IOException, SQLException {
         User user = userRepository.findById(id).orElseThrow();
-        if (!profileImg.isEmpty()) {
+        if (profileImg != null) {
             updateProfilePhoto(user, profileImg);
         }
         updateInfo(newUser, user);
@@ -231,7 +231,7 @@ public class UserService {
      * @throws IOException  Not found input image
      * @throws SQLException Not found in DB
      */
-    public void updateProfilePhoto(User user, MultipartFile profileImg) throws IOException, SQLException {
+    private void updateProfilePhoto(User user, MultipartFile profileImg) throws IOException, SQLException {
         if (!profileImg.isEmpty())
             user.setProfilePhoto(BlobProxy.generateProxy(profileImg.getInputStream(), profileImg.getSize()));
         else {

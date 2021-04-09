@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "a24cd027-c231-4c84-8c24-1d33e802dce6",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/anitarom56",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"anitarom56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}/image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/anitarom56/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"anitarom56",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/engineers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/engineers",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"engineers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/designers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/designers",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"designers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/photographer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/photographer",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"photographer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/businessman",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/businessman",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"businessman"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "criss00_2820",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Cristian",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "De Gracia Nuero",
+									"type": "text"
+								},
+								{
+									"key": "bornDate",
+									"value": "2000-07-28",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "cristian@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "666 555 444",
+									"type": "text"
+								},
+								{
+									"key": "website",
+									"value": "www.porthub.com",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Torrijos",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Ingeniero",
+									"type": "text"
+								},
+								{
+									"key": "freelance",
+									"value": "Disponible",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Soy estudiante del doble grado en ingeniería de software e ingeniería informatica. Cuando acabe la carrera me gustaría dedicarme profesionalmente al desarrollo web.",
+									"type": "text"
+								},
+								{
+									"key": "degree",
+									"value": "Ingeniería Informática + Ingeniería de Software",
+									"type": "text"
+								},
+								{
+									"key": "profilePhoto",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/anitarom56",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"anitarom56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "criss00_2820",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Cristian",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "De Gracia Nuero",
+									"type": "text"
+								},
+								{
+									"key": "bornDate",
+									"value": "2000-07-28",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "cristianNuevoCorreo@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "4321",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "666 888 999",
+									"type": "text"
+								},
+								{
+									"key": "website",
+									"value": "www.porthub.com",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Noves",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Ingeniero",
+									"type": "text"
+								},
+								{
+									"key": "freelance",
+									"value": "Ocupado",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Soy estudiante del doble grado en ingeniería de software e ingeniería informatica. Cuando acabe la carrera me gustaría dedicarme profesionalmente al desarrollo web.",
+									"type": "text"
+								},
+								{
+									"key": "degree",
+									"value": "Ingeniería Informática + Ingeniería de Software",
+									"type": "text"
+								},
+								{
+									"key": "profilePhoto",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/256_rsz_90-jiang-640827-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/criss00_2820",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"criss00_2820"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This collection is divided in folders by the main app entities. The way to use the queries that has { xxx } is to set a variable in place of xxx."
+		},
+		{
+			"name": "Portfolio Items",
+			"item": []
+		},
+		{
+			"name": "Templates",
+			"item": []
+		},
+		{
+			"name": "Messages",
+			"item": []
+		}
+	]
+}
