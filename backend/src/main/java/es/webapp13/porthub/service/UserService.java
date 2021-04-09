@@ -87,6 +87,7 @@ public class UserService {
 
     /**
      * Save an user in the database
+     *
      * @param user A given user to be saved
      */
     public void save(User user) {
@@ -159,18 +160,13 @@ public class UserService {
         Map<Long, Integer> templateMap = new HashMap<>();
         for (User u : userList) {
             long templateId = u.getActiveTemplate().getId();
-            Integer currentValue = templateMap.get(templateId);
-            if (currentValue == null) {
-                templateMap.put(templateId, 1);
-            } else {
-                templateMap.put(templateId, templateMap.get(templateId) + 1);
-            }
+            templateMap.merge(templateId, 1, Integer::sum);
         }
-        Integer maxValue = -1;
+        int maxValue = -1;
         Long topId = null;
         for (long k : templateMap.keySet()) {
             int currentValue = templateMap.get(k);
-            if ((currentValue > maxValue) && (!purchasedTemplateService.find(k).isPurchased())) {
+            if ((currentValue > maxValue) && (!purchasedTemplateService.findById(k).isPurchased())) {
                 maxValue = currentValue;
                 topId = k;
             }
@@ -178,7 +174,7 @@ public class UserService {
         if (topId == null) {
             return Optional.empty();
         }
-        return Optional.of(purchasedTemplateService.find(topId));
+        return Optional.of(purchasedTemplateService.findById(topId));
     }
 
     /**
@@ -192,10 +188,11 @@ public class UserService {
 
     /**
      * Update user info by given parameters
-     * @param newUser The new info
-     * @param id The id of the user
+     *
+     * @param newUser    The new info
+     * @param id         The id of the user
      * @param profileImg The profile photo to be updated
-     * @throws IOException When no photo is present
+     * @throws IOException  When no photo is present
      * @throws SQLException When updateProfilePhoto() has problems
      */
     public void update(User newUser, String id, MultipartFile profileImg) throws IOException, SQLException {
@@ -208,8 +205,9 @@ public class UserService {
 
     /**
      * Update info
+     *
      * @param newUser New info to update the user
-     * @param user User to be updated
+     * @param user    User to be updated
      */
     private void updateInfo(User newUser, User user) {
         user.setName(newUser.getName());
@@ -258,6 +256,7 @@ public class UserService {
 
     /**
      * Delete an user from the database
+     *
      * @param user A given user to be deleted
      */
     public void delete(User user) {

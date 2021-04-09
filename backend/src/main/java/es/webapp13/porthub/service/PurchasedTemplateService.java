@@ -51,7 +51,8 @@ public class PurchasedTemplateService {
 
     /**
      * Set info about a purchased template
-     * @param id Id of the template
+     *
+     * @param id       Id of the template
      * @param template A template with the info to be set
      */
     private void setInfo(long id, Template template) {
@@ -73,6 +74,7 @@ public class PurchasedTemplateService {
         purchasedTemplateMap.get(id).setPurchased(true);
     }
 
+
     /**
      * Get the purchased templates list
      *
@@ -88,7 +90,7 @@ public class PurchasedTemplateService {
      * @param id Template id
      * @return A purchased template
      */
-    public PurchasedTemplate find(long id) {
+    public PurchasedTemplate findById(long id) {
         return purchasedTemplateMap.get(id);
     }
 

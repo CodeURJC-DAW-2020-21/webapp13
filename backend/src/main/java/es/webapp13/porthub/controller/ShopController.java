@@ -55,7 +55,7 @@ public class ShopController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findById(principal.getName()).orElseThrow();
         user.getTemplates().add(template);
-        activeTemplateService.addTemplate(template);
+        activeTemplateService.add(template);
         return "purchase-confirmation";
     }
 

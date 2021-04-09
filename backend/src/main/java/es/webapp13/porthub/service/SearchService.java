@@ -1,7 +1,7 @@
 package es.webapp13.porthub.service;
 
-import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.model.User;
+import es.webapp13.porthub.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

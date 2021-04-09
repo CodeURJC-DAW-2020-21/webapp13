@@ -26,13 +26,23 @@ public class ActiveTemplateService {
             long id = template.getId();
             String name = template.getName();
             String htmlPath = template.getHtmlPath();
-            boolean active = false;
-            if (template == userActiveTemplate) {
-                active = true;
-            }
+            boolean active = template == userActiveTemplate;
             ActiveTemplate activeTemplate = new ActiveTemplate(id, htmlPath, name, active);
             activeTemplateMap.put(id, activeTemplate);
         }
+    }
+
+    /**
+     * Add new template to the templates map
+     *
+     * @param template Template to add
+     */
+    public void add(Template template) {
+        long id = template.getId();
+        String name = template.getName();
+        String htmlPath = template.getHtmlPath();
+        ActiveTemplate activeTemplate = new ActiveTemplate(id, htmlPath, name, false);
+        activeTemplateMap.put(id, activeTemplate);
     }
 
     /**
@@ -40,7 +50,7 @@ public class ActiveTemplateService {
      *
      * @return A collection of active templates
      */
-    public Collection<ActiveTemplate> getActiveTemplateList() {
+    public Collection<ActiveTemplate> findAll() {
         return activeTemplateMap.values();
     }
 
@@ -50,24 +60,10 @@ public class ActiveTemplateService {
      * @param oldId Id of the current template
      * @param newId Id of the new template to be active
      */
-    public void changeActiveTemplate(long oldId, long newId) {
+    public void update(long oldId, long newId) {
         ActiveTemplate oldActiveTemplate = activeTemplateMap.get(oldId);
         oldActiveTemplate.setActive(false);
         ActiveTemplate newActiveTemplate = activeTemplateMap.get(newId);
         newActiveTemplate.setActive(true);
     }
-
-    /**
-     * Add new template to the templates map
-     *
-     * @param template Template to add
-     */
-    public void addTemplate(Template template) {
-        long id = template.getId();
-        String name = template.getName();
-        String htmlPath = template.getHtmlPath();
-        ActiveTemplate activeTemplate = new ActiveTemplate(id, htmlPath, name, false);
-        activeTemplateMap.put(id, activeTemplate);
-    }
-
 }

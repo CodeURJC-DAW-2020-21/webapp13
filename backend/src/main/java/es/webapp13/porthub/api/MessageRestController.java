@@ -5,20 +5,13 @@ import es.webapp13.porthub.model.Message;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.MessageService;
 import es.webapp13.porthub.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.HtmlUtils;
 
-import java.io.IOException;
-import java.net.URI;
-import java.sql.SQLException;
-import java.util.List;
 import java.util.Optional;
-
-import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
 
 @RestController
@@ -42,7 +35,7 @@ public class MessageRestController {
     @GetMapping("/{id}")
     public ResponseEntity<Message> getMessage(@PathVariable long id) {
 
-        Optional<Message> message = messageService.findMessageById(id);
+        Optional<Message> message = messageService.findById(id);
 
         if (!message.isEmpty())
             return ResponseEntity.ok(message.get());
@@ -64,7 +57,7 @@ public class MessageRestController {
         Optional<User> user2 = userService.findById(id2);
 
         if (!user1.isEmpty() && !user2.isEmpty()) {
-            Page<Message> messages = messageService.findMessagesPage(user1.get(), user2.get(), pageable);
+            Page<Message> messages = messageService.findPage(user1.get(), user2.get(), pageable);
             if (!messages.isEmpty())
                 return ResponseEntity.ok(messages);
         }
