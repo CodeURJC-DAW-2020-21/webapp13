@@ -30,8 +30,8 @@ public class MessageService {
      *
      * @param msg The message
      */
-    public void save(ChatMessage msg) {
-        this.chatService.saveMessage(msg);
+    public Message save(ChatMessage msg) {
+        return this.chatService.saveMessage(msg);
     }
 
     /**

@@ -114,8 +114,9 @@ public class UserRestController {
     public ResponseEntity<User> postUsers(@ModelAttribute UserDTO userDTO) throws IOException, SQLException {
         User user = modelMapper.map(userDTO, User.class);
         userService.create(user);
-        if (userDTO.getProfilePhoto() != null)
-            userService.updateProfilePhoto(user, userDTO.getProfilePhoto());
+        if (userDTO.getProfilePhoto() != null){
+            userService.update(user,user.getId(), userDTO.getProfilePhoto());
+        }
 
 
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
@@ -130,7 +131,7 @@ public class UserRestController {
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             userService.delete(user);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(user);
         } else {
             return ResponseEntity.notFound().build();
         }

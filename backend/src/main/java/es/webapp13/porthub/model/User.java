@@ -20,16 +20,12 @@ public class User {
 
     @Id
     private String id;
-
     private String name;
     private String surname;
     private long age;
     private Date bornDate;
-    private Date creationDate;
-
     private String email;
     private String password;
-
     private String phoneNumber;
     private String website;
     private String city;
@@ -38,8 +34,11 @@ public class User {
     private String freelance;
     private String description;
 
+    @JsonIgnore
+    private Date creationDate;
 
     @ElementCollection(fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<String> roles;
 
     @Lob
@@ -47,15 +46,19 @@ public class User {
     private Blob profilePhoto;
 
     @OneToOne
+    @JsonIgnore
     private Template activeTemplate;
 
     @ManyToMany
+    @JsonIgnore
     private List<Template> templates = new LinkedList<>();
 
     @OneToMany
+    @JsonIgnore
     private List<PortfolioItem> portfolioItems;
 
     @OneToMany(mappedBy = "sender")
+    @JsonIgnore
     private List<Message> messages = new LinkedList<>();
 
     public User() {

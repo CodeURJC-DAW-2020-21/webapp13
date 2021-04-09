@@ -45,9 +45,9 @@ function organize() {
     for (let i = 0; i < messages.length; i++) {
         if (sender[i] === $("#user-id").text()) {
             messages.eq(i).addClass("text-right")
-            let arr = messages.eq(i).text().split(" ").reverse()
+            let arr = messages.eq(i).text().split(" ")
             messages.eq(i).text("")
-            let content = arr.toString().replaceAll(",", " ").slice(0, -2-sender[i].length)
+            let content = arr.toString().replaceAll(",", " ").slice(2+sender[i].length)
             messages.eq(i).append(content + " : <b class='sender-id'>" + sender[i] + "</b>")
 
         } else
