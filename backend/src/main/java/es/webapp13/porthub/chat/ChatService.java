@@ -20,7 +20,7 @@ public class ChatService {
     }
 
 
-    public void saveMessage(ChatMessage msg) {
+    public Message saveMessage(ChatMessage msg) {
         User sender = userRepository.findById(HtmlUtils.htmlEscape(msg.getSender())).orElseThrow();
         User receiver = userRepository.findById(HtmlUtils.htmlEscape(msg.getReceiver())).orElseThrow();
         Message message = new Message(sender, receiver, HtmlUtils.htmlEscape(msg.getContent()), new java.util.Date());
@@ -28,5 +28,7 @@ public class ChatService {
         messageRepository.save(message);
         userRepository.save(receiver);
         userRepository.save(sender);
+
+        return message;
     }
 }
