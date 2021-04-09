@@ -57,14 +57,14 @@ public class TemplateController {
     @GetMapping("/template/premium/{userId}/portfolioitem/{itemId}")
     public String templatePremiumPortfolioItemLink(Model model, @PathVariable String userId, @PathVariable long itemId) {
         model.addAttribute("portfolioUser", userService.findById(userId).orElseThrow());
-        model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(userId, itemId));
+        model.addAttribute("portfolioItem", portfolioItemService.find(userId, itemId));
         return "templates/premium/portfolio-item";
     }
 
     @GetMapping("/template/free/{userId}/portfolioitem/{itemId}")
     public String templateFreePortfolioItemLink(Model model, @PathVariable String userId, @PathVariable long itemId) {
         model.addAttribute("portfolioUser", userService.findById(userId).orElseThrow());
-        model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(userId, itemId));
+        model.addAttribute("portfolioItem", portfolioItemService.find(userId, itemId));
         return "templates/free/portfolio-item";
     }
 
@@ -74,7 +74,7 @@ public class TemplateController {
         model.addAttribute("portfolioUser", portfolioUser);
         model.addAttribute("external", true);
 
-        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(portfolioUser.getId(), pageable);
+        Page<PortfolioItem> portfolioItems = portfolioItemService.findPage(portfolioUser.getId(), pageable);
         model.addAttribute("hasNext", portfolioItems.hasNext());
         model.addAttribute("portfolioItemsPage", portfolioItems);
 

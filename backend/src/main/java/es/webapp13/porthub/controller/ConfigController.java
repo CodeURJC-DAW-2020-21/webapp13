@@ -3,10 +3,7 @@ package es.webapp13.porthub.controller;
 import es.webapp13.porthub.model.PortfolioItem;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
-import es.webapp13.porthub.service.ActiveTemplateService;
-import es.webapp13.porthub.service.PortfolioItemService;
-import es.webapp13.porthub.service.TemplateService;
-import es.webapp13.porthub.service.UserService;
+import es.webapp13.porthub.service.*;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
@@ -61,7 +58,7 @@ public class ConfigController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findById(principal.getName()).orElseThrow();
 
-        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(user.getId(), pageable);
+        Page<PortfolioItem> portfolioItems = portfolioItemService.findPage(user.getId(), pageable);
         model.addAttribute("hasNext", portfolioItems.hasNext());
         model.addAttribute("portfolioItemsPage", portfolioItems);
         return "settings-edit-account-portfolioitems";
@@ -77,7 +74,7 @@ public class ConfigController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findById(principal.getName()).orElseThrow();
 
-        portfolioItemService.addPortfolioItem(user.getId(), portfolioItem, preImg, img1, img2, img3);
+        portfolioItemService.create(user.getId(), portfolioItem, preImg, img1, img2, img3);
         return "confirm-portfolioitem";
     }
 
@@ -86,7 +83,7 @@ public class ConfigController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findById(principal.getName()).orElseThrow();
 
-        portfolioItemService.deletePortfolioItem(user.getId(), id);
+        portfolioItemService.delete(user.getId(), id);
         return "deleted-portfolioitem";
     }
 
@@ -96,7 +93,7 @@ public class ConfigController {
         User user = userService.findById(principal.getName()).orElseThrow();
         if (!userId.equals(user.getId()))
             return "error";
-        model.addAttribute("portfolioItem", portfolioItemService.getPortfolioItem(userId, id));
+        model.addAttribute("portfolioItem", portfolioItemService.findById(id).orElseThrow());
         return "settings-edit-account-edit-portfolioitem";
     }
 
@@ -107,7 +104,7 @@ public class ConfigController {
         if (!userId.equals(user.getId()))
             return "error";
 
-        portfolioItemService.updatePortfolioItem(newPortfolioItem, id, preImg, img1, img2, img3);
+        portfolioItemService.update(newPortfolioItem, id, preImg, img1, img2, img3);
         return "portfolioitem-update-confirmation";
     }
 

@@ -36,7 +36,7 @@ public class PortfolioItemRestController {
     @GetMapping("/users/{userId}")
     public ResponseEntity<Page<PortfolioItem>> getPortfolioItems(Pageable pageable, @PathVariable String userId) {
 
-        Page<PortfolioItem> portfolioItems = portfolioItemService.findPortfolioItems(userId, pageable);
+        Page<PortfolioItem> portfolioItems = portfolioItemService.findPage(userId, pageable);
 
         if (!portfolioItems.isEmpty())
             return ResponseEntity.ok(portfolioItems);
@@ -105,23 +105,17 @@ public class PortfolioItemRestController {
 
         PortfolioItem portfolioItem = modelMapper.map(portfolioItemDTO, PortfolioItem.class);
 
-        portfolioItemService.addPortfolioItem(portfolioItem.getUserId(), portfolioItem);
+        portfolioItemService.add(portfolioItem.getUserId(), portfolioItem);
 
-        if (portfolioItemDTO.getPreviewImg() != null){
-            portfolioItemService.updatePreviewImg(portfolioItem, portfolioItemDTO.getPreviewImg());
+        MultipartFile imgP = portfolioItemDTO.getPreviewImg();
+        MultipartFile img1 = portfolioItemDTO.getImage1();
+        MultipartFile img2 = portfolioItemDTO.getImage2();
+        MultipartFile img3 = portfolioItemDTO.getImage3();
+
+        if (imgP != null && img1 != null && img2 != null && img3 != null) {
+            portfolioItemService.update(portfolioItem, portfolioItem.getId(), imgP, img1, img2, img3);
         }
 
-        if (portfolioItemDTO.getImage1() != null){
-            portfolioItemService.updateImg1(portfolioItem, portfolioItemDTO.getImage1());
-        }
-
-        if (portfolioItemDTO.getImage2() != null){
-            portfolioItemService.updateImg2(portfolioItem, portfolioItemDTO.getImage2());
-        }
-
-        if (portfolioItemDTO.getImage3() != null){
-            portfolioItemService.updateImg3(portfolioItem, portfolioItemDTO.getImage3());
-        }
 
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(portfolioItem.getId()).toUri();
 
@@ -134,7 +128,7 @@ public class PortfolioItemRestController {
         Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
 
         if (portfolioItem.isPresent()) {
-            portfolioItemService.deletePortfolioItem(userId, portfolioItemId);
+            portfolioItemService.delete(userId, portfolioItemId);
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();
@@ -143,31 +137,20 @@ public class PortfolioItemRestController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<User> putUser(@PathVariable long id, @ModelAttribute PortfolioItemDTO portfolioItemDTO) throws IOException, SQLException {
+    public ResponseEntity<PortfolioItem> putUser(@PathVariable long id, @ModelAttribute PortfolioItemDTO portfolioItemDTO) throws IOException, SQLException {
         Optional<PortfolioItem> oldPortfolioItem = portfolioItemService.findById(id);
         PortfolioItem newPortfolioItem = modelMapper.map(portfolioItemDTO, PortfolioItem.class);
 
+        MultipartFile imgP = portfolioItemDTO.getPreviewImg();
+        MultipartFile img1 = portfolioItemDTO.getImage1();
+        MultipartFile img2 = portfolioItemDTO.getImage2();
+        MultipartFile img3 = portfolioItemDTO.getImage3();
+
         if (oldPortfolioItem.isPresent()) {
-            portfolioItemService.updatePortfolioItem(newPortfolioItem, id);
-            PortfolioItem portfolioItem = portfolioItemService.findById(id).get();
+            portfolioItemService.update(newPortfolioItem, id, imgP, img1, img2, img3);
+            PortfolioItem portfolioItem = portfolioItemService.findById(id).orElseThrow();
 
-            if (portfolioItemDTO.getPreviewImg() != null){
-                portfolioItemService.updatePreviewImg(portfolioItem, portfolioItemDTO.getPreviewImg());
-            }
-
-            if (portfolioItemDTO.getImage1() != null){
-                portfolioItemService.updateImg1(portfolioItem, portfolioItemDTO.getImage1());
-            }
-
-            if (portfolioItemDTO.getImage2() != null){
-                portfolioItemService.updateImg2(portfolioItem, portfolioItemDTO.getImage2());
-            }
-
-            if (portfolioItemDTO.getImage3() != null){
-                portfolioItemService.updateImg3(portfolioItem, portfolioItemDTO.getImage3());
-            }
-
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(portfolioItem);
         } else {
             return ResponseEntity.notFound().build();
         }
