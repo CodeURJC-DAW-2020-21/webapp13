@@ -1,6 +1,7 @@
 package es.webapp13.porthub.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
 import java.io.IOException;
@@ -12,6 +13,7 @@ import java.sql.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+@Data
 @Entity
 @DynamicUpdate
 public class User {
@@ -124,178 +126,9 @@ public class User {
                 '}';
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Date getBornDate() {
-        return bornDate;
-    }
-
-    public void setBornDate(Date bornDate) {
-        this.bornDate = bornDate;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getDegree() {
-        return degree;
-    }
-
-    public void setDegree(String degree) {
-        this.degree = degree;
-    }
-
-    public String getFreelance() {
-        return freelance;
-    }
-
-    public void setFreelance(String freelance) {
-        this.freelance = freelance;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public long getAge() {
-        return age;
-    }
-
-    public void setAge(long age) {
-        this.age = age;
-    }
-
-    public Blob getProfilePhoto() {
-        return profilePhoto;
-    }
-
-    public void setProfilePhoto(Blob profilePhoto) {
-        this.profilePhoto = profilePhoto;
-    }
-
-    public Template getActiveTemplate() {
-        return activeTemplate;
-    }
-
-    public void setActiveTemplate(Template activeTemplate) {
-        this.activeTemplate = activeTemplate;
-    }
-
-    public List<Template> getTemplates() {
-        return templates;
-    }
-
-    public void setTemplates(List<Template> templates) {
-        this.templates = templates;
-    }
-
-    public List<PortfolioItem> getPortfolioItems() {
-        return portfolioItems;
-    }
-
-    public void setPortfolioItems(List<PortfolioItem> portfolioItems) {
-        this.portfolioItems = portfolioItems;
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public void addPortfolioItem(PortfolioItem portfolioItem) {
         portfolioItems.add(portfolioItem);
     }
-
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
 
     public void updateProfilePhoto(Blob profilePhoto) throws IOException {
         this.profilePhoto = profilePhoto;

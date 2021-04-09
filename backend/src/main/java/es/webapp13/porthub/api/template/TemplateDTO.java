@@ -1,10 +1,8 @@
 package es.webapp13.porthub.api.template;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class TemplateDTO {
 
     private long id;

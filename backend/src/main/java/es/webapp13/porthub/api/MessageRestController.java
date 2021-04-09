@@ -73,7 +73,7 @@ public class MessageRestController {
 
         if(!user1.isEmpty() && !user2.isEmpty()){
             if (user1.get().getId() == id1 && user2.get().getId() == id2) {
-                messageService.saveMessage(msg);
+                messageService.save(msg);
                 return ResponseEntity.ok(msg);
             }
         }
