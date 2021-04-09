@@ -1,0 +1,869 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: https://localhost:8443
+  description: Generated server url
+paths:
+  /api/users/:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUsers
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageUser'
+    post:
+      tags:
+      - user-rest-controller
+      operationId: postUsers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/templates/:
+    get:
+      tags:
+      - template-rest-controller
+      operationId: getTemplates
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageTemplate'
+    post:
+      tags:
+      - template-rest-controller
+      operationId: postTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplateDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Template'
+  /api/portfolioItems/:
+    post:
+      tags:
+      - portfolio-item-rest-controller
+      operationId: postPortfolioItems
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortfolioItemDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PortfolioItem'
+  /api/messages/{id1}/{id2}:
+    get:
+      tags:
+      - message-rest-controller
+      operationId: getMessages
+      parameters:
+      - name: id1
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id2
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageMessage'
+    post:
+      tags:
+      - message-rest-controller
+      operationId: postMessage
+      parameters:
+      - name: id1
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id2
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatMessage'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+  /api/users/{id}:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+    delete:
+      tags:
+      - user-rest-controller
+      operationId: deleteUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+    patch:
+      tags:
+      - user-rest-controller
+      operationId: putUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/portfolioItems/{id}:
+    patch:
+      tags:
+      - portfolio-item-rest-controller
+      operationId: putUser_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortfolioItemDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PortfolioItem'
+  /api/users/{id}/image:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/users/photographer:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getPhotographer
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageUser'
+  /api/users/engineers:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getEngineers
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageUser'
+  /api/users/designers:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getDesigners
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageUser'
+  /api/users/businessman:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getBusinessman
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageUser'
+  /api/templates/{id}:
+    get:
+      tags:
+      - template-rest-controller
+      operationId: getTemplate
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Template'
+    delete:
+      tags:
+      - template-rest-controller
+      operationId: deleteTemplate
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Template'
+  /api/portfolioItems/{portfolioItemId}:
+    get:
+      tags:
+      - portfolio-item-rest-controller
+      operationId: getPortfolioItem
+      parameters:
+      - name: portfolioItemId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PortfolioItem'
+  /api/portfolioItems/{id}/previewImage:
+    get:
+      tags:
+      - portfolio-item-rest-controller
+      operationId: getPreviewImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/portfolioItems/{id}/image3:
+    get:
+      tags:
+      - portfolio-item-rest-controller
+      operationId: getImage3
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/portfolioItems/{id}/image2:
+    get:
+      tags:
+      - portfolio-item-rest-controller
+      operationId: getImage2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/portfolioItems/{id}/image1:
+    get:
+      tags:
+      - portfolio-item-rest-controller
+      operationId: getImage1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/portfolioItems/users/{userId}:
+    get:
+      tags:
+      - portfolio-item-rest-controller
+      operationId: getPortfolioItems
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PagePortfolioItem'
+  /api/messages/{id}:
+    get:
+      tags:
+      - message-rest-controller
+      operationId: getMessage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /api/portfolioItems/users/{userId}/{portfolioItemId}:
+    delete:
+      tags:
+      - portfolio-item-rest-controller
+      operationId: deleteUser_1
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: portfolioItemId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+components:
+  schemas:
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        bornDate:
+          type: string
+          format: date-time
+        email:
+          type: string
+        password:
+          type: string
+        phoneNumber:
+          type: string
+        website:
+          type: string
+        city:
+          type: string
+        category:
+          type: string
+        degree:
+          type: string
+        freelance:
+          type: string
+        description:
+          type: string
+        profilePhoto:
+          type: string
+          format: binary
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        text:
+          type: string
+        sendDate:
+          type: string
+          format: date-time
+    PortfolioItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        userId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        client:
+          type: string
+        url:
+          type: string
+        date:
+          type: string
+          format: date-time
+    Template:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        htmlPath:
+          type: string
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        description:
+          type: string
+        free:
+          type: boolean
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        age:
+          type: integer
+          format: int64
+        bornDate:
+          type: string
+          format: date-time
+        creationDate:
+          type: string
+          format: date-time
+        email:
+          type: string
+        password:
+          type: string
+        phoneNumber:
+          type: string
+        website:
+          type: string
+        city:
+          type: string
+        category:
+          type: string
+        degree:
+          type: string
+        freelance:
+          type: string
+        description:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        activeTemplate:
+          $ref: '#/components/schemas/Template'
+        templates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Template'
+        portfolioItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/PortfolioItem'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+    TemplateDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        htmlPath:
+          type: string
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        description:
+          type: string
+        free:
+          type: boolean
+    PortfolioItemDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        userId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        previewImg:
+          type: string
+          format: binary
+        image1:
+          type: string
+          format: binary
+        image2:
+          type: string
+          format: binary
+        image3:
+          type: string
+          format: binary
+        category:
+          type: string
+        client:
+          type: string
+        url:
+          type: string
+        date:
+          type: string
+          format: date-time
+    ChatMessage:
+      type: object
+      properties:
+        content:
+          type: string
+        sender:
+          type: string
+        receiver:
+          type: string
+    Pageable:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        sort:
+          $ref: '#/components/schemas/Sort'
+        pageSize:
+          type: integer
+          format: int32
+        pageNumber:
+          type: integer
+          format: int32
+        paged:
+          type: boolean
+        unpaged:
+          type: boolean
+    Sort:
+      type: object
+      properties:
+        sorted:
+          type: boolean
+        unsorted:
+          type: boolean
+        empty:
+          type: boolean
+    PageUser:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/Sort'
+        numberOfElements:
+          type: integer
+          format: int32
+        first:
+          type: boolean
+        last:
+          type: boolean
+        pageable:
+          $ref: '#/components/schemas/Pageable'
+        empty:
+          type: boolean
+    PageTemplate:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Template'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/Sort'
+        numberOfElements:
+          type: integer
+          format: int32
+        first:
+          type: boolean
+        last:
+          type: boolean
+        pageable:
+          $ref: '#/components/schemas/Pageable'
+        empty:
+          type: boolean
+    PagePortfolioItem:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/PortfolioItem'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/Sort'
+        numberOfElements:
+          type: integer
+          format: int32
+        first:
+          type: boolean
+        last:
+          type: boolean
+        pageable:
+          $ref: '#/components/schemas/Pageable'
+        empty:
+          type: boolean
+    PageMessage:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/Sort'
+        numberOfElements:
+          type: integer
+          format: int32
+        first:
+          type: boolean
+        last:
+          type: boolean
+        pageable:
+          $ref: '#/components/schemas/Pageable'
+        empty:
+          type: boolean
