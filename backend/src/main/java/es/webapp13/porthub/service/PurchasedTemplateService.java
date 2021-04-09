@@ -88,7 +88,7 @@ public class PurchasedTemplateService {
      * @param id Template id
      * @return A purchased template
      */
-    public PurchasedTemplate findPurchased(long id) {
+    public PurchasedTemplate find(long id) {
         return purchasedTemplateMap.get(id);
     }
 

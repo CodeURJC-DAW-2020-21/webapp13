@@ -170,7 +170,7 @@ public class UserService {
         Long topId = null;
         for (long k : templateMap.keySet()) {
             int currentValue = templateMap.get(k);
-            if ((currentValue > maxValue) && (!purchasedTemplateService.findPurchased(k).isPurchased())) {
+            if ((currentValue > maxValue) && (!purchasedTemplateService.find(k).isPurchased())) {
                 maxValue = currentValue;
                 topId = k;
             }
@@ -178,7 +178,7 @@ public class UserService {
         if (topId == null) {
             return Optional.empty();
         }
-        return Optional.of(purchasedTemplateService.findPurchased(topId));
+        return Optional.of(purchasedTemplateService.find(topId));
     }
 
     /**

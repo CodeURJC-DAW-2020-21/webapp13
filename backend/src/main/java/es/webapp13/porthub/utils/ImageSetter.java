@@ -5,6 +5,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-public interface setImage {
+public interface ImageSetter {
     void run(PortfolioItem p, MultipartFile i) throws IOException;
 }

@@ -57,14 +57,14 @@ public class TemplateController {
     @GetMapping("/template/premium/{userId}/portfolioitem/{itemId}")
     public String templatePremiumPortfolioItemLink(Model model, @PathVariable String userId, @PathVariable long itemId) {
         model.addAttribute("portfolioUser", userService.findById(userId).orElseThrow());
-        model.addAttribute("portfolioItem", portfolioItemService.find(userId, itemId));
+        model.addAttribute("portfolioItem", portfolioItemService.findById(itemId).orElseThrow());
         return "templates/premium/portfolio-item";
     }
 
     @GetMapping("/template/free/{userId}/portfolioitem/{itemId}")
     public String templateFreePortfolioItemLink(Model model, @PathVariable String userId, @PathVariable long itemId) {
         model.addAttribute("portfolioUser", userService.findById(userId).orElseThrow());
-        model.addAttribute("portfolioItem", portfolioItemService.find(userId, itemId));
+        model.addAttribute("portfolioItem", portfolioItemService.findById(itemId).orElseThrow());
         return "templates/free/portfolio-item";
     }
 

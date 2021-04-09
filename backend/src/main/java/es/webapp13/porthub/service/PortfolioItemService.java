@@ -5,7 +5,7 @@ import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.PortfolioItemRepository;
 import es.webapp13.porthub.repository.UserRepository;
 import es.webapp13.porthub.utils.ImageUpdater;
-import es.webapp13.porthub.utils.setImage;
+import es.webapp13.porthub.utils.ImageSetter;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -94,10 +94,10 @@ public class PortfolioItemService {
     public void update(PortfolioItem item, long id, MultipartFile previewImg, MultipartFile image1, MultipartFile image2, MultipartFile image3) throws IOException, SQLException {
         PortfolioItem portfolioItem = portfolioItemRepository.findById(id).orElseThrow();
 
-        setImage setPreviewImg = (p, i) -> p.setPreviewImg(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-        setImage setImg1 = (p, i) -> p.setImage1(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-        setImage setImg2 = (p, i) -> p.setImage2(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-        setImage setImg3 = (p, i) -> p.setImage3(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageSetter setPreviewImg = (p, i) -> p.setPreviewImg(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageSetter setImg1 = (p, i) -> p.setImage1(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageSetter setImg2 = (p, i) -> p.setImage2(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageSetter setImg3 = (p, i) -> p.setImage3(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
 
         ImageUpdater getPreviewImg = (p) -> p.getPreviewImg().length() == 0;
         ImageUpdater getImg1 = (p) -> p.getImage1().length() == 0;
@@ -128,7 +128,7 @@ public class PortfolioItemService {
      * @throws SQLException Image not found in database
      * @throws IOException  No image at input
      */
-    private void UpdateImage(PortfolioItem item, MultipartFile img, setImage setImg, ImageUpdater getImg) throws SQLException, IOException {
+    private void UpdateImage(PortfolioItem item, MultipartFile img, ImageSetter setImg, ImageUpdater getImg) throws SQLException, IOException {
         if (!img.isEmpty())
             setImg.run(item, img);
         else {

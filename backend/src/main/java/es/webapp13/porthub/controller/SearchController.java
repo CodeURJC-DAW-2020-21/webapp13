@@ -40,7 +40,7 @@ public class SearchController {
 
     @PostMapping("/searchbar")
     public String searchBarForm(Model model, String search, Pageable pageable) {
-        Page<User> userPage = searchService.findUsersBySearchBar(search, pageable);
+        Page<User> userPage = searchService.findPageBySearchBar(search, pageable);
         addAttributes(model, userPage, "Búsqueda", "active_all");
         return "search";
     }
