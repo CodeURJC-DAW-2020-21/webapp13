@@ -65,7 +65,7 @@ public class User {
     }
 
     public User(String id, String name, String surname, String email, String password, long age, String phoneNumber,
-                String website, String city, String degree, String freelance, String description, String category, Template activeTemplate, Date bornDate,String... roles) {
+                String website, String city, String degree, String freelance, String description, String category, Template activeTemplate, Date date,String... roles) {
         super();
         this.id = id;
         this.name = name;
@@ -81,7 +81,7 @@ public class User {
         this.description = description;
         this.category = category;
         this.activeTemplate = activeTemplate;
-        this.bornDate = bornDate;
+        this.bornDate = date;
         this.roles = List.of(roles);
     }
 

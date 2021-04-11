@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.rmi.ServerException;
 import java.security.Principal;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 @Controller
 public class AuthenticationController {
@@ -55,9 +52,6 @@ public class AuthenticationController {
     public String signupConfirmationLink(Model model, User user, HttpServletRequest request) throws IOException {
         String password = user.getPassword();
         userService.create(user);
-        Calendar calendar = Calendar.getInstance();
-        Date userCreationDate = calendar.getTime();
-        user.setCreationDate((java.sql.Date) userCreationDate);
         activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
         purchasedTemplateService.create(user.getTemplates());
         try {
