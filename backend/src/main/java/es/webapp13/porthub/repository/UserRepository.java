@@ -22,4 +22,6 @@ public interface UserRepository extends JpaRepository<User, String> {
 
     @Query("SELECT u FROM User u WHERE u.category=?1")
     List<User> findSimilarUser(String category);
+
+
 }

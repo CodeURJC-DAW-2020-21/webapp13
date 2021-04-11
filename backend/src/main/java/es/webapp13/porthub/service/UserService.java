@@ -64,6 +64,9 @@ public class UserService {
         long age = calculateAge(user);
         user.setAge(age);
 
+        java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
+        user.setCreationDate(date);
+
         Resource image = new ClassPathResource("/static/app/assets/images/default-profile.jpg");
         user.setProfilePhoto(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
         userRepository.save(user);
@@ -261,6 +264,12 @@ public class UserService {
      */
     public void delete(User user) {
         userRepository.delete(user);
+    }
+
+    public void setCreationDateToUser(User user){
+        Calendar calendar = Calendar.getInstance();
+        Date creationDate = calendar.getTime();
+        user.setCreationDate((java.sql.Date) creationDate);
     }
 
 }

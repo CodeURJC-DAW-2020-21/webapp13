@@ -87,6 +87,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user = new User("id", "José Luis", "Martinez Almeida", "joselu@pp.com", passwordEncoder.encode("pass"), 51,"618 99 55 66",
                 "www.web.es", "Madrid", "Política", "No", "Abogado del Estado y alcalde de Madrid desde 2019", "Empresario", free, new Date(1669176000), portfolioItemList, "USER");
+        String dateStr = "2021-01-1";
+        Date date = Date.valueOf(dateStr);
+        user.setCreationDate(date);
         this.setUserImage(user, "/static/app/assets/images/almeida.jpg");
         user.getTemplates().add(free);
         user.getTemplates().add(premium);
@@ -97,6 +100,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user1 = new User("admin", "Roberto", "Fernánndez", "admin@gmail.com",passwordEncoder.encode("admin"), 51,"635 890 173",
                 "www.admin.com", "admin", "admin", "admin", "admin", "Fotografo", premium, new Date(162598600),"USER", "ADMIN");
+        String dateStr1 = "2021-02-1";
+        Date date1 = Date.valueOf(dateStr1);
+        user1.setCreationDate(date1);
         this.setUserImage(user1, "/static/app/assets/images/people/110/guy-1.jpg");
         user1.getTemplates().add(free);
         user1.setActiveTemplate(free);
@@ -106,6 +112,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user2 = new User("lmessi10", "Lionel", "Messi", "lionelamessi10@gmail.com",passwordEncoder.encode("1234"), 51,"635 890 173",
                 "www.pinterest.com", "Barcelona", "Técnico de imagen y sonido", "freelance2", "Persona con rápido aprendizaje y adaptación", "Fotografo", premium, new Date(162598600),"USER", "ADMIN");
+        String dateStr2 = "2021-03-1";
+        Date date2 = Date.valueOf(dateStr2);
+        user2.setCreationDate(date2);
         this.setUserImage(user2, "/static/app/assets/images/people/110/guy-2.jpg");
         user2.getTemplates().add(free);
         user2.setActiveTemplate(free);
@@ -115,6 +124,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user3 = new User("jdelgado00", "Juan", "Delgado", "jdelgado2020@gmail.com",passwordEncoder.encode("pass"), 51,"624 563 789",
                 "www.twitch.com", "San Sebastián", "Ingenieria de Caminos", "freelance", "description", "Ingeniero", free,new Date(151598600), "USER");
+        String dateStr3 = "2021-04-1";
+        Date date3 = Date.valueOf(dateStr3);
+        user3.setCreationDate(date3);
         this.setUserImage(user3, "/static/app/assets/images/people/110/guy-3.jpg");
         user3.getTemplates().add(free);
         user3.getTemplates().add(premium);
@@ -125,6 +137,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user4 = new User("dperez15", "David", "Perez", "davidperez10@yahoo.com",passwordEncoder.encode("pass"), 51,"623 768 654",
                 "www.youtube.com", "París", "Diseño de Interiores", "freelance", "description", "Diseñador", free,new Date(163598600), "USER");
+        String dateStr4 = "2021-05-1";
+        Date date4 = Date.valueOf(dateStr4);
+        user4.setCreationDate(date4);
         this.setUserImage(user4, "/static/app/assets/images/people/110/guy-4.jpg");
         user4.getTemplates().add(free);
         user4.setActiveTemplate(free);
@@ -134,6 +149,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user5 = new User("csanchez85", "Carlos", "Sanchez", "carlossanchez99@oulook.com",passwordEncoder.encode("pass"), 51,"629 798 657",
                 "www.bitpanda.com", "Valladolid", "Ingenieria de la Energía", "freelance", "description", "Ingeniero", free,new Date(181598600), "USER");
+        String dateStr5 = "2021-06-1";
+        Date date5 = Date.valueOf(dateStr5);
+        user5.setCreationDate(date5);
         this.setUserImage(user5, "/static/app/assets/images/people/110/guy-5.jpg");
         user5.getTemplates().add(free);
         user5.getTemplates().add(premium);
@@ -144,6 +162,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user6 = new User("rogonza987", "Rodrigo", "Gonzalez", "rodrigonzalez7@gmail.com",passwordEncoder.encode("pass"), 51,"604 347 927",
                 "www.telegram.com", "Toledo", "Ingeniería Medioambiental", "freelance", "", "Ingeniero", free,new Date(167598600), "USER");
+        String dateStr6 = "2021-07-1";
+        Date date6 = Date.valueOf(dateStr6);
+        user6.setCreationDate(date6);
         this.setUserImage(user6, "/static/app/assets/images/people/110/guy-6.jpg");
         user6.getTemplates().add(free);
         user6.getTemplates().add(premium);
@@ -154,6 +175,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user7 = new User("anitarom56", "Ana", "Romero", "anaromeroest79@gmail.com",passwordEncoder.encode("pass"), 51,"690 216 237",
                 "www.instagram.com", "Cáceres", "Ingenieria Electrica", "freelance", "description", "Ingeniero", free,new Date(169598600), "USER");
+        String dateStr7 = "2021-08-1";
+        Date date7 = Date.valueOf(dateStr7);
+        user7.setCreationDate(date7);
         this.setUserImage(user7, "/static/app/assets/images/people/110/woman-1.jpg");
         user7.getTemplates().add(free);
         user7.getTemplates().add(premium);
@@ -164,6 +188,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user8 = new User("siiil99", "Silvia", "Ballesteros", "silviaballesteros98@outlook.com",passwordEncoder.encode("pass"), 51,"639 289 038",
                 "www.tuenti.com", "Badajoz", "Fundamentos de la fotografia", "freelance", "description", "Fotografo", free,new Date(161298600), "USER");
+        String dateStr8 = "2021-09-1";
+        Date date8 = Date.valueOf(dateStr8);
+        user8.setCreationDate(date8);
         this.setUserImage(user8, "/static/app/assets/images/people/110/woman-2.jpg");
         user8.getTemplates().add(free);
         user8.setActiveTemplate(free);
@@ -173,6 +200,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user9 = new User("lauradiaz67", "Laura", "Díaz", "lauradiezmad20@telefonica.net",passwordEncoder.encode("pass"), 51,"699 236 546",
                 "www.facebook.com", "Londres", "Ingeniería del software", "freelance", "description", "Ingeniero", free,new Date(161558600), "USER");
+        String dateStr9 = "2021-10-1";
+        Date date9 = Date.valueOf(dateStr9);
+        user9.setCreationDate(date9);
         this.setUserImage(user9, "/static/app/assets/images/people/110/woman-3.jpg");
         user9.getTemplates().add(free);
         user9.getTemplates().add(premium);
@@ -183,6 +213,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user10 = new User("bertacabello25", "Berta", "Cabello", "bertacabello50@gmail.com",passwordEncoder.encode("pass"), 51,"634 847 935",
                 "www.snapchat.com", "Vigo", "Ingeniería Geologica", "freelance", "description", "Ingeniero", free, new Date(166598600),"USER");
+        String dateStr10 = "2021-11-1";
+        Date date10 = Date.valueOf(dateStr10);
+        user10.setCreationDate(date10);
         this.setUserImage(user10, "/static/app/assets/images/people/110/woman-4.jpg");
         user10.getTemplates().add(free);
         user10.getTemplates().add(premium);
@@ -193,6 +226,9 @@ public class DataBaseController implements CommandLineRunner {
 
         User user11 = new User("crisheredia10", "Cristina", "Heredia", "crisheredia11@hotmail.com",passwordEncoder.encode("pass"), 51,"619 025 549",
                 "www.elmundo.com", "A Coruña", "Doble Ingenieria Informatica y Software", "freelance", "description", "Ingeniero", free,new Date(111598600), "USER");
+        String dateStr11 = "2021-12-1";
+        Date date11 = Date.valueOf(dateStr11);
+        user11.setCreationDate(date11);
         this.setUserImage(user11, "/static/app/assets/images/people/110/woman-5.jpg");
         user11.getTemplates().add(free);
         user11.getTemplates().add(premium);
