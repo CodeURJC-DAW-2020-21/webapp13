@@ -187,6 +187,12 @@ public class UserService {
     }
 
     /**
+     * Get a list of the number of  users registered in every month
+     * @return
+     */
+    public Collection<Integer> countAllByCreationDateMonth(){return userRepository.countAllByCreationDate_Month();}
+
+    /**
      * Update user info by given parameters
      *
      * @param newUser    The new info

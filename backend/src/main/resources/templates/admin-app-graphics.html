@@ -51,8 +51,9 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <h4 class="card-title">Usuarios de Porthub</h4>
-                        <p class="text-70">En este gráfico se muestra el total de usuarios que usan
-                            la aplicación.</p>
+                        <p class="text-70">En este gráfico se muestra el número de usuarios dados de alta cada mes este año
+                            en Porthub.</p>
+                        <input type="hidden" value={{usersPerMonth}}>
                     </div>
                     <div class="col-lg-8">
                         <div class="chart">
@@ -64,7 +65,6 @@
                     <div style="font-size:25px; color: #ffffff">Este texto es de relleno para cuadrar el gráfico.</div>
                 </div>
             </div>
-            <input type="hidden" value="{{totalUsers}}" id="totalUsers">
         </div>
     </div>
 </div>
@@ -80,18 +80,18 @@
 <script src="/app/assets/js/chartjs.js"></script>
 
 <script>
-    var barGraphic = document.getElementById("usersGraphic");
+    var lineGraphic = document.getElementById("usersGraphic");
 
     Chart.defaults.global.defaultFontFamily = "Lato";
     Chart.defaults.global.defaultFontSize = 18;
     var data = {
-        label: "Usuarios totales",
+        label: Util.months({count: 12}),
 
         datasets: [{
-            label: "Usuarios en PortHub",
-            backgroundColor: ['rgba(60, 99, 132, 0.6)'],
+            labels: "Usuarios registrados cada mes",
+            fill: false,
             borderColor: ['rgba(30, 99, 132, 1)'],
-            data: [{{totalUsers}}]
+            data: []//{{usersPerMonth}}
         }]
     };
 
@@ -106,8 +106,8 @@
         }
     };
 
-    var lineChart = new Chart(barGraphic, {
-        type: 'bar',
+    var lineChart = new Chart(lineGraphic, {
+        type: 'line',
         data: data,
         options: chartOptions
     });
