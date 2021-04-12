@@ -61,12 +61,17 @@ public class MessageRestController {
      * @return the list of messages
      */
     @GetMapping("/{id1}/{id2}")
-    public ResponseEntity<List<Message>> getMessages(@PathVariable String id1, @PathVariable String id2, Pageable pageable) {
+    public ResponseEntity<List<Message>> getMessages(@PathVariable String id1, @PathVariable String id2, Pageable pageable, HttpServletRequest request) {
 
         Optional<User> user1 = userService.findById(id1);
         Optional<User> user2 = userService.findById(id2);
 
+        Principal principal = request.getUserPrincipal();
+        Optional<User> me = userService.findById(principal.getName());
+
         if (!user1.isEmpty() && !user2.isEmpty()) {
+            if(me.isEmpty() || !user1.get().getId().equals(me.get().getId()))
+                return ResponseEntity.badRequest().build();
             List<Message> messages = messageService.findAll(user1.get(), user2.get());
             if (!messages.isEmpty())
                 return ResponseEntity.ok(messages);
