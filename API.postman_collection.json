@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a24cd027-c231-4c84-8c24-1d33e802dce6",
+		"_postman_id": "3150973f-dc7d-4b91-bed3-6292d1ebbcdd",
 		"name": "API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -232,7 +232,7 @@
 								{
 									"key": "profilePhoto",
 									"type": "file",
-									"src": "backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+									"src": "files/256_rsz_90-jiang-640827-unsplash.jpg"
 								}
 							]
 						},
@@ -349,7 +349,7 @@
 								{
 									"key": "profilePhoto",
 									"type": "file",
-									"src": "backend/src/main/resources/static/app/assets/images/people/256/256_rsz_90-jiang-640827-unsplash.jpg"
+									"src": "files/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
 								}
 							]
 						},

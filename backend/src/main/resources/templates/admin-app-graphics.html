@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="chart">
-                            <canvas id="usersGraphic" class="chart-canvas"></canvas>
+                            <canvas id="ordersChart" class="chart-canvas"></canvas>
                         </div>
                     </div>
                 </div>
@@ -69,6 +69,8 @@
 </div>
 </div>
 
+<script src="/app/assets/vendor/jquery.min.js"></script>
+
 <!-- Global Settings -->
 <script src="/app/assets/js/settings.js"></script>
 
@@ -76,12 +78,45 @@
 <script src="/app/assets/vendor/Chart.min.js"></script>
 
 <!-- Chart.js Wrapper -->
+<script src="/app/assets/js/chartjs-rounded-bar.js"></script>
 <script src="/app/assets/js/chartjs.js"></script>
 
+
 <script>
+    Charts.init()
+</script>
+
+<script>
+
+    const users = document.getElementById("usersPerMonth").value.match(/\d+/g).map(Number);
+
+    var options = {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+
+    var data = {
+        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        datasets: [{
+            label: "Sales",
+            data: users
+        }]
+    }
+
+    Charts.create('#ordersChart', 'roundedBar', options, data)
+
+
+
+    /*
     var barGraphic = document.getElementById("usersGraphic");
-    users = document.getElementById("usersPerMonth").value;
-    console.log(users)
+    const users = document.getElementById("usersPerMonth").value;
+    var userValues = users.match(/\d+/g).map(Number)
+
+
+
 
     Chart.defaults.global.defaultFontFamily = "Lato";
     Chart.defaults.global.defaultFontSize = 18;
@@ -91,7 +126,7 @@
             label:"Usuarios por mes",
             backgroundColor: ['rgba(60, 99, 132, 0.6)'],
             borderColor: ['rgba(30, 99, 132, 1)'],
-            data: users
+            data: userValues
         }]
     };
 
@@ -111,6 +146,8 @@
         data: data,
         options: chartOptions
     });
+
+     */
 </script>
 
 
