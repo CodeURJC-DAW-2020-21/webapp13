@@ -23,5 +23,6 @@ public interface UserRepository extends JpaRepository<User, String> {
     @Query("SELECT u FROM User u WHERE u.category=?1")
     List<User> findSimilarUser(String category);
 
-
+    @Query("SELECT COUNT(u.creationDate) FROM User u WHERE MONTH(u.creationDate) = ?1 AND YEAR(u.creationDate) =?2 ")
+    int countAllByCreationDate_Month(int month, int year);
 }

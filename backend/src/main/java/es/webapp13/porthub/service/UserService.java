@@ -272,4 +272,12 @@ public class UserService {
         user.setCreationDate((java.sql.Date) creationDate);
     }
 
+    public List<Integer> selectByCreationDateMonth(){
+        List<Integer> monthList = new LinkedList<>();
+        for (int i = 1; i < 13; i++) {
+            monthList.add(userRepository.countAllByCreationDate_Month(i, 2021));
+        }
+        return monthList;
+    }
+
 }
