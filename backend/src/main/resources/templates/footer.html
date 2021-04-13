@@ -55,7 +55,7 @@
                 <!-- Search -->
                 <form action="/searchbar" method="post" class="search-form search-form--black">
                     <input type="text" class="form-control" placeholder="Busca un usuario">
-                    <!--<input type="hidden" name="_csrf" value="csrfTokenValue"/>-->
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
                     <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
                 </form>
 
@@ -97,14 +97,14 @@
                 <li class="sidebar-menu-item mb-3">
                     <form action="/admin" method="post">
                         <button type="submit" class="btn btn-outline-success ml-3">Administración</button>
-                        <input type="hidden" name="_csrf" value="csrfTokenValue" />
+                        <input type="hidden" name="_csrf" value="{{token}}" />
                     </form>
                 </li>
                 {{/admin}}
                 <li class="sidebar-menu-item">
                     <form action="/logout" method="post">
                         <button type="submit" class="btn btn-accent ml-3">Logout</button>
-                        <input type="hidden" name="_csrf" value="csrfTokenValue" />
+                        <input type="hidden" name="_csrf" value="{{token}}" />
                     </form>
                 </li>
                 {{/logued}}
