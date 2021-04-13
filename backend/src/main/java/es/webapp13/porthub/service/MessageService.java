@@ -1,14 +1,17 @@
 package es.webapp13.porthub.service;
 
+import es.webapp13.porthub.api.message.MessageDTO;
 import es.webapp13.porthub.chat.ChatMessage;
 import es.webapp13.porthub.chat.ChatService;
 import es.webapp13.porthub.model.Message;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.repository.MessageRepository;
+import es.webapp13.porthub.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
+import org.springframework.web.util.HtmlUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,20 +21,32 @@ public class MessageService {
 
     private final MessageRepository messageRepository;
 
+    private final UserRepository userRepository;
+
     private final ChatService chatService;
 
-    public MessageService(MessageRepository messageRepository, ChatService chatService) {
+    public MessageService(MessageRepository messageRepository, ChatService chatService, UserRepository userRepository) {
         this.messageRepository = messageRepository;
         this.chatService = chatService;
+        this.userRepository = userRepository;
     }
 
     /**
      * Save a message in the database
      *
-     * @param msg The message
+     * @param messageDTO The message in DTO format
+     * @return The message created
      */
-    public Message save(ChatMessage msg) {
-        return this.chatService.saveMessage(msg);
+    public Message save(MessageDTO messageDTO) {
+        User sender = userRepository.findById(messageDTO.getSender()).orElseThrow();
+        User receiver = userRepository.findById(messageDTO.getReceiver()).orElseThrow();
+        Message message = new Message(sender, receiver, HtmlUtils.htmlEscape(messageDTO.getContent()), new java.util.Date());
+
+        messageRepository.save(message);
+        userRepository.save(sender);
+        userRepository.save(receiver);
+
+        return message;
     }
 
     /**

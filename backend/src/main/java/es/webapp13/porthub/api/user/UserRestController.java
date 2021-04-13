@@ -111,17 +111,25 @@ public class UserRestController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<User> postUsers(@ModelAttribute UserDTO userDTO) throws IOException, SQLException {
+    public ResponseEntity<User> postUser(@RequestBody UserDTO userDTO) throws IOException {
         User user = modelMapper.map(userDTO, User.class);
         userService.create(user);
-        if (userDTO.getProfilePhoto() != null){
-            userService.update(user,user.getId(), userDTO.getProfilePhoto());
-        }
-
-
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
-
         return ResponseEntity.created(location).body(user);
+    }
+
+    @PostMapping("/{id}/image")
+    public ResponseEntity<User> postUserImage(@PathVariable String id, @ModelAttribute UserDTO userDTO) throws IOException, SQLException {
+        Optional<User> user = userService.findById(id);
+        if (user.isPresent()) {
+            if (userDTO.getProfilePhoto() != null) {
+                userService.update(user.get(), user.get().getId(), userDTO.getProfilePhoto());
+            }
+            URI location = fromCurrentRequest().build().toUri();
+            return ResponseEntity.created(location).build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/{id}")
@@ -138,8 +146,10 @@ public class UserRestController {
 
     }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<User> putUser(@PathVariable String id, @ModelAttribute UserDTO userDTO) throws SQLException, IOException {
+    @PutMapping("/{id}")
+    public ResponseEntity<User> patchUser(@PathVariable String id, @RequestBody UserDTO userDTO) throws SQLException, IOException {
+        System.out.println(userDTO.toString());
+        System.out.println("###");
         Optional<User> optionalUser = userService.findById(id);
         User user = modelMapper.map(userDTO, User.class);
 

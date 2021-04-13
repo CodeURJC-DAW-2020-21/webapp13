@@ -20,10 +20,11 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/error")
+
+   /* @GetMapping("/error")
     public String errorLink() {
         return "error";
-    }
+    }*/
 
 
 }

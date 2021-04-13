@@ -71,7 +71,7 @@
                                             {{^active}}
                                             <form action="/set/active/template">
                                                 <input type="hidden" name='id' value="{{id}}"/>
-                                                <!--<input type="hidden" name="_csrf" value="csrfTokenValue"/>-->
+                                                <input type="hidden" name="_csrf" value="{{token}}"/>
                                                 <input type='submit' class="btn btn-accent" value='Activar' />
                                             </form>
                                             {{/active}}

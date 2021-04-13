@@ -222,6 +222,10 @@ public class UserService {
         user.setDegree(newUser.getDegree());
         user.setCategory(newUser.getCategory());
         user.setFreelance(newUser.getFreelance());
+        user.setBornDate(newUser.getBornDate());
+        user.setWebsite(newUser.getWebsite());
+        user.setAge(calculateAge(newUser));
+        user.setDescription(newUser.getDescription());
 
         userRepository.save(user);
     }
