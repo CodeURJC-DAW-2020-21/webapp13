@@ -128,7 +128,7 @@ public class PortfolioItemService {
      * @throws SQLException Image not found in database
      * @throws IOException  No image at input
      */
-    private void UpdateImage(PortfolioItem item, MultipartFile img, ImageSetter setImg, ImageUpdater getImg) throws SQLException, IOException {
+    public void UpdateImage(PortfolioItem item, MultipartFile img, ImageSetter setImg, ImageUpdater getImg) throws SQLException, IOException {
         if (!img.isEmpty())
             setImg.run(item, img);
         else {
