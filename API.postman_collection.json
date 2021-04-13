@@ -232,7 +232,7 @@
 								{
 									"key": "profilePhoto",
 									"type": "file",
-									"src": "backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
 								}
 							]
 						},
@@ -349,7 +349,7 @@
 								{
 									"key": "profilePhoto",
 									"type": "file",
-									"src": "backend/src/main/resources/static/app/assets/images/people/256/256_rsz_90-jiang-640827-unsplash.jpg"
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/256_rsz_90-jiang-640827-unsplash.jpg"
 								}
 							]
 						},
