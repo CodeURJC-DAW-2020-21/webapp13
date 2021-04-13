@@ -46,7 +46,7 @@ public class TemplateRestController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Template> postTemplate (@ModelAttribute TemplateDTO templateDTO) throws IOException {
+    public ResponseEntity<Template> postTemplate (@RequestBody TemplateDTO templateDTO) throws IOException {
         Template template = modelMapper.map(templateDTO, Template.class);
         templateService.create(template);
 
