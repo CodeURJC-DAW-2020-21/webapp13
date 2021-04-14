@@ -374,7 +374,598 @@
 		},
 		{
 			"name": "Portfolio Items",
-			"item": []
+			"item": [
+				{
+					"name": "/users/{userId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"users",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{portfolioItemId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{portfolioItemId}/previewImage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/3/previewImage",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"3",
+								"previewImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{portfolioItemId}/image1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/3/image1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"3",
+								"image1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{portfolioItemId}/image2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/3/image2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"3",
+								"image2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{portfolioItemId}/image3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/3/image3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"3",
+								"image3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "id",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Fotos en el zoo",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Una sesión de fotos de lo más salvaje",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Fotografía",
+									"type": "text"
+								},
+								{
+									"key": "client",
+									"value": "Zoo de Madrid",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "https://www.zoomadrid.com/",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2000-07-28",
+									"type": "text"
+								},
+								{
+									"key": "previewPhoto",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								},
+								{
+									"key": "image1",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								},
+								{
+									"key": "image2",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								},
+								{
+									"key": "image3",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/previewImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "previewPhoto",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/previewImage",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id",
+								"10",
+								"previewImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/image1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image1",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id",
+								"10",
+								"image1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/image2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image2",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id",
+								"10",
+								"image2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/image3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image3",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id",
+								"10",
+								"image3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"users",
+								"id",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "id",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Fotos en el parque de atracciones",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Una sesión de fotos de lo más divertida",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Fotografía",
+									"type": "text"
+								},
+								{
+									"key": "client",
+									"value": "Parque de atracciones de Madrid",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "https://www.parquedeatracciones.es/",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2000-10-28",
+									"type": "text"
+								},
+								{
+									"key": "previewPhoto",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								},
+								{
+									"key": "image1",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								},
+								{
+									"key": "image2",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								},
+								{
+									"key": "image3",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/previewImage",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "previewPhoto",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/previewImage",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id",
+								"10",
+								"previewImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/image1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image1",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id",
+								"10",
+								"image1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/image2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image2",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id",
+								"10",
+								"image2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/image3",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image3",
+									"type": "file",
+									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id",
+								"10",
+								"image3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Templates",

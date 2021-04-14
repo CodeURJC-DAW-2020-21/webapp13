@@ -61,10 +61,10 @@ public class PortfolioItemRestController {
         return portfolioItem.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/{id}/previewImage")
-    public ResponseEntity<Object> getPreviewImage(@PathVariable long id) throws SQLException {
+    @GetMapping("/{portfolioItemId}/previewImage")
+    public ResponseEntity<Object> getPreviewImage(@PathVariable long portfolioItemId) throws SQLException {
 
-        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
+        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
 
         if (portfolioItem.isPresent()) {
             int profilePhotoLength = (int) portfolioItem.get().getPreviewImg().length();
@@ -73,10 +73,10 @@ public class PortfolioItemRestController {
             return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/{id}/image1")
-    public ResponseEntity<Object> getImage1(@PathVariable long id) throws SQLException {
+    @GetMapping("/{portfolioItemId}/image1")
+    public ResponseEntity<Object> getImage1(@PathVariable long portfolioItemId) throws SQLException {
 
-        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
+        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
 
         if (portfolioItem.isPresent()) {
             int profilePhotoLength = (int) portfolioItem.get().getImage1().length();
@@ -85,10 +85,10 @@ public class PortfolioItemRestController {
             return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/{id}/image2")
-    public ResponseEntity<Object> getImage2(@PathVariable long id) throws SQLException {
+    @GetMapping("/{portfolioItemId}/image2")
+    public ResponseEntity<Object> getImage2(@PathVariable long portfolioItemId) throws SQLException {
 
-        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
+        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
 
         if (portfolioItem.isPresent()) {
             int profilePhotoLength = (int) portfolioItem.get().getImage2().length();
@@ -97,10 +97,10 @@ public class PortfolioItemRestController {
             return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/{id}/image3")
-    public ResponseEntity<Object> getImage3(@PathVariable long id) throws SQLException {
+    @GetMapping("/{portfolioItemId}/image3")
+    public ResponseEntity<Object> getImage3(@PathVariable long portfolioItemId) throws SQLException {
 
-        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
+        Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
 
         if (portfolioItem.isPresent()) {
             int profilePhotoLength = (int) portfolioItem.get().getImage3().length();
@@ -109,16 +109,16 @@ public class PortfolioItemRestController {
             return ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/{id}")
-    public ResponseEntity<PortfolioItem> postPortfolioItems(@PathVariable String id, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
+    @PostMapping("/users/{userId}")
+    public ResponseEntity<PortfolioItem> postPortfolioItems(@PathVariable String userId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
 
         Principal principal = request.getUserPrincipal();
         Optional<User> me = userService.findById(principal.getName());
         
-        if (me.isPresent() && id.contentEquals(me.get().getId())){
+        if (me.isPresent() && userId.contentEquals(me.get().getId())){
             PortfolioItem portfolioItem = modelMapper.map(portfolioItemDTO, PortfolioItem.class);
 
-            portfolioItemService.add(id, portfolioItem);
+            portfolioItemService.add(userId, portfolioItem);
 
             MultipartFile imgP = portfolioItemDTO.getPreviewImg();
             MultipartFile img1 = portfolioItemDTO.getImage1();
@@ -129,7 +129,7 @@ public class PortfolioItemRestController {
                 portfolioItemService.update(portfolioItem, portfolioItem.getId(), imgP, img1, img2, img3);
             }
 
-            URI location = fromCurrentRequest().path("/{id}").buildAndExpand(portfolioItem.getId()).toUri();
+            URI location = fromCurrentRequest().path("/{userId}").buildAndExpand(portfolioItem.getId()).toUri();
 
             return ResponseEntity.created(location).body(portfolioItem);
         }
