@@ -1,24 +1,17 @@
 package es.webapp13.porthub.api.message;
 
-import es.webapp13.porthub.chat.ChatMessage;
+
 import es.webapp13.porthub.model.Message;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.MessageService;
 import es.webapp13.porthub.service.UserService;
-import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.HtmlUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.net.URI;
 import java.security.Principal;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,12 +26,10 @@ public class MessageRestController {
 
     private final UserService userService;
 
-    private final ModelMapper modelMapper;
 
-    public MessageRestController(MessageService messageService, UserService userService, ModelMapper modelMapper) {
+    public MessageRestController(MessageService messageService, UserService userService) {
         this.messageService = messageService;
         this.userService = userService;
-        this.modelMapper = modelMapper;
     }
 
     /**
@@ -48,13 +39,19 @@ public class MessageRestController {
      * @return the message
      */
     @GetMapping("/{id}")
-    public ResponseEntity<Message> getMessage(@PathVariable long id) {
+    public ResponseEntity<Message> getMessage(@PathVariable long id, HttpServletRequest request) {
 
         Optional<Message> message = messageService.findById(id);
 
-        if (!message.isEmpty())
-            return ResponseEntity.ok(message.get());
-        else
+        Principal principal = request.getUserPrincipal();
+        Optional<User> me = userService.findById(principal.getName());
+
+        if (!message.isEmpty()) {
+            if (!me.isEmpty() && (me.get().getId().equals(message.get().getSender().getId()) || me.get().getId().equals(message.get().getReceiver().getId())))
+                return ResponseEntity.ok(message.get());
+
+            return ResponseEntity.status(403).build();
+        } else
             return ResponseEntity.notFound().build();
 
     }
@@ -105,9 +102,11 @@ public class MessageRestController {
                 Message message = messageService.save(msgDTO);
                 URI location = fromCurrentRequest().path("/{id}").buildAndExpand(message.getId()).toUri();
                 return ResponseEntity.created(location).body(message);
+            } else {
+                return ResponseEntity.status(403).build();
             }
         }
-        return ResponseEntity.status(403).build();
+        return ResponseEntity.badRequest().build();
 
     }
 
