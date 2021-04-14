@@ -138,86 +138,30 @@ public class PortfolioItemRestController {
 
     @PostMapping("/users/{userId}/{portfolioItemId}/previewImage")
     public ResponseEntity<PortfolioItem> postPreviewImage(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
-        Principal principal = request.getUserPrincipal();
-        Optional<User> me = userService.findById(principal.getName());
-        if (me.isPresent() && userId.contentEquals(me.get().getId())) {
-            Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
-            if (portfolioItem.isPresent()) {
-                if (portfolioItemDTO.getPreviewImg() != null) {
-                    ImageSetter setPreviewImg = (p, i) -> p.setPreviewImg(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-                    ImageUpdater getPreviewImg = (p) -> p.getPreviewImg().length() == 0;
-                    portfolioItemService.UpdateImage(portfolioItem.get(), portfolioItemDTO.getPreviewImg(), setPreviewImg, getPreviewImg);
-                }
-                URI location = fromCurrentRequest().build().toUri();
-                return ResponseEntity.created(location).build();
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        }
-        return ResponseEntity.status(403).build();
+        ImageSetter setPreviewImg = (p, i) -> p.setPreviewImg(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageUpdater getPreviewImg = (p) -> p.getPreviewImg().length() == 0;
+        return getPortfolioItemResponseEntity(userId, portfolioItemId, portfolioItemDTO, request, setPreviewImg, getPreviewImg);
     }
 
     @PostMapping("/users/{userId}/{portfolioItemId}/image1")
     public ResponseEntity<PortfolioItem> postImage1(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
-        Principal principal = request.getUserPrincipal();
-        Optional<User> me = userService.findById(principal.getName());
-        if (me.isPresent() && userId.contentEquals(me.get().getId())) {
-            Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
-            if (portfolioItem.isPresent()) {
-                if (portfolioItemDTO.getImage1() != null) {
-                    ImageSetter setImage1 = (p, i) -> p.setImage1(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-                    ImageUpdater getImage1 = (p) -> p.getImage1().length() == 0;
-                    portfolioItemService.UpdateImage(portfolioItem.get(), portfolioItemDTO.getImage1(), setImage1, getImage1);
-                }
-                URI location = fromCurrentRequest().build().toUri();
-                return ResponseEntity.created(location).build();
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        }
-        return ResponseEntity.status(403).build();
+        ImageSetter setImage1 = (p, i) -> p.setImage1(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageUpdater getImage1 = (p) -> p.getImage1().length() == 0;
+        return getPortfolioItemResponseEntity(userId, portfolioItemId, portfolioItemDTO, request, setImage1, getImage1);
     }
 
     @PostMapping("/users/{userId}/{portfolioItemId}/image2")
     public ResponseEntity<PortfolioItem> postImage2(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
-        Principal principal = request.getUserPrincipal();
-        Optional<User> me = userService.findById(principal.getName());
-        if (me.isPresent() && userId.contentEquals(me.get().getId())) {
-            Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
-            if (portfolioItem.isPresent()) {
-                if (portfolioItemDTO.getImage2() != null) {
-                    ImageSetter setImage2 = (p, i) -> p.setImage2(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-                    ImageUpdater getImage2 = (p) -> p.getImage2().length() == 0;
-                    portfolioItemService.UpdateImage(portfolioItem.get(), portfolioItemDTO.getImage2(), setImage2, getImage2);
-                }
-                URI location = fromCurrentRequest().build().toUri();
-                return ResponseEntity.created(location).build();
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        }
-        return ResponseEntity.status(403).build();
+        ImageSetter setImage2 = (p, i) -> p.setImage2(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageUpdater getImage2 = (p) -> p.getImage2().length() == 0;
+        return getPortfolioItemResponseEntity(userId, portfolioItemId, portfolioItemDTO, request, setImage2, getImage2);
     }
 
     @PostMapping("/users/{userId}/{portfolioItemId}/image3")
     public ResponseEntity<PortfolioItem> postImage3(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
-        Principal principal = request.getUserPrincipal();
-        Optional<User> me = userService.findById(principal.getName());
-        if (me.isPresent() && userId.contentEquals(me.get().getId())) {
-            Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
-            if (portfolioItem.isPresent()) {
-                if (portfolioItemDTO.getImage1() != null) {
-                    ImageSetter setImage3 = (p, i) -> p.setImage3(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-                    ImageUpdater getImage3 = (p) -> p.getImage3().length() == 0;
-                    portfolioItemService.UpdateImage(portfolioItem.get(), portfolioItemDTO.getImage3(), setImage3, getImage3);
-                }
-                URI location = fromCurrentRequest().build().toUri();
-                return ResponseEntity.created(location).build();
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        }
-        return ResponseEntity.status(403).build();
+        ImageSetter setImage3 = (p, i) -> p.setImage3(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageUpdater getImage3 = (p) -> p.getImage3().length() == 0;
+        return getPortfolioItemResponseEntity(userId, portfolioItemId, portfolioItemDTO, request, setImage3, getImage3);
     }
 
     @DeleteMapping("/users/{userId}/{portfolioItemId}")
@@ -266,78 +210,40 @@ public class PortfolioItemRestController {
 
     @PutMapping("/users/{userId}/{portfolioItemId}/previewImage")
     public ResponseEntity<PortfolioItem> putPreviewImage(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
+        ImageSetter setPreviewImg = (p, i) -> p.setPreviewImg(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageUpdater getPreviewImg = (p) -> p.getPreviewImg().length() == 0;
+        return getPortfolioItemResponseEntity(userId, portfolioItemId, portfolioItemDTO, request, setPreviewImg, getPreviewImg);
+    }
+
+    @PutMapping("/users/{userId}/{portfolioItemId}/image1")
+    public ResponseEntity<PortfolioItem> putImage1(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
+        ImageSetter setImage1 = (p, i) -> p.setImage1(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageUpdater getImage1 = (p) -> p.getImage1().length() == 0;
+        return getPortfolioItemResponseEntity(userId, portfolioItemId, portfolioItemDTO, request, setImage1, getImage1);
+    }
+
+    @PutMapping("/users/{userId}/{portfolioItemId}/image2")
+    public ResponseEntity<PortfolioItem> putImage2(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
+        ImageSetter setImage2 = (p, i) -> p.setImage2(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageUpdater getImage2 = (p) -> p.getImage2().length() == 0;
+        return getPortfolioItemResponseEntity(userId, portfolioItemId, portfolioItemDTO, request, setImage2, getImage2);
+    }
+
+    @PutMapping("/users/{userId}/{portfolioItemId}/image3")
+    public ResponseEntity<PortfolioItem> putImage3(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
+        ImageSetter setImage3 = (p, i) -> p.setImage3(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageUpdater getImage3 = (p) -> p.getImage3().length() == 0;
+        return getPortfolioItemResponseEntity(userId, portfolioItemId, portfolioItemDTO, request, setImage3, getImage3);
+    }
+
+    private ResponseEntity<PortfolioItem> getPortfolioItemResponseEntity(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request, ImageSetter imageSetter, ImageUpdater imageUpdater) throws SQLException, IOException {
         Principal principal = request.getUserPrincipal();
         Optional<User> me = userService.findById(principal.getName());
         if (me.isPresent() && userId.contentEquals(me.get().getId())) {
             Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
             if (portfolioItem.isPresent()) {
                 if (portfolioItemDTO.getPreviewImg() != null) {
-                    ImageSetter setPreviewImg = (p, i) -> p.setPreviewImg(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-                    ImageUpdater getPreviewImg = (p) -> p.getPreviewImg().length() == 0;
-                    portfolioItemService.UpdateImage(portfolioItem.get(), portfolioItemDTO.getPreviewImg(), setPreviewImg, getPreviewImg);
-                }
-                URI location = fromCurrentRequest().build().toUri();
-                return ResponseEntity.created(location).build();
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        }
-        return ResponseEntity.status(403).build();
-    }
-
-    @PutMapping("/users/{userId}/{portfolioItemId}/image1")
-    public ResponseEntity<PortfolioItem> putImage1(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
-        Principal principal = request.getUserPrincipal();
-        Optional<User> me = userService.findById(principal.getName());
-        if (me.isPresent() && userId.contentEquals(me.get().getId())) {
-            Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
-            if (portfolioItem.isPresent()) {
-                if (portfolioItemDTO.getImage1() != null) {
-                    ImageSetter setImage1 = (p, i) -> p.setImage1(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-                    ImageUpdater getImage1 = (p) -> p.getImage1().length() == 0;
-                    portfolioItemService.UpdateImage(portfolioItem.get(), portfolioItemDTO.getImage1(), setImage1, getImage1);
-                }
-                URI location = fromCurrentRequest().build().toUri();
-                return ResponseEntity.created(location).build();
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        }
-        return ResponseEntity.status(403).build();
-    }
-
-    @PutMapping("/users/{userId}/{portfolioItemId}/image2")
-    public ResponseEntity<PortfolioItem> putImage2(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
-        Principal principal = request.getUserPrincipal();
-        Optional<User> me = userService.findById(principal.getName());
-        if (me.isPresent() && userId.contentEquals(me.get().getId())) {
-            Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
-            if (portfolioItem.isPresent()) {
-                if (portfolioItemDTO.getImage2() != null) {
-                    ImageSetter setImage2 = (p, i) -> p.setImage2(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-                    ImageUpdater getImage2 = (p) -> p.getImage2().length() == 0;
-                    portfolioItemService.UpdateImage(portfolioItem.get(), portfolioItemDTO.getImage2(), setImage2, getImage2);
-                }
-                URI location = fromCurrentRequest().build().toUri();
-                return ResponseEntity.created(location).build();
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        }
-        return ResponseEntity.status(403).build();
-    }
-
-    @PutMapping("/users/{userId}/{portfolioItemId}/image3")
-    public ResponseEntity<PortfolioItem> putImage3(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
-        Principal principal = request.getUserPrincipal();
-        Optional<User> me = userService.findById(principal.getName());
-        if (me.isPresent() && userId.contentEquals(me.get().getId())) {
-            Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
-            if (portfolioItem.isPresent()) {
-                if (portfolioItemDTO.getImage1() != null) {
-                    ImageSetter setImage3 = (p, i) -> p.setImage3(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-                    ImageUpdater getImage3 = (p) -> p.getImage3().length() == 0;
-                    portfolioItemService.UpdateImage(portfolioItem.get(), portfolioItemDTO.getImage3(), setImage3, getImage3);
+                    portfolioItemService.UpdateImage(portfolioItem.get(), portfolioItemDTO.getPreviewImg(), imageSetter, imageUpdater);
                 }
                 URI location = fromCurrentRequest().build().toUri();
                 return ResponseEntity.created(location).build();
