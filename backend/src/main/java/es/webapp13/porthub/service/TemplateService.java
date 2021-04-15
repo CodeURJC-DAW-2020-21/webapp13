@@ -24,8 +24,8 @@ public class TemplateService {
      *
      * @param template A given template
      */
-    public void create(Template template) {
-        templateRepository.save(template);
+    public Template create(Template template) {
+        return templateRepository.save(template);
     }
 
     /**

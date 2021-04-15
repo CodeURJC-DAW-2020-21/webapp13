@@ -58,31 +58,12 @@ public class TemplateRestController {
 
         if (me.isPresent() && me.get().getRoles().contains("ADMIN")){
             Template template = modelMapper.map(templateDTO, Template.class);
-            templateService.create(template);
+            Template templateToReturn = templateService.create(template);
+
 
             URI location = fromCurrentRequest().path("/{id}").buildAndExpand(template.getId()).toUri();
 
-            return ResponseEntity.created(location).body(template);
-        }
-        return ResponseEntity.status(403).build();
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Template> deleteTemplate (@PathVariable long id, HttpServletRequest request){
-        Principal principal = request.getUserPrincipal();
-        Optional<User> me = userService.findById(principal.getName());
-
-        if (me.isPresent() && me.get().getRoles().contains("ADMIN")){
-            Optional<Template> optionalTemplate = templateService.findById(id);
-
-            if (optionalTemplate.isPresent()){
-                Template template = optionalTemplate.get();
-                templateService.delete(template);
-                return ResponseEntity.ok(template);
-            }
-            else {
-                return ResponseEntity.notFound().build();
-            }
+            return ResponseEntity.created(location).body(templateToReturn);
         }
         return ResponseEntity.status(403).build();
     }
