@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "91d19c88-2fbd-497e-85f1-4ce1119b82fc",
+		"_postman_id": "bfa28426-022f-449e-8622-c3246004e87c",
 		"name": "API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -577,7 +577,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/portfolioItems/users/id",
+							"raw": "https://localhost:8443/api/users/id",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -608,7 +608,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/previewImage",
+							"raw": "https://localhost:8443/api/users/id/10/previewImage",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -641,7 +641,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image1",
+							"raw": "https://localhost:8443/api/users/id/10/image1",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -674,7 +674,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image2",
+							"raw": "https://localhost:8443/api/users/id/10/image2",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -707,7 +707,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image3",
+							"raw": "https://localhost:8443/api/users/id/10/image3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -818,7 +818,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/portfolioItems/users/id",
+							"raw": "https://localhost:8443/api/users/id",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -849,7 +849,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/previewImage",
+							"raw": "https://localhost:8443/api/users/id/10/previewImage",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -882,7 +882,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image1",
+							"raw": "https://localhost:8443/api/users/id/10/image1",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -915,7 +915,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image2",
+							"raw": "https://localhost:8443/api/users/id/10/image2",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -948,7 +948,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image3",
+							"raw": "https://localhost:8443/api/users/id/10/image3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -1108,6 +1108,27 @@
 								"api",
 								"messages",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single message",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/messages/10",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"messages",
+								"10"
 							]
 						}
 					},

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.security.Principal;
+import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -75,7 +77,10 @@ public class MessageRestController {
         if (!user1.isEmpty() && !user2.isEmpty()) {
             if (me.isEmpty() || !user1.get().getId().equals(me.get().getId()))
                 return ResponseEntity.status(403).build();
-            List<Message> messages = messageService.findAll(user1.get(), user2.get());
+            List<Message> messages = new LinkedList();
+            messages.addAll(messageService.findAll(user1.get(), user2.get()));
+            messages.addAll(messageService.findAll(user2.get(), user1.get()));
+            messages.sort(Comparator.comparing(Message::getSendDate));
             if (!messages.isEmpty())
                 return ResponseEntity.ok(messages);
         }
