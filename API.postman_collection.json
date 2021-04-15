@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1260d2e5-20fe-4fc5-8515-a647ac9b471b",
+		"_postman_id": "5d44a409-501a-42ac-aa25-72acd1928e92",
 		"name": "API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1008,6 +1008,27 @@
 								"api",
 								"messages",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single message",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/messages/10",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"messages",
+								"10"
 							]
 						}
 					},
