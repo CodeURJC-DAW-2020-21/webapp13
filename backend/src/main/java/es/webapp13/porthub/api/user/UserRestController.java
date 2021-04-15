@@ -123,17 +123,21 @@ public class UserRestController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<User> deleteUser(@PathVariable String id) {
-        Optional<User> optionalUser = userService.findById(id);
+    public ResponseEntity<User> deleteUser(@PathVariable String id,HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        Optional<User> me = userService.findById(principal.getName());
+        if (me.isPresent() && me.get().getRoles().contains("ADMIN")){
+            Optional<User> optionalUser = userService.findById(id);
 
-        if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            userService.delete(user);
-            return ResponseEntity.ok(user);
-        } else {
-            return ResponseEntity.notFound().build();
+            if (optionalUser.isPresent()) {
+                User user = optionalUser.get();
+                userService.delete(user);
+                return ResponseEntity.ok(user);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
         }
-
+        return ResponseEntity.status(403).build();
     }
 
     @PutMapping("/{id}")
