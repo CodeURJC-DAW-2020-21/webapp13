@@ -11,8 +11,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.net.URI;
+import java.security.Principal;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -113,23 +115,11 @@ public class UserRestController {
     @PostMapping("/")
     public ResponseEntity<User> postUser(@RequestBody UserDTO userDTO) throws IOException {
         User user = modelMapper.map(userDTO, User.class);
+        if (userService.findById(userDTO.getId()).isPresent())
+            return ResponseEntity.status(403).build();
         userService.create(user);
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
         return ResponseEntity.created(location).body(user);
-    }
-
-    @PostMapping("/{id}/image")
-    public ResponseEntity<User> postUserImage(@PathVariable String id, @ModelAttribute UserDTO userDTO) throws IOException, SQLException {
-        Optional<User> user = userService.findById(id);
-        if (user.isPresent()) {
-            if (userDTO.getProfilePhoto() != null) {
-                userService.update(user.get(), user.get().getId(), userDTO.getProfilePhoto());
-            }
-            URI location = fromCurrentRequest().build().toUri();
-            return ResponseEntity.created(location).build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
     }
 
     @DeleteMapping("/{id}")
@@ -147,17 +137,45 @@ public class UserRestController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> patchUser(@PathVariable String id, @RequestBody UserDTO userDTO) throws SQLException, IOException {
-        System.out.println(userDTO.toString());
-        System.out.println("###");
+    public ResponseEntity<User> putUser(@PathVariable String id, @RequestBody UserDTO userDTO, HttpServletRequest request) throws SQLException, IOException {
+
+        Principal principal = request.getUserPrincipal();
+        Optional<User> me = userService.findById(principal.getName());
+
         Optional<User> optionalUser = userService.findById(id);
         User user = modelMapper.map(userDTO, User.class);
 
-        if (optionalUser.isPresent()) {
-            userService.update(user, id, userDTO.getProfilePhoto());
-            return ResponseEntity.ok(optionalUser.get());
-        } else {
-            return ResponseEntity.notFound().build();
+        if (optionalUser.isPresent() && me.isPresent()) {
+            if (optionalUser.get().getId().equals(me.get().getId())) {
+                userService.update(user, id, userDTO.getProfilePhoto());
+                return ResponseEntity.ok(optionalUser.get());
+            }
+            return ResponseEntity.status(403).build();
         }
+        return ResponseEntity.notFound().build();
+
+    }
+
+    @PutMapping("/{id}/image")
+    public ResponseEntity<URI> putUserImage(@PathVariable String id, @ModelAttribute UserDTO userDTO, HttpServletRequest request) throws IOException, SQLException {
+        Principal principal = request.getUserPrincipal();
+        Optional<User> me = userService.findById(principal.getName());
+
+        Optional<User> user = userService.findById(id);
+
+        if (me.isPresent() && user.isPresent()) {
+            if (userDTO.getId().equals(me.get().getId())) {
+
+                if (userDTO.getProfilePhoto() != null) {
+                    userService.update(user.get(), user.get().getId(), userDTO.getProfilePhoto());
+
+                    URI location = fromCurrentRequest().build().toUri();
+                    return ResponseEntity.ok(location);
+                } else
+                    return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.status(403).build();
+        }
+        return ResponseEntity.notFound().build();
     }
 }

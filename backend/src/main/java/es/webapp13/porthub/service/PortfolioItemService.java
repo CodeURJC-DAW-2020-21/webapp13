@@ -109,6 +109,12 @@ public class PortfolioItemService {
         UpdateImage(portfolioItem, image2, setImg2, getImg2);
         UpdateImage(portfolioItem, image3, setImg3, getImg3);
 
+        updateText(portfolioItem, id);
+    }
+
+    public void updateText(PortfolioItem item, long id) throws IOException, SQLException {
+        PortfolioItem portfolioItem = portfolioItemRepository.findById(id).orElseThrow();
+
         portfolioItem.setName(item.getName());
         portfolioItem.setCategory(item.getCategory());
         portfolioItem.setClient(item.getClient());

@@ -110,7 +110,7 @@ public class PortfolioItemRestController {
     }
 
     @PostMapping("/users/{userId}")
-    public ResponseEntity<PortfolioItem> postPortfolioItems(@PathVariable String userId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
+    public ResponseEntity<PortfolioItem> postPortfolioItems(@PathVariable String userId, @RequestBody PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
 
         Principal principal = request.getUserPrincipal();
         Optional<User> me = userService.findById(principal.getName());
@@ -119,17 +119,10 @@ public class PortfolioItemRestController {
             PortfolioItem portfolioItem = modelMapper.map(portfolioItemDTO, PortfolioItem.class);
 
             portfolioItemService.add(userId, portfolioItem);
+            portfolioItemService.save(portfolioItem);
+            userService.save(me.get());
 
-            MultipartFile imgP = portfolioItemDTO.getPreviewImg();
-            MultipartFile img1 = portfolioItemDTO.getImage1();
-            MultipartFile img2 = portfolioItemDTO.getImage2();
-            MultipartFile img3 = portfolioItemDTO.getImage3();
-
-            if (imgP != null && img1 != null && img2 != null && img3 != null) {
-                portfolioItemService.update(portfolioItem, portfolioItem.getId(), imgP, img1, img2, img3);
-            }
-
-            URI location = fromCurrentRequest().path("/{userId}").buildAndExpand(portfolioItem.getId()).toUri();
+            URI location = fromCurrentRequest().path("/{templateId}").buildAndExpand(portfolioItem.getId()).toUri();
 
             return ResponseEntity.created(location).body(portfolioItem);
         }
@@ -183,7 +176,7 @@ public class PortfolioItemRestController {
     }
 
     @PutMapping("/users/{userId}/{portfolioItemId}")
-    public ResponseEntity<PortfolioItem> putUser(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
+    public ResponseEntity<PortfolioItem> putUser(@PathVariable String userId, @PathVariable long portfolioItemId, @RequestBody PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
         Principal principal = request.getUserPrincipal();
         Optional<User> me = userService.findById(principal.getName());
         if (me.isPresent() && userId.contentEquals(me.get().getId())) {
@@ -191,13 +184,11 @@ public class PortfolioItemRestController {
             Optional<PortfolioItem> oldPortfolioItem = portfolioItemService.findById(portfolioItemId);
             PortfolioItem newPortfolioItem = modelMapper.map(portfolioItemDTO, PortfolioItem.class);
 
-            MultipartFile imgP = portfolioItemDTO.getPreviewImg();
-            MultipartFile img1 = portfolioItemDTO.getImage1();
-            MultipartFile img2 = portfolioItemDTO.getImage2();
-            MultipartFile img3 = portfolioItemDTO.getImage3();
-
             if (oldPortfolioItem.isPresent()) {
-                portfolioItemService.update(newPortfolioItem, portfolioItemId, imgP, img1, img2, img3);
+                portfolioItemService.updateText(newPortfolioItem, portfolioItemId);
+                portfolioItemService.save(portfolioItemService.findById(portfolioItemId).get());
+                userService.save(me.get());
+
                 PortfolioItem portfolioItem = portfolioItemService.findById(portfolioItemId).orElseThrow();
 
                 return ResponseEntity.ok(portfolioItem);

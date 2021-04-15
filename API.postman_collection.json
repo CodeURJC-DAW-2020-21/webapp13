@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bfa28426-022f-449e-8622-c3246004e87c",
+		"_postman_id": "1260d2e5-20fe-4fc5-8515-a647ac9b471b",
 		"name": "API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -162,79 +162,13 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "id",
-									"value": "criss00_2820",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "Cristian",
-									"type": "text"
-								},
-								{
-									"key": "surname",
-									"value": "De Gracia Nuero",
-									"type": "text"
-								},
-								{
-									"key": "bornDate",
-									"value": "2000-07-28",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "cristian@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "1234",
-									"type": "text"
-								},
-								{
-									"key": "phoneNumber",
-									"value": "666 555 444",
-									"type": "text"
-								},
-								{
-									"key": "website",
-									"value": "www.porthub.com",
-									"type": "text"
-								},
-								{
-									"key": "city",
-									"value": "Torrijos",
-									"type": "text"
-								},
-								{
-									"key": "category",
-									"value": "Ingeniero",
-									"type": "text"
-								},
-								{
-									"key": "freelance",
-									"value": "Disponible",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "Soy estudiante del doble grado en ingeniería de software e ingeniería informatica. Cuando acabe la carrera me gustaría dedicarme profesionalmente al desarrollo web.",
-									"type": "text"
-								},
-								{
-									"key": "degree",
-									"value": "Ingeniería Informática + Ingeniería de Software",
-									"type": "text"
-								},
-								{
-									"key": "profilePhoto",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"criss00_2820\",\n    \"name\":\"Cristian\",\n    \"surname\":\"De Gracia Nuero\",\n    \"bornDate\":\"2000-07-28\",\n    \"email\":\"cristian@gmail.com\",\n    \"password\":\"1234\",\n    \"phoneNumber\":\"666 555 444\",\n    \"website\":\"www.porthub.com\",\n    \"city\":\"Torrijos\",\n    \"category\":\"Ingeniero\",\n    \"freelance\":\"Disponible\",\n    \"description\":\"Soy estudiante del doble grado en ingeniería de software e ingeniería informatica. Cuando acabe la carrera me gustaría dedicarme profesionalmente al desarrollo web.\",\n    \"degree\":\"Ingeniería Informática + Ingeniería de Software\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "https://localhost:8443/api/users/",
@@ -276,82 +210,16 @@
 				{
 					"name": "/{id}",
 					"request": {
-						"method": "PATCH",
+						"method": "PUT",
 						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "id",
-									"value": "criss00_2820",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "Cristian",
-									"type": "text"
-								},
-								{
-									"key": "surname",
-									"value": "De Gracia Nuero",
-									"type": "text"
-								},
-								{
-									"key": "bornDate",
-									"value": "2000-07-28",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "cristianNuevoCorreo@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "4321",
-									"type": "text"
-								},
-								{
-									"key": "phoneNumber",
-									"value": "666 888 999",
-									"type": "text"
-								},
-								{
-									"key": "website",
-									"value": "www.porthub.com",
-									"type": "text"
-								},
-								{
-									"key": "city",
-									"value": "Noves",
-									"type": "text"
-								},
-								{
-									"key": "category",
-									"value": "Ingeniero",
-									"type": "text"
-								},
-								{
-									"key": "freelance",
-									"value": "Ocupado",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "Soy estudiante del doble grado en ingeniería de software e ingeniería informatica. Cuando acabe la carrera me gustaría dedicarme profesionalmente al desarrollo web.",
-									"type": "text"
-								},
-								{
-									"key": "degree",
-									"value": "Ingeniería Informática + Ingeniería de Software",
-									"type": "text"
-								},
-								{
-									"key": "profilePhoto",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/256_rsz_90-jiang-640827-unsplash.jpg"
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"criss00_2820\",\n    \"name\":\"Christian\",\n    \"surname\":\"De Gracia Nuero\",\n    \"bornDate\":\"1998-07-28\",\n    \"email\":\"cristian@hotmail.com\",\n    \"password\":\"4321\",\n    \"phoneNumber\":\"666 888 498\",\n    \"website\":\"www.porthub.es\",\n    \"city\":\"Novés\",\n    \"category\":\"Ingeniero\",\n    \"freelance\":\"Ocupado\",\n    \"description\":\"Soy estudiante del doble grado en ingeniería de software e ingeniería informatica. Cuando acabe la carrera me gustaría dedicarme profesionalmente al desarrollo web.\",\n    \"degree\":\"Ingeniería Informática + Ingeniería de Software\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "https://localhost:8443/api/users/criss00_2820",
@@ -364,6 +232,38 @@
 								"api",
 								"users",
 								"criss00_2820"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}/image",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePhoto",
+									"type": "file",
+									"src": "files/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/criss00_2820/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"criss00_2820",
+								"image"
 							]
 						}
 					},
@@ -1114,27 +1014,6 @@
 					"response": []
 				},
 				{
-					"name": "Get a single message",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:8443/api/messages/10",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "8443",
-							"path": [
-								"api",
-								"messages",
-								"10"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Get messages",
 					"request": {
 						"method": "GET",
@@ -1168,7 +1047,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"id\",\r\n    \"password\": \"pass\"\r\n}",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
