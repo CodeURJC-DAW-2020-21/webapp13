@@ -263,6 +263,7 @@ graphic that tracks the total number of users registered on the app.
 
 ### API REST documentation
 [Link to the OpenAPI specification](https://github.com/CodeURJC-DAW-2020-21/webapp13/api-docs/api-docs.yaml)
+
 [Link to the website specification](https://raw.githack.com/CodeURJC-DAW-2020-21/webapp13/api-docs/api-docs.html)
 
 ### Class diagrama update
