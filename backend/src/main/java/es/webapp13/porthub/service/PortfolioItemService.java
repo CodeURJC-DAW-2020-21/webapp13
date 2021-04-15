@@ -109,7 +109,7 @@ public class PortfolioItemService {
         UpdateImage(portfolioItem, image2, setImg2, getImg2);
         UpdateImage(portfolioItem, image3, setImg3, getImg3);
 
-        updateText(portfolioItem, id);
+        updateText(item, id);
     }
 
     public void updateText(PortfolioItem item, long id) throws IOException, SQLException {

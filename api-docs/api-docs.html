@@ -183,7 +183,7 @@
     <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
     <div class="app-desc">Contact Info: <a href="hello@helloreverb.com">hello@helloreverb.com</a></div>
     <div class="app-desc">Version: v0</div>
-    
+    <div class="app-desc">BasePath:/</div>
     <div class="license-info">All rights reserved</div>
     <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
   <h2>Access</h2>
@@ -193,27 +193,36 @@
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
+  <h4><a href="#LoginRestController">LoginRestController</a></h4>
+  <ul>
+  <li><a href="#logOut"><code><span class="http-method">post</span> /api/auth/logout</code></a></li>
+  <li><a href="#login"><code><span class="http-method">post</span> /api/auth/login</code></a></li>
+  <li><a href="#refreshToken"><code><span class="http-method">post</span> /api/auth/refresh</code></a></li>
+  </ul>
   <h4><a href="#MessageRestController">MessageRestController</a></h4>
   <ul>
   <li><a href="#getMessage"><code><span class="http-method">get</span> /api/messages/{id}</code></a></li>
   <li><a href="#getMessages"><code><span class="http-method">get</span> /api/messages/{id1}/{id2}</code></a></li>
-  <li><a href="#postMessage"><code><span class="http-method">post</span> /api/messages/{id1}/{id2}</code></a></li>
+  <li><a href="#postMessageSecuriced"><code><span class="http-method">post</span> /api/messages/</code></a></li>
   </ul>
   <h4><a href="#PortfolioItemRestController">PortfolioItemRestController</a></h4>
   <ul>
-  <li><a href="#deleteUser1"><code><span class="http-method">delete</span> /api/portfolioItems/users/{userId}/{portfolioItemId}</code></a></li>
-  <li><a href="#getImage1"><code><span class="http-method">get</span> /api/portfolioItems/{id}/image1</code></a></li>
-  <li><a href="#getImage2"><code><span class="http-method">get</span> /api/portfolioItems/{id}/image2</code></a></li>
-  <li><a href="#getImage3"><code><span class="http-method">get</span> /api/portfolioItems/{id}/image3</code></a></li>
+  <li><a href="#deletePortfolioItem"><code><span class="http-method">delete</span> /api/portfolioItems/users/{userId}/{portfolioItemId}</code></a></li>
+  <li><a href="#getImage1"><code><span class="http-method">get</span> /api/portfolioItems/{portfolioItemId}/image1</code></a></li>
+  <li><a href="#getImage2"><code><span class="http-method">get</span> /api/portfolioItems/{portfolioItemId}/image2</code></a></li>
+  <li><a href="#getImage3"><code><span class="http-method">get</span> /api/portfolioItems/{portfolioItemId}/image3</code></a></li>
   <li><a href="#getPortfolioItem"><code><span class="http-method">get</span> /api/portfolioItems/{portfolioItemId}</code></a></li>
   <li><a href="#getPortfolioItems"><code><span class="http-method">get</span> /api/portfolioItems/users/{userId}</code></a></li>
-  <li><a href="#getPreviewImage"><code><span class="http-method">get</span> /api/portfolioItems/{id}/previewImage</code></a></li>
-  <li><a href="#postPortfolioItems"><code><span class="http-method">post</span> /api/portfolioItems/</code></a></li>
-  <li><a href="#putUser1"><code><span class="http-method">patch</span> /api/portfolioItems/{id}</code></a></li>
+  <li><a href="#getPreviewImage"><code><span class="http-method">get</span> /api/portfolioItems/{portfolioItemId}/previewImage</code></a></li>
+  <li><a href="#postPortfolioItem"><code><span class="http-method">post</span> /api/portfolioItems/users/{userId}</code></a></li>
+  <li><a href="#putImage1"><code><span class="http-method">put</span> /api/portfolioItems/users/{userId}/{portfolioItemId}/image1</code></a></li>
+  <li><a href="#putImage2"><code><span class="http-method">put</span> /api/portfolioItems/users/{userId}/{portfolioItemId}/image2</code></a></li>
+  <li><a href="#putImage3"><code><span class="http-method">put</span> /api/portfolioItems/users/{userId}/{portfolioItemId}/image3</code></a></li>
+  <li><a href="#putPortfolioItem"><code><span class="http-method">put</span> /api/portfolioItems/users/{userId}/{portfolioItemId}</code></a></li>
+  <li><a href="#putPreviewImage"><code><span class="http-method">put</span> /api/portfolioItems/users/{userId}/{portfolioItemId}/previewImage</code></a></li>
   </ul>
   <h4><a href="#TemplateRestController">TemplateRestController</a></h4>
   <ul>
-  <li><a href="#deleteTemplate"><code><span class="http-method">delete</span> /api/templates/{id}</code></a></li>
   <li><a href="#getTemplate"><code><span class="http-method">get</span> /api/templates/{id}</code></a></li>
   <li><a href="#getTemplates"><code><span class="http-method">get</span> /api/templates/</code></a></li>
   <li><a href="#postTemplate"><code><span class="http-method">post</span> /api/templates/</code></a></li>
@@ -228,10 +237,149 @@
   <li><a href="#getPhotographer"><code><span class="http-method">get</span> /api/users/photographer</code></a></li>
   <li><a href="#getUser"><code><span class="http-method">get</span> /api/users/{id}</code></a></li>
   <li><a href="#getUsers"><code><span class="http-method">get</span> /api/users/</code></a></li>
-  <li><a href="#postUsers"><code><span class="http-method">post</span> /api/users/</code></a></li>
-  <li><a href="#putUser"><code><span class="http-method">patch</span> /api/users/{id}</code></a></li>
+  <li><a href="#postUser"><code><span class="http-method">post</span> /api/users/</code></a></li>
+  <li><a href="#putUser"><code><span class="http-method">put</span> /api/users/{id}</code></a></li>
+  <li><a href="#putUserImage"><code><span class="http-method">put</span> /api/users/{id}/image</code></a></li>
   </ul>
 
+  <h1><a name="LoginRestController">LoginRestController</a></h1>
+  <div class="method"><a name="logOut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/auth/logout</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">logOut</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#AuthResponse">AuthResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "message",
+  "error" : "error",
+  "status" : "SUCCESS"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#AuthResponse">AuthResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="login"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/auth/login</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">login</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#LoginRequest">LoginRequest</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#AuthResponse">AuthResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "message",
+  "error" : "error",
+  "status" : "SUCCESS"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#AuthResponse">AuthResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="refreshToken"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/auth/refresh</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">refreshToken</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#AuthResponse">AuthResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "message",
+  "error" : "error",
+  "status" : "SUCCESS"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#AuthResponse">AuthResponse</a>
+  </div> <!-- method -->
+  <hr/>
   <h1><a name="MessageRestController">MessageRestController</a></h1>
   <div class="method"><a name="getMessage"></a>
     <div class="method-path">
@@ -263,7 +411,7 @@
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
   "sendDate" : "2000-01-23T04:56:07.000+00:00",
-  "id" : 9,
+  "id" : 0,
   "text" : "text"
 }</code></pre>
 
@@ -307,7 +455,7 @@
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#PageMessage">PageMessage</a>
+      array[<a href="#Message">Message</a>]
       
     </div>
 
@@ -315,37 +463,15 @@
 
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "number" : 5,
-  "size" : 1,
-  "numberOfElements" : 5,
-  "last" : true,
-  "totalPages" : 6,
-  "pageable" : {
-    "paged" : true,
-    "pageNumber" : 1,
-    "offset" : 4,
-    "pageSize" : 7,
-    "unpaged" : true
-  },
-  "sort" : {
-    "unsorted" : true,
-    "sorted" : true,
-    "empty" : true
-  },
-  "content" : [ {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  }, {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  } ],
-  "first" : true,
-  "totalElements" : 0,
-  "empty" : true
-}</code></pre>
+    <pre class="example"><code>[ {
+  "sendDate" : "2000-01-23T04:56:07.000+00:00",
+  "id" : 0,
+  "text" : "text"
+}, {
+  "sendDate" : "2000-01-23T04:56:07.000+00:00",
+  "id" : 0,
+  "text" : "text"
+} ]</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -357,23 +483,16 @@
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#PageMessage">PageMessage</a>
+        
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="postMessage"></a>
+  <div class="method"><a name="postMessageSecuriced"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/messages/{id1}/{id2}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">postMessage</span>)</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/messages/</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">postMessageSecuriced</span>)</div>
     <div class="method-notes"></div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id1 (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>      <div class="param">id2 (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
     This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
@@ -383,7 +502,7 @@
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">body <a href="#ChatMessage">ChatMessage</a> (optional)</div>
+      <div class="param">body <a href="#MessageDTO">MessageDTO</a> (required)</div>
       
             <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
                 </div>  <!-- field-items -->
@@ -393,7 +512,7 @@
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ChatMessage">ChatMessage</a>
+      <a href="#Message">Message</a>
       
     </div>
 
@@ -402,9 +521,9 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "receiver" : "receiver",
-  "sender" : "sender",
-  "content" : "content"
+  "sendDate" : "2000-01-23T04:56:07.000+00:00",
+  "id" : 0,
+  "text" : "text"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -417,15 +536,15 @@
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#ChatMessage">ChatMessage</a>
+        <a href="#Message">Message</a>
   </div> <!-- method -->
   <hr/>
   <h1><a name="PortfolioItemRestController">PortfolioItemRestController</a></h1>
-  <div class="method"><a name="deleteUser1"></a>
+  <div class="method"><a name="deletePortfolioItem"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/portfolioItems/users/{userId}/{portfolioItemId}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">deleteUser1</span>)</div>
+    <div class="method-summary"> (<span class="nickname">deletePortfolioItem</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
@@ -454,56 +573,17 @@
     <pre class="example"><code>{
   "website" : "website",
   "city" : "city",
-  "roles" : [ "roles", "roles" ],
-  "templates" : [ null, null ],
   "degree" : "degree",
   "description" : "description",
   "bornDate" : "2000-01-23T04:56:07.000+00:00",
-  "creationDate" : "2000-01-23T04:56:07.000+00:00",
-  "portfolioItems" : [ {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "name" : "name",
-    "description" : "description",
-    "client" : "client",
-    "id" : 7,
-    "category" : "category",
-    "userId" : "userId",
-    "url" : "url"
-  }, {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "name" : "name",
-    "description" : "description",
-    "client" : "client",
-    "id" : 7,
-    "category" : "category",
-    "userId" : "userId",
-    "url" : "url"
-  } ],
-  "activeTemplate" : {
-    "htmlPath" : "htmlPath",
-    "price" : 2,
-    "name" : "name",
-    "description" : "description",
-    "id" : 5,
-    "free" : true
-  },
   "password" : "password",
   "phoneNumber" : "phoneNumber",
   "surname" : "surname",
   "freelance" : "freelance",
   "name" : "name",
-  "messages" : [ {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  }, {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  } ],
   "id" : "id",
   "category" : "category",
-  "age" : 5,
+  "age" : 0,
   "email" : "email"
 }</code></pre>
 
@@ -523,13 +603,13 @@
   <div class="method"><a name="getImage1"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/portfolioItems/{id}/image1</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/portfolioItems/{portfolioItemId}/image1</code></pre></div>
     <div class="method-summary"> (<span class="nickname">getImage1</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">id (required)</div>
+      <div class="param">portfolioItemId (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
 
@@ -566,13 +646,13 @@
   <div class="method"><a name="getImage2"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/portfolioItems/{id}/image2</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/portfolioItems/{portfolioItemId}/image2</code></pre></div>
     <div class="method-summary"> (<span class="nickname">getImage2</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">id (required)</div>
+      <div class="param">portfolioItemId (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
 
@@ -609,13 +689,13 @@
   <div class="method"><a name="getImage3"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/portfolioItems/{id}/image3</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/portfolioItems/{portfolioItemId}/image3</code></pre></div>
     <div class="method-summary"> (<span class="nickname">getImage3</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">id (required)</div>
+      <div class="param">portfolioItemId (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
 
@@ -682,7 +762,7 @@
   "name" : "name",
   "description" : "description",
   "client" : "client",
-  "id" : 7,
+  "id" : 0,
   "category" : "category",
   "userId" : "userId",
   "url" : "url"
@@ -737,13 +817,13 @@
     <pre class="example"><code>{
   "number" : 5,
   "size" : 1,
-  "numberOfElements" : 5,
   "last" : true,
+  "numberOfElements" : 5,
   "totalPages" : 6,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 1,
-    "offset" : 4,
+    "pageNumber" : 9,
+    "offset" : 2,
     "pageSize" : 7,
     "unpaged" : true
   },
@@ -757,7 +837,7 @@
     "name" : "name",
     "description" : "description",
     "client" : "client",
-    "id" : 7,
+    "id" : 0,
     "category" : "category",
     "userId" : "userId",
     "url" : "url"
@@ -766,7 +846,7 @@
     "name" : "name",
     "description" : "description",
     "client" : "client",
-    "id" : 7,
+    "id" : 0,
     "category" : "category",
     "userId" : "userId",
     "url" : "url"
@@ -792,13 +872,13 @@
   <div class="method"><a name="getPreviewImage"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/portfolioItems/{id}/previewImage</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/portfolioItems/{portfolioItemId}/previewImage</code></pre></div>
     <div class="method-summary"> (<span class="nickname">getPreviewImage</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">id (required)</div>
+      <div class="param">portfolioItemId (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
 
@@ -832,13 +912,18 @@
         <a href="#Object">Object</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="postPortfolioItems"></a>
+  <div class="method"><a name="postPortfolioItem"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/portfolioItems/</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">postPortfolioItems</span>)</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/portfolioItems/users/{userId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">postPortfolioItem</span>)</div>
     <div class="method-notes"></div>
 
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
     This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
@@ -848,7 +933,7 @@
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">body <a href="#PortfolioItemDTO">PortfolioItemDTO</a> (optional)</div>
+      <div class="param">body <a href="#PortfolioItemDTO">PortfolioItemDTO</a> (required)</div>
       
             <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
                 </div>  <!-- field-items -->
@@ -871,7 +956,7 @@
   "name" : "name",
   "description" : "description",
   "client" : "client",
-  "id" : 7,
+  "id" : 0,
   "category" : "category",
   "userId" : "userId",
   "url" : "url"
@@ -890,16 +975,18 @@
         <a href="#PortfolioItem">PortfolioItem</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="putUser1"></a>
+  <div class="method"><a name="putImage1"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /api/portfolioItems/{id}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">putUser1</span>)</div>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/portfolioItems/users/{userId}/{portfolioItemId}/image1</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">putImage1</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">id (required)</div>
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>      <div class="param">portfolioItemId (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
 
@@ -921,6 +1008,174 @@
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>"http://example.com/aeiou"</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="putImage2"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/portfolioItems/users/{userId}/{portfolioItemId}/image2</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">putImage2</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>      <div class="param">portfolioItemId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#PortfolioItemDTO">PortfolioItemDTO</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>"http://example.com/aeiou"</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="putImage3"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/portfolioItems/users/{userId}/{portfolioItemId}/image3</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">putImage3</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>      <div class="param">portfolioItemId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#PortfolioItemDTO">PortfolioItemDTO</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>"http://example.com/aeiou"</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="putPortfolioItem"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/portfolioItems/users/{userId}/{portfolioItemId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">putPortfolioItem</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>      <div class="param">portfolioItemId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#PortfolioItemDTO">PortfolioItemDTO</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
       <a href="#PortfolioItem">PortfolioItem</a>
       
     </div>
@@ -934,7 +1189,7 @@
   "name" : "name",
   "description" : "description",
   "client" : "client",
-  "id" : 7,
+  "id" : 0,
   "category" : "category",
   "userId" : "userId",
   "url" : "url"
@@ -951,59 +1206,65 @@
     <h4 class="field-label">200</h4>
     OK
         <a href="#PortfolioItem">PortfolioItem</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="putPreviewImage"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/portfolioItems/users/{userId}/{portfolioItemId}/previewImage</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">putPreviewImage</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>      <div class="param">portfolioItemId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#PortfolioItemDTO">PortfolioItemDTO</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>"http://example.com/aeiou"</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
   </div> <!-- method -->
   <hr/>
   <h1><a name="TemplateRestController">TemplateRestController</a></h1>
-  <div class="method"><a name="deleteTemplate"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/templates/{id}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">deleteTemplate</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
-
-
-
-
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Template">Template</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "htmlPath" : "htmlPath",
-  "price" : 2,
-  "name" : "name",
-  "description" : "description",
-  "id" : 5,
-  "free" : true
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>*/*</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    OK
-        <a href="#Template">Template</a>
-  </div> <!-- method -->
-  <hr/>
   <div class="method"><a name="getTemplate"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -1034,7 +1295,7 @@
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
   "htmlPath" : "htmlPath",
-  "price" : 2,
+  "price" : 5,
   "name" : "name",
   "description" : "description",
   "id" : 5,
@@ -1083,15 +1344,15 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "number" : 5,
+  "number" : 2,
   "size" : 1,
-  "numberOfElements" : 5,
   "last" : true,
+  "numberOfElements" : 7,
   "totalPages" : 6,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 1,
-    "offset" : 4,
+    "pageNumber" : 9,
+    "offset" : 2,
     "pageSize" : 7,
     "unpaged" : true
   },
@@ -1102,14 +1363,14 @@
   },
   "content" : [ {
     "htmlPath" : "htmlPath",
-    "price" : 2,
+    "price" : 5,
     "name" : "name",
     "description" : "description",
     "id" : 5,
     "free" : true
   }, {
     "htmlPath" : "htmlPath",
-    "price" : 2,
+    "price" : 5,
     "name" : "name",
     "description" : "description",
     "id" : 5,
@@ -1149,7 +1410,7 @@
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">body <a href="#TemplateDTO">TemplateDTO</a> (optional)</div>
+      <div class="param">body <a href="#TemplateDTO">TemplateDTO</a> (required)</div>
       
             <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
                 </div>  <!-- field-items -->
@@ -1169,7 +1430,7 @@
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
   "htmlPath" : "htmlPath",
-  "price" : 2,
+  "price" : 5,
   "name" : "name",
   "description" : "description",
   "id" : 5,
@@ -1221,56 +1482,17 @@
     <pre class="example"><code>{
   "website" : "website",
   "city" : "city",
-  "roles" : [ "roles", "roles" ],
-  "templates" : [ null, null ],
   "degree" : "degree",
   "description" : "description",
   "bornDate" : "2000-01-23T04:56:07.000+00:00",
-  "creationDate" : "2000-01-23T04:56:07.000+00:00",
-  "portfolioItems" : [ {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "name" : "name",
-    "description" : "description",
-    "client" : "client",
-    "id" : 7,
-    "category" : "category",
-    "userId" : "userId",
-    "url" : "url"
-  }, {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "name" : "name",
-    "description" : "description",
-    "client" : "client",
-    "id" : 7,
-    "category" : "category",
-    "userId" : "userId",
-    "url" : "url"
-  } ],
-  "activeTemplate" : {
-    "htmlPath" : "htmlPath",
-    "price" : 2,
-    "name" : "name",
-    "description" : "description",
-    "id" : 5,
-    "free" : true
-  },
   "password" : "password",
   "phoneNumber" : "phoneNumber",
   "surname" : "surname",
   "freelance" : "freelance",
   "name" : "name",
-  "messages" : [ {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  }, {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  } ],
   "id" : "id",
   "category" : "category",
-  "age" : 5,
+  "age" : 0,
   "email" : "email"
 }</code></pre>
 
@@ -1316,15 +1538,15 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "number" : 3,
+  "number" : 5,
   "size" : 1,
-  "numberOfElements" : 2,
   "last" : true,
+  "numberOfElements" : 5,
   "totalPages" : 6,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 1,
-    "offset" : 4,
+    "pageNumber" : 9,
+    "offset" : 2,
     "pageSize" : 7,
     "unpaged" : true
   },
@@ -1336,110 +1558,32 @@
   "content" : [ {
     "website" : "website",
     "city" : "city",
-    "roles" : [ "roles", "roles" ],
-    "templates" : [ null, null ],
     "degree" : "degree",
     "description" : "description",
     "bornDate" : "2000-01-23T04:56:07.000+00:00",
-    "creationDate" : "2000-01-23T04:56:07.000+00:00",
-    "portfolioItems" : [ {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    }, {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    } ],
-    "activeTemplate" : {
-      "htmlPath" : "htmlPath",
-      "price" : 2,
-      "name" : "name",
-      "description" : "description",
-      "id" : 5,
-      "free" : true
-    },
     "password" : "password",
     "phoneNumber" : "phoneNumber",
     "surname" : "surname",
     "freelance" : "freelance",
     "name" : "name",
-    "messages" : [ {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    }, {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    } ],
     "id" : "id",
     "category" : "category",
-    "age" : 5,
+    "age" : 0,
     "email" : "email"
   }, {
     "website" : "website",
     "city" : "city",
-    "roles" : [ "roles", "roles" ],
-    "templates" : [ null, null ],
     "degree" : "degree",
     "description" : "description",
     "bornDate" : "2000-01-23T04:56:07.000+00:00",
-    "creationDate" : "2000-01-23T04:56:07.000+00:00",
-    "portfolioItems" : [ {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    }, {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    } ],
-    "activeTemplate" : {
-      "htmlPath" : "htmlPath",
-      "price" : 2,
-      "name" : "name",
-      "description" : "description",
-      "id" : 5,
-      "free" : true
-    },
     "password" : "password",
     "phoneNumber" : "phoneNumber",
     "surname" : "surname",
     "freelance" : "freelance",
     "name" : "name",
-    "messages" : [ {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    }, {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    } ],
     "id" : "id",
     "category" : "category",
-    "age" : 5,
+    "age" : 0,
     "email" : "email"
   } ],
   "first" : true,
@@ -1489,15 +1633,15 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "number" : 3,
+  "number" : 5,
   "size" : 1,
-  "numberOfElements" : 2,
   "last" : true,
+  "numberOfElements" : 5,
   "totalPages" : 6,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 1,
-    "offset" : 4,
+    "pageNumber" : 9,
+    "offset" : 2,
     "pageSize" : 7,
     "unpaged" : true
   },
@@ -1509,110 +1653,32 @@
   "content" : [ {
     "website" : "website",
     "city" : "city",
-    "roles" : [ "roles", "roles" ],
-    "templates" : [ null, null ],
     "degree" : "degree",
     "description" : "description",
     "bornDate" : "2000-01-23T04:56:07.000+00:00",
-    "creationDate" : "2000-01-23T04:56:07.000+00:00",
-    "portfolioItems" : [ {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    }, {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    } ],
-    "activeTemplate" : {
-      "htmlPath" : "htmlPath",
-      "price" : 2,
-      "name" : "name",
-      "description" : "description",
-      "id" : 5,
-      "free" : true
-    },
     "password" : "password",
     "phoneNumber" : "phoneNumber",
     "surname" : "surname",
     "freelance" : "freelance",
     "name" : "name",
-    "messages" : [ {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    }, {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    } ],
     "id" : "id",
     "category" : "category",
-    "age" : 5,
+    "age" : 0,
     "email" : "email"
   }, {
     "website" : "website",
     "city" : "city",
-    "roles" : [ "roles", "roles" ],
-    "templates" : [ null, null ],
     "degree" : "degree",
     "description" : "description",
     "bornDate" : "2000-01-23T04:56:07.000+00:00",
-    "creationDate" : "2000-01-23T04:56:07.000+00:00",
-    "portfolioItems" : [ {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    }, {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    } ],
-    "activeTemplate" : {
-      "htmlPath" : "htmlPath",
-      "price" : 2,
-      "name" : "name",
-      "description" : "description",
-      "id" : 5,
-      "free" : true
-    },
     "password" : "password",
     "phoneNumber" : "phoneNumber",
     "surname" : "surname",
     "freelance" : "freelance",
     "name" : "name",
-    "messages" : [ {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    }, {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    } ],
     "id" : "id",
     "category" : "category",
-    "age" : 5,
+    "age" : 0,
     "email" : "email"
   } ],
   "first" : true,
@@ -1662,15 +1728,15 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "number" : 3,
+  "number" : 5,
   "size" : 1,
-  "numberOfElements" : 2,
   "last" : true,
+  "numberOfElements" : 5,
   "totalPages" : 6,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 1,
-    "offset" : 4,
+    "pageNumber" : 9,
+    "offset" : 2,
     "pageSize" : 7,
     "unpaged" : true
   },
@@ -1682,110 +1748,32 @@
   "content" : [ {
     "website" : "website",
     "city" : "city",
-    "roles" : [ "roles", "roles" ],
-    "templates" : [ null, null ],
     "degree" : "degree",
     "description" : "description",
     "bornDate" : "2000-01-23T04:56:07.000+00:00",
-    "creationDate" : "2000-01-23T04:56:07.000+00:00",
-    "portfolioItems" : [ {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    }, {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    } ],
-    "activeTemplate" : {
-      "htmlPath" : "htmlPath",
-      "price" : 2,
-      "name" : "name",
-      "description" : "description",
-      "id" : 5,
-      "free" : true
-    },
     "password" : "password",
     "phoneNumber" : "phoneNumber",
     "surname" : "surname",
     "freelance" : "freelance",
     "name" : "name",
-    "messages" : [ {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    }, {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    } ],
     "id" : "id",
     "category" : "category",
-    "age" : 5,
+    "age" : 0,
     "email" : "email"
   }, {
     "website" : "website",
     "city" : "city",
-    "roles" : [ "roles", "roles" ],
-    "templates" : [ null, null ],
     "degree" : "degree",
     "description" : "description",
     "bornDate" : "2000-01-23T04:56:07.000+00:00",
-    "creationDate" : "2000-01-23T04:56:07.000+00:00",
-    "portfolioItems" : [ {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    }, {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    } ],
-    "activeTemplate" : {
-      "htmlPath" : "htmlPath",
-      "price" : 2,
-      "name" : "name",
-      "description" : "description",
-      "id" : 5,
-      "free" : true
-    },
     "password" : "password",
     "phoneNumber" : "phoneNumber",
     "surname" : "surname",
     "freelance" : "freelance",
     "name" : "name",
-    "messages" : [ {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    }, {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    } ],
     "id" : "id",
     "category" : "category",
-    "age" : 5,
+    "age" : 0,
     "email" : "email"
   } ],
   "first" : true,
@@ -1878,15 +1866,15 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "number" : 3,
+  "number" : 5,
   "size" : 1,
-  "numberOfElements" : 2,
   "last" : true,
+  "numberOfElements" : 5,
   "totalPages" : 6,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 1,
-    "offset" : 4,
+    "pageNumber" : 9,
+    "offset" : 2,
     "pageSize" : 7,
     "unpaged" : true
   },
@@ -1898,110 +1886,32 @@
   "content" : [ {
     "website" : "website",
     "city" : "city",
-    "roles" : [ "roles", "roles" ],
-    "templates" : [ null, null ],
     "degree" : "degree",
     "description" : "description",
     "bornDate" : "2000-01-23T04:56:07.000+00:00",
-    "creationDate" : "2000-01-23T04:56:07.000+00:00",
-    "portfolioItems" : [ {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    }, {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    } ],
-    "activeTemplate" : {
-      "htmlPath" : "htmlPath",
-      "price" : 2,
-      "name" : "name",
-      "description" : "description",
-      "id" : 5,
-      "free" : true
-    },
     "password" : "password",
     "phoneNumber" : "phoneNumber",
     "surname" : "surname",
     "freelance" : "freelance",
     "name" : "name",
-    "messages" : [ {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    }, {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    } ],
     "id" : "id",
     "category" : "category",
-    "age" : 5,
+    "age" : 0,
     "email" : "email"
   }, {
     "website" : "website",
     "city" : "city",
-    "roles" : [ "roles", "roles" ],
-    "templates" : [ null, null ],
     "degree" : "degree",
     "description" : "description",
     "bornDate" : "2000-01-23T04:56:07.000+00:00",
-    "creationDate" : "2000-01-23T04:56:07.000+00:00",
-    "portfolioItems" : [ {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    }, {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    } ],
-    "activeTemplate" : {
-      "htmlPath" : "htmlPath",
-      "price" : 2,
-      "name" : "name",
-      "description" : "description",
-      "id" : 5,
-      "free" : true
-    },
     "password" : "password",
     "phoneNumber" : "phoneNumber",
     "surname" : "surname",
     "freelance" : "freelance",
     "name" : "name",
-    "messages" : [ {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    }, {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    } ],
     "id" : "id",
     "category" : "category",
-    "age" : 5,
+    "age" : 0,
     "email" : "email"
   } ],
   "first" : true,
@@ -2053,56 +1963,17 @@
     <pre class="example"><code>{
   "website" : "website",
   "city" : "city",
-  "roles" : [ "roles", "roles" ],
-  "templates" : [ null, null ],
   "degree" : "degree",
   "description" : "description",
   "bornDate" : "2000-01-23T04:56:07.000+00:00",
-  "creationDate" : "2000-01-23T04:56:07.000+00:00",
-  "portfolioItems" : [ {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "name" : "name",
-    "description" : "description",
-    "client" : "client",
-    "id" : 7,
-    "category" : "category",
-    "userId" : "userId",
-    "url" : "url"
-  }, {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "name" : "name",
-    "description" : "description",
-    "client" : "client",
-    "id" : 7,
-    "category" : "category",
-    "userId" : "userId",
-    "url" : "url"
-  } ],
-  "activeTemplate" : {
-    "htmlPath" : "htmlPath",
-    "price" : 2,
-    "name" : "name",
-    "description" : "description",
-    "id" : 5,
-    "free" : true
-  },
   "password" : "password",
   "phoneNumber" : "phoneNumber",
   "surname" : "surname",
   "freelance" : "freelance",
   "name" : "name",
-  "messages" : [ {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  }, {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  } ],
   "id" : "id",
   "category" : "category",
-  "age" : 5,
+  "age" : 0,
   "email" : "email"
 }</code></pre>
 
@@ -2148,15 +2019,15 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "number" : 3,
+  "number" : 5,
   "size" : 1,
-  "numberOfElements" : 2,
   "last" : true,
+  "numberOfElements" : 5,
   "totalPages" : 6,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 1,
-    "offset" : 4,
+    "pageNumber" : 9,
+    "offset" : 2,
     "pageSize" : 7,
     "unpaged" : true
   },
@@ -2168,110 +2039,32 @@
   "content" : [ {
     "website" : "website",
     "city" : "city",
-    "roles" : [ "roles", "roles" ],
-    "templates" : [ null, null ],
     "degree" : "degree",
     "description" : "description",
     "bornDate" : "2000-01-23T04:56:07.000+00:00",
-    "creationDate" : "2000-01-23T04:56:07.000+00:00",
-    "portfolioItems" : [ {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    }, {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    } ],
-    "activeTemplate" : {
-      "htmlPath" : "htmlPath",
-      "price" : 2,
-      "name" : "name",
-      "description" : "description",
-      "id" : 5,
-      "free" : true
-    },
     "password" : "password",
     "phoneNumber" : "phoneNumber",
     "surname" : "surname",
     "freelance" : "freelance",
     "name" : "name",
-    "messages" : [ {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    }, {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    } ],
     "id" : "id",
     "category" : "category",
-    "age" : 5,
+    "age" : 0,
     "email" : "email"
   }, {
     "website" : "website",
     "city" : "city",
-    "roles" : [ "roles", "roles" ],
-    "templates" : [ null, null ],
     "degree" : "degree",
     "description" : "description",
     "bornDate" : "2000-01-23T04:56:07.000+00:00",
-    "creationDate" : "2000-01-23T04:56:07.000+00:00",
-    "portfolioItems" : [ {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    }, {
-      "date" : "2000-01-23T04:56:07.000+00:00",
-      "name" : "name",
-      "description" : "description",
-      "client" : "client",
-      "id" : 7,
-      "category" : "category",
-      "userId" : "userId",
-      "url" : "url"
-    } ],
-    "activeTemplate" : {
-      "htmlPath" : "htmlPath",
-      "price" : 2,
-      "name" : "name",
-      "description" : "description",
-      "id" : 5,
-      "free" : true
-    },
     "password" : "password",
     "phoneNumber" : "phoneNumber",
     "surname" : "surname",
     "freelance" : "freelance",
     "name" : "name",
-    "messages" : [ {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    }, {
-      "sendDate" : "2000-01-23T04:56:07.000+00:00",
-      "id" : 9,
-      "text" : "text"
-    } ],
     "id" : "id",
     "category" : "category",
-    "age" : 5,
+    "age" : 0,
     "email" : "email"
   } ],
   "first" : true,
@@ -2292,11 +2085,11 @@
         <a href="#PageUser">PageUser</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="postUsers"></a>
+  <div class="method"><a name="postUser"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="post"><code class="huge"><span class="http-method">post</span> /api/users/</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">postUsers</span>)</div>
+    <div class="method-summary"> (<span class="nickname">postUser</span>)</div>
     <div class="method-notes"></div>
 
 
@@ -2308,7 +2101,7 @@
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">body <a href="#UserDTO">UserDTO</a> (optional)</div>
+      <div class="param">body <a href="#UserDTO">UserDTO</a> (required)</div>
       
             <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
                 </div>  <!-- field-items -->
@@ -2329,56 +2122,17 @@
     <pre class="example"><code>{
   "website" : "website",
   "city" : "city",
-  "roles" : [ "roles", "roles" ],
-  "templates" : [ null, null ],
   "degree" : "degree",
   "description" : "description",
   "bornDate" : "2000-01-23T04:56:07.000+00:00",
-  "creationDate" : "2000-01-23T04:56:07.000+00:00",
-  "portfolioItems" : [ {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "name" : "name",
-    "description" : "description",
-    "client" : "client",
-    "id" : 7,
-    "category" : "category",
-    "userId" : "userId",
-    "url" : "url"
-  }, {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "name" : "name",
-    "description" : "description",
-    "client" : "client",
-    "id" : 7,
-    "category" : "category",
-    "userId" : "userId",
-    "url" : "url"
-  } ],
-  "activeTemplate" : {
-    "htmlPath" : "htmlPath",
-    "price" : 2,
-    "name" : "name",
-    "description" : "description",
-    "id" : 5,
-    "free" : true
-  },
   "password" : "password",
   "phoneNumber" : "phoneNumber",
   "surname" : "surname",
   "freelance" : "freelance",
   "name" : "name",
-  "messages" : [ {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  }, {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  } ],
   "id" : "id",
   "category" : "category",
-  "age" : 5,
+  "age" : 0,
   "email" : "email"
 }</code></pre>
 
@@ -2398,8 +2152,77 @@
   <div class="method"><a name="putUser"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /api/users/{id}</code></pre></div>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/users/{id}</code></pre></div>
     <div class="method-summary"> (<span class="nickname">putUser</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#UserDTO">UserDTO</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#User">User</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "website" : "website",
+  "city" : "city",
+  "degree" : "degree",
+  "description" : "description",
+  "bornDate" : "2000-01-23T04:56:07.000+00:00",
+  "password" : "password",
+  "phoneNumber" : "phoneNumber",
+  "surname" : "surname",
+  "freelance" : "freelance",
+  "name" : "name",
+  "id" : "id",
+  "category" : "category",
+  "age" : 0,
+  "email" : "email"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#User">User</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="putUserImage"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/users/{id}/image</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">putUserImage</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
@@ -2426,69 +2249,15 @@
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#User">User</a>
       
+      String
     </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "website" : "website",
-  "city" : "city",
-  "roles" : [ "roles", "roles" ],
-  "templates" : [ null, null ],
-  "degree" : "degree",
-  "description" : "description",
-  "bornDate" : "2000-01-23T04:56:07.000+00:00",
-  "creationDate" : "2000-01-23T04:56:07.000+00:00",
-  "portfolioItems" : [ {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "name" : "name",
-    "description" : "description",
-    "client" : "client",
-    "id" : 7,
-    "category" : "category",
-    "userId" : "userId",
-    "url" : "url"
-  }, {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "name" : "name",
-    "description" : "description",
-    "client" : "client",
-    "id" : 7,
-    "category" : "category",
-    "userId" : "userId",
-    "url" : "url"
-  } ],
-  "activeTemplate" : {
-    "htmlPath" : "htmlPath",
-    "price" : 2,
-    "name" : "name",
-    "description" : "description",
-    "id" : 5,
-    "free" : true
-  },
-  "password" : "password",
-  "phoneNumber" : "phoneNumber",
-  "surname" : "surname",
-  "freelance" : "freelance",
-  "name" : "name",
-  "messages" : [ {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  }, {
-    "sendDate" : "2000-01-23T04:56:07.000+00:00",
-    "id" : 9,
-    "text" : "text"
-  } ],
-  "id" : "id",
-  "category" : "category",
-  "age" : 5,
-  "email" : "email"
-}</code></pre>
+    <pre class="example"><code>"http://example.com/aeiou"</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -2500,7 +2269,7 @@
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#User">User</a>
+        <a href="#String">String</a>
   </div> <!-- method -->
   <hr/>
 
@@ -2509,9 +2278,10 @@
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#ChatMessage"><code>ChatMessage</code></a></li>
+    <li><a href="#AuthResponse"><code>AuthResponse</code></a></li>
+    <li><a href="#LoginRequest"><code>LoginRequest</code></a></li>
     <li><a href="#Message"><code>Message</code></a></li>
-    <li><a href="#PageMessage"><code>PageMessage</code></a></li>
+    <li><a href="#MessageDTO"><code>MessageDTO</code></a></li>
     <li><a href="#PagePortfolioItem"><code>PagePortfolioItem</code></a></li>
     <li><a href="#PageTemplate"><code>PageTemplate</code></a></li>
     <li><a href="#PageUser"><code>PageUser</code></a></li>
@@ -2526,12 +2296,22 @@
   </ol>
 
   <div class="model">
-    <h3><a name="ChatMessage"><code>ChatMessage</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="AuthResponse"><code>AuthResponse</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">sender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">receiver (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">SUCCESS</div><div class="param-enum">FAILURE</div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LoginRequest"><code>LoginRequest</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">username (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -2544,20 +2324,12 @@
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="PageMessage"><code>PageMessage</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="MessageDTO"><code>MessageDTO</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">totalElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">totalPages (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#Message">array[Message]</a></span>  </div>
-<div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">sort (optional)</div><div class="param-desc"><span class="param-type"><a href="#Sort">Sort</a></span>  </div>
-<div class="param">numberOfElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">first (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">last (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">pageable (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pageable">Pageable</a></span>  </div>
-<div class="param">empty (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+      <div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">sender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">receiver (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -2570,9 +2342,9 @@
 <div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#PortfolioItem">array[PortfolioItem]</a></span>  </div>
 <div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">sort (optional)</div><div class="param-desc"><span class="param-type"><a href="#Sort">Sort</a></span>  </div>
-<div class="param">numberOfElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">first (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">last (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">numberOfElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">pageable (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pageable">Pageable</a></span>  </div>
 <div class="param">empty (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
     </div>  <!-- field-items -->
@@ -2587,9 +2359,9 @@
 <div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#Template">array[Template]</a></span>  </div>
 <div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">sort (optional)</div><div class="param-desc"><span class="param-type"><a href="#Sort">Sort</a></span>  </div>
-<div class="param">numberOfElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">first (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">last (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">numberOfElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">pageable (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pageable">Pageable</a></span>  </div>
 <div class="param">empty (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
     </div>  <!-- field-items -->
@@ -2604,9 +2376,9 @@
 <div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#User">array[User]</a></span>  </div>
 <div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">sort (optional)</div><div class="param-desc"><span class="param-type"><a href="#Sort">Sort</a></span>  </div>
-<div class="param">numberOfElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">first (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">last (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">numberOfElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">pageable (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pageable">Pageable</a></span>  </div>
 <div class="param">empty (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
     </div>  <!-- field-items -->
@@ -2697,7 +2469,6 @@
 <div class="param">surname (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">age (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
 <div class="param">bornDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
-<div class="param">creationDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
 <div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">phoneNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -2707,11 +2478,6 @@
 <div class="param">degree (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">freelance (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">roles (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
-<div class="param">activeTemplate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Template">Template</a></span>  </div>
-<div class="param">templates (optional)</div><div class="param-desc"><span class="param-type"><a href="#Template">array[Template]</a></span>  </div>
-<div class="param">portfolioItems (optional)</div><div class="param-desc"><span class="param-type"><a href="#PortfolioItem">array[PortfolioItem]</a></span>  </div>
-<div class="param">messages (optional)</div><div class="param-desc"><span class="param-type"><a href="#Message">array[Message]</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
