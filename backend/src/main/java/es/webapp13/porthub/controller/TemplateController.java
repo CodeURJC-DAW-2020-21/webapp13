@@ -87,7 +87,10 @@ public class TemplateController {
         } else {
             model.addAttribute("chat", true);
         }
-        return userService.findTemplateHtmlPath(id);
+        String path = userService.findTemplateHtmlPath(id);
+        System.out.println("###");
+        System.out.println(path);
+        return path;
     }
 
     @GetMapping("/users/{id}/image")

@@ -41,8 +41,8 @@ public class DataBaseController implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Template free = new Template("/templates/free/index", "Free", 0, true, "Un diseño orientado a una clara visualización de tu trabajo");
-        Template premium = new Template("/templates/premium/index", "Premium", 20, false, "Un diseño de corte serio dirigido a empresas");
+        Template free = new Template("templates/free/index", "Free", 0, true, "Un diseño orientado a una clara visualización de tu trabajo");
+        Template premium = new Template("templates/premium/index", "Premium", 20, false, "Un diseño de corte serio dirigido a empresas");
         templateService.save(free);
         templateService.save(premium);
 
