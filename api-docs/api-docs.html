@@ -237,6 +237,7 @@
   <li><a href="#getPhotographer"><code><span class="http-method">get</span> /api/users/photographer</code></a></li>
   <li><a href="#getUser"><code><span class="http-method">get</span> /api/users/{id}</code></a></li>
   <li><a href="#getUsers"><code><span class="http-method">get</span> /api/users/</code></a></li>
+  <li><a href="#getUsersStatistics"><code><span class="http-method">get</span> /api/users/statistics</code></a></li>
   <li><a href="#postUser"><code><span class="http-method">post</span> /api/users/</code></a></li>
   <li><a href="#putUser"><code><span class="http-method">put</span> /api/users/{id}</code></a></li>
   <li><a href="#putUserImage"><code><span class="http-method">put</span> /api/users/{id}/image</code></a></li>
@@ -446,11 +447,6 @@
 
 
 
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">pageable (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
@@ -819,12 +815,12 @@
   "size" : 1,
   "last" : true,
   "numberOfElements" : 5,
-  "totalPages" : 6,
+  "totalPages" : 0,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 9,
+    "pageNumber" : 7,
     "offset" : 2,
-    "pageSize" : 7,
+    "pageSize" : 9,
     "unpaged" : true
   },
   "sort" : {
@@ -852,7 +848,7 @@
     "url" : "url"
   } ],
   "first" : true,
-  "totalElements" : 0,
+  "totalElements" : 6,
   "empty" : true
 }</code></pre>
 
@@ -1348,12 +1344,12 @@
   "size" : 1,
   "last" : true,
   "numberOfElements" : 7,
-  "totalPages" : 6,
+  "totalPages" : 0,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 9,
+    "pageNumber" : 7,
     "offset" : 2,
-    "pageSize" : 7,
+    "pageSize" : 9,
     "unpaged" : true
   },
   "sort" : {
@@ -1377,7 +1373,7 @@
     "free" : true
   } ],
   "first" : true,
-  "totalElements" : 0,
+  "totalElements" : 6,
   "empty" : true
 }</code></pre>
 
@@ -1542,12 +1538,12 @@
   "size" : 1,
   "last" : true,
   "numberOfElements" : 5,
-  "totalPages" : 6,
+  "totalPages" : 0,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 9,
+    "pageNumber" : 7,
     "offset" : 2,
-    "pageSize" : 7,
+    "pageSize" : 9,
     "unpaged" : true
   },
   "sort" : {
@@ -1587,7 +1583,7 @@
     "email" : "email"
   } ],
   "first" : true,
-  "totalElements" : 0,
+  "totalElements" : 6,
   "empty" : true
 }</code></pre>
 
@@ -1637,12 +1633,12 @@
   "size" : 1,
   "last" : true,
   "numberOfElements" : 5,
-  "totalPages" : 6,
+  "totalPages" : 0,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 9,
+    "pageNumber" : 7,
     "offset" : 2,
-    "pageSize" : 7,
+    "pageSize" : 9,
     "unpaged" : true
   },
   "sort" : {
@@ -1682,7 +1678,7 @@
     "email" : "email"
   } ],
   "first" : true,
-  "totalElements" : 0,
+  "totalElements" : 6,
   "empty" : true
 }</code></pre>
 
@@ -1732,12 +1728,12 @@
   "size" : 1,
   "last" : true,
   "numberOfElements" : 5,
-  "totalPages" : 6,
+  "totalPages" : 0,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 9,
+    "pageNumber" : 7,
     "offset" : 2,
-    "pageSize" : 7,
+    "pageSize" : 9,
     "unpaged" : true
   },
   "sort" : {
@@ -1777,7 +1773,7 @@
     "email" : "email"
   } ],
   "first" : true,
-  "totalElements" : 0,
+  "totalElements" : 6,
   "empty" : true
 }</code></pre>
 
@@ -1870,12 +1866,12 @@
   "size" : 1,
   "last" : true,
   "numberOfElements" : 5,
-  "totalPages" : 6,
+  "totalPages" : 0,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 9,
+    "pageNumber" : 7,
     "offset" : 2,
-    "pageSize" : 7,
+    "pageSize" : 9,
     "unpaged" : true
   },
   "sort" : {
@@ -1915,7 +1911,7 @@
     "email" : "email"
   } ],
   "first" : true,
-  "totalElements" : 0,
+  "totalElements" : 6,
   "empty" : true
 }</code></pre>
 
@@ -2023,12 +2019,12 @@
   "size" : 1,
   "last" : true,
   "numberOfElements" : 5,
-  "totalPages" : 6,
+  "totalPages" : 0,
   "pageable" : {
     "paged" : true,
-    "pageNumber" : 9,
+    "pageNumber" : 7,
     "offset" : 2,
-    "pageSize" : 7,
+    "pageSize" : 9,
     "unpaged" : true
   },
   "sort" : {
@@ -2068,7 +2064,7 @@
     "email" : "email"
   } ],
   "first" : true,
-  "totalElements" : 0,
+  "totalElements" : 6,
   "empty" : true
 }</code></pre>
 
@@ -2083,6 +2079,44 @@
     <h4 class="field-label">200</h4>
     OK
         <a href="#PageUser">PageUser</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getUsersStatistics"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/users/statistics</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getUsersStatistics</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[Integer]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ 0, 0 ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
   </div> <!-- method -->
   <hr/>
   <div class="method"><a name="postUser"></a>
@@ -2336,8 +2370,8 @@
     <h3><a name="PagePortfolioItem"><code>PagePortfolioItem</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">totalElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">totalPages (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+      <div class="param">totalPages (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">totalElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
 <div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#PortfolioItem">array[PortfolioItem]</a></span>  </div>
 <div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
@@ -2353,8 +2387,8 @@
     <h3><a name="PageTemplate"><code>PageTemplate</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">totalElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">totalPages (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+      <div class="param">totalPages (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">totalElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
 <div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#Template">array[Template]</a></span>  </div>
 <div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
@@ -2370,8 +2404,8 @@
     <h3><a name="PageUser"><code>PageUser</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">totalElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">totalPages (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+      <div class="param">totalPages (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">totalElements (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
 <div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#User">array[User]</a></span>  </div>
 <div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
@@ -2389,8 +2423,8 @@
     <div class="field-items">
       <div class="param">offset (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
 <div class="param">sort (optional)</div><div class="param-desc"><span class="param-type"><a href="#Sort">Sort</a></span>  </div>
-<div class="param">pageSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">pageNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">pageSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">paged (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">unpaged (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
     </div>  <!-- field-items -->
