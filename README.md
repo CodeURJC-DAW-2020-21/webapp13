@@ -311,6 +311,8 @@ In this phase, I've been focused in the API Rest's security and in the Messages'
 
 #### José Justo 
 ##### Description
+I have worked mainly on the rest controller methods of the portfolio item entity and the api documentation.
+I have also helped in the development of the api collection and the dockerization of the application, specifically in the upload of the web application image to docker hub.
 
 ##### Top 5 commits
 1. 
