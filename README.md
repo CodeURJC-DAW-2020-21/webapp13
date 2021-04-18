@@ -260,6 +260,28 @@ graphic that tracks the total number of users registered on the app.
 
 
 ## Phase 3
+
+### Participation
+
+#### José Manuel
+##### Description
+In this phase, I've been focused in the API Rest's security and in the Messages' requests of the API too. Also, I've helped my teammates with their tasks and to solve some errors that came up during the development of the API Rest.
+
+##### Top 5 commits
+1. [Security for API Rest](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/ea313dc8d5096b68bc479a7c1b29102dd18e6e14)
+2. [MessageRestController and fixed chat.html](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/94708193d610434350b4dfadf59ba50abc02a649)
+3. [MessageDTO, reactivated CSRF and modified error endpoint](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/521484337cf9a1aaabb1be13ba1a1522cff56833)
+4. [MessageRestController modified and chat.js fixed](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/299445f01183c8bc35694c48ab079a03ffd90815)
+5. [MessageRestController improved](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/08b5aab4d6875d6566b9325128b5813ab50ce236)
+
+##### Top 5 files
+1. __RestSecurityConfig.java__
+2. __MessageRestController.java__
+3. __LoginRestController.java__
+4. __MessageDTO.java__
+5. __MessageService.java__
+
+
 ## Phase 4
  
 
