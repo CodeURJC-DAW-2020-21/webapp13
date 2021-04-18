@@ -315,18 +315,18 @@ I have worked mainly on the rest controller methods of the portfolio item entity
 I have also helped in the development of the api collection and the dockerization of the application, specifically in the upload of the web application image to docker hub.
 
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [ Implemented all the method that user images in the portfolio item rest controller](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/f0a7a9c6e682543c4d68456c487e532f3e043f9d)
+2. [Created a DTO for portfolio item](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/3dcf8e9b05a6a7574f10f73c2b06f2a48bfb17e8)
+3. [Added the files corresponding to api documentation](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/abf82bbcd9c889040ab0a5b3cd60c6e83bbd787c)
+4. [Securized all the portfolio item api methods](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/d3cfbab680693660757d3277fdf780007cc14b70)
+5. [Generated documentation for the api](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/1b8c408117c53cb38fdf9aa1396993be6dc115ca)
 
 ##### Top 5 files
-1. 
-2. 
-3. 
-4. 
-5. 
+1. __PortfolioItemRestController.java__
+2. __PortfolioItemDTO.java__
+3. __API.postman_collection.json__
+4. __PortfolioItemService.java__
+5. __api-docs.html__
 
 #### Aitor
 ##### Description
