@@ -267,7 +267,7 @@ graphic that tracks the total number of users registered on the app.
 [Link to the website specification](https://rawcdn.githack.com/CodeURJC-DAW-2020-21/webapp13/518cb63bae73b48354fd6ca7868605bec9e7250c/api-docs/api-docs.html)
 
 ### Class diagrama update
-
+![Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/diagrams/Class%20Diagram.svg)
 ### Instructions for running the dockerised application
 
 ### Documentation for building the docker image
