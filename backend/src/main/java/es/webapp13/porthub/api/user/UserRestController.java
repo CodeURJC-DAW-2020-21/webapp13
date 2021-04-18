@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.security.Principal;
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.Optional;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
@@ -65,6 +66,17 @@ public class UserRestController {
             int profilePhotoLength = (int) user.get().getProfilePhoto().length();
             return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(new ByteArrayResource(user.get().getProfilePhoto().getBytes(1, profilePhotoLength)));
         } else
+            return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/statistics")
+    public ResponseEntity<Collection<Integer>> getUsersStatistics() {
+
+        Collection<Integer> users = userService.findByCreationDate();
+
+        if (!users.isEmpty())
+            return ResponseEntity.ok(users);
+        else
             return ResponseEntity.notFound().build();
     }
 

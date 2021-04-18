@@ -37,7 +37,7 @@ public class AdminController {
 
     @GetMapping("/admin/app/graphics")
     public String adminAppGraphicsLink(Model model) {
-        List<Integer> usersPerMonth = userService.selectByCreationDateMonth();
+        Collection<Integer> usersPerMonth = userService.findByCreationDate();
         model.addAttribute("usersPerMonth", usersPerMonth);
         return "admin-app-graphics";
     }
