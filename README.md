@@ -273,7 +273,11 @@ In order to run the app you need to have installed:
 - docker (You can install it from https://docs.docker.com/engine/install/ or if you have snap package manager you can use `$ sudo snap install docker`)
 - docker-compose (`$ sudo apt install docker-compose`)
 
-Once you have the requirements, you need to go to the working directory `$ cd webapp13`, then go to `$ cd docker`, finally use `$ sudo docker-compose up` to run the application
+Once you have the requirements, you need to go to the working directory `$ cd webapp13`, then go to `$ cd docker`.
+Now you must generate the .jar file, here you have two options:
+- Execute the command `$ sudo docker run --rm -v "$PWD":/data -w /data maven mvn package`.
+- Execute the script `$ sudo ./create_image.sh`, but it will also generate a docker image that isn't neccesary in this step.
+Finally use `$ sudo docker-compose up` to run the application
 
 ### Documentation for building the docker image
 
