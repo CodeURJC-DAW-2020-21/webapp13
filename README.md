@@ -267,8 +267,13 @@ graphic that tracks the total number of users registered on the app.
 [Link to the website specification](https://rawcdn.githack.com/CodeURJC-DAW-2020-21/webapp13/518cb63bae73b48354fd6ca7868605bec9e7250c/api-docs/api-docs.html)
 
 ### Class diagrama update
-![Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/diagrams/Class%20Diagram.svg)
+![Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/diagrams/Class%20Diagram%202.svg)
 ### Instructions for running the dockerised application
+In order to run the app you need to have installed:
+- docker (You can install it from https://docs.docker.com/engine/install/ or if you have snap package manager you can use `$ sudo snap install docker`)
+- docker-compose (`$ sudo apt install docker-compose`)
+
+Once you have the requirements, you need to go to the working directory `$ cd webapp13`, then go to `$ cd docker`, finally use `$ sudo docker-compose up` to run the application
 
 ### Documentation for building the docker image
 
