@@ -289,7 +289,7 @@ In this phase, I' ve been working in the UserRestController to manage the users 
 2. __UserDTO.java__
 3. __PortfolioItemService.java__
 4. __docker-compose.yml__
-5. __create_image.sh __
+5. __create_image.sh__
 
 #### José Manuel
 ##### Description
