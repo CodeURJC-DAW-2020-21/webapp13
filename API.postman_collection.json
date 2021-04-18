@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "89210c48-9af4-4b0b-a12e-8aadc73f9e7d",
+		"_postman_id": "f1bc0f26-2f21-4411-8fa3-883751220ab2",
 		"name": "API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -486,13 +486,13 @@
 					"response": []
 				},
 				{
-					"name": "/users/{userId}",
+					"name": "/users/{userId}/{portfolioItemId}",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\":10,\n    \"userId\":\"id\",\n    \"name\":\"Fotos en el parque de atracciones\",\n    \"description\":\"Una sesión de fotos de lo más divertida\",\n    \"category\":\"Fotografía\",\n    \"client\":\"Parque de atracciones de Madrid\",\n    \"url\":\"https://www.parquedeatracciones.es/\",\n    \"date\":\"2000-10-28\"\n}\n",
+							"raw": "{\n    \"id\":10,\n    \"userId\":\"id\",\n    \"name\":\"Fotos en el parque de atracciones\",\n    \"description\":\"Una sesión de fotos de lo más divertida\",\n    \"category\":\"Fotografía\",\n    \"client\":\"Parque de atracciones de Madrid\",\n    \"url\":\"https://www.parquedeatracciones.es/\",\n    \"date\":\"2000-10-28\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
