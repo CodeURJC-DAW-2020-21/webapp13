@@ -271,18 +271,22 @@ graphic that tracks the total number of users registered on the app.
 
 ### Instructions for running the dockerised application
 In order to run the app you need to have installed:
-- docker (You can install it from https://docs.docker.com/engine/install/ or if you have snap package manager you can use `$ sudo snap install docker`)
-- docker-compose (`$ sudo apt install docker-compose`)
+- docker (You can install it from https://docs.docker.com/engine/install/ or if you have snap package manager you can use `$ sudo snap install docker`).
+- docker-compose (`$ sudo apt install docker-compose`).
 
-Once you have the requirements, you need to go to the working directory `$ cd webapp13`, then go to `$ cd docker`.
-Now you must generate the .jar file, here you have two options:
-- Execute the command `$ sudo docker run --rm -v "$PWD":/data -w /data maven mvn package`.
-- Execute the script `$ sudo ./create_image.sh`, but it will also generate a docker image that isn't neccesary in this step.
+First of all you need to clone the repository, you can do it with `git clone https://github.com/CodeURJC-DAW-2020-21/webapp13.git`.
 
-Finally use `$ sudo docker-compose up` to run the application
+Once you have the requirements and the repository in your local machine, you need to go to the working directory `$ cd webapp13`, then go to `$ cd docker`.Finally use `$ sudo docker-compose up` to run the application. You can kill the process with `ctrl+c`. Once the app has started, you can access it from __https::/localhost:8443/__
 
 ### Documentation for building the docker image
+In order to build the docker image you need to have installed:
+- docker (You can install it from https://docs.docker.com/engine/install/ or if you have snap package manager you can use `$ sudo snap install docker`).
 
+First of all you need to clone the repository, you can do it with `git clone https://github.com/CodeURJC-DAW-2020-21/webapp13.git`.
+
+Once you have the repository on your local machine, you need to go to the working directory `$ cd webapp13`, then go to `$ cd docker`. Once here, you need to execute the script that you will find in this folder, you can do it with `$ ./create_image.sh`. Maybe you need to give execution permissions, you can do it by this way `$ sudo chmod +x create_image.sh`.
+
+Keep in mind that the app won't run properly if there is no database configured previously.
 ### Participation
 
 #### Cristian
