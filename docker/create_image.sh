@@ -35,6 +35,7 @@ sudo docker build -t porthub .
 rm *.jar
 echo "Image built sucessfully, if you want to run the app use"
 echo "$ sudo docker-compose up"
+echo "Exiting..."
  
 exit 0
 
