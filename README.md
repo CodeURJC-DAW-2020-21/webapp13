@@ -326,7 +326,7 @@ I have worked mainly on the rest controller methods of the portfolio item entity
 I have also helped in the development of the api collection and the dockerization of the application, specifically in the upload of the web application image to docker hub.
 
 ##### Top 5 commits
-1. [ Implemented all the method that user images in the portfolio item rest controller](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/f0a7a9c6e682543c4d68456c487e532f3e043f9d)
+1. [Implemented all the method that user images in the portfolio item rest controller](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/f0a7a9c6e682543c4d68456c487e532f3e043f9d)
 2. [Created a DTO for portfolio item](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/3dcf8e9b05a6a7574f10f73c2b06f2a48bfb17e8)
 3. [Added the files corresponding to api documentation](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/abf82bbcd9c889040ab0a5b3cd60c6e83bbd787c)
 4. [Securized all the portfolio item api methods](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/d3cfbab680693660757d3277fdf780007cc14b70)
@@ -341,20 +341,24 @@ I have also helped in the development of the api collection and the dockerizatio
 
 #### Aitor
 ##### Description
-
+In this phase, my work has been based on doing the API REST Templates part. I did the TemlateRestController with all the possible methods related to the functionalities using the
+Template entity and created the DTO. Then, I changed some parts of the user registration to add the creation date when a user creates his first account and this date get saved in
+the database. This was necessary because we changed the graphic to show the users registered in PortHub every month.
+By other side, after ending the Template API REST part, I prepared all the Postman tests related with this entity, and edited the RestController to add a security feature because
+there are some methods available only for administrators.
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [Done the TemplateRestController and adapted the TemplateService](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/0866a68e810a9db8256ab8f15cfba5e5b9b807ef)
+2. [Added DTO to TemplateRestController and reformated the directory of Template API files](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/3ad0a6a3f338e896b465e13069871023bbbcf97a)
+3. [Done the creation date in users](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/a1dfecf11a843c545be2b169bf9ce438d4701830)
+4. [Adapted TemplateRestController with security](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/9c98dd10746236076a42c55edfc9115a43109f10)
+5. [Edited files to change de Admin graphic](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/6b02f1c68cf70946dd43d69e02a81517c82a42e7)
 
 ##### Top 5 files
-1. 
-2. 
-3. 
-4. 
-5. 
+1. __TemplateRestController.java__
+2. __TemplateDTO.java__
+3. __AuthenticationController.java__
+4. __UserService.java__
+5. __UserRepository__
 
 ## Phase 4
  
