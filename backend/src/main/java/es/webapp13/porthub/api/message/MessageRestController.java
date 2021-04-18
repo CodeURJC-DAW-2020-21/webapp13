@@ -5,7 +5,6 @@ import es.webapp13.porthub.model.Message;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.MessageService;
 import es.webapp13.porthub.service.UserService;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -66,7 +65,7 @@ public class MessageRestController {
      * @return the list of messages
      */
     @GetMapping("/{id1}/{id2}")
-    public ResponseEntity<List<Message>> getMessages(@PathVariable String id1, @PathVariable String id2, Pageable pageable, HttpServletRequest request) {
+    public ResponseEntity<List<Message>> getMessages(@PathVariable String id1, @PathVariable String id2, HttpServletRequest request) {
 
         Optional<User> user1 = userService.findById(id1);
         Optional<User> user2 = userService.findById(id2);
@@ -112,7 +111,6 @@ public class MessageRestController {
             }
         }
         return ResponseEntity.badRequest().build();
-
     }
 
 }
