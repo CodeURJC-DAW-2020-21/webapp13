@@ -276,20 +276,20 @@ graphic that tracks the total number of users registered on the app.
 
 #### Cristian
 ##### Description
-
+In this phase, I' ve been working in the UserRestController to manage the users information. I have dockerized the app too and made the bash script to create the docker image. Also I made some refactor to the code of the previus phase, to bring some organization.
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [App dockerized ](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/32a05686b69e5b97cfb8a1129e8723eb9358de14)
+2. [Bash script to create docker image](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/49228d3a74977e337d3c29ade52ed6b9c19b30d8)
+3. [UserRestController full implemented ](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/8bbf9ce889486bf323d568aff7e2791048b94435)
+4. [Functional way of uploading photos](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/aa6a9eb123fbace3f69677d11f7ab0bbcc8cb94a)
+5. [Full service refactor](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/94ca9c5e1e5050d949252d208064889a9bae9df3)
 
 ##### Top 5 files
-1. 
-2. 
-3. 
-4. 
-5. 
+1. __UserRestController.java__
+2. __UserDTO.java__
+3. __PortfolioItemService.java__
+4. __docker-compose.yml__
+5. __create_image.sh __
 
 #### José Manuel
 ##### Description
