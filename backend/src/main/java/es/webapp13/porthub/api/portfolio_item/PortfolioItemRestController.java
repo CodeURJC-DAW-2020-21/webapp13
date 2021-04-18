@@ -115,7 +115,7 @@ public class PortfolioItemRestController {
         Principal principal = request.getUserPrincipal();
         Optional<User> me = userService.findById(principal.getName());
         
-        if (me.isPresent() && userId.contentEquals(me.get().getId())){
+        if ((me.isPresent() && userId.contentEquals(me.get().getId())) || portfolioItemService.findById(portfolioItemDTO.getId()).isPresent()){
             PortfolioItem portfolioItem = modelMapper.map(portfolioItemDTO, PortfolioItem.class);
 
             portfolioItemService.add(userId, portfolioItem);

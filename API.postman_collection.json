@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1260d2e5-20fe-4fc5-8515-a647ac9b471b",
+		"_postman_id": "f1bc0f26-2f21-4411-8fa3-883751220ab2",
 		"name": "API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -273,7 +273,7 @@
 								{
 									"key": "profilePhoto",
 									"type": "file",
-									"src": "files/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+									"src": "256_rsz_90-jiang-640827-unsplash.jpg"
 								}
 							]
 						},
@@ -437,72 +437,16 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "id",
-									"value": "10",
-									"type": "text"
-								},
-								{
-									"key": "userId",
-									"value": "id",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "Fotos en el zoo",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "Una sesión de fotos de lo más salvaje",
-									"type": "text"
-								},
-								{
-									"key": "category",
-									"value": "Fotografía",
-									"type": "text"
-								},
-								{
-									"key": "client",
-									"value": "Zoo de Madrid",
-									"type": "text"
-								},
-								{
-									"key": "url",
-									"value": "https://www.zoomadrid.com/",
-									"type": "text"
-								},
-								{
-									"key": "date",
-									"value": "2000-07-28",
-									"type": "text"
-								},
-								{
-									"key": "previewPhoto",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
-								},
-								{
-									"key": "image1",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
-								},
-								{
-									"key": "image2",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
-								},
-								{
-									"key": "image3",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+							"mode": "raw",
+							"raw": "{\n    \"id\":10,\n    \"userId\":\"id\",\n    \"name\":\"Fotos en el zoo\",\n    \"description\":\"Una sesión de fotos de lo más salvaje\",\n    \"category\":\"Fotografía\",\n    \"client\":\"Zoo de Madrid\",\n    \"url\":\"https://www.zoomadrid.com/\",\n    \"date\":\"2000-07-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/users/id",
+							"raw": "https://localhost:8443/api/portfolioItems/users/id",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -510,140 +454,9 @@
 							"port": "8443",
 							"path": [
 								"api",
+								"portfolioItems",
 								"users",
 								"id"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/users/{userId}/{portfolioItemId}/previewImage",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "previewPhoto",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://localhost:8443/api/users/id/10/previewImage",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "8443",
-							"path": [
-								"api",
-								"users",
-								"id",
-								"10",
-								"previewImage"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/users/{userId}/{portfolioItemId}/image1",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "image1",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://localhost:8443/api/users/id/10/image1",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "8443",
-							"path": [
-								"api",
-								"users",
-								"id",
-								"10",
-								"image1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/users/{userId}/{portfolioItemId}/image2",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "image2",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://localhost:8443/api/users/id/10/image2",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "8443",
-							"path": [
-								"api",
-								"users",
-								"id",
-								"10",
-								"image2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/users/{userId}/{portfolioItemId}/image3",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "image3",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://localhost:8443/api/users/id/10/image3",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "8443",
-							"path": [
-								"api",
-								"users",
-								"id",
-								"10",
-								"image3"
 							]
 						}
 					},
@@ -678,72 +491,16 @@
 						"method": "PUT",
 						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "id",
-									"value": "10",
-									"type": "text"
-								},
-								{
-									"key": "userId",
-									"value": "id",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "Fotos en el parque de atracciones",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "Una sesión de fotos de lo más divertida",
-									"type": "text"
-								},
-								{
-									"key": "category",
-									"value": "Fotografía",
-									"type": "text"
-								},
-								{
-									"key": "client",
-									"value": "Parque de atracciones de Madrid",
-									"type": "text"
-								},
-								{
-									"key": "url",
-									"value": "https://www.parquedeatracciones.es/",
-									"type": "text"
-								},
-								{
-									"key": "date",
-									"value": "2000-10-28",
-									"type": "text"
-								},
-								{
-									"key": "previewPhoto",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
-								},
-								{
-									"key": "image1",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
-								},
-								{
-									"key": "image2",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
-								},
-								{
-									"key": "image3",
-									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+							"mode": "raw",
+							"raw": "{\n    \"id\":10,\n    \"userId\":\"id\",\n    \"name\":\"Fotos en el parque de atracciones\",\n    \"description\":\"Una sesión de fotos de lo más divertida\",\n    \"category\":\"Fotografía\",\n    \"client\":\"Parque de atracciones de Madrid\",\n    \"url\":\"https://www.parquedeatracciones.es/\",\n    \"date\":\"2000-10-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/users/id",
+							"raw": "https://localhost:8443/api/portfolioItems/users/id",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -751,6 +508,7 @@
 							"port": "8443",
 							"path": [
 								"api",
+								"portfolioItems",
 								"users",
 								"id"
 							]
@@ -767,14 +525,14 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "previewPhoto",
+									"key": "previewImg",
 									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+									"src": "265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/users/id/10/previewImage",
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/previewImage",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -782,6 +540,7 @@
 							"port": "8443",
 							"path": [
 								"api",
+								"portfolioItems",
 								"users",
 								"id",
 								"10",
@@ -802,12 +561,12 @@
 								{
 									"key": "image1",
 									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+									"src": "265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/users/id/10/image1",
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image1",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -815,6 +574,7 @@
 							"port": "8443",
 							"path": [
 								"api",
+								"portfolioItems",
 								"users",
 								"id",
 								"10",
@@ -835,12 +595,12 @@
 								{
 									"key": "image2",
 									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+									"src": "265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/users/id/10/image2",
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image2",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -848,6 +608,7 @@
 							"port": "8443",
 							"path": [
 								"api",
+								"portfolioItems",
 								"users",
 								"id",
 								"10",
@@ -868,12 +629,12 @@
 								{
 									"key": "image3",
 									"type": "file",
-									"src": "/home/cfres/Codigo/desarrollo_aplicaciones_web/webapp13/backend/src/main/resources/static/app/assets/images/people/256/265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+									"src": "265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/users/id/10/image3",
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -881,6 +642,7 @@
 							"port": "8443",
 							"path": [
 								"api",
+								"portfolioItems",
 								"users",
 								"id",
 								"10",
@@ -966,27 +728,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "/{id}",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:8443/api/templates/10",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "8443",
-							"path": [
-								"api",
-								"templates",
-								"10"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -1066,13 +807,73 @@
 			"name": "Auth",
 			"item": [
 				{
-					"name": "Login",
+					"name": "Login Admin",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Portfolio Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"id\",\r\n    \"password\": \"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"criss00_2820\",\r\n    \"password\": \"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
