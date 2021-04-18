@@ -1,0 +1,23 @@
+version: '3'
+services:
+
+  database:
+    image: 'mysql:5.7'
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_PASSWORD=123456
+      - MYSQL_DATABASE=porthubdb
+    ports:
+      - "3307:3306"
+
+  backend:
+    ports:
+      - "8443:8443"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/porthubdb?autoReconnect=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "123456"
+    build: .
+    depends_on:
+      - database
+    restart: on-failure

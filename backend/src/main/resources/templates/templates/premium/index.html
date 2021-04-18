@@ -111,12 +111,14 @@
 <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
         <h1>
-            {{^external}}
-            Nombre Apellidos
-            {{/external}}
+
             {{#external}}
             {{#portfolioUser}}{{name}} {{surname}}{{/portfolioUser}}
             {{/external}}
+            {{^external}}
+            Nombre Apellidos
+            {{/external}}
+
         </h1>
         <h2 id="user-id">
             {{#portfolioUser}}{{id}}{{/portfolioUser}}
@@ -288,7 +290,7 @@
                     </ul>
                 </div>
             </div>
-
+        </div>
     </section><!-- End Portfolio Section -->
 
 

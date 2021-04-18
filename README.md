@@ -261,7 +261,35 @@ graphic that tracks the total number of users registered on the app.
 
 ## Phase 3
 
+### API REST documentation
+[Link to the OpenAPI specification](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/api-docs/api-docs.yaml)
+
+[Link to the website specification](https://rawcdn.githack.com/CodeURJC-DAW-2020-21/webapp13/518cb63bae73b48354fd6ca7868605bec9e7250c/api-docs/api-docs.html)
+
+### Class diagrama update
+
+### Instructions for running the dockerised application
+
+### Documentation for building the docker image
+
 ### Participation
+
+#### Cristian
+##### Description
+
+##### Top 5 commits
+1. 
+2. 
+3. 
+4. 
+5. 
+
+##### Top 5 files
+1. 
+2. 
+3. 
+4. 
+5. 
 
 #### José Manuel
 ##### Description
@@ -281,6 +309,39 @@ In this phase, I've been focused in the API Rest's security and in the Messages'
 4. __MessageDTO.java__
 5. __MessageService.java__
 
+#### José Justo 
+##### Description
+
+##### Top 5 commits
+1. 
+2. 
+3. 
+4. 
+5. 
+
+##### Top 5 files
+1. 
+2. 
+3. 
+4. 
+5. 
+
+#### Aitor
+##### Description
+
+##### Top 5 commits
+1. 
+2. 
+3. 
+4. 
+5. 
+
+##### Top 5 files
+1. 
+2. 
+3. 
+4. 
+5. 
 
 ## Phase 4
  
