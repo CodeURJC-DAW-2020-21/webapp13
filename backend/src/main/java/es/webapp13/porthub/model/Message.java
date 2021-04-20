@@ -15,11 +15,9 @@ public class Message {
     private long id;
 
     @ManyToOne
-    @JsonIgnore
     private User sender;
 
     @ManyToOne
-    @JsonIgnore
     private User receiver;
 
     private String text;
