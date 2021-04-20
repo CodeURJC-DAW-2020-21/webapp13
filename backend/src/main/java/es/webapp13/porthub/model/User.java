@@ -25,6 +25,7 @@ public class User {
     private long age;
     private Date bornDate;
     private String email;
+    @JsonIgnore
     private String password;
     private String phoneNumber;
     private String website;
