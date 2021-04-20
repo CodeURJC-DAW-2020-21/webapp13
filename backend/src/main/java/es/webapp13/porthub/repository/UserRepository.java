@@ -17,7 +17,7 @@ public interface UserRepository extends JpaRepository<User, String> {
 
     User findFirstByName(String name);
 
-    @Query("SELECT u FROM User u WHERE u.name LIKE ?1%")
+    @Query("SELECT u FROM User u WHERE u.name = ?1")
     Page<User> findSearching(String search, Pageable pageable);
 
     @Query("SELECT u FROM User u WHERE u.category=?1")

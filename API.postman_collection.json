@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f1bc0f26-2f21-4411-8fa3-883751220ab2",
+		"_postman_id": "45e3340b-a9c8-4251-90d7-7c964cde6faf",
 		"name": "API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -289,6 +289,29 @@
 								"users",
 								"criss00_2820",
 								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}/activeTemplate/{templateId}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/id/activeTemplate/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id",
+								"activeTemplate",
+								"2"
 							]
 						}
 					},
