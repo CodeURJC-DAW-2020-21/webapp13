@@ -21,7 +21,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/porthubdb?autoReconnect=true&useSSL=false
       SPRING_DATASOURCE_USERNAME: "root"
       SPRING_DATASOURCE_PASSWORD: "123456"
-    image: 'jjtena/backend_backend:backend'
+    image: 'jjtena/porthub'
     depends_on:
       - database
     restart: on-failure
