@@ -1,7 +1,9 @@
 package es.webapp13.porthub.api.user;
 
+import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.SearchService;
+import es.webapp13.porthub.service.TemplateService;
 import es.webapp13.porthub.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.core.io.ByteArrayResource;
@@ -32,10 +34,13 @@ public class UserRestController {
 
     private final UserService userService;
 
-    public UserRestController(UserService userService, ModelMapper modelMapper, SearchService searchService) {
+    private final TemplateService templateService;
+
+    public UserRestController(UserService userService, ModelMapper modelMapper, SearchService searchService, TemplateService templateService) {
         this.userService = userService;
         this.modelMapper = modelMapper;
         this.searchService = searchService;
+        this.templateService = templateService;
     }
 
     @GetMapping("/")
@@ -193,5 +198,25 @@ public class UserRestController {
             return ResponseEntity.status(403).build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}/activeTemplate/{templateId}")
+    public ResponseEntity<Template> putActiveTemplate (@PathVariable String id, @PathVariable int templateId, UserDTO userDTO, HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        Optional<User> me = userService.findById(principal.getName());
+
+        Optional<User> user = userService.findById(id);
+        if (me.isPresent() && user.isPresent()){
+            if (userDTO.getId().equals(me.get().getId())){
+                Optional<Template> template = templateService.findById(templateId);
+                if (template.isPresent()){
+                    me.get().setActiveTemplate(template.get());
+                    userService.save(me.get());
+                    return ResponseEntity.ok(template.get());
+                }
+                return ResponseEntity.notFound().build();
+            }
+        }
+        return ResponseEntity.status(403).build();
     }
 }
