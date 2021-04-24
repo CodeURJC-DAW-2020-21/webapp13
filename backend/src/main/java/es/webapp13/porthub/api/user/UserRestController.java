@@ -19,6 +19,7 @@ import java.net.URI;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
@@ -201,18 +202,39 @@ public class UserRestController {
     }
 
     @PutMapping("/{id}/activeTemplate/{templateId}")
-    public ResponseEntity<Template> putActiveTemplate (@PathVariable String id, @PathVariable int templateId, UserDTO userDTO, HttpServletRequest request){
+    public ResponseEntity<Template> putActiveTemplate (@PathVariable String id, @PathVariable int templateId, HttpServletRequest request){
         Principal principal = request.getUserPrincipal();
         Optional<User> me = userService.findById(principal.getName());
 
         Optional<User> user = userService.findById(id);
         if (me.isPresent() && user.isPresent()){
-            if (userDTO.getId().equals(me.get().getId())){
+            if (user.get().getId().equals(me.get().getId())){
                 Optional<Template> template = templateService.findById(templateId);
                 if (template.isPresent()){
                     me.get().setActiveTemplate(template.get());
                     userService.save(me.get());
                     return ResponseEntity.ok(template.get());
+                }
+                return ResponseEntity.notFound().build();
+            }
+        }
+        return ResponseEntity.status(403).build();
+    }
+
+    @PutMapping("/{id}/templateList/{templateId}")
+    public ResponseEntity<List<Template>> purchaseTemplate (@PathVariable String id, @PathVariable int templateId, HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        Optional<User> me = userService.findById(principal.getName());
+
+        Optional<User> user = userService.findById(id);
+        if (me.isPresent() && user.isPresent()){
+            if (user.get().getId().equals(me.get().getId())){
+                Optional<Template> template = templateService.findById(templateId);
+                if (template.isPresent()){
+                    List<Template> templateList = user.get().getTemplates();
+                    templateList.add(template.get());
+                    user.get().setTemplates(templateList);
+                    return ResponseEntity.ok(templateList);
                 }
                 return ResponseEntity.notFound().build();
             }
