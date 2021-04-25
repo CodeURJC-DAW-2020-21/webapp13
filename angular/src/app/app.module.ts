@@ -20,6 +20,7 @@ import { LoginErrorComponent } from './login-error/login-error.component';
 import { LogoutConfirmationComponent } from './logout-confirmation/logout-confirmation.component';
 import { SearchComponent } from './search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ShopComponent } from './shop/shop.component';
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({
@@ -42,6 +43,7 @@ import { RegisterComponent } from './register/register.component';
     LoginErrorComponent,
     LogoutConfirmationComponent,
     SearchComponent,
+    ShopComponent,
     RegisterComponent,
   ],
   imports: [

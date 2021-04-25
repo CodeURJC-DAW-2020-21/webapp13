@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { IndexComponent } from './index/index.component'
 import { SearchComponent } from './search/search.component'
+import { ShopComponent } from './shop/shop.component'
 import { AdminComponent } from "./admin/admin.component";
 import { AdminAppGraphicsComponent } from "./admin-app-graphics/admin-app-graphics.component";
 import { AdminTemplatesListComponent } from "./admin-templates-list/admin-templates-list.component";
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'login-error', component: LoginErrorComponent},
   { path: 'logout-confirmation', component: LogoutConfirmationComponent},
+  { path: 'shop', component: ShopComponent},
   { path: 'register', component: RegisterComponent}
 
 ];
