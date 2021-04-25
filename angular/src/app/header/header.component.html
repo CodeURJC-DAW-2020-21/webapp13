@@ -42,13 +42,13 @@
       <!-- Main Navigation -->
       <ul class="nav navbar-nav ml-auto flex-nowrap" style="white-space: nowrap;">
         <li class="nav-item">
-          <a href="student-edit-account.html" class="nav-link">
+          <a [routerLink]="['/settings-edit-account']" class="nav-link">
             <i class="material-icons">settings</i>
             <span class="sr-only">Login</span>
           </a>
         </li>
         <li class="d-none d-sm-flex nav-item">
-          <a href="login.html" class="btn btn-accent">Login</a>
+          <a [routerLink]="['/login']" class="btn btn-accent">Login</a>
         </li>
 
       </ul>

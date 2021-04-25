@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { IndexComponent } from './index/index.component';
-<<<<<<< HEAD
 import { SettingsEditAccountComponent } from './settings-edit-account/settings-edit-account.component';
 import { SettingsEditAccountEditPortfolioitemComponent } from './settings-edit-account-edit-portfolioitem/settings-edit-account-edit-portfolioitem.component';
 import { SettingsEditAccountMytemplatesComponent } from './settings-edit-account-mytemplates/settings-edit-account-mytemplates.component';
@@ -16,17 +15,14 @@ import { SettingsEditAccountProfileComponent } from './settings-edit-account-pro
 import { LoginComponent } from './login/login.component';
 import { LoginErrorComponent } from './login-error/login-error.component';
 import { LogoutConfirmationComponent } from './logout-confirmation/logout-confirmation.component';
-=======
 import { SearchComponent } from './search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
->>>>>>> 7442a2a28e03e23695acfbe7630618e23c90673d
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     IndexComponent,
-<<<<<<< HEAD
     SettingsEditAccountComponent,
     SettingsEditAccountEditPortfolioitemComponent,
     SettingsEditAccountMytemplatesComponent,
@@ -36,10 +32,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SettingsEditAccountProfileComponent,
     LoginComponent,
     LoginErrorComponent,
-    LogoutConfirmationComponent
-=======
+    LogoutConfirmationComponent,
     SearchComponent,
->>>>>>> 7442a2a28e03e23695acfbe7630618e23c90673d
   ],
   imports: [
     BrowserModule,
