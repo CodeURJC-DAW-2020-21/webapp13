@@ -12,9 +12,5 @@ export class AppComponent {
   title = 'angular';
 
 
-
-  ngOnInit(): void {
-  }
-
   
 }

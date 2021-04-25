@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,6 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
+  users = []
+
+  constructor(private httpClient: HttpClient) { 
+  }
+
+
+  getUsers(){
+    this.users = []
+    let url = "api/users/"
+    this.httpClient.get(url).subscribe(
+      response => {
+        let data:any = response
+        data.content.forEach(element => {
+          this.users.push(element)
+        });
+        console.log(this.users)
+      },
+      error => {
+        console.log("Error")
+      }
+    )
+    
+  }
+
+  ngOnInit(): void {
+    this.getUsers()
+  }
+
+  /*
   scripts = [
     "assets/vendor/popper.min.js",
     "assets/vendor/jquery.min.js",
@@ -18,10 +48,6 @@ export class SearchComponent implements OnInit {
     "assets/js/app.js",
     "assets/js/custom/text-scramble.js"
   ]
-
-
-  ngOnInit(): void {
-  }
 
   loadAPI: Promise<any>;
 
@@ -43,5 +69,6 @@ export class SearchComponent implements OnInit {
       document.getElementsByTagName("head")[0].appendChild(node);
     });
   }
+  */
 
 }
