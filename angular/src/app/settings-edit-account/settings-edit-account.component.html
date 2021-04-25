@@ -1,0 +1,196 @@
+<!-- Header Layout Content -->
+<div class="mdk-header-layout__content page-content ">
+
+  <!--
+    {{#user}}
+    {{> info}}
+  -->
+
+  <div class="container page__container">
+      <form action="/settings/edit/account/set/new/info" method="post" enctype="multipart/form-data">
+          <div class="row">
+              <div class="col-lg-9">
+                  <div class="page-section">
+                      <h4>Información básica</h4>
+                      <div class="list-group list-group-form">
+
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Foto de perfil:</label>
+                                  <div class="col-sm-9 media align-items-center">
+                                      <a href="" class="media-left mr-16pt">
+                                          <img src="/app/assets/images/people/110/bg-masthead.jpg" alt="people"
+                                               class="rounded-circle" width="56">
+                                      </a>
+                                      <div class="media-body">
+                                          <div class="custom-file">
+                                              <input type="file" class="custom-file-input" id="profileImg" name="profileImg"  accept=".jpg, .jpeg, .png">
+                                              <label class="custom-file-label" for="profileImg">Elige un
+                                                  archivo</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Nombre de usuario</label>
+                                  <div class="col-sm-9">
+                                      <!--
+                                        <input id="id" name="id" type="text" class="form-control" value="{{id}}" disabled>
+                                      -->
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Nombre</label>
+                                  <div class="col-sm-9">
+
+                                      <!--
+                                        <input id="name" name="name" type="text" class="form-control" value="{{name}}">
+                                      -->
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Apellidos</label>
+                                  <div class="col-sm-9">
+
+                                      <!--
+                                        <input id="surname" name="surname" type="text" class="form-control" value="{{surname}}" >
+                                      -->
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Correo</label>
+                                  <div class="col-sm-9">
+
+                                      <!--
+                                        <input id="email" name="email" type="email" class="form-control" value="{{email}}">
+                                      -->
+                                      <small class="form-text text-muted">Si desea cambiar su correo, deberá confirmarlo otra vez.</small>
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Teléfono</label>
+                                  <div class="col-sm-9">
+
+                                      <!--
+                                        <input id="phoneNumber" name="phoneNumber" type="text" class="form-control" value="{{phoneNumber}}">
+                                      -->
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Edad</label>
+                                  <div class="col-sm-9">
+
+                                    <!--
+                                      <input id="age" name="age" type="text" class="form-control" value="{{age}}">
+                                    -->
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Ciudad</label>
+                                  <div class="col-sm-9">
+
+                                    <!--
+                                      <input id="city" name="city" type="text" class="form-control" value="{{city}}">
+                                    -->
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Nivel educativo</label>
+                                  <div class="col-sm-9">
+
+                                    <!--
+                                      <input id="degree" name="degree" type="text" class="form-control" value="{{degree}}">
+                                    -->
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Disponibilidad</label>
+                                  <div class="col-sm-9">
+
+                                    <!--
+                                      <input id="freelance" name="freelance" type="text" class="form-control" value="{{freelance}}">
+                                    -->
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Área de trabajo</label>
+                                  <div class="col-sm-9">
+                                      <select class="custom-select" id="category" name="category" required>
+                                          <!--
+                                            <option value="{{category}}">Elige...</option>
+                                          -->
+                                          <option value="Ingeniero">Ingeniería</option>
+                                          <option value="Diseñador">Diseño</option>
+                                          <option value="Fotografo">Fotografía</option>
+                                          <option value="Empresario">Empresa</option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="list-group-item">
+                              <div class="form-group row mb-0">
+                                  <label class="col-form-label col-sm-3">Descríbete</label>
+                                  <div class="col-sm-9">
+                                      <!--
+                                        {{#logued}}
+                                        <textarea id="description" name="description" rows="3" class="form-control" placeholder="{{#user}}{{description}}{{/user}}"></textarea>
+                                        {{/logued}}
+                                        {{^logued}}
+                                      -->
+                                      <textarea rows="3" class="form-control" placeholder="Habla sobre ti..."></textarea>
+                                      <!--
+                                        {{/logued}}
+                                      -->
+                                  </div>
+                              </div>
+                          </div>
+
+                          <button type="submit" class="btn btn-accent">Guardar cambios</button>
+                      </div>
+
+                  </div>
+
+              </div>
+
+              <!--
+                <input type="hidden" name="_csrf" value="{{token}}"/>
+
+                {{/user}}
+                {{> settings-edit-account-panel}}
+              -->
+
+          </div>
+      </form>
+  </div>
+</div>
