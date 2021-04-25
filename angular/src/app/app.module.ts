@@ -23,6 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShopComponent } from './shop/shop.component';
 import { RegisterComponent } from './register/register.component';
 import { ChatComponent } from './chat/chat.component';
+import { ChangeActiveTemplateConfirmationComponent } from './change-active-template-confirmation/change-active-template-confirmation.component';
+import { ChangePasswordErrorComponent } from './change-password-error/change-password-error.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { ChatComponent } from './chat/chat.component';
     ShopComponent,
     RegisterComponent,
     ChatComponent,
+    ChangeActiveTemplateConfirmationComponent,
+    ChangePasswordErrorComponent,
   ],
   imports: [
     BrowserModule,

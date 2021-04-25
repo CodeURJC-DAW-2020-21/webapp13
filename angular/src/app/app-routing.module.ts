@@ -19,6 +19,8 @@ import { SettingsEditAccountProfileComponent } from './settings-edit-account-pro
 import { LoginComponent } from './login/login.component';
 import { LoginErrorComponent } from './login-error/login-error.component';
 import { LogoutConfirmationComponent } from './logout-confirmation/logout-confirmation.component';
+import { ChangeActiveTemplateConfirmationComponent } from './change-active-template-confirmation/change-active-template-confirmation.component';
+import { ChangePasswordErrorComponent } from './change-password-error/change-password-error.component';
 
 
 const routes: Routes = [
@@ -40,6 +42,8 @@ const routes: Routes = [
   { path: 'login-error', component: LoginErrorComponent},
   { path: 'logout-confirmation', component: LogoutConfirmationComponent},
   { path: 'shop', component: ShopComponent},
+  { path: 'change-active-template-confirmation', component: ChangeActiveTemplateConfirmationComponent},
+  { path: 'change-password-error', component: ChangePasswordErrorComponent},
 
 ];
 
