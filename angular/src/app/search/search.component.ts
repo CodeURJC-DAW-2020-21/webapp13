@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  selector: 'search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class IndexComponent implements OnInit {
-
+export class SearchComponent implements OnInit {
 
   scripts = [
     "assets/vendor/popper.min.js",
@@ -20,9 +19,9 @@ export class IndexComponent implements OnInit {
     "assets/js/custom/text-scramble.js"
   ]
 
+
   ngOnInit(): void {
   }
-
 
   loadAPI: Promise<any>;
 
@@ -44,6 +43,5 @@ export class IndexComponent implements OnInit {
       document.getElementsByTagName("head")[0].appendChild(node);
     });
   }
-
 
 }

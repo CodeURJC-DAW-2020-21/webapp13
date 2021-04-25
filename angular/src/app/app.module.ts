@@ -8,6 +8,8 @@ import { IndexComponent } from './index/index.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminTemplatesListComponent } from './admin-templates-list/admin-templates-list.component';
 import { AdminAppGraphicsComponent } from './admin-app-graphics/admin-app-graphics.component';
+import { SearchComponent } from './search/search.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { AdminAppGraphicsComponent } from './admin-app-graphics/admin-app-graphi
     IndexComponent,
     AdminComponent,
     AdminTemplatesListComponent,
-    AdminAppGraphicsComponent
+    AdminAppGraphicsComponent,
+    IndexComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
