@@ -5,6 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { IndexComponent } from './index/index.component';
+<<<<<<< HEAD
+=======
+import { AdminComponent } from './admin/admin.component';
+import { AdminTemplatesListComponent } from './admin-templates-list/admin-templates-list.component';
+import { AdminAppGraphicsComponent } from './admin-app-graphics/admin-app-graphics.component';
+>>>>>>> 017d17f1b4912bdb53ebd1b35ecddc3ba30b00cd
 import { SettingsEditAccountComponent } from './settings-edit-account/settings-edit-account.component';
 import { SettingsEditAccountEditPortfolioitemComponent } from './settings-edit-account-edit-portfolioitem/settings-edit-account-edit-portfolioitem.component';
 import { SettingsEditAccountMytemplatesComponent } from './settings-edit-account-mytemplates/settings-edit-account-mytemplates.component';
@@ -23,6 +29,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     HeaderComponent,
     IndexComponent,
+<<<<<<< HEAD
+=======
+    AdminComponent,
+    AdminTemplatesListComponent,
+    AdminAppGraphicsComponent,
+    IndexComponent,
+>>>>>>> 017d17f1b4912bdb53ebd1b35ecddc3ba30b00cd
     SettingsEditAccountComponent,
     SettingsEditAccountEditPortfolioitemComponent,
     SettingsEditAccountMytemplatesComponent,
