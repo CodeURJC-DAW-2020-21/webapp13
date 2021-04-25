@@ -5,6 +5,7 @@ import { IndexComponent } from './index/index.component'
 import { SearchComponent } from './search/search.component'
 import { SettingsEditAccountComponent } from './settings-edit-account/settings-edit-account.component'
 import { ShopComponent } from './shop/shop.component'
+import { RegisterComponent } from './register/register.component'
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'settings-edit-account', component: SettingsEditAccountComponent},
   { path: 'shop', component: ShopComponent},
+  { path: 'register', component: RegisterComponent}
 
 ];
 

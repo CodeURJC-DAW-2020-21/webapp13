@@ -21,6 +21,7 @@ import { LogoutConfirmationComponent } from './logout-confirmation/logout-confir
 import { SearchComponent } from './search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShopComponent } from './shop/shop.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ShopComponent } from './shop/shop.component';
     LogoutConfirmationComponent,
     SearchComponent,
     ShopComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
