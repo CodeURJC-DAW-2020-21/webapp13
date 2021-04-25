@@ -1,0 +1,106 @@
+<!-- Header Layout Content -->
+<div class="mdk-header-layout__content page-content ">
+
+    <div class="bg-gradient-primary border-bottom-white py-32pt">
+        <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
+            <img src="/app/assets/images/illustration/student/128/white.svg" width="104"
+                 class="mr-md-32pt mb-32pt mb-md-0" alt="">
+            <div class="flex mb-32pt mb-md-0">
+                <h2 class="text-white mb-0">Administrador</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar navbar-expand-sm navbar-dark-white bg-gradient-primary p-sm-0 mb-0">
+        <div class="container page__container">
+
+            <!-- Navbar toggler -->
+            <button class="navbar-toggler ml-n16pt" type="button" data-toggle="collapse" data-target="#navbar-submenu2">
+                <span class="material-icons">people_outline</span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar-submenu2">
+                <div class="navbar-collapse__content pb-16pt pb-sm-0">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <a href="/admin" class="nav-link">Lista de usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/templates/list" class="nav-link">Templates disponibles</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="/admin/app/graphics" class="nav-link">Información general</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container page__container">
+        <div class="card mb-32pt">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h4 class="card-title">Usuarios de Porthub</h4>
+                        <p class="text-70">Número de usuarios de Porthub dados de alta cada mes este año.</p>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="chart">
+                            <canvas id="ordersChart" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="font-size:25px; color: #ffffff">Este texto es de relleno para cuadrar el gráfico.</div>
+                </div>
+            </div>
+            <input type="hidden" value="usersPerMonth" id="usersPerMonth">
+        </div>
+    </div>
+</div>
+<!--
+</div>
+-->
+
+<script src="/app/assets/vendor/jquery.min.js"></script>
+
+<!-- Global Settings -->
+<script src="/app/assets/js/settings.js"></script>
+
+<!-- Chart.js Library -->
+<script src="/app/assets/vendor/Chart.min.js"></script>
+
+<!-- Chart.js Wrapper -->
+<script src="/app/assets/js/chartjs-rounded-bar.js"></script>
+<script src="/app/assets/js/chartjs.js"></script>
+
+
+<script>
+    Charts.init()
+</script>
+
+<script>
+
+    const users = document.getElementById("usersPerMonth").value.match(/\d+/g).map(Number);
+
+    var options = {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+
+    var data = {
+        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        datasets: [{
+            label: "Sales",
+            data: users
+        }]
+    }
+
+    Charts.create('#ordersChart', 'roundedBar', options, data)
+
+</script>
