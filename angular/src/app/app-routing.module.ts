@@ -17,9 +17,6 @@ import { SettingsEditAccountPasswordComponent } from './settings-edit-account-pa
 import { SettingsEditAccountPortfolioitemsComponent } from './settings-edit-account-portfolioitems/settings-edit-account-portfolioitems.component';
 import { SettingsEditAccountProfileComponent } from './settings-edit-account-profile/settings-edit-account-profile.component';
 import { LoginComponent } from './login/login.component';
-import { LoginErrorComponent } from './login-error/login-error.component';
-import { LogoutConfirmationComponent } from './logout-confirmation/logout-confirmation.component';
-
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -37,10 +34,7 @@ const routes: Routes = [
   { path: 'settings-edit-account-portfolioitems', component: SettingsEditAccountPortfolioitemsComponent},
   { path: 'settings-edit-account-profile', component: SettingsEditAccountProfileComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'login-error', component: LoginErrorComponent},
-  { path: 'logout-confirmation', component: LogoutConfirmationComponent},
   { path: 'shop', component: ShopComponent},
-
 ];
 
 export const routing = RouterModule.forRoot(routes);

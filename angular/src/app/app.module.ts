@@ -17,8 +17,6 @@ import { SettingsEditAccountPasswordComponent } from './settings-edit-account-pa
 import { SettingsEditAccountPortfolioitemsComponent } from './settings-edit-account-portfolioitems/settings-edit-account-portfolioitems.component';
 import { SettingsEditAccountProfileComponent } from './settings-edit-account-profile/settings-edit-account-profile.component';
 import { LoginComponent } from './login/login.component';
-import { LoginErrorComponent } from './login-error/login-error.component';
-import { LogoutConfirmationComponent } from './logout-confirmation/logout-confirmation.component';
 import { SearchComponent } from './search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShopComponent } from './shop/shop.component';
@@ -42,8 +40,6 @@ import { ChatComponent } from './chat/chat.component';
     SettingsEditAccountPortfolioitemsComponent,
     SettingsEditAccountProfileComponent,
     LoginComponent,
-    LoginErrorComponent,
-    LogoutConfirmationComponent,
     SearchComponent,
     ShopComponent,
     RegisterComponent,
