@@ -64,7 +64,7 @@ public class UserRestController {
     }
 
     @GetMapping("/me")
-    public ResponseEntity<User> getUser(HttpServletRequest request) {
+    public ResponseEntity<User> getMe(HttpServletRequest request) {
 
         Principal principal = request.getUserPrincipal();
         Optional<User> me = userService.findById(principal.getName());
@@ -76,7 +76,7 @@ public class UserRestController {
     }
 
     @GetMapping("/me/admin")
-    public ResponseEntity<Boolean> getUser(HttpServletRequest request) {
+    public ResponseEntity<Boolean> isAdmin(HttpServletRequest request) {
 
         Principal principal = request.getUserPrincipal();
         Optional<User> me = userService.findById(principal.getName());
