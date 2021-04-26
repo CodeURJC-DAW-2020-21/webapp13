@@ -3,11 +3,11 @@
     <div class="mdk-drawer-layout js-mdk-drawer-layout" data-responsive-width="768px" data-push>
         <div class="filters d-flex flex-column">
             <h4>Profesiones</h4>
-            <button (click)="loadUsers('')">Todas</button>
-            <button (click)="loadUsers('engineers')">Ingeniero</button>
-            <button (click)="loadUsers('designers')">Diseñador</button>
-            <button (click)="loadUsers('photographer')">Fotografo</button>
-            <button (click)="loadUsers('businessman')">Empresario</button>
+            <button (click)="loadUsers('')" [disabled]="all">Todas</button>
+            <button (click)="loadUsers('engineers')" [disabled]="eng">Ingeniero</button>
+            <button (click)="loadUsers('designers')" [disabled]="des">Diseñador</button>
+            <button (click)="loadUsers('photographer')" [disabled]="pho">Fotografo</button>
+            <button (click)="loadUsers('businessman')" [disabled]="bus">Empresario</button>
         </div>
         <!-- MAIN CONTENT -->
         <div class="mdk-drawer-layout__content">
@@ -33,7 +33,7 @@
                                     <a href="#" data-position="center">
                                         <!--PROFILE IMAGE GOES HERE /portfolioitems/{{id}}}/image-->
                                         <img class="img-fluid"
-                                            src="assets/images/people/256/256_rsz_florian-perennes-594195-unsplash.jpg"
+                                            src="https://localhost:8443/api/users/anitarom56/image"
                                             alt="course" style="height: 256px;">
                                         <span class="overlay__content">
                                             <span class="overlay__action d-flex flex-column text-center">
