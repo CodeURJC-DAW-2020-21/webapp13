@@ -15,7 +15,6 @@ import { SettingsEditAccountMytemplatesComponent } from '../app/components/setti
 import { SettingsEditAccountPanelComponent } from '../app/components/settings-edit-account-panel/settings-edit-account-panel.component';
 import { SettingsEditAccountPasswordComponent } from '../app/components/settings-edit-account-password/settings-edit-account-password.component';
 import { SettingsEditAccountPortfolioitemsComponent } from '../app/components/settings-edit-account-portfolioitems/settings-edit-account-portfolioitems.component';
-import { SettingsEditAccountProfileComponent } from '../app/components/settings-edit-account-profile/settings-edit-account-profile.component';
 import { LoginComponent } from '../app/components/login/login.component';
 
 const routes: Routes = [

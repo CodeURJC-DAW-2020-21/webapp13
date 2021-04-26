@@ -15,7 +15,6 @@ import { SettingsEditAccountMytemplatesComponent } from './components/settings-e
 import { SettingsEditAccountPanelComponent } from './components/settings-edit-account-panel/settings-edit-account-panel.component';
 import { SettingsEditAccountPasswordComponent } from './components/settings-edit-account-password/settings-edit-account-password.component';
 import { SettingsEditAccountPortfolioitemsComponent } from './components/settings-edit-account-portfolioitems/settings-edit-account-portfolioitems.component';
-import { SettingsEditAccountProfileComponent } from './components/settings-edit-account-profile/settings-edit-account-profile.component';
 import { LoginComponent } from './components/login/login.component';
 import { SearchComponent } from './components/search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -46,7 +45,7 @@ import { FooterComponent} from './components/footer/footer.component'
     ChatComponent,
     InfoComponent,
     FooterComponent
-    
+
   ],
   imports: [
     BrowserModule,
