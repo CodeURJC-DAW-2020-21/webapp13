@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { IndexComponent } from './index/index.component'
-import { SearchComponent } from './search/search.component'
-import { SettingsEditAccountComponent } from './settings-edit-account/settings-edit-account.component'
-import { RegisterComponent } from './register/register.component'
-import { ChatComponent } from './chat/chat.component';
-import { ShopComponent } from './shop/shop.component'
-import { AdminComponent } from "./admin/admin.component";
-import { AdminAppGraphicsComponent } from "./admin-app-graphics/admin-app-graphics.component";
-import { AdminTemplatesListComponent } from "./admin-templates-list/admin-templates-list.component";
-import { SettingsEditAccountEditPortfolioitemComponent } from './settings-edit-account-edit-portfolioitem/settings-edit-account-edit-portfolioitem.component';
-import { SettingsEditAccountMytemplatesComponent } from './settings-edit-account-mytemplates/settings-edit-account-mytemplates.component';
-import { SettingsEditAccountPanelComponent } from './settings-edit-account-panel/settings-edit-account-panel.component';
-import { SettingsEditAccountPasswordComponent } from './settings-edit-account-password/settings-edit-account-password.component';
-import { SettingsEditAccountPortfolioitemsComponent } from './settings-edit-account-portfolioitems/settings-edit-account-portfolioitems.component';
-import { SettingsEditAccountProfileComponent } from './settings-edit-account-profile/settings-edit-account-profile.component';
-import { LoginComponent } from './login/login.component';
+import { IndexComponent } from '../app/components/index/index.component'
+import { SearchComponent } from '../app/components/search/search.component'
+import { SettingsEditAccountComponent } from '../app/components/settings-edit-account/settings-edit-account.component'
+import { RegisterComponent } from '../app/components/register/register.component'
+import { ChatComponent } from '../app/components/chat/chat.component';
+import { ShopComponent } from '../app/components/shop/shop.component'
+import { AdminComponent } from "./components/admin/admin.component";
+import { AdminAppGraphicsComponent } from "../app/components/admin-app-graphics/admin-app-graphics.component";
+import { AdminTemplatesListComponent } from "../app/components/admin-templates-list/admin-templates-list.component";
+import { SettingsEditAccountEditPortfolioitemComponent } from '../app/components/settings-edit-account-edit-portfolioitem/settings-edit-account-edit-portfolioitem.component';
+import { SettingsEditAccountMytemplatesComponent } from '../app/components/settings-edit-account-mytemplates/settings-edit-account-mytemplates.component';
+import { SettingsEditAccountPanelComponent } from '../app/components/settings-edit-account-panel/settings-edit-account-panel.component';
+import { SettingsEditAccountPasswordComponent } from '../app/components/settings-edit-account-password/settings-edit-account-password.component';
+import { SettingsEditAccountPortfolioitemsComponent } from '../app/components/settings-edit-account-portfolioitems/settings-edit-account-portfolioitems.component';
+import { SettingsEditAccountProfileComponent } from '../app/components/settings-edit-account-profile/settings-edit-account-profile.component';
+import { LoginComponent } from '../app/components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },

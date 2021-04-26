@@ -1,7 +1,14 @@
 <div class="mdk-header-layout__content page-content pb-0">
 
     <div class="mdk-drawer-layout js-mdk-drawer-layout" data-responsive-width="768px" data-push>
-
+        <div class="filters d-flex flex-column">
+            <h4>Profesiones</h4>
+            <button (click)="loadUsers('')">Todas</button>
+            <button (click)="loadUsers('engineers')">Ingeniero</button>
+            <button (click)="loadUsers('designers')">Diseñador</button>
+            <button (click)="loadUsers('photographer')">Fotografo</button>
+            <button (click)="loadUsers('businessman')">Empresario</button>
+        </div>
         <!-- MAIN CONTENT -->
         <div class="mdk-drawer-layout__content">
             <div class="page-section">
@@ -10,7 +17,7 @@
 
                     <div class="page-heading">
                         <h4>Resultados</h4>
-                        <p class="ml-sm-auto text-70 mb-0"><strong>2,000</strong> resultados en Todas</p>
+                        <p class="ml-sm-auto text-70 mb-0"><strong>{{actualElements}}</strong> resultados</p>
                     </div>
 
                     <div class="row">
@@ -59,9 +66,10 @@
                     <!--LOAD MORE-->
                     <div id="hasNextPage">
                         <ul class="pagination justify-content-center pagination-sm" id="button-replace">
-                            
-                            <button class="btn btn-accent" id="load-more">Cargar más</button>
-                            
+
+                            <button *ngIf="totalElements != actualElements" (click)="loadMore()" class="btn btn-accent"
+                                id="load-more">Cargar más</button>
+
                         </ul>
                     </div>
 
@@ -69,44 +77,7 @@
             </div>
         </div>
 
-        <!-- DRAWER (FILTERS) -->
-        <div class="mdk-drawer js-mdk-drawer" id="filters-drawer">
-            <div class="mdk-drawer__content">
-                <div class="mdk-drawer__inner" data-perfect-scrollbar data-perfect-scrollbar-wheel-propagation="true">
-                    <div class="pt-md-32pt pt-lg-64pt">
-                        <div class="px-24pt mb-24pt mb-md-48pt filter-section">
-                            <ul class="accordion js-accordion m-0" id="library-category">
-                                <li class="accordion__item open">
-                                    <a class="accordion__toggle" data-toggle="collapse" data-parent="#library-category"
-                                        href="#library-all">
-                                        <span class="flex">Profesión</span>
-                                        <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
-                                    </a>
-                                    <nav class="accordion__menu collapse show" id="library-all">
-                                        <a class="accordion__menu-link active" href="#">Todas</a>
-                                        <div>
-                                            <a class="accordion__menu-link" href="#library-development"
-                                                data-toggle="collapse">Ingeniero</a>
-                                            <div class="collapse" id="library-development">
-                                                <nav class="accordion__submenu">
-                                                    <a href="#">Informático</a>
-                                                    <a href="#">Industrial</a>
-                                                    <a href="#">Caminos</a>
-                                                </nav>
-                                            </div>
-                                        </div>
-                                        <a class="accordion__menu-link" href="#">Diseñador gráfico</a>
-                                        <a class="accordion__menu-link" href="#">Fotógrafo</a>
-                                        <a class="accordion__menu-link" href="#">Empresario</a>
-                                    </nav>
-                                </li>
-                            </ul>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 
