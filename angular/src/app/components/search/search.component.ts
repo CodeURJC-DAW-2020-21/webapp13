@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
 import {DomSanitizer} from '@angular/platform-browser'; 
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'search',
@@ -32,44 +33,18 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    // Get first page of users and update the number of visible users
-    this.userService.getUsers("/api/users/?page=0").subscribe(
-      users => {
-        this.users = users
-        this.actualElements += this.users.length
-      },
-      error => console.log("error getting users")
-    )
-
-    this.userService.getImage("2").subscribe(
-      photo => console.log(photo),
-      error => console.log("Error photo")
-    )
-
+    this.getUsersPage()
     this.configButtons('')
     this.setTotalUsers('')
-    
-
     this.page++
   }
 
   loadMore(): void {
-    // Get next page of users and update the number of visible users
-    this.userService.getUsers("/api/users/" + this.category + "?page=" + this.page).subscribe(
-      users => {
-        users.map(user => this.users.push(user))
-        this.actualElements += users.length
-
-      },
-      error => console.log("error")
-    )
-
+    this.getUsersPage() 
     this.page++
   }
 
   loadUsers(category: string): void {
-    // Set empty if we want to show other category
     if (category !== this.category) {
       this.users = []
       this.page = 0
@@ -82,7 +57,6 @@ export class SearchComponent implements OnInit {
     }
 
     this.getUsersPage()
-
     this.page++
   }
 
@@ -96,7 +70,7 @@ export class SearchComponent implements OnInit {
   private getUsersPage() {
     this.userService.getUsers("/api/users/" + this.category + "?page=" + this.page).subscribe(
       users => {
-        users.map(user => this.users.push(user))
+        users.map( user => this.users.push(new User(user)))
         this.actualElements += users.length
 
       },
