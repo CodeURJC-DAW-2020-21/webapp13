@@ -22,10 +22,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShopComponent } from './components/shop/shop.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { InfoComponent} from './components/info/info.component';
+import { FooterComponent} from './components/footer/footer.component'
 
 @NgModule({
-  declarations: [
-    AppComponent,
+  declarations: [AppComponent,
     HeaderComponent,
     IndexComponent,
     AdminComponent,
@@ -38,12 +39,14 @@ import { ChatComponent } from './components/chat/chat.component';
     SettingsEditAccountPanelComponent,
     SettingsEditAccountPasswordComponent,
     SettingsEditAccountPortfolioitemsComponent,
-    SettingsEditAccountProfileComponent,
     LoginComponent,
     SearchComponent,
     ShopComponent,
     RegisterComponent,
     ChatComponent,
+    InfoComponent,
+    FooterComponent
+    
   ],
   imports: [
     BrowserModule,

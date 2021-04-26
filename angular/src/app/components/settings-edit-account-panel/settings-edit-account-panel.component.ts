@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'settings-edit-account-panel',
+  selector: 'app-settings-edit-account-panel',
   templateUrl: './settings-edit-account-panel.component.html',
   styleUrls: ['./settings-edit-account-panel.component.css']
 })
