@@ -63,6 +63,30 @@ public class UserRestController {
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<User> getUser(HttpServletRequest request) {
+
+        Principal principal = request.getUserPrincipal();
+        Optional<User> me = userService.findById(principal.getName());
+
+        if(me.isPresent())
+            return ResponseEntity.ok(me.get());
+            
+        return ResponseEntity.status(404).build();
+    }
+
+    @GetMapping("/me/admin")
+    public ResponseEntity<Boolean> getUser(HttpServletRequest request) {
+
+        Principal principal = request.getUserPrincipal();
+        Optional<User> me = userService.findById(principal.getName());
+
+        if(me.isPresent() && me.get().getRoles().contains("ADMIN"))
+            return ResponseEntity.ok(true);
+            
+        return ResponseEntity.ok(false);
+    }
+
     @GetMapping("/{id}/image")
     public ResponseEntity<Object> getImage(@PathVariable String id) throws SQLException {
 
