@@ -33,7 +33,7 @@
                                     <a href="#" data-position="center">
                                         <!--PROFILE IMAGE GOES HERE /portfolioitems/{{id}}}/image-->
                                         <img class="img-fluid"
-                                            src="https://localhost:8443/api/users/anitarom56/image"
+                                            src={{user.photo}}
                                             alt="course" style="height: 256px;">
                                         <span class="overlay__content">
                                             <span class="overlay__action d-flex flex-column text-center">
@@ -47,7 +47,7 @@
                                         <div class="card-body">
                                             <div class="d-flex">
                                                 <div class="flex">
-                                                    <a class="card-title" href="#">{{user.name}}</a>
+                                                    <a class="card-title" href="#">{{user.content.name}}</a>
                                                 </div>
                                                 <a href="#"
                                                     class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
