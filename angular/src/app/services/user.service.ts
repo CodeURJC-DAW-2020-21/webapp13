@@ -16,7 +16,16 @@ export class UserService {
         )
     }
 
+    getUsersProfilePhoto(): Observable<any> {
+        return this.httpClient.get("/api/users/anitarom56/image").pipe(
+            map(response => this.extractUserProfilePhoto(response as any))
+        )
+    }
 
+    getImage(id: string): Observable<Blob> {
+        return this.httpClient.get('/api/users/anitarom56/image', {responseType: "blob"});
+    }
+    
     getTotalElements(url:string): Observable<number> {
         return this.httpClient.get(url).pipe(
             map(response => this.extractTotalElements(response as number))
@@ -29,5 +38,9 @@ export class UserService {
 
     private extractTotalElements(response){
         return response.totalElements
+    }
+
+    private extractUserProfilePhoto(response) {
+        return response
     }
 }

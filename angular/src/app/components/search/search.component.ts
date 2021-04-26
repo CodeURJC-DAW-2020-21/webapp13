@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
+import {DomSanitizer} from '@angular/platform-browser'; 
+
 @Component({
   selector: 'search',
   templateUrl: './search.component.html',
@@ -14,7 +16,18 @@ export class SearchComponent implements OnInit {
   totalElements: number = 0
   actualElements: number = 0
   category: string = ""
+  all: boolean = false
+  des: boolean = false
+  eng: boolean = false
+  bus: boolean = false
+  pho: boolean = false
 
+
+
+  sanitizer: DomSanitizer; 
+  image : any; 
+  readonly imageType : string = 'data:image/PNG;base64,'; 
+   
   constructor(private userService: UserService) {
   }
 
@@ -29,15 +42,21 @@ export class SearchComponent implements OnInit {
       error => console.log("error getting users")
     )
 
-    // Set total users in the app
+    this.userService.getImage("2").subscribe(
+      photo => console.log(photo),
+      error => console.log("Error photo")
+    )
+
+    this.configButtons('')
     this.setTotalUsers('')
+    
 
     this.page++
   }
 
   loadMore(): void {
     // Get next page of users and update the number of visible users
-    this.userService.getUsers("/api/users/"+this.category+"?page=" + this.page).subscribe(
+    this.userService.getUsers("/api/users/" + this.category + "?page=" + this.page).subscribe(
       users => {
         users.map(user => this.users.push(user))
         this.actualElements += users.length
@@ -58,13 +77,12 @@ export class SearchComponent implements OnInit {
       this.actualElements = 0
       this.category = category
 
-      // Set total users in the app
+      this.configButtons(category)
       this.setTotalUsers(category)
     }
 
-    // Get first page of users and update the number of visible users
     this.getUsersPage()
-    
+
     this.page++
   }
 
@@ -76,7 +94,7 @@ export class SearchComponent implements OnInit {
   }
 
   private getUsersPage() {
-    this.userService.getUsers("/api/users/"+this.category+"?page=" + this.page).subscribe(
+    this.userService.getUsers("/api/users/" + this.category + "?page=" + this.page).subscribe(
       users => {
         users.map(user => this.users.push(user))
         this.actualElements += users.length
@@ -85,4 +103,38 @@ export class SearchComponent implements OnInit {
       error => console.log("error")
     )
   }
+
+  private configButtons(category: string) {
+    this.all = false
+    this.des = false
+    this.eng = false
+    this.bus = false
+    this.pho = false
+
+    switch (category) {
+      case '':
+        this.all = true
+        break;
+
+      case 'engineers':
+        this.eng = true
+        break;
+
+      case 'designers':
+        this.des = true
+        break;
+
+      case 'photographer':
+        this.pho = true
+        break;
+
+      case 'businessman':
+        this.bus = true
+        break;
+
+      default:
+        break;
+    }
+  }
+
 }
