@@ -15,13 +15,14 @@ import { SettingsEditAccountMytemplatesComponent } from './settings-edit-account
 import { SettingsEditAccountPanelComponent } from './settings-edit-account-panel/settings-edit-account-panel.component';
 import { SettingsEditAccountPasswordComponent } from './settings-edit-account-password/settings-edit-account-password.component';
 import { SettingsEditAccountPortfolioitemsComponent } from './settings-edit-account-portfolioitems/settings-edit-account-portfolioitems.component';
-import { SettingsEditAccountProfileComponent } from './settings-edit-account-profile/settings-edit-account-profile.component';
 import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShopComponent } from './shop/shop.component';
 import { RegisterComponent } from './register/register.component';
 import { ChatComponent } from './chat/chat.component';
+import { InfoComponent } from './info/info.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +39,13 @@ import { ChatComponent } from './chat/chat.component';
     SettingsEditAccountPanelComponent,
     SettingsEditAccountPasswordComponent,
     SettingsEditAccountPortfolioitemsComponent,
-    SettingsEditAccountProfileComponent,
     LoginComponent,
     SearchComponent,
     ShopComponent,
     RegisterComponent,
     ChatComponent,
+    InfoComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

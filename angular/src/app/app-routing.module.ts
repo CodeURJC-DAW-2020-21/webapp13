@@ -15,7 +15,6 @@ import { SettingsEditAccountMytemplatesComponent } from './settings-edit-account
 import { SettingsEditAccountPanelComponent } from './settings-edit-account-panel/settings-edit-account-panel.component';
 import { SettingsEditAccountPasswordComponent } from './settings-edit-account-password/settings-edit-account-password.component';
 import { SettingsEditAccountPortfolioitemsComponent } from './settings-edit-account-portfolioitems/settings-edit-account-portfolioitems.component';
-import { SettingsEditAccountProfileComponent } from './settings-edit-account-profile/settings-edit-account-profile.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
@@ -32,7 +31,6 @@ const routes: Routes = [
   { path: 'settings-edit-account-panel', component: SettingsEditAccountPanelComponent},
   { path: 'settings-edit-account-password', component: SettingsEditAccountPasswordComponent},
   { path: 'settings-edit-account-portfolioitems', component: SettingsEditAccountPortfolioitemsComponent},
-  { path: 'settings-edit-account-profile', component: SettingsEditAccountProfileComponent},
   { path: 'login', component: LoginComponent},
   { path: 'shop', component: ShopComponent},
 ];
