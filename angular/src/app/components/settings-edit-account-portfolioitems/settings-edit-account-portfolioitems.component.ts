@@ -10,7 +10,7 @@ import { Portfolioitem } from '../../models/portfolioitem.model';
 })
 export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
 
-  portfolioItems: any[] = []
+  portfolioItems: Portfolioitem[] = []
 
   constructor(private portfolioitemService: PortfolioitemService) { }
 
@@ -25,6 +25,21 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
         portfolioItems.map( item => this.portfolioItems.push(new Portfolioitem(item)))
       },
       error => console.log("error")
+    )
+  }
+
+  create(previewImg,image1,image2,image3,name:string,category:string,client:string,date:string,url:string,description:string){
+    this.portfolioitemService.post({
+      "userId": "id",
+      name,
+      description,
+      category,
+      client,
+      url,
+      date
+    }).subscribe(
+      item => console.log(item),
+      error => console.log("Error")
     )
   }
 }

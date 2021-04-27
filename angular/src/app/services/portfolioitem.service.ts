@@ -17,6 +17,12 @@ export class PortfolioitemService {
         )
     }
 
+    post(content):Observable<any[]> {
+        return this.httpClient.post("/api/portfolioItems/users/"+content.userId,content).pipe(
+            map( response => this.extracPortfolioItems(response as any))
+        )
+    }
+
     private extracPortfolioItems(response){
         return response.content
     }
