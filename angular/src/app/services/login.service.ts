@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map } from 'rxjs/operators'
-import { Observable } from "rxjs";
+import { catchError, map } from 'rxjs/operators'
+import { Observable, throwError } from "rxjs";
 import { User } from "../models/user.model";
 
 @Injectable({ providedIn: 'root' })
@@ -22,9 +22,8 @@ export class LoginService {
                 this.logged = true;
             },
             error => {
-                if (error.status != 404) {
-                    console.error('Error when asking if logged: ' + JSON.stringify(error));
-                }
+                this.logged = false;
+                this.user = undefined;
             }
         );
 
@@ -42,13 +41,30 @@ export class LoginService {
 
     logOut() {
 
-        return this.httpClient.post("/api/auth/logout", { withCredentials: true })
+        /*return this.httpClient.post("/api/auth/logout", { withCredentials: true })
             .subscribe((resp: any) => {
                 console.log("LOGOUT: Successfully");
                 this.logged = false;
                 this.user = undefined;
-            });
+            },
+            error => {
+                console.log("LOGOUT: failed");
+            }
+        );*/
 
+        
+       return this.httpClient.post("/api/auth/logout", { withCredentials: true }).pipe(
+            map(response => this.logOutConfirmed()),
+            catchError(error => throwError('Server error'))
+        );
+        
+
+    }
+
+    logOutConfirmed(){
+        this.logged = false;
+        this.user = undefined;
+        console.log("LOGOUT: Successfully")
     }
 
     isLogged() {

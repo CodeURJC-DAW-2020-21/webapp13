@@ -67,11 +67,12 @@ public class UserRestController {
     public ResponseEntity<User> getMe(HttpServletRequest request) {
 
         Principal principal = request.getUserPrincipal();
-        Optional<User> me = userService.findById(principal.getName());
-
-        if(me.isPresent())
-            return ResponseEntity.ok(me.get());
-            
+        if(principal!=null){
+            Optional<User> me = userService.findById(principal.getName());
+            if(me.isPresent()){
+                return ResponseEntity.ok(me.get());
+            }
+        }
         return ResponseEntity.status(404).build();
     }
 

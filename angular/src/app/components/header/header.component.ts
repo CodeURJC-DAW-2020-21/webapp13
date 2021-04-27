@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from '../../services/login.service'
 
 @Component({
   selector: 'header',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public loginService: LoginService) { }
 
   ngOnInit(): void {
+  }
+
+  /*logOut() {
+    this.loginService.logOut();
+    console.log("Logging out")
+  }*/
+
+  logOut() {
+    this.loginService.logOut().subscribe(
+      response => console.log("Logging out")
+    );
+    
+  }
+
+  imLogged(){
+    console.log(this.loginService.isLogged())
+    return this.loginService.isLogged();
   }
 
 }
