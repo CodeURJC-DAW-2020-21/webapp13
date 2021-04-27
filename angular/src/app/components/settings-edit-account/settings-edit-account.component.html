@@ -1,11 +1,8 @@
 <!-- Header Layout Content -->
 <div class="mdk-header-layout__content page-content ">
 
-  <!--
-    {{#user}}
-    {{> info}}
-  -->
   <app-info></app-info>
+
 
   <div class="container page__container">
       <form action="/settings/edit/account/set/new/info" method="post" enctype="multipart/form-data">
@@ -38,10 +35,7 @@
                               <div class="form-group row mb-0">
                                   <label class="col-form-label col-sm-3">Nombre de usuario</label>
                                   <div class="col-sm-9">
-                                      <!--
-                                        value="{{id}}"
-                                      -->
-                                      <input id="id" name="id" type="text" class="form-control" disabled>
+                                      <input id="id" name="id" type="text" class="form-control" value="{{user.content.id}}" disabled>
                                   </div>
                               </div>
                           </div>
@@ -50,12 +44,7 @@
                               <div class="form-group row mb-0">
                                   <label class="col-form-label col-sm-3">Nombre</label>
                                   <div class="col-sm-9">
-
-                                      <!--
-                                        value="{{name}}"
-                                      -->
-                                      <input id="name" name="name" type="text" class="form-control">
-
+                                      <input id="name" name="name" type="text" class="form-control" value="{{user.content.name}}">
                                   </div>
                               </div>
                           </div>
@@ -63,12 +52,7 @@
                               <div class="form-group row mb-0">
                                   <label class="col-form-label col-sm-3">Apellidos</label>
                                   <div class="col-sm-9">
-
-                                      <!--
-                                        value="{{surname}}"
-                                      -->
-                                      <input id="surname" name="surname" type="text" class="form-control" >
-
+                                      <input id="surname" name="surname" type="text" class="form-control" value="{{user.content.surname}}">
                                   </div>
                               </div>
                           </div>
@@ -77,10 +61,7 @@
                                   <label class="col-form-label col-sm-3">Correo</label>
                                   <div class="col-sm-9">
 
-                                      <!--
-                                        value="{{email}}"
-                                      -->
-                                      <input id="email" name="email" type="email" class="form-control">
+                                      <input id="email" name="email" type="email" class="form-control" value="{{user.content.email}}">
 
                                       <small class="form-text text-muted">Si desea cambiar su correo, deberá confirmarlo otra vez.</small>
 
@@ -92,10 +73,8 @@
                                   <label class="col-form-label col-sm-3">Teléfono</label>
                                   <div class="col-sm-9">
 
-                                      <!--
-                                        value="{{phoneNumber}}"
-                                      -->
-                                      <input id="phoneNumber" name="phoneNumber" type="text" class="form-control">
+
+                                      <input id="phoneNumber" name="phoneNumber" type="text" class="form-control" value="{{user.content.phoneNumber}}">
 
                                   </div>
                               </div>
@@ -105,10 +84,7 @@
                                   <label class="col-form-label col-sm-3">Edad</label>
                                   <div class="col-sm-9">
 
-                                    <!--
-                                      value="{{age}}"
-                                    -->
-                                    <input id="age" name="age" type="text" class="form-control">
+                                    <input id="age" name="age" type="text" class="form-control" value="{{user.content.age}}">
 
                                   </div>
                               </div>
@@ -118,10 +94,7 @@
                                   <label class="col-form-label col-sm-3">Ciudad</label>
                                   <div class="col-sm-9">
 
-                                    <!--
-                                      value="{{city}}"
-                                    -->
-                                    <input id="city" name="city" type="text" class="form-control">
+                                    <input id="city" name="city" type="text" class="form-control" value="{{user.content.city}}">
 
                                   </div>
                               </div>
@@ -131,10 +104,7 @@
                                   <label class="col-form-label col-sm-3">Nivel educativo</label>
                                   <div class="col-sm-9">
 
-                                    <!--
-                                      value="{{degree}}"
-                                    -->
-                                    <input id="degree" name="degree" type="text" class="form-control">
+                                    <input id="degree" name="degree" type="text" class="form-control" value="{{user.content.degree}}">
 
                                   </div>
                               </div>
@@ -144,10 +114,7 @@
                                   <label class="col-form-label col-sm-3">Disponibilidad</label>
                                   <div class="col-sm-9">
 
-                                    <!--
-                                      value="{{freelance}}"
-                                    -->
-                                    <input id="freelance" name="freelance" type="text" class="form-control">
+                                    <input id="freelance" name="freelance" type="text" class="form-control" value="{{user.content.freelance}}">
 
                                   </div>
                               </div>
@@ -157,9 +124,7 @@
                                   <label class="col-form-label col-sm-3">Área de trabajo</label>
                                   <div class="col-sm-9">
                                       <select class="custom-select" id="category" name="category" required>
-                                          <!--
-                                            <option value="{{category}}">Elige...</option>
-                                          -->
+                                          <option value="{{user.content.category}}">Elige...</option>
                                           <option value="Ingeniero">Ingeniería</option>
                                           <option value="Diseñador">Diseño</option>
                                           <option value="Fotografo">Fotografía</option>
@@ -173,16 +138,9 @@
                               <div class="form-group row mb-0">
                                   <label class="col-form-label col-sm-3">Descríbete</label>
                                   <div class="col-sm-9">
-                                      <!--
-                                        {{#logued}}
-                                        <textarea id="description" name="description" rows="3" class="form-control" placeholder="{{#user}}{{description}}{{/user}}"></textarea>
-                                        {{/logued}}
-                                        {{^logued}}
-                                      -->
-                                      <textarea rows="3" class="form-control" placeholder="Habla sobre ti..."></textarea>
-                                      <!--
-                                        {{/logued}}
-                                      -->
+
+                                      <textarea id="description" name="description" rows="3" class="form-control" placeholder="{{user.content.description}}"></textarea>
+
                                   </div>
                               </div>
                           </div>
@@ -196,9 +154,6 @@
 
               <!--
                 <input type="hidden" name="_csrf" value="{{token}}"/>
-
-                {{/user}}
-                {{> settings-edit-account-panel}}
               -->
                 <app-settings-edit-account-panel></app-settings-edit-account-panel>
 
