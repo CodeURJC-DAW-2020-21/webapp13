@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioitemService } from '../../services/portfolioitem.service';
+
+import { Portfolioitem } from '../../models/portfolioitem.model';
 
 @Component({
   selector: 'app-settings-edit-account-portfolioitems',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
 
-  constructor() { }
+  portfolioItems: any[] = []
+
+  constructor(private portfolioitemService: PortfolioitemService) { }
 
   ngOnInit(): void {
+    this.getPortfolioItems("id",0)
   }
 
+  getPortfolioItems(user: string, page:number){
+    console.log(user)
+    this.portfolioitemService.getPortfolioItems(user,page).subscribe(
+      portfolioItems => {
+        portfolioItems.map( item => this.portfolioItems.push(new Portfolioitem(item)))
+      },
+      error => console.log("error")
+    )
+  }
 }
