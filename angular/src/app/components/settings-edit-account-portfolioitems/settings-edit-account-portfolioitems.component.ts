@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioitemService } from '../../services/portfolioitem.service';
 
-import {DomSanitizer} from '@angular/platform-browser'; 
 import { Portfolioitem } from '../../models/portfolioitem.model';
 
 @Component({
