@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from '../../services/login.service'
 import { UserService } from '../../services/user.service'
 
 @Component({
@@ -8,9 +9,26 @@ import { UserService } from '../../services/user.service'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(public loginService: LoginService, private userService: UserService) { }
 
   ngOnInit(): void {
+  }
+
+  /*logOut() {
+    this.loginService.logOut();
+    console.log("Logging out")
+  }*/
+
+  logOut() {
+    this.loginService.logOut().subscribe(
+      response => console.log("Logging out")
+    );
+    
+  }
+
+  imLogged(){
+    console.log(this.loginService.isLogged())
+    return this.loginService.isLogged();
   }
 
   search(user:string): void{

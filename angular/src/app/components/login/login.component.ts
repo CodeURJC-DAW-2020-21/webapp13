@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from '../../services/login.service'
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(public loginService: LoginService) { }
 
   ngOnInit(): void {
+  }
+
+  
+  logIn(event: any, user: string, pass: string) {
+
+    event.preventDefault();
+
+    this.loginService.logIn(user, pass);
+
   }
 
 }

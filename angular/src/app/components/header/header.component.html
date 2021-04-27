@@ -43,12 +43,18 @@
         <li class="nav-item">
           <a [routerLink]="['/settings-edit-account']" class="nav-link">
             <i class="material-icons">settings</i>
-            <span class="sr-only">Login</span>
+            <span class="sr-only">Settings</span>
           </a>
         </li>
-        <li class="d-none d-sm-flex nav-item">
+        <li *ngIf="!imLogged()" class="d-none d-sm-flex nav-item">
           <a [routerLink]="['/login']" class="btn btn-accent">Login</a>
         </li>
+
+        <li *ngIf="imLogged()" class="d-none d-sm-flex nav-item">
+          <form>
+              <button type="button" class="btn btn-accent" (click)="logOut()">Logout</button>
+          </form>
+      </li>
 
       </ul>
 
