@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service'
 
 @Component({
   selector: 'header',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+  }
+
+  search(user:string): void{
+    this.userService.getUser(user).subscribe(
+      user => console.log(user),
+      error => console.log("error")
+    )
   }
 
 }
