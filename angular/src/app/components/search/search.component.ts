@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
-import {DomSanitizer} from '@angular/platform-browser'; 
 import { User } from '../../models/user.model';
 
 @Component({
@@ -21,12 +20,6 @@ export class SearchComponent implements OnInit {
   eng: boolean = false
   bus: boolean = false
   pho: boolean = false
-
-
-
-  sanitizer: DomSanitizer; 
-  image : any; 
-  readonly imageType : string = 'data:image/PNG;base64,'; 
    
   constructor(private userService: UserService) {
   }
