@@ -187,52 +187,19 @@
       <div class="row mb-4 d-flex flex-column justify-content-center">
           <div class="col-lg-9" id="result">
               <h4>Listado de proyectos</h4>
-              <div class="row" id="users-to-load">
-
-                  <!--
-                  {{#portfolioItemsPage}}
-                  -->
-                  <div class="col-lg-4 portfolioitem-item">
-                      <div class="card card--elevated card-course overlay" style="height: 296px;">
-
-                          <!--Image-->
-                          <!--
-                          <a href="/settings/edit/account/edit/portfolioitem/{{userId}}/{{id}}" class="js-image" data-position="center" data-height="auto"
-                             data-domfactory-upgraded="image">
-                              <img src="/portfolioitems/{{id}}/image" height="256px" width="100%" alt="course">
-                              <span class="overlay__content">
-                                  <span class="overlay__action d-flex flex-column text-center"></span>
-                              </span>
-                          </a>
-                          -->
-
-                          <!--Info-->
-                          <div class="mdk-reveal__content">
-                              <div class="mdk-reveal__partial" style="height: 40px;"></div>
-                              <div class="card-body">
-                                  <div class="d-flex">
-                                      <div class="flex">
-                                        <!--
-                                          <a class="card-title" href="/settings/edit/account/edit/portfolioitem/{{userId}}/{{id}}">{{name}}</a>
-                                        -->
-                                      </div>
-                                  </div>
-
-                              </div>
-                          </div>
-
+              <div  class="row" id="users-to-load">
+                 
+                <div *ngFor="let item of portfolioItems" class="card-group">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src={{item.previewImg}} alt="Card image cap">
+                        <div class="card-body">
+                          <a href="#"><h5 class="card-title">{{item.content.name}}</h5></a>
+                        </div>
                       </div>
+                </div>
 
-
-                  </div>
-                  <!--
-                  {{/portfolioItemsPage}}
-
-                  {{^portfolioItemsPage}}
-                  <p class="text-black-50 lead measure-hero-lead mx-auto">No tienes proyectos todavia.</p>
-                  {{/portfolioItemsPage}}
-                  -->
-
+                
+                  
               </div>
 
 
