@@ -12,11 +12,11 @@ import { Portfolioitem } from '../../models/portfolioitem.model';
 export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
 
   portfolioItems: Portfolioitem[] = []
-  user:string = this.loginService.currentUser()["id"]
+  user: string = this.loginService.currentUser()["id"]
   page: number = 0
   totalElements: number = 0
   actualElements: number = 0
-  
+
 
   constructor(private portfolioitemService: PortfolioitemService, private loginService: LoginService) { }
 
@@ -27,15 +27,40 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
   }
 
   loadMore(): void {
-    this.getPortfolioItems(this.page) 
+    this.getPortfolioItems(this.page)
     this.page++
   }
-  
+
   create(previewImg, image1, image2, image3, name: string, category: string, client: string, date: string, url: string, description: string) {
-    this.portfolioitemService.post({"userId":"id",name,description,category,client,url,date}).subscribe(
-      item => this.portfolioItems.push(item),
+    this.portfolioitemService.post({ "userId": "id", name, description, category, client, url, date }).subscribe(
+      item => {
+        
+        this.totalElements++
+        this.actualElements++
+        
+        // Need to try promises
+        this.portfolioitemService.put(this.user,item["id"], "previewImage", previewImg.files[0]).subscribe(
+          res => {
+            this.portfolioitemService.put(this.user,item["id"], "image1", image1.files[0]).subscribe(
+              res => {
+                this.portfolioitemService.put(this.user,item["id"], "image2", image2.files[0]).subscribe(
+                  res => this.portfolioitemService.put(this.user,item["id"], "image3", image3.files[0]).subscribe(
+                    res => this.portfolioItems.push(new Portfolioitem(item)),
+                    error => console.log("error")
+                  ),
+                  error => console.log("error")
+                )
+              },
+              error => console.log("error")
+            )
+          },
+          error => console.log("error")
+        )
+      },
       error => console.log("Error")
     )
+    
+
   }
 
   private getPortfolioItems(page: number) {
@@ -50,9 +75,16 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
 
 
   private setTotalPortfolioItems() {
-    this.portfolioitemService.getTotalElements("/api/portfolioItems/users/"+"id"+"?page=" + this.page).subscribe(
+    this.portfolioitemService.getTotalElements("/api/portfolioItems/users/" + "id" + "?page=" + this.page).subscribe(
       totalElements => this.totalElements = totalElements,
       error => console.log("error getting total elements")
+    )
+  }
+
+  private setImage(user: string, item: string, type: string, image: File) {
+    this.portfolioitemService.put(user, item, type, image).subscribe(
+      res => console.log(res),
+      error => console.log("error")
     )
   }
 }

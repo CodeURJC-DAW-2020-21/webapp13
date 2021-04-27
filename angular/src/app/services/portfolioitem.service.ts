@@ -24,6 +24,15 @@ export class PortfolioitemService {
         )
     }
 
+    put(user:string,item:string,type:string,image:File):Observable<string> {
+        const formData = new FormData();
+        formData.append(type, image);
+
+        return this.httpClient.put("/api/portfolioItems/users/"+user+"/"+item+"/"+type,formData).pipe(
+            map (response => this.extracPortfolioItem(response as string))
+        )
+    }
+
     getTotalElements(url:string): Observable<number> {
         return this.httpClient.get(url).pipe(
             map(response => this.extractTotalElements(response as number))
