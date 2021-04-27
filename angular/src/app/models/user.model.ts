@@ -5,4 +5,8 @@ export class User {
         this.content = content
         this.photo = "https://localhost:8443/api/users/"+content.id+"/image"
     }
+
+    getId():string{
+        return this.content.id
+    }
 }

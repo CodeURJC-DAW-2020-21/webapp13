@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   }
 
   imLogged(){
-    console.log(this.loginService.isLogged())
+    //console.log(this.loginService.isLogged())
     return this.loginService.isLogged();
   }
 

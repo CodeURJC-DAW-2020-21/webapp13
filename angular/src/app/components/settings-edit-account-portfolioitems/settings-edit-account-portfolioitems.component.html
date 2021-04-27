@@ -168,7 +168,7 @@
                           <!--
                           <input type="hidden" name="_csrf" value="{{token}}"/>
                           -->
-                          <button (click)="create(previewImage.value,image1.value,image2.value,image3.value,name.value,category.value,client.value,date.value,url.value.value,description.value)"class="btn btn-accent">Añadir</button>
+                          <button (click)="create(previewImage.value,image1.value,image2.value,image3.value,name.value,category.value,client.value,date.value,url.value,description.value)"class="btn btn-accent">Añadir</button>
 
                       </div>
                   </div>
@@ -205,16 +205,14 @@
 
           </div>
           <div class="col-lg-9">
+              <!--LOAD MORE-->
               <div id="hasNextPage">
-                  <ul class="pagination justify-content-center pagination-sm" id="button-replace">
-                      <!--
-                      {{#hasNext}}
-                      <button class="btn btn-accent" id="load-more1">Cargar más</button>
-                      {{/hasNext}}
-                      -->
+                <ul class="pagination justify-content-center pagination-sm" id="button-replace">
 
-                  </ul>
-              </div>
+                    <button *ngIf="totalElements != actualElements" (click)="loadMore()" class="btn btn-accent" id="load-more">Cargar más</button>
+
+                </ul>
+            </div>
           </div>
 
 

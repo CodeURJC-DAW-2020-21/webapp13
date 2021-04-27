@@ -7,7 +7,7 @@ import java.sql.Date;
 
 @Data
 public class PortfolioItemDTO {
-
+    
     private long id;
 
     private String userId;
