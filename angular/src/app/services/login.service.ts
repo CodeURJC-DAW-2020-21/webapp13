@@ -99,8 +99,8 @@ export class LoginService {
         return this.user;
     }
 
-    currentUserv2(){
-        return this.httpClient.get('/api/users/me', { withCredentials: true }).pipe();
+    refreshUser(){
+        this.reqIsLogged();
     }
 
 }
