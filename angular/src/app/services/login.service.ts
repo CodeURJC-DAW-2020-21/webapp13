@@ -20,7 +20,7 @@ export class LoginService {
 
         this.httpClient.get('/api/users/me', { withCredentials: true }).subscribe(
             response => {
-                this.user = response as User;
+                this.user = new User(response);
                 this.logged = true;
                 this.isAdmin().subscribe(response => this.admin = response as boolean);
                 this.router.navigate(['']);
@@ -97,6 +97,10 @@ export class LoginService {
 
     currentUser() {
         return this.user;
+    }
+
+    currentUserv2(){
+        return this.httpClient.get('/api/users/me', { withCredentials: true }).pipe();
     }
 
 }
