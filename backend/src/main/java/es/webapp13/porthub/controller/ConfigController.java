@@ -147,12 +147,12 @@ public class ConfigController {
     @GetMapping("/portfolioitems/{id}/image")
     public ResponseEntity<Object> downloadPortfolioItemImage(@PathVariable long id) throws SQLException {
         Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(id);
-        if (portfolioItem.isPresent() && portfolioItem.get().getPreviewImg() != null) {
+        if (portfolioItem.isPresent() && portfolioItem.get().getPreviewImage() != null) {
 
-            Resource file = new InputStreamResource(portfolioItem.get().getPreviewImg().getBinaryStream());
+            Resource file = new InputStreamResource(portfolioItem.get().getPreviewImage().getBinaryStream());
 
             return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
-                    .contentLength(portfolioItem.get().getPreviewImg().length()).body(file);
+                    .contentLength(portfolioItem.get().getPreviewImage().length()).body(file);
 
         } else {
             return ResponseEntity.notFound().build();

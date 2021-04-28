@@ -23,7 +23,7 @@ public class PortfolioItem {
 
     @Lob
     @JsonIgnore
-    private Blob previewImg;
+    private Blob previewImage;
 
     @Lob
     @JsonIgnore
@@ -63,7 +63,7 @@ public class PortfolioItem {
                 ", userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", previewImg=" + previewImg +
+                ", previewImage=" + previewImage +
                 ", image1=" + image1 +
                 ", image2=" + image2 +
                 ", image3=" + image3 +

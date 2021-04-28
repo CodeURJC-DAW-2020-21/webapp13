@@ -39,7 +39,7 @@ public class PortfolioItemService {
      */
     public void create(String userId, PortfolioItem item, MultipartFile previewImg, MultipartFile image1, MultipartFile image2, MultipartFile image3) throws IOException {
         item.setUserId(userId);
-        item.setPreviewImg(BlobProxy.generateProxy(previewImg.getInputStream(), previewImg.getSize()));
+        item.setPreviewImage(BlobProxy.generateProxy(previewImg.getInputStream(), previewImg.getSize()));
         item.setImage1(BlobProxy.generateProxy(image1.getInputStream(), image1.getSize()));
         item.setImage2(BlobProxy.generateProxy(image2.getInputStream(), image2.getSize()));
         item.setImage3(BlobProxy.generateProxy(image3.getInputStream(), image3.getSize()));
@@ -94,12 +94,12 @@ public class PortfolioItemService {
     public void update(PortfolioItem item, long id, MultipartFile previewImg, MultipartFile image1, MultipartFile image2, MultipartFile image3) throws IOException, SQLException {
         PortfolioItem portfolioItem = portfolioItemRepository.findById(id).orElseThrow();
 
-        ImageSetter setPreviewImg = (p, i) -> p.setPreviewImg(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageSetter setPreviewImg = (p, i) -> p.setPreviewImage(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
         ImageSetter setImg1 = (p, i) -> p.setImage1(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
         ImageSetter setImg2 = (p, i) -> p.setImage2(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
         ImageSetter setImg3 = (p, i) -> p.setImage3(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
 
-        ImageUpdater getPreviewImg = (p) -> p.getPreviewImg().length() == 0;
+        ImageUpdater getPreviewImg = (p) -> p.getPreviewImage().length() == 0;
         ImageUpdater getImg1 = (p) -> p.getImage1().length() == 0;
         ImageUpdater getImg2 = (p) -> p.getImage2().length() == 0;
         ImageUpdater getImg3 = (p) -> p.getImage3().length() == 0;
@@ -140,7 +140,7 @@ public class PortfolioItemService {
         else {
             PortfolioItem dbItem = findById(item.getId()).orElseThrow();
             if (getImg.run(dbItem))
-                item.setPreviewImg(BlobProxy.generateProxy(dbItem.getPreviewImg().getBinaryStream(), dbItem.getPreviewImg().length()));
+                item.setPreviewImage(BlobProxy.generateProxy(dbItem.getPreviewImage().getBinaryStream(), dbItem.getPreviewImage().length()));
         }
     }
 
