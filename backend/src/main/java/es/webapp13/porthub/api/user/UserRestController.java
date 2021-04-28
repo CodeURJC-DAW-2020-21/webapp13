@@ -63,6 +63,32 @@ public class UserRestController {
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/{id}/templates")
+    public ResponseEntity<Collection<Template>> getUserTemplates(@PathVariable String id) {
+
+        Optional<User> user = userService.findById(id);
+
+        if (user.isPresent()){
+            Collection<Template> userTemplates = user.get().getTemplates();
+            return ResponseEntity.ok(userTemplates);
+        }
+        else
+            return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/{id}/activeTemplate")
+    public ResponseEntity<Template> getUserActiveTemplate(@PathVariable String id) {
+
+        Optional<User> user = userService.findById(id);
+
+        if (user.isPresent()){
+            Template activeTemplate = user.get().getActiveTemplate();
+            return ResponseEntity.ok(activeTemplate);
+        }
+        else
+            return ResponseEntity.notFound().build();
+    }
+
     @GetMapping("/me")
     public ResponseEntity<User> getMe(HttpServletRequest request) {
 
