@@ -15,8 +15,8 @@ export class SettingsEditAccountComponent implements OnInit {
   constructor(private userService: UserService, private loginService:LoginService) { }
 
   ngOnInit(): void {
-    //this.user = this.loginService.currentUser()
-    this.getUser("id", 0)
+    this.user = this.loginService.currentUser()
+    //this.getUser("id", 0)
   }
 
   getUser(userId: string, page:number){
