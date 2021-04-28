@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Router } from '@angular/router';
 import { catchError, map } from 'rxjs/operators'
 import { Observable, throwError } from "rxjs";
 import { User } from "../models/user.model";
@@ -8,9 +9,10 @@ import { User } from "../models/user.model";
 export class LoginService {
 
     logged: boolean;
+    admin: boolean;
     user: User;
 
-    constructor(private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient, private router: Router) {
         this.reqIsLogged();
     }
 
@@ -20,6 +22,8 @@ export class LoginService {
             response => {
                 this.user = response as User;
                 this.logged = true;
+                this.isAdmin().subscribe(response => this.admin = response as boolean);
+                this.router.navigate(['']);
             },
             error => {
                 this.logged = false;
@@ -36,6 +40,11 @@ export class LoginService {
                 (response) => this.reqIsLogged(),
                 (error) => alert("Wrong credentials")
             );
+
+        /*this.httpClient.post("/api/auth/login", { username: user, password: pass }, { withCredentials: true }).pipe(
+            map(_ => this.reqIsLogged()),
+            catchError(error => throwError('Server error'))
+        );*/
 
     }
 
@@ -54,7 +63,7 @@ export class LoginService {
 
         
        return this.httpClient.post("/api/auth/logout", { withCredentials: true }).pipe(
-            map(response => this.logOutConfirmed()),
+            map(_ => this.logOutConfirmed()),
             catchError(error => throwError('Server error'))
         );
         
@@ -64,19 +73,26 @@ export class LoginService {
     logOutConfirmed(){
         this.logged = false;
         this.user = undefined;
-        console.log("LOGOUT: Successfully")
+        this.admin = false;
+        console.log("LOGOUT: Successfully");
     }
 
     isLogged() {
         return this.logged;
     }
 
-    isAdmin() {
-        return this.httpClient.get('/api/users/me/admin', { withCredentials: true }).subscribe(
+    private isAdmin() {
+        /*return this.httpClient.get('/api/users/me/admin', { withCredentials: true }).subscribe(
             response => {
                 response
             }
-        );
+        );*/
+
+        return this.httpClient.get('/api/users/me/admin', { withCredentials: true }).pipe();
+    }
+
+    checkAdmin(){
+        return this.admin;
     }
 
     currentUser() {

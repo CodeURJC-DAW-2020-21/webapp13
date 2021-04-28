@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from '../../services/login.service'
+import { LoginService } from '../../services/login.service'
 
 @Component({
   selector: 'app-login',
@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
     event.preventDefault();
 
     this.loginService.logIn(user, pass);
+
+    
 
   }
 

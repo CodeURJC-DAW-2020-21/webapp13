@@ -213,20 +213,48 @@ public class UserService {
      * @param user    User to be updated
      */
     private void updateInfo(User newUser, User user) {
-        user.setName(newUser.getName());
-        user.setSurname(newUser.getSurname());
-        user.setEmail(newUser.getEmail());
-        user.setPhoneNumber(newUser.getPhoneNumber());
-        user.setAge(newUser.getAge());
-        user.setCity(newUser.getCity());
-        user.setDegree(newUser.getDegree());
-        user.setCategory(newUser.getCategory());
-        user.setFreelance(newUser.getFreelance());
-        user.setBornDate(newUser.getBornDate());
-        user.setWebsite(newUser.getWebsite());
-        user.setAge(calculateAge(newUser));
-        user.setDescription(newUser.getDescription());
-
+        if (newUser.getName() != null){
+            user.setName(newUser.getName());
+        }
+        if (newUser.getSurname() != null){
+            user.setSurname(newUser.getSurname());
+        }
+        if (newUser.getEmail() != null){
+            user.setEmail(newUser.getEmail());
+        }
+        if (newUser.getPhoneNumber() != null){
+            user.setPhoneNumber(newUser.getPhoneNumber());
+        }
+        if (newUser.getPhoneNumber() != null){
+        }
+        if (newUser.getCity() != null){
+            user.setCity(newUser.getCity());
+        }
+        if (newUser.getDegree() != null){
+            user.setDegree(newUser.getDegree());
+        }
+        if (newUser.getCategory() != null){
+            user.setCategory(newUser.getCategory());
+        }
+        if (newUser.getFreelance() != null){
+            user.setFreelance(newUser.getFreelance());
+        }
+        if (newUser.getBornDate() != null){
+            user.setBornDate(newUser.getBornDate());
+            user.setAge(calculateAge(newUser));
+        }
+        if (newUser.getWebsite() != null){
+            user.setWebsite(newUser.getWebsite());
+        }
+        if (newUser.getDescription() != null){
+            user.setDescription(newUser.getDescription());
+        }
+        if (newUser.getAge() != 0){
+            user.setAge(newUser.getAge());
+        }
+        if (newUser.getPassword() != null){
+            user.setPassword(passwordEncoder.encode(newUser.getPassword()));
+        }
         userRepository.save(user);
     }
 

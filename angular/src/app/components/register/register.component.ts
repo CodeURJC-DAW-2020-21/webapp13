@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { LoginService } from '../../services/login.service'
 
 @Component({
   selector: 'register',
@@ -8,7 +9,7 @@ import { UserService } from '../../services/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private loginService: LoginService) { }
 
   ngOnInit(): void {
   }
@@ -17,6 +18,7 @@ export class RegisterComponent implements OnInit {
     this.userService.postUser(id,email,name,surname,password,phoneNumber,bornDate,city,freelance,category,degree,website,description).subscribe(
       user => {
         console.log(user)
+        this.loginService.logIn(id, password)
       },
       error => console.log("error")
     )

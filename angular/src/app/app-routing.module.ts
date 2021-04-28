@@ -7,7 +7,7 @@ import { SettingsEditAccountComponent } from '../app/components/settings-edit-ac
 import { RegisterComponent } from '../app/components/register/register.component'
 import { ChatComponent } from '../app/components/chat/chat.component';
 import { ShopComponent } from '../app/components/shop/shop.component'
-import { AdminComponent } from "./components/admin/admin.component";
+import { AdminComponent } from '../app/components/admin/admin.component';
 import { AdminAppGraphicsComponent } from "../app/components/admin-app-graphics/admin-app-graphics.component";
 import { AdminTemplatesListComponent } from "../app/components/admin-templates-list/admin-templates-list.component";
 import { SettingsEditAccountEditPortfolioitemComponent } from '../app/components/settings-edit-account-edit-portfolioitem/settings-edit-account-edit-portfolioitem.component';
