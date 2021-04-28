@@ -49,7 +49,7 @@
 
                         <div class="row">
 
-                            <div class="col-6">
+                            <div class="col-6" *ngFor="let template of templates">
                                 <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
                                      data-partial-height="40" data-toggle="popover" data-trigger="click">
 
@@ -67,7 +67,7 @@
                                         <div class="card-body">
                                             <div class="d-flex">
                                                 <div class="flex">
-                                                    <a class="card-title" href="htmlPath">Nombre del template</a>
+                                                    <a class="card-title" (click)="seeTemplate(template.id)">{{template.name}}</a>
                                                 </div>
                                             </div>
 
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <!-- ADD NEW TEMPLATE -->
-                    <form action="/admin/templates/list/add/new" method="post">
+                    <div>
                         <div class="row">
                             <div class="col-lg-9">
                                 <div class="page-section">
@@ -90,7 +90,7 @@
                                             <div class="form-group row mb-0">
                                                 <label class="col-form-label col-sm-3">Nombre</label>
                                                 <div class="col-sm-9">
-                                                    <input id="name" name="name" type="text" class="form-control"
+                                                    <input #name id="name" name="name" type="text" class="form-control"
                                                            placeholder="Escriba un nombre para el template...">
                                                 </div>
                                             </div>
@@ -110,7 +110,7 @@
                                             <div class="form-group row mb-0">
                                                 <label class="col-form-label col-sm-3">Descripción</label>
                                                 <div class="col-sm-9">
-                                                    <textarea id="description" name="description" rows="3"
+                                                    <textarea #description id="description" name="description" rows="3"
                                                               class="form-control"
                                                               placeholder="Escriba la descripción del template..."></textarea>
                                                 </div>
@@ -121,7 +121,7 @@
                                             <div class="form-group row mb-0">
                                                 <label class="col-form-label col-sm-3">Precio</label>
                                                 <div class="col-sm-9">
-                                                    <input id="price" name="price" type="number" class="form-control"
+                                                    <input #price id="price" name="price" type="number" class="form-control"
                                                            placeholder="Escriba un precio para el template...">
                                                 </div>
                                             </div>
@@ -130,8 +130,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-accent">Añadir</button>
-                    </form>
+                        <button type="submit" class="btn btn-accent" (click)="addNewTemplate(name.value, price.value, description.value)">Añadir</button>
+                    </div>
                 </div>
             </div>
         </div>

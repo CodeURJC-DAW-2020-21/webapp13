@@ -1,0 +1,42 @@
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { Template } from "../models/template.model"
+
+@Injectable({ providedIn: 'root' })
+export class TemplateService{
+
+    constructor(private httpClient: HttpClient) { 
+    }
+
+    getTemplates():Observable<any[]>{
+        return this.httpClient.get("/api/templates/").pipe(
+            map(response => this.extractTemplates(response as any))
+        )
+    }
+
+    getTemplate(id:number):Observable<any> {
+        return this.httpClient.get("/api/templates/"+id).pipe(
+            map(response => this.extractResponse(response as any))
+        )
+    }
+
+    postTemplate(id: number, htmlPath: string, name: string, price: number, isFree: boolean, description: string){
+        return this.httpClient.post("/api/templates/", {id, htmlPath, name, price, isFree, description}).pipe(
+            map(response => this.extractTemplate(response as Template))
+        )        
+    }
+
+    private extractTemplates(response){
+        return response.content
+    }
+
+    private extractTemplate(response){
+        return response.content
+    }
+
+    private extractResponse(response) {
+        return response
+    }
+}
