@@ -3,11 +3,11 @@
     <div class="mdk-drawer-layout js-mdk-drawer-layout" data-responsive-width="768px" data-push>
         <div class="filters d-flex flex-column">
             <h4>Profesiones</h4>
-            <button (click)="loadUsers('')" [disabled]="all">Todas</button>
-            <button (click)="loadUsers('engineers')" [disabled]="eng">Ingeniero</button>
-            <button (click)="loadUsers('designers')" [disabled]="des">Diseñador</button>
-            <button (click)="loadUsers('photographer')" [disabled]="pho">Fotografo</button>
-            <button (click)="loadUsers('businessman')" [disabled]="bus">Empresario</button>
+            <button  class="btn btn-primary" (click)="loadUsers('')" [disabled]="all">Todas</button>
+            <button  class="btn btn-primary"(click)="loadUsers('engineers')" [disabled]="eng">Ingeniero</button>
+            <button  class="btn btn-primary"(click)="loadUsers('designers')" [disabled]="des">Diseñador</button>
+            <button  class="btn btn-primary"(click)="loadUsers('photographer')" [disabled]="pho">Fotografo</button>
+            <button  class="btn btn-primary"(click)="loadUsers('businessman')" [disabled]="bus">Empresario</button>
         </div>
         <!-- MAIN CONTENT -->
         <div class="mdk-drawer-layout__content">

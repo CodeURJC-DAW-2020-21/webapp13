@@ -18,18 +18,34 @@ export class PortfolioitemService {
         )
     }
 
+    getPortfolioItem(id:string):Observable<any[]> {
+        return this.httpClient.get("/api/portfolioItems/"+id).pipe(
+            map(response => this.extractResponse(response as any))
+        )
+    }
+
     post(content):Observable<Portfolioitem> {
         return this.httpClient.post("/api/portfolioItems/users/"+content.userId,content).pipe(
             map( response => this.extractResponse(response as Portfolioitem))
         )
     }
 
-    put(user:string,item:string,type:string,image:File):Observable<string> {
+    delete(user:string,id:string) {
+        return this.httpClient.delete("/api/portfolioItems/users/"+user+"/"+id)
+    }
+
+    putImage(user:string,item:string,type:string,image:File):Observable<string> {
         const formData = new FormData();
         formData.append(type, image);
 
         return this.httpClient.put("/api/portfolioItems/users/"+user+"/"+item+"/"+type,formData).pipe(
             map (response => this.extractResponse(response as string))
+        )
+    }
+
+    putText(user:string,item:string,data:any):Observable<Portfolioitem> {
+        return this.httpClient.put("/api/portfolioItems/users/"+user+"/"+item,data).pipe(
+            map (response => this.extractResponse(response as Portfolioitem))
         )
     }
 
