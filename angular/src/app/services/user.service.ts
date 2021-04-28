@@ -40,6 +40,16 @@ export class UserService {
       )
     }
 
+    putImage(userId:string,type:string,image:File):Observable<string> {
+      const formData = new FormData();
+      formData.append(type, image);
+
+      return this.httpClient.put("/api/portfolioItems/users/"+userId+"/profilePhoto",formData).pipe(
+          map (response => this.extractResponse(response as string))
+      )
+  }
+
+
     putPassword(id:string,password:string):Observable<User> {
       return this.httpClient.put("/api/users/"+id,{password}).pipe(
           map(response => this.extractResponse(response as User))

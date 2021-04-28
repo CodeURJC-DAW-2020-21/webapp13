@@ -16,7 +16,7 @@ export class SettingsEditAccountComponent implements OnInit {
 
   ngOnInit(): void {
     //this.user = this.loginService.currentUser()
-    
+    this.getUser("id", 0)
   }
 
   getUser(userId: string, page:number){
@@ -28,10 +28,17 @@ export class SettingsEditAccountComponent implements OnInit {
     console.log(this.user.content.name)
   }
 
-  update(id:string,name:string,surname:string,email:string,phoneNumber:string,city:string,degree:string,freelance:string,category:string,description:string){
+  update(photo,id:string,name:string,surname:string,email:string,phoneNumber:string,city:string,degree:string,freelance:string,category:string,description:string){
     this.userService.putUser(id,name,surname,email,phoneNumber,city,degree,freelance,category,description).subscribe(
       user => {
         console.log(user)
+        error => console.log(error)
+        this.userService.putImage(this.user.getId(), "profilePhoto", photo.files[0]).subscribe(
+          ok => {
+              console.log("ok")
+          },
+          error => console.log(error)
+        )
       },
       error => console.log("error")
     )

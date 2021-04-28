@@ -15,7 +15,16 @@ export class SettingsEditAccountPasswordComponent implements OnInit {
   user: User;
 
   ngOnInit(): void {
-    this.user = this.loginService.currentUser()
+    this.getUser("id", 0)
+  }
+
+  getUser(userId: string, page:number){
+    console.log(userId)
+    this.userService.getUser(userId).subscribe(
+      item => this.user = new User(item),
+      error => console.log("error")
+    )
+    console.log(this.user.content.name)
   }
 
   update(password1:string,password2:string){

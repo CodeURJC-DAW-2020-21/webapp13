@@ -8,7 +8,7 @@ import { Portfolioitem } from "../models/portfolioitem.model";
 @Injectable({ providedIn: 'root' })
 export class PortfolioitemService {
 
-    constructor(private httpClient: HttpClient) { 
+    constructor(private httpClient: HttpClient) {
 
     }
 

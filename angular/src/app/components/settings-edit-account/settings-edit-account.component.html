@@ -5,7 +5,7 @@
 
 
   <div class="container page__container">
-      <form action="/settings/edit/account/set/new/info" method="post" enctype="multipart/form-data">
+      <div>
           <div class="row">
               <div class="col-lg-9">
                   <div class="page-section">
@@ -22,7 +22,7 @@
                                       </a>
                                       <div class="media-body">
                                           <div class="custom-file">
-                                              <input type="file" class="custom-file-input" id="profileImg" name="profileImg"  accept=".jpg, .jpeg, .png">
+                                              <input #photo type="file" class="custom-file-input" id="profileImg" name="profileImg"  accept=".jpg, .jpeg, .png">
                                               <label class="custom-file-label" for="profileImg">Elige un
                                                   archivo</label>
                                           </div>
@@ -128,12 +128,12 @@
                                   <label class="col-form-label col-sm-3">Descríbete</label>
                                   <div class="col-sm-9">
 
-                                      <textarea #description id="description" name="description" rows="3" class="form-control" placeholder="{{user.content.description}}"></textarea>
+                                      <textarea #description id="description" name="description" rows="3" class="form-control" value="{{user.content.description}}"></textarea>
 
                                   </div>
                               </div>
                           </div>
-                          <button (click)="update(id.value,name.value,surname.value,email.value,phoneNumber.value,city.value,degree.value,freelance.value,category.value,description.value)" [routerLink]="['']" type="submit" class="btn btn-accent">Guardar cambios</button>
+                          <button (click)="update(photo,id.value,name.value,surname.value,email.value,phoneNumber.value,city.value,degree.value,freelance.value,category.value,description.value)" [routerLink]="['']" type="submit" class="btn btn-accent">Guardar cambios</button>
                       </div>
 
                   </div>
@@ -146,6 +146,6 @@
                 <app-settings-edit-account-panel></app-settings-edit-account-panel>
 
           </div>
-      </form>
+        </div>
   </div>
 </div>
