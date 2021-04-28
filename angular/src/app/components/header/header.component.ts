@@ -31,6 +31,10 @@ export class HeaderComponent implements OnInit {
     return this.loginService.isLogged();
   }
 
+  imAdmin(){
+    return this.loginService.checkAdmin();
+  }
+
   search(user:string): void{
     this.userService.getUser(user).subscribe(
       user => console.log(user),
