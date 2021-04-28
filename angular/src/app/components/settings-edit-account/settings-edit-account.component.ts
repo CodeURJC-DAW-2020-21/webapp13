@@ -26,4 +26,13 @@ export class SettingsEditAccountComponent implements OnInit {
     console.log(this.user.content.name)
   }
 
+  update(id:string,name:string,surname:string,email:string,phoneNumber:string,city:string,degree:string,freelance:string,category:string,description:string){
+    this.userService.putUser(id,name,surname,email,phoneNumber,city,degree,freelance,category,description).subscribe(
+      user => {
+        console.log(user)
+      },
+      error => console.log("error")
+    )
+  }
+
 }
