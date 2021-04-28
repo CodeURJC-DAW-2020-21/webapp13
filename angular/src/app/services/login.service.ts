@@ -9,6 +9,7 @@ import { User } from "../models/user.model";
 export class LoginService {
 
     logged: boolean;
+    admin: boolean;
     user: User;
 
     constructor(private httpClient: HttpClient, private router: Router) {
@@ -21,6 +22,7 @@ export class LoginService {
             response => {
                 this.user = response as User;
                 this.logged = true;
+                this.isAdmin().subscribe(response => this.admin = response as boolean);
                 this.router.navigate(['']);
             },
             error => {
@@ -71,19 +73,26 @@ export class LoginService {
     logOutConfirmed(){
         this.logged = false;
         this.user = undefined;
-        console.log("LOGOUT: Successfully")
+        this.admin = false;
+        console.log("LOGOUT: Successfully");
     }
 
     isLogged() {
         return this.logged;
     }
 
-    isAdmin() {
-        return this.httpClient.get('/api/users/me/admin', { withCredentials: true }).subscribe(
+    private isAdmin() {
+        /*return this.httpClient.get('/api/users/me/admin', { withCredentials: true }).subscribe(
             response => {
                 response
             }
-        );
+        );*/
+
+        return this.httpClient.get('/api/users/me/admin', { withCredentials: true }).pipe();
+    }
+
+    checkAdmin(){
+        return this.admin;
     }
 
     currentUser() {
