@@ -15,7 +15,8 @@ export class SettingsEditAccountComponent implements OnInit {
   constructor(private userService: UserService, private loginService:LoginService) { }
 
   ngOnInit(): void {
-    this.user = this.loginService.currentUser()
+    //this.user = this.loginService.currentUser()
+    this.user = this.loginService.refreshUser();
     //this.getUser("id", 0)
   }
 
@@ -32,7 +33,6 @@ export class SettingsEditAccountComponent implements OnInit {
     this.userService.putUser(id,name,surname,email,phoneNumber,city,degree,freelance,category,description).subscribe(
       user => {
         console.log(user)
-        error => console.log(error)
         this.userService.putImage(this.user.getId(), "profilePhoto", photo.files[0]).subscribe(
           ok => {
               console.log("ok")
