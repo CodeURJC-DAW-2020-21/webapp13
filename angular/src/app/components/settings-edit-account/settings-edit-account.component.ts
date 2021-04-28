@@ -1,3 +1,4 @@
+import { LoginService } from './../../services/login.service';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
@@ -11,10 +12,11 @@ export class SettingsEditAccountComponent implements OnInit {
 
   public user: User;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private loginService:LoginService) { }
 
   ngOnInit(): void {
-    this.getUser("id",0)
+    //this.user = this.loginService.currentUser()
+    
   }
 
   getUser(userId: string, page:number){
