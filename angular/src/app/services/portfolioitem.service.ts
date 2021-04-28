@@ -14,13 +14,13 @@ export class PortfolioitemService {
 
     getPortfolioItems(user: string,page: number):Observable<any[]> {
         return this.httpClient.get("/api/portfolioItems/users/"+user+"/?page="+page).pipe(
-            map(response => this.extracPortfolioItems(response as any))
+            map(response => this.extractResponse(response as any))
         )
     }
 
     post(content):Observable<Portfolioitem> {
         return this.httpClient.post("/api/portfolioItems/users/"+content.userId,content).pipe(
-            map( response => this.extracPortfolioItem(response as Portfolioitem))
+            map( response => this.extractResponse(response as Portfolioitem))
         )
     }
 
@@ -29,27 +29,12 @@ export class PortfolioitemService {
         formData.append(type, image);
 
         return this.httpClient.put("/api/portfolioItems/users/"+user+"/"+item+"/"+type,formData).pipe(
-            map (response => this.extracPortfolioItem(response as string))
+            map (response => this.extractResponse(response as string))
         )
     }
 
-    getTotalElements(url:string): Observable<number> {
-        return this.httpClient.get(url).pipe(
-            map(response => this.extractTotalElements(response as number))
-        )
-    }
-
-    private extracPortfolioItems(response){
-        return response.content
-    }
-
-    private extracPortfolioItem(response){
+    private extractResponse(response){
         return response
     }
-
-    private extractTotalElements(response){
-        return response.totalElements
-    }
-
 
 }

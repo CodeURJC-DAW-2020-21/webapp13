@@ -16,7 +16,7 @@ public class PortfolioItemDTO {
 
     private String description;
 
-    private MultipartFile previewImg;
+    private MultipartFile previewImage;
 
     private MultipartFile image1;
 
