@@ -51,7 +51,7 @@ import { FooterComponent} from './components/footer/footer.component'
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
+import { ActivatedRoute } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-settings-edit-account',
@@ -11,9 +13,11 @@ export class SettingsEditAccountComponent implements OnInit {
 
   public user: User;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) { 
+  }
 
   ngOnInit(): void {
+    
     this.getUser("id",0)
   }
 

@@ -3,6 +3,7 @@ import { PortfolioitemService } from '../../services/portfolioitem.service';
 import { LoginService } from '../../services/login.service';
 
 import { Portfolioitem } from '../../models/portfolioitem.model';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-settings-edit-account-portfolioitems',
@@ -13,7 +14,7 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
 
   portfolioItemsMap: any = new Map()
   portfolioItems: Portfolioitem[] = []
-  user: string = this.loginService.currentUser()["id"]
+  user: string = this.loginService.currentUser().content.id
   last: boolean = false
   page: number = 0
   pageSize: number = 0
@@ -33,7 +34,7 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
   }
 
   create(previewImg, image1, image2, image3, name: string, category: string, client: string, date: string, url: string, description: string) {
-    this.portfolioitemService.post({ "userId": "id", name, description, category, client, url, date }).subscribe(
+    this.portfolioitemService.post({ "userId": this.user, name, description, category, client, url, date }).subscribe(
       item => {
         
         this.totalElements++
