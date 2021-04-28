@@ -47,7 +47,7 @@ export class UserService {
       return this.httpClient.put("/api/portfolioItems/users/"+userId+"/profilePhoto",formData).pipe(
           map (response => this.extractResponse(response as string))
       )
-  }
+    }
 
 
     putPassword(id:string,password:string):Observable<User> {
