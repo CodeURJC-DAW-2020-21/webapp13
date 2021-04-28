@@ -41,10 +41,6 @@
       <!-- Main Navigation -->
       <ul class="nav navbar-nav ml-auto flex-nowrap" style="white-space: nowrap;">
 
-        <li *ngIf="imLogged()" class="d-none d-sm-flex nav-item text-white">
-          Hola, {{this.loginService.currentUser().content.name}}
-        </li>
-
         <li *ngIf="imAdmin()" class="d-none d-sm-flex nav-item text-white">
           <button type="button" class="btn btn-success" [routerLink]="['/admin']">Administrador</button>
         </li>

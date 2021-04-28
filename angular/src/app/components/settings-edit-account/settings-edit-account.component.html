@@ -35,7 +35,7 @@
                               <div class="form-group row mb-0">
                                   <label class="col-form-label col-sm-3">Nombre de usuario</label>
                                   <div class="col-sm-9">
-                                      <input #id id="id" name="id" type="text" class="form-control" value="{{user.content.id}}" disabled>
+                                      <input #id id="id" name="id" type="text" class="form-control" value="{{this.loginService.currentUser().content.id}}" disabled>
                                   </div>
                               </div>
                           </div>
@@ -44,7 +44,7 @@
                               <div class="form-group row mb-0">
                                   <label class="col-form-label col-sm-3">Nombre</label>
                                   <div class="col-sm-9">
-                                      <input #name id="name" name="name" type="text" class="form-control" value="{{user.content.name}}">
+                                      <input #name id="name" name="name" type="text" class="form-control" value="{{this.loginService.currentUser().content.name}}">
                                   </div>
                               </div>
                           </div>
@@ -52,7 +52,7 @@
                               <div class="form-group row mb-0">
                                   <label class="col-form-label col-sm-3">Apellidos</label>
                                   <div class="col-sm-9">
-                                      <input #surname id="surname" name="surname" type="text" class="form-control" value="{{user.content.surname}}">
+                                      <input #surname id="surname" name="surname" type="text" class="form-control" value="{{this.loginService.currentUser().content.surname}}">
                                   </div>
                               </div>
                           </div>
@@ -61,7 +61,7 @@
                                   <label class="col-form-label col-sm-3">Correo</label>
                                   <div class="col-sm-9">
 
-                                      <input #email id="email" name="email" type="email" class="form-control" value="{{user.content.email}}">
+                                      <input #email id="email" name="email" type="email" class="form-control" value="{{this.loginService.currentUser().content.email}}">
 
                                       <small class="form-text text-muted">Si desea cambiar su correo, deberá confirmarlo otra vez.</small>
 
@@ -73,7 +73,7 @@
                                   <label class="col-form-label col-sm-3">Teléfono</label>
                                   <div class="col-sm-9">
 
-                                      <input #phoneNumber id="phoneNumber" name="phoneNumber" type="text" class="form-control" value="{{user.content.phoneNumber}}">
+                                      <input #phoneNumber id="phoneNumber" name="phoneNumber" type="text" class="form-control" value="{{this.loginService.currentUser().content.phoneNumber}}">
 
                                   </div>
                               </div>
@@ -83,7 +83,7 @@
                                   <label class="col-form-label col-sm-3">Ciudad</label>
                                   <div class="col-sm-9">
 
-                                    <input #city id="city" name="city" type="text" class="form-control" value="{{user.content.city}}">
+                                    <input #city id="city" name="city" type="text" class="form-control" value="{{this.loginService.currentUser().content.city}}">
 
                                   </div>
                               </div>
@@ -93,7 +93,7 @@
                                   <label class="col-form-label col-sm-3">Nivel educativo</label>
                                   <div class="col-sm-9">
 
-                                    <input #degree id="degree" name="degree" type="text" class="form-control" value="{{user.content.degree}}">
+                                    <input #degree id="degree" name="degree" type="text" class="form-control" value="{{this.loginService.currentUser().content.degree}}">
 
                                   </div>
                               </div>
@@ -103,7 +103,7 @@
                                   <label class="col-form-label col-sm-3">Disponibilidad</label>
                                   <div class="col-sm-9">
 
-                                    <input #freelance id="freelance" name="freelance" type="text" class="form-control" value="{{user.content.freelance}}">
+                                    <input #freelance id="freelance" name="freelance" type="text" class="form-control" value="{{this.loginService.currentUser().content.freelance}}">
 
                                   </div>
                               </div>
@@ -113,7 +113,7 @@
                                   <label class="col-form-label col-sm-3">Área de trabajo</label>
                                   <div class="col-sm-9">
                                       <select #category class="custom-select" id="category" name="category" required>
-                                          <option value="{{user.content.category}}">Elige...</option>
+                                          <option value="{{this.loginService.currentUser().content.category}}">Elige...</option>
                                           <option value="Ingeniero">Ingeniería</option>
                                           <option value="Diseñador">Diseño</option>
                                           <option value="Fotografo">Fotografía</option>
@@ -128,12 +128,12 @@
                                   <label class="col-form-label col-sm-3">Descríbete</label>
                                   <div class="col-sm-9">
 
-                                      <textarea #description id="description" name="description" rows="3" class="form-control" value="{{user.content.description}}"></textarea>
+                                      <textarea #description id="description" name="description" rows="3" class="form-control" value="{{this.loginService.currentUser().content.description}}"></textarea>
 
                                   </div>
                               </div>
                           </div>
-                          <button (click)="update(photo,id.value,name.value,surname.value,email.value,phoneNumber.value,city.value,degree.value,freelance.value,category.value,description.value)" class="btn btn-accent">Guardar cambios</button>
+                          <button (click)="update(photo,id.value,name.value,surname.value,email.value,phoneNumber.value,city.value,degree.value,freelance.value,category.value,description.value)" [routerLink]="['']" class="btn btn-accent">Guardar cambios</button>
                       </div>
 
                   </div>

@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
     this.loginService.logOut().subscribe(
       response => console.log("Logging out")
     );
-    
+
   }
 
   imLogged(){
