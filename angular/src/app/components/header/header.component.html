@@ -42,7 +42,7 @@
       <ul class="nav navbar-nav ml-auto flex-nowrap" style="white-space: nowrap;">
 
         <li *ngIf="imLogged()" class="d-none d-sm-flex nav-item text-white">
-          Hola, {{loginService.currentUser().name}}
+          Hola, {{this.loginService.currentUser().content.name}}
         </li>
 
         <li *ngIf="imAdmin()" class="d-none d-sm-flex nav-item text-white">

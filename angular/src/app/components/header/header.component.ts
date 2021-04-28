@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../models/user.model';
 import {LoginService} from '../../services/login.service'
 import { UserService } from '../../services/user.service'
 
@@ -27,7 +28,6 @@ export class HeaderComponent implements OnInit {
   }
 
   imLogged(){
-    //console.log(this.loginService.isLogged())
     return this.loginService.isLogged();
   }
 
