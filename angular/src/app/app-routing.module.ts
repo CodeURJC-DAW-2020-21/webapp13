@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'admin/app/graphics', component: AdminAppGraphicsComponent},
   { path: 'admin/templates/list', component: AdminTemplatesListComponent},
   { path: 'settings-edit-account', component: SettingsEditAccountComponent},
-  { path: 'settings-edit-account-edit-portfolioitem', component: SettingsEditAccountEditPortfolioitemComponent},
+  { path: 'settings-edit-account-edit-portfolioitem/:id', component: SettingsEditAccountEditPortfolioitemComponent},
   { path: 'settings-edit-account-mytemplates', component: SettingsEditAccountMytemplatesComponent},
   { path: 'settings-edit-account-panel', component: SettingsEditAccountPanelComponent},
   { path: 'settings-edit-account-password', component: SettingsEditAccountPasswordComponent},

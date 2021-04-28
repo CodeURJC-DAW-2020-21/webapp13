@@ -62,7 +62,7 @@
 
         <li *ngIf="imLogged()" class="d-none d-sm-flex nav-item">
           <form>
-              <button type="button" class="btn btn-accent" (click)="logOut()">Logout</button>
+              <button type="button" class="btn btn-accent" (click)="logOut()" [routerLink]="['']">Logout</button>
           </form>
         </li>
 

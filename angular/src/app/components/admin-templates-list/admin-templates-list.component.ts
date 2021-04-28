@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TemplateService } from '../../services/template.sevice'
+import { TemplateService } from '../../services/template.service'
 import { Observable } from 'rxjs';
 import { error } from 'selenium-webdriver';
 import { Template } from '../../models/template.model';
