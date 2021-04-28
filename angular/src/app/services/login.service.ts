@@ -23,7 +23,6 @@ export class LoginService {
                 this.user = new User(response);
                 this.logged = true;
                 this.isAdmin().subscribe(response => this.admin = response as boolean);
-                this.router.navigate(['']);
             },
             error => {
                 this.logged = false;
@@ -37,7 +36,10 @@ export class LoginService {
 
         this.httpClient.post("/api/auth/login", { username: user, password: pass }, { withCredentials: true })
             .subscribe(
-                (response) => this.reqIsLogged(),
+                (response) => {
+                  this.reqIsLogged()
+                  this.router.navigate([''])
+                },
                 (error) => alert("Wrong credentials")
             );
 
@@ -61,12 +63,12 @@ export class LoginService {
             }
         );*/
 
-        
+
        return this.httpClient.post("/api/auth/logout", { withCredentials: true }).pipe(
             map(_ => this.logOutConfirmed()),
             catchError(error => throwError('Server error'))
         );
-        
+
 
     }
 
@@ -99,8 +101,9 @@ export class LoginService {
         return this.user;
     }
 
-    currentUserv2(){
-        return this.httpClient.get('/api/users/me', { withCredentials: true }).pipe();
+    refreshUser(){
+        this.reqIsLogged();
+        return this.user;
     }
 
 }

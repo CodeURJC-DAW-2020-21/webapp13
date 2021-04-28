@@ -1,8 +1,8 @@
+import { LoginService } from './../../services/login.service';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { ActivatedRoute } from '@angular/router';
-import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-settings-edit-account',
@@ -13,12 +13,12 @@ export class SettingsEditAccountComponent implements OnInit {
 
   public user: User;
 
-  constructor(private userService: UserService) { 
-  }
+  constructor(private userService: UserService, private loginService:LoginService) { }
 
   ngOnInit(): void {
-    
-    this.getUser("id",0)
+    //this.user = this.loginService.currentUser()
+    this.user = this.loginService.refreshUser();
+    //this.getUser("id", 0)
   }
 
   getUser(userId: string, page:number){
@@ -28,6 +28,21 @@ export class SettingsEditAccountComponent implements OnInit {
       error => console.log("error")
     )
     console.log(this.user.content.name)
+  }
+
+  update(photo,id:string,name:string,surname:string,email:string,phoneNumber:string,city:string,degree:string,freelance:string,category:string,description:string){
+    this.userService.putUser(id,name,surname,email,phoneNumber,city,degree,freelance,category,description).subscribe(
+      user => {
+        console.log(user)
+        this.userService.putImage(this.user.getId(), "profilePhoto", photo.files[0]).subscribe(
+          ok => {
+              console.log("ok")
+          },
+          error => console.log(error)
+        )
+      },
+      error => console.log("error")
+    )
   }
 
 }
