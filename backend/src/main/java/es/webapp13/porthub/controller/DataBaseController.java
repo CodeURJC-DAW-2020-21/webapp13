@@ -245,7 +245,7 @@ public class DataBaseController implements CommandLineRunner {
 
     public void setPortfolioItemImage(PortfolioItem pItem, String rutaPrev, String ruta1, String ruta2,String ruta3) throws IOException {
         Resource imagePrev = new ClassPathResource(rutaPrev);
-        pItem.setPreviewImg(BlobProxy.generateProxy(imagePrev.getInputStream(), imagePrev.contentLength()));
+        pItem.setPreviewImage(BlobProxy.generateProxy(imagePrev.getInputStream(), imagePrev.contentLength()));
 
         Resource image1 = new ClassPathResource(ruta1);
         pItem.setImage1(BlobProxy.generateProxy(image1.getInputStream(), image1.contentLength()));

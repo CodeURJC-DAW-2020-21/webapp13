@@ -67,8 +67,8 @@ public class PortfolioItemRestController {
         Optional<PortfolioItem> portfolioItem = portfolioItemService.findById(portfolioItemId);
 
         if (portfolioItem.isPresent()) {
-            int profilePhotoLength = (int) portfolioItem.get().getPreviewImg().length();
-            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(new ByteArrayResource(portfolioItem.get().getPreviewImg().getBytes(1, profilePhotoLength)));
+            int profilePhotoLength = (int) portfolioItem.get().getPreviewImage().length();
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(new ByteArrayResource(portfolioItem.get().getPreviewImage().getBytes(1, profilePhotoLength)));
         } else
             return ResponseEntity.notFound().build();
     }
@@ -173,9 +173,9 @@ public class PortfolioItemRestController {
 
     @PutMapping("/users/{userId}/{portfolioItemId}/previewImage")
     public ResponseEntity<URI> putPreviewImage(@PathVariable String userId, @PathVariable long portfolioItemId, @ModelAttribute PortfolioItemDTO portfolioItemDTO, HttpServletRequest request) throws IOException, SQLException {
-        ImageSetter setPreviewImg = (p, i) -> p.setPreviewImg(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
-        ImageUpdater getPreviewImg = (p) -> p.getPreviewImg().length() == 0;
-        return putPortfolioItemResponseEntity(userId, portfolioItemId, portfolioItemDTO.getPreviewImg(), request, setPreviewImg, getPreviewImg);
+        ImageSetter setPreviewImg = (p, i) -> p.setPreviewImage(BlobProxy.generateProxy(i.getInputStream(), i.getSize()));
+        ImageUpdater getPreviewImg = (p) -> p.getPreviewImage().length() == 0;
+        return putPortfolioItemResponseEntity(userId, portfolioItemId, portfolioItemDTO.getPreviewImage(), request, setPreviewImg, getPreviewImg);
     }
 
     @PutMapping("/users/{userId}/{portfolioItemId}/image1")
