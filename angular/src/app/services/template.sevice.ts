@@ -17,15 +17,15 @@ export class TemplateService{
     }
 
     getTemplate(id:number):Observable<any> {
-        return this.httpClient.get("/api/templates/"+id).pipe(
+        return this.httpClient.get("/api/templates/"+String(id)).pipe(
             map(response => this.extractResponse(response as any))
         )
     }
 
-    postTemplate(id: number, htmlPath: string, name: string, price: number, isFree: boolean, description: string){
-        return this.httpClient.post("/api/templates/", {id, htmlPath, name, price, isFree, description}).pipe(
+    postTemplate(htmlPath: string, name: string, price: number, description: string, free:boolean){
+        return this.httpClient.post("/api/templates/", {htmlPath, name, price, description, free}).pipe(
             map(response => this.extractTemplate(response as Template))
-        )        
+        )    
     }
 
     private extractTemplates(response){

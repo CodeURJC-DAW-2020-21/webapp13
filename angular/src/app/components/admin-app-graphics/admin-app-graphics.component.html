@@ -23,13 +23,13 @@
                 <div class="navbar-collapse__content pb-16pt pb-sm-0">
                     <ul class="nav navbar-nav">
                         <li class="nav-item">
-                            <a href="/admin" class="nav-link">Lista de usuarios</a>
+                            <a [routerLink]="['/admin']" class="nav-link">Lista de usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/templates/list" class="nav-link">Templates disponibles</a>
+                            <a [routerLink]="['/admin/templates/list']" class="nav-link">Templates disponibles</a>
                         </li>
                         <li class="nav-item active">
-                            <a href="/admin/app/graphics" class="nav-link">Información general</a>
+                            <a [routerLink]="['/admin/app/graphics']" class="nav-link">Información general</a>
                         </li>
                     </ul>
                 </div>

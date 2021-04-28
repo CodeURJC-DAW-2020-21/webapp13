@@ -6,12 +6,12 @@ export class Template{
     isFree: boolean
     description:string
 
-    constructor(id: number, htmlPath: string, name: string, price: number, isFree: boolean, descrition: string){
+    constructor(id: number, htmlPath: string, name: string, price: number, isFree: boolean, description: string){
         this.id = id
         this.htmlPath = htmlPath
         this.name = name
         this.price = price
         this.isFree = isFree
-        this.description = descrition
+        this.description = description
     }
 }

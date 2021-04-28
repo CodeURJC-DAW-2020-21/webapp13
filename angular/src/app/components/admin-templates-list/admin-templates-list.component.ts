@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TemplateService } from '../../services/template.sevice'
 import { Observable } from 'rxjs';
 import { error } from 'selenium-webdriver';
+import { Template } from '../../models/template.model';
+
 
 @Component({
   selector: 'app-admin-templates-list',
@@ -20,15 +22,21 @@ export class AdminTemplatesListComponent implements OnInit {
         templates.map(template => this.templates.push(template))
       }
     )
-    //TODO HAY QUE PROBARLO
   }
 
   addNewTemplate(name: string, price: number, description: string){
-    let isFree: boolean = price == 0
+    let isFree: boolean = false
+    if (price == 0) {
+      isFree = true
+    }
+    else{
+      isFree == false
+    }
     let htmlPath: string = "/templates/" + name
-    let id: number = this.templates.length + 1
-    this.templateService.postTemplate(id, htmlPath, name, price, isFree, description).subscribe(
+    let id: number = 10 + this.templates.length - 2
+    this.templateService.postTemplate(htmlPath, name, price, description, isFree).subscribe(
       template => {
+        this.templates.push(new Template(id, htmlPath, name, price, isFree, description))
         console.log(template)
       },
       error => console.error(error)
@@ -40,7 +48,7 @@ export class AdminTemplatesListComponent implements OnInit {
       template => {
         console.log(template)
       },
-      error => console.error(error)
+      error => console.error("Error")
     )
   }
 
