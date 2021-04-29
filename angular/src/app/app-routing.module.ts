@@ -16,12 +16,14 @@ import { SettingsEditAccountPanelComponent } from '../app/components/settings-ed
 import { SettingsEditAccountPasswordComponent } from '../app/components/settings-edit-account-password/settings-edit-account-password.component';
 import { SettingsEditAccountPortfolioitemsComponent } from '../app/components/settings-edit-account-portfolioitems/settings-edit-account-portfolioitems.component';
 import { LoginComponent } from '../app/components/login/login.component';
+import { ConversationComponent } from './components/conversation/conversation.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'search', component: SearchComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'chat', component: ChatComponent },
+  { path: 'chats', component: ChatComponent },
+  { path: 'conversations/:id', component: ConversationComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'admin/app/graphics', component: AdminAppGraphicsComponent},
   { path: 'admin/templates/list', component: AdminTemplatesListComponent},

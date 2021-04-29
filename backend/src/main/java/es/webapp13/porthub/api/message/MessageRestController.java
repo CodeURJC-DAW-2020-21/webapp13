@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.security.Principal;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
@@ -83,6 +80,26 @@ public class MessageRestController {
             if (!messages.isEmpty())
                 return ResponseEntity.ok(messages);
         }
+        return ResponseEntity.status(404).build();
+
+    }
+
+    @GetMapping("/activeChats/{id}")
+    public ResponseEntity<Set<String>> getChats(@PathVariable String id, HttpServletRequest request) {
+
+        Optional<User> user = userService.findById(id);
+
+        Principal principal = request.getUserPrincipal();
+        Optional<User> me = userService.findById(principal.getName());
+
+        if (!user.isEmpty()) {
+            if (me.isEmpty() || !user.get().getId().equals(me.get().getId()))
+                return ResponseEntity.status(403).build();
+            Set<String> userIdList = userService.findChats(user.get());
+            if (!userIdList.isEmpty())
+                return ResponseEntity.ok(userIdList);
+        }
+
         return ResponseEntity.status(404).build();
 
     }
