@@ -41,11 +41,11 @@
                   <div class="page-heading">
                       <h4>Mis templates</h4>
                   </div>
+                  <div *ngFor="let template of this.userTemplates">
 
-                  <div class="row">
+                    <div class="row">
                       <!--SINGLE RESULT CARD-->
 
-                    <div *ngFor="let template of this.userTemplates">
                       <div class="col-6">
                         <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
                              data-partial-height="80" data-toggle="popover" data-trigger="click">
@@ -74,9 +74,6 @@
                                         </ng-template>
 
                                     </class>
-
-
-
                                     </div>
 
                                 </div>
