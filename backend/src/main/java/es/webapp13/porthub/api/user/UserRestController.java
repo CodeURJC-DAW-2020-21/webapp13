@@ -1,5 +1,6 @@
 package es.webapp13.porthub.api.user;
 
+import es.webapp13.porthub.model.PurchasedTemplate;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
 import es.webapp13.porthub.service.SearchService;
@@ -84,6 +85,23 @@ public class UserRestController {
         if (user.isPresent()){
             Template activeTemplate = user.get().getActiveTemplate();
             return ResponseEntity.ok(activeTemplate);
+        }
+        else
+            return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/{id}/recommendedTemplate")
+    public ResponseEntity<Template> getUserRecommendedTemplate(@PathVariable String id) {
+
+        Optional<User> user = userService.findById(id);
+
+        if (user.isPresent()){
+            Optional<PurchasedTemplate> purchasedTemplate = userService.findPopularTemplate(id);
+            Template recommendedTemplate = null;
+            if (purchasedTemplate.isPresent()){
+                recommendedTemplate = templateService.findById(purchasedTemplate.get().getId()).get();
+            }
+            return ResponseEntity.ok(recommendedTemplate);
         }
         else
             return ResponseEntity.notFound().build();
@@ -285,6 +303,7 @@ public class UserRestController {
                     List<Template> templateList = user.get().getTemplates();
                     templateList.add(template.get());
                     user.get().setTemplates(templateList);
+                    userService.save(user.get());
                     return ResponseEntity.ok(templateList);
                 }
                 return ResponseEntity.notFound().build();

@@ -52,6 +52,26 @@ export class ShopComponent implements OnInit {
     });
   }
 
+  purchaseTemplate(templateId:number){
+    this.userService.purchaseTemplate(this.user.content.id, templateId).subscribe(
+      template => {
+        console.log("Comprada")
+      },
+      error => console.log("error")
+    )
+  }
+
+  recommendTemplate(){
+    this.userService.recommendTemplate(this.user.content.id).subscribe(
+      template => {
+        this.recommendedTemplate = template
+        console.log(this.recommendedTemplate)
+      },
+      error => console.log("error")
+    )
+  }
+
+
 
 
 }

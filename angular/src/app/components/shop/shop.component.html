@@ -10,7 +10,7 @@
 
             <div *ngIf="this.user != undefined">
               <div class="row card-group-row mb-16pt mb-lg-40pt d-flex justify-content-center">
-                <a class="btn btn-accent" href="/recommendTemplate">Recomendarme</a>
+                <a class="btn btn-accent" (click)="this.recommendTemplate()">Recomendarme</a>
               </div>
             </div>
 
@@ -20,7 +20,7 @@
 
                   <div *ngFor="let template of this.notPurchasedTemplates">
 
-                    <div class="col-lg-6 col-sm-6 card-group-row__col">
+                    <div class="col-lg-8 col-sm-6 card-group-row__col">
                       <div class="card card-group-row__card text-center o-hidden">
 
                         <div class="card-body d-flex flex-column">
@@ -58,11 +58,11 @@
                           <div *ngIf="this.user != undefined">
 
                             <div *ngIf="this.isPurchased(template); else notPurchased">
-                              <a href="#" class="btn btn-secondary w-100">Comprado</a>
+                              <button class="btn btn-secondary w-100">Comprado</button>
                             </div>
                             <ng-template #notPurchased>
                               <div>
-                                <button class="btn btn-outline-accent w-100">Comprar</button>
+                                <button (click)="purchaseTemplate(template.id)" class="btn btn-outline-accent w-100">Comprar</button>
                               </div>
                             </ng-template>
 
@@ -80,7 +80,59 @@
 
                 <ng-template #recommend>
                   <div>
-                    <h2 class="text-white">No tenemos nada que recomendarte</h2>
+                    <div class="col-lg-8 col-sm-6 card-group-row__col">
+                      <div class="card card-group-row__card text-center o-hidden">
+
+                        <div class="card-body d-flex flex-column">
+                              <div class="flex-grow mb-16pt">
+
+                                <div *ngIf="this.recommendedTemplate.isFree; else premium">
+                                  <span class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
+                                    <i class="material-icons">group</i>
+                                  </span>
+                                </div>
+
+                                <ng-template #premium>
+                                  <div>
+                                    <span class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
+                                      <i class="material-icons">business_center</i>
+                                  </span>
+                                  </div>
+                                </ng-template>
+
+                                <h4 class="mb-8pt">{{this.recommendedTemplate.name}}</h4>
+                                <p class="text-70 mb-0">{{this.recommendedTemplate.description}}</p>
+                              </div>
+
+                              <p class="d-flex justify-content-center align-items-center m-0">
+                                  <span class="h4 m-0 font-weight-normal">&euro;</span>
+                                  <span class="h1 m-0 font-weight-normal">{{this.recommendedTemplate.price}}</span>
+                              </p>
+
+                        </div>
+
+                        <div class="card-footer d-flex flex-column">
+
+                          <a href="{{this.recommendedTemplate.htmlPath}}" class="btn btn-outline-primary mb-3">Preview</a>
+
+                          <div *ngIf="this.user != undefined">
+
+                            <div *ngIf="this.isPurchased(this.recommendedTemplate); else notPurchased">
+                              <button class="btn btn-secondary w-100">Comprado</button>
+                            </div>
+                            <ng-template #notPurchased>
+                              <div>
+                                <button (click)="purchaseTemplate(this.recommendedTemplate.id)" class="btn btn-outline-accent w-100">Comprar</button>
+                              </div>
+                            </ng-template>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
                   </div>
                 </ng-template>
 
