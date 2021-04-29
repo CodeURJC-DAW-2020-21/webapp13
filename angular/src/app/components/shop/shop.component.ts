@@ -44,6 +44,8 @@ export class ShopComponent implements OnInit {
       error => console.log("error")
     )
 
+    this.recommendedTemplate = null
+
   }
 
   isPurchased(template:Template):boolean {
