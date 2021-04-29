@@ -1,7 +1,6 @@
 .filters{
     margin-top: 100px;
     height: 18%;
-    background-color: #d4d4d4;
     padding:10px ;
     margin-left: 20px;
     border-radius: 5px;
@@ -18,4 +17,8 @@ li{
 
 .page-section{
    min-height: 800px;
+}
+
+button{
+    margin-top: 3%;
 }

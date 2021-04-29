@@ -21,9 +21,10 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
   pageElements: number = 0
   totalElements: number = 0
   actualElements: number = 0
+  noItems: boolean = false
 
 
-  constructor(private portfolioitemService: PortfolioitemService, private loginService: LoginService) { }
+  constructor(private portfolioitemService: PortfolioitemService, public loginService: LoginService) { }
 
   ngOnInit(): void {
     this.getPortfolioItems(this.page)
@@ -36,19 +37,19 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
   create(previewImg, image1, image2, image3, name: string, category: string, client: string, date: string, url: string, description: string) {
     this.portfolioitemService.post({ "userId": this.user, name, description, category, client, url, date }).subscribe(
       item => {
-        
+
         this.totalElements++
-        
+
         // Need to try promises
-        this.portfolioitemService.put(this.user,item["id"], "previewImage", previewImg.files[0]).subscribe(
+        this.portfolioitemService.putImage(this.user, item["id"], "previewImage", previewImg.files[0]).subscribe(
           ok => {
-            this.portfolioitemService.put(this.user,item["id"], "image1", image1.files[0]).subscribe(
+            this.portfolioitemService.putImage(this.user, item["id"], "image1", image1.files[0]).subscribe(
               ok => {
-                this.portfolioitemService.put(this.user,item["id"], "image2", image2.files[0]).subscribe(
+                this.portfolioitemService.putImage(this.user, item["id"], "image2", image2.files[0]).subscribe(
                   ok => {
-                    this.portfolioitemService.put(this.user,item["id"], "image3", image3.files[0]).subscribe(
+                    this.portfolioitemService.putImage(this.user, item["id"], "image3", image3.files[0]).subscribe(
                       ok => {
-                          console.log("ok")
+                        console.log("ok")
                       },
                       error => console.log(error)
                     )
@@ -66,7 +67,7 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
       },
       error => console.log("Error")
     )
-    
+
 
   }
 
@@ -74,15 +75,15 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
     this.portfolioitemService.getPortfolioItems(this.user, page).subscribe(
       page => {
         this.totalElements = page["totalElements"]
-        if (page["last"]){
-          page["content"].map( item => {
+        if (page["last"]) {
+          page["content"].map(item => {
             let newItem = new Portfolioitem(item)
-            if (!this.portfolioItemsMap.get(item["id"])){
-              this.portfolioItemsMap.set(item["id"],newItem)
+            if (!this.portfolioItemsMap.get(item["id"])) {
+              this.portfolioItemsMap.set(item["id"], newItem)
               this.portfolioItems.push(newItem)
               this.actualElements++
 
-              if (page["numberOfElements"] == 3){
+              if (page["numberOfElements"] == 3) {
                 this.page++
               }
             }
@@ -90,14 +91,16 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
         } else {
           this.actualElements += 3
           this.page++
-          page["content"].map( item =>{
+          page["content"].map(item => {
             let newItem = new Portfolioitem(item)
-            this.portfolioItemsMap.set(item["id"],newItem)
+            this.portfolioItemsMap.set(item["id"], newItem)
             this.portfolioItems.push(newItem)
           })
         }
       },
-      error => console.log("error")
+      error => this.page == 0 ? this.noItems = true : console.log("error")
+
+
     )
   }
 }

@@ -1,3 +1,4 @@
+import { Template } from './../models/template.model';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map } from 'rxjs/operators'
@@ -21,6 +22,19 @@ export class UserService {
             map(response => this.extractUsers(response as any))
         )
     }
+
+    getUserActiveTemplate(userId:string):Observable<Template> {
+      return this.httpClient.get("/api/users/"+userId+"/activeTemplate").pipe(
+          map(response => this.extractResponse(response as Template))
+      )
+    }
+
+    getUserTemplates(userId:string):Observable<Template[]> {
+      return this.httpClient.get("/api/users/"+userId+"/templates").pipe(
+          map(response => this.extractResponse(response as Template))
+      )
+    }
+
 
     getTotalElements(url:string): Observable<number> {
         return this.httpClient.get(url).pipe(
@@ -60,6 +74,12 @@ export class UserService {
         return this.httpClient.delete("/api/users/"+userId).pipe(
             map(response => this.extractResponse(response as User))
         )
+    }
+    
+    activateTemplate(userId:string, templateId:number):Observable<Template> {
+      return this.httpClient.put("/api/users/"+userId+"/activeTemplate/"+templateId, {}).pipe(
+          map(response => this.extractResponse(response as Template))
+      )
     }
 
     private extractUsers(response){

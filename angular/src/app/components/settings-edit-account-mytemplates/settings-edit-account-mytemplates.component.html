@@ -44,52 +44,48 @@
 
                   <div class="row">
                       <!--SINGLE RESULT CARD-->
-                      <!--
-                      {{#templates}}
-                      -->
+
+                    <div *ngFor="let template of this.userTemplates">
                       <div class="col-6">
-                          <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
-                               data-partial-height="80" data-toggle="popover" data-trigger="click">
-                               <!--
-                                  href="{{htmlPath}}"
-                               -->
-                              <a  class="js-image" data-position="center">
-                                  <!--PROFILE IMAGE GOES HERE-->
-                                  <img class="img-fluid" src="/assets/images/people/256/portfolioPremium.PNG"
-                                       alt="course">
-                                  <span class="overlay__content">
-                                              <span class="overlay__action d-flex flex-column text-center">
-                                              </span>
-                                          </span>
-                              </a>
-                              <div class="mdk-reveal__content">
-                                  <div class="card-body">
-                                      <div class="d-flex justify-content-between" style="width: 100%;">
-                                        <!--
-                                          <div class="d-flex align-items-center">
-                                              <a class="card-title" href="{{htmlPath}}">{{name}}</a>
-                                          </div>
-                                          {{#active}}
-                                          <a href="{{htmlPath}}" class="btn btn-primary">Activo</a>
-                                          {{/active}}
-                                          {{^active}}
-                                          <form action="/set/active/template">
-                                              <input type="hidden" name='id' value="{{id}}"/>
-                                              <input type="hidden" name="_csrf" value="{{token}}"/>
-                                              <input type='submit' class="btn btn-accent" value='Activar' />
-                                          </form>
-                                          {{/active}}
-                                        -->
+                        <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
+                             data-partial-height="80" data-toggle="popover" data-trigger="click">
+                            <a [routerLink]="['template.htmlPath']" class="js-image" data-position="center">
+                                <!--PROFILE IMAGE GOES HERE-->
+                                <img class="img-fluid" src="/assets/images/people/256/portfolioPremium.PNG"
+                                     alt="course">
+                                <span class="overlay__content">
+                                            <span class="overlay__action d-flex flex-column text-center">
+                                            </span>
+                                        </span>
+                            </a>
+                            <div class="mdk-reveal__content">
+                                <div class="card-body">
+                                    <class class="d-flex justify-content-between" style="width: 100%;">
 
-                                      </div>
+                                        <div class="d-flex align-items-center">
+                                            <a class="card-title" [routerLink]="['template.htmlPath']">{{template.name}}</a>
+                                        </div>
 
-                                  </div>
-                              </div>
-                          </div>
+                                        <div *ngIf="template.id == this.activeTemplate.id; else otherCont">
+                                          <a [routerLink]="['template.htmlPath']" class="btn btn-primary">Activo</a>
+                                        </div>
+                                        <ng-template #otherCont>
+                                          <button (click)="activateTemplate(template.id)" class="btn btn-accent">Activar</button>
+                                        </ng-template>
+
+                                    </class>
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                       </div>
-                      <!--
-                        {{/templates}}
-                      -->
+                    </div>
+
+
 
                   </div>
               </div>
@@ -101,7 +97,7 @@
   <!-- // END drawer-layout -->
 
 
-</div>
+
 <!-- // END Header Layout Content -->
 
 
