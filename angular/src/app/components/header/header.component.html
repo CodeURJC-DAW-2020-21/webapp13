@@ -31,6 +31,9 @@
         <li class="nav-item">
           <a [routerLink]="['/shop']" class="nav-link"><i class="fas fa-shopping-bag mr-4pt d-flex align-items-center"></i>Tienda</a>
         </li>
+        <li *ngIf="imLogged()" class="nav-item">
+          <a [routerLink]="['/chats']" class="nav-link"><i class="fas fa-comments mr-4pt d-flex align-items-center"></i>Conversaciones</a>
+        </li>
       </ul>
 
       <div class="search-form search-form--black search-form-courses d-none d-md-flex">

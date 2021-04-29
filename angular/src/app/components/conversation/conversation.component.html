@@ -1,0 +1,47 @@
+<div id="main-content messages" class="container" style="margin-top: 5%">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <a  (click)="goToBottom()" id="readMore" class="btn-primary btn w-100 mt-2 mb-2">Leer mensajes mas recientes</a>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Conversación con <p id="receiver-id">{{sender}}</p></th>
+                </tr>
+                </thead>
+                <tbody  *ngFor="let message of messages" id="conversation">
+
+             
+                <tr><td *ngIf="message.sender.id == sender"  class="message-sender"> <img  class="img-fluid rounded-circle" src="https://localhost:8443/api/users/{{sender}}/image" alt="user">  {{message.text}}</td></tr>
+                <tr><td *ngIf="message.sender.id == receiver"  class="message-receiver"> {{message.text}} <img  class="img-fluid rounded-circle" src="https://localhost:8443/api/users/{{receiver}}/image" alt="user"> </td></tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row mb-5">
+
+        <div class="col-md-12 mt-2 mb-2" id="sendDiv">
+            <div id="sendForm"  class="form-inline">
+                <div class="form-group w-75">
+                    <input #content  [(ngModel)]="reset" type="text" id="name" class="form-control w-100" placeholder="Escribe un mensaje a tu amigo">
+                </div>
+                <button (click)="sendMessage(content.value)" id="send" class="btn btn-accent w-25" type="submit">Enviar</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
