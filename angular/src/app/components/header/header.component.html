@@ -41,15 +41,15 @@
       <!-- Main Navigation -->
       <ul class="nav navbar-nav ml-auto flex-nowrap" style="white-space: nowrap;">
 
-        <li *ngIf="imAdmin()" class="d-none d-sm-flex nav-item text-white">
-          <button type="button" class="btn btn-success" [routerLink]="['/admin']">Administrador</button>
-        </li>
-
         <li *ngIf="imLogged()" class="nav-item">
           <a [routerLink]="['/settings-edit-account']" class="nav-link">
             <i class="material-icons">settings</i>
             <span class="sr-only">Settings</span>
           </a>
+        </li>
+
+        <li *ngIf="imAdmin()" class="d-none d-sm-flex nav-item text-white">
+          <button type="button" class="btn btn-success" [routerLink]="['/admin']">Administrador</button>
         </li>
 
         <li *ngIf="!imLogged()" class="d-none d-sm-flex nav-item">
