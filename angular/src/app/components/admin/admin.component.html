@@ -52,13 +52,13 @@
                                     <label class="col-form-label col-sm-6">Email</label>
                                 </div>
 
-                                <div class="form-group row mb-3">
-                                    <label class="col-form-label col-sm-3">Nombre de usuario</label>
-                                    <label class="col-form-label col-sm-6">Email de usuario</label>
+                                <div *ngFor="let user of users" class="form-group row mb-3">
+                                    <label class="col-form-label col-sm-3">{{user.content.id}}</label>
+                                    <label class="col-form-label col-sm-6">{{user.content.email}}</label>
                                     <!-- <input type="hidden" value="{{id}}" name="id" id="id"> -->
                                     <div class="col-sm-3">
                                         <div class="row card-group-row mb-16pt mb-lg-40pt d-flex justify-content-center">
-                                            <a class="btn btn-accent" href="/admin/delete/IDdelUsuario">Eliminar usuario</a>
+                                            <button class="btn btn-accent" (click)="delete(user.content.id)">Eliminar usuario</button>
                                         </div>
                                     </div>
                                 </div>

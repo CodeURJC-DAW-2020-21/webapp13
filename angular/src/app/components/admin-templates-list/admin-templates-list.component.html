@@ -63,13 +63,13 @@
                                             </span>
                                     </a>
 
-                                    <input type="hidden" value="{{template.id}}">
+                                    <input type="hidden" #templateID value="{{template.id}}">
 
                                     <div class="mdk-reveal__content">
                                         <div class="card-body">
                                             <div class="d-flex">
                                                 <div class="flex">
-                                                    <a class="card-title" (click)="seeTemplate()">{{template.name}}</a>
+                                                    <a class="card-title" (click)="seeTemplate(templateID.value)">{{template.name}}</a>
                                                 </div>
                                             </div>
 

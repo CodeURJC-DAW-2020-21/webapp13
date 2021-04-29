@@ -56,6 +56,12 @@ export class UserService {
       )
     }
 
+    deleteUser(userId: string){
+        return this.httpClient.delete("/api/users/"+userId).pipe(
+            map(response => this.extractResponse(response as User))
+        )
+    }
+
     private extractUsers(response){
         return response.content
     }
