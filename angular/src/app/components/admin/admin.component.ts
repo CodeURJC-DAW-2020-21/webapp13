@@ -17,25 +17,36 @@ export class AdminComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  ngOnInit(): void {   
+  ngOnInit(): void {
     this.getUsersPage()
     this.setTotalUsers()
     this.page++
   }
 
+  loadMore(): void {
+    this.getUsersPage() 
+    this.page++
+  }
+
+  loadUsers(): void {
+    this.setTotalUsers()
+    this.getUsersPage()
+    this.page++
+  }
+
   private setTotalUsers() {
-    this.userService.getTotalElements("/api/users/" + this.page).subscribe(
+    this.userService.getTotalElements("/api/users/" +"?page=" + this.page).subscribe(
       totalElements => this.totalElements = totalElements,
       error => console.log("error getting total elements")
     )
   }
 
   private getUsersPage() {
-    this.userService.getUsers("/api/users/" +"?page=" + this.page).subscribe(
+    this.userService.getUsers("/api/users/" + "?page=" + this.page).subscribe(
       users => {
         users.map( user => this.users.push(new User(user)))
         this.actualElements += users.length
-        this.page++
+
       },
       error => console.log("error")
     )
@@ -48,6 +59,7 @@ export class AdminComponent implements OnInit {
         user = this.userService.getUser(id)
         let index = this.users.indexOf(user)
         this.users.splice(index, 1)
+        this.actualElements -= 1
         this.getUsersPage()
       },
       error => console.error(error) 
