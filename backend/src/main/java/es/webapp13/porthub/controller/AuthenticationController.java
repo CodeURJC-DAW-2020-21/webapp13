@@ -52,8 +52,8 @@ public class AuthenticationController {
     public String signupConfirmationLink(Model model, User user, HttpServletRequest request) throws IOException {
         String password = user.getPassword();
         userService.create(user);
-        activeTemplateService.init(user.getTemplates(), user.getActiveTemplate());
-        purchasedTemplateService.create(user.getTemplates());
+        activeTemplateService.init(user.getId(), user.getTemplates(), user.getActiveTemplate());
+        purchasedTemplateService.init(user.getId(),user.getTemplates());
         try {
             request.login(user.getId(), password);
             model.addAttribute("loginProcess", true);

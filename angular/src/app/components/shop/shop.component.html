@@ -1,67 +1,150 @@
 <!-- Header Layout Content -->
 <div class="mdk-header-layout__content page-content pb-0">
 
-    <div class="page-section pt-64pt bg-gradient-primary">
-        <div class="container page__container subheader">
-            <div class="hero text-center pb-64pt">
-                <h1 class="text-white">Compra tu Portfolio</h1>
-                <p class="text-white-50 lead measure-hero-lead mx-auto">Elige entre múltiples portfolios diseñados por profesionales del sector.</p>
-            </div>
-            <!--
-            {{#logued}}
-            {{^recommended}}
-            <div class="row card-group-row mb-16pt mb-lg-40pt d-flex justify-content-center">
-                 <a class="btn btn-accent" href="/recommendTemplate">Recomendarme</a>
-            </div>
-            {{/recommended}}
-            {{/logued}}
-            <div class="row card-group-row mb-16pt mb-lg-40pt d-flex justify-content-center">
-                {{#templates}}
-                <div class="col-lg-4 col-sm-6 card-group-row__col">
-                    <div class="card card-group-row__card text-center o-hidden">
+  <div class="page-section pt-64pt bg-gradient-primary">
+    <div class="container page__container subheader">
+      <div class="hero text-center pb-64pt">
+        <h1 class="text-white">Compra tu Portfolio</h1>
+        <p class="text-white-50 lead measure-hero-lead mx-auto">Elige entre múltiples portfolios diseñados por
+          profesionales del sector.</p>
+      </div>
 
-                        <div class="card-body d-flex flex-column">
-                            <div class="flex-grow mb-16pt">
-                                {{#isFree}}
-                                <span class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
-                                    <i class="material-icons">group</i>
-                                </span>
-                                {{/isFree}}
-                                {{^isFree}}
-                                <span class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
-                                    <i class="material-icons">business_center</i>
-                                </span>
-                                {{/isFree}}
-                                <h4 class="mb-8pt">{{name}}</h4>
-                                <p class="text-70 mb-0">{{description}}</p>
-                            </div>
-                            <p class="d-flex justify-content-center align-items-center m-0">
-                                <span class="h4 m-0 font-weight-normal">&euro;</span>
-                                <span class="h1 m-0 font-weight-normal">{{price}}</span>
-                            </p>
-                        </div>
-                        <div class="card-footer d-flex flex-column">
-                            <a href="{{htmlPath}}" class="btn btn-outline-primary mb-3">Preview</a>
-                            {{#logued}}
-                            {{#purchased}}
-                            <a href="#" class="btn btn-secondary">Comprado</a>
-                            {{/purchased}}
-                            {{^purchased}}
-                            <form action="/purchase/confirmation">
-                                <input type="hidden" name='id' value="{{id}}"/>
-                                <input type="hidden" name="_csrf" value="{{token}}"/>
-                                <input type='submit' class="btn btn-outline-accent w-100" value='Comprar'/>
-                            </form>
-                            {{/purchased}}
-                            {{/logued}}
-                        </div>
-                    </div>
-                </div>
-                {{/templates}}
-                {{^templates}}
-                <h2 class="text-white">No tenemos nada que recomendarte</h2>
-                {{/templates}}
-            </div>-->
+      <div *ngIf="this.user != undefined">
+        <div class="row card-group-row mb-16pt mb-lg-40pt d-flex justify-content-center">
+          <a class="btn btn-accent" (click)="this.recommendTemplate()">Recomendarme</a>
         </div>
+      </div>
+
+
+      <div *ngIf="this.contentToShop; else recommend">
+        <div class="card-group">
+          <div class="card" *ngFor="let template of this.notPurchasedTemplates">
+
+            <!--Free icon-->
+            <div class="icon" *ngIf="template.isFree; else premium">
+              <span class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
+                <i class="material-icons">group</i>
+              </span>
+            </div>
+
+            <!--Premium icon-->
+            <ng-template #premium>
+              <div class="icon">
+                <span class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
+                  <i class="material-icons">business_center</i>
+                </span>
+              </div>
+            </ng-template>
+
+            <!--Body-->
+            <div class="card-body">
+              <h4 class="mb-8pt text-center">{{template.name}}</h4>
+              <p class="text-70 mb-0 text-center w-50">{{template.description}}</p>
+              <p class="d-flex justify-content-center align-items-center m-0">
+                <span class="h4 m-0 font-weight-normal">&euro;</span>
+                <span class="h1 m-0 font-weight-normal text-center">{{template.price}}</span>
+              </p>
+            </div>
+
+            <!--Footer-->
+            <div class="card-footer d-flex flex-column">
+
+              <a href="{{template.htmlPath}}" class="btn btn-outline-primary mb-3">Preview</a>
+
+              <div *ngIf="this.user != undefined">
+
+                <!--Purchased-->
+                <div *ngIf="this.isPurchased(template); else notPurchased">
+                  <button class="btn btn-secondary w-100">Comprado</button>
+                </div>
+
+                <!--Not purchased-->
+                <ng-template #notPurchased>
+                  <div>
+                    <button (click)="purchaseTemplate(template.id)"
+                      class="btn btn-outline-accent w-100">Comprar</button>
+                  </div>
+                </ng-template>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #recommend>
+
+        <div *ngIf="this.contentToRecommend == false; else contentToRecommendation">
+          <h2 class="text-white nothingToShow">No tenemos nada que recomendarte</h2>
+        </div>
+
+
+        <ng-template #contentToRecommendation>
+
+          <div>
+            <div class="col-lg-10 col-sm-6 card-group-row__col">
+              <div class="card card-group-row__card text-center o-hidden">
+
+                <div class="card-body d-flex flex-column">
+                  <div class="flex-grow mb-16pt">
+
+                    <div *ngIf="this.recommendedTemplate.isFree; else premium">
+                      <span
+                        class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
+                        <i class="material-icons">group</i>
+                      </span>
+                    </div>
+
+                    <ng-template #premium>
+                      <div>
+                        <span
+                          class="w-64 h-64 icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-16pt">
+                          <i class="material-icons">business_center</i>
+                        </span>
+                      </div>
+                    </ng-template>
+
+                    <h4 class="mb-8pt">{{this.recommendedTemplate.name}}</h4>
+                    <p class="text-70 mb-0">{{this.recommendedTemplate.description}}</p>
+                  </div>
+
+                  <p class="d-flex justify-content-center align-items-center m-0">
+                    <span class="h4 m-0 font-weight-normal">&euro;</span>
+                    <span class="h1 m-0 font-weight-normal">{{this.recommendedTemplate.price}}</span>
+                  </p>
+
+                </div>
+
+                <div class="card-footer d-flex flex-column">
+
+                  <a href="{{this.recommendedTemplate.htmlPath}}" class="btn btn-outline-primary mb-3">Preview</a>
+
+                  <div *ngIf="this.user != undefined">
+
+                    <div *ngIf="this.isPurchased(this.recommendedTemplate); else notPurchased">
+                      <button class="btn btn-secondary w-100">Comprado</button>
+                    </div>
+                    <ng-template #notPurchased>
+                      <div>
+                        <button (click)="purchaseTemplate(this.recommendedTemplate.id)"
+                          class="btn btn-outline-accent w-100">Comprar</button>
+                      </div>
+                    </ng-template>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </ng-template>
+
+
+      </ng-template>
     </div>
+  </div>
 </div>

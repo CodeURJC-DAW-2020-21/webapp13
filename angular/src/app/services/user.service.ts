@@ -42,6 +42,12 @@ export class UserService {
         )
     }
 
+    getUsersPerMonth(): Observable<any[]>{
+        return this.httpClient.get("/api/users/statistics").pipe(
+            map(response => this.extractResponse(response as any[]))
+        )
+    }
+
     postUser(id:string,email:string,name:string,surname:string,password:string,phoneNumber:string,bornDate:string,city:string,freelance:string,category:string,degree:string,website:string,description:string):Observable<User> {
         return this.httpClient.post("/api/users/",{id,name,surname,password,phoneNumber,bornDate,city,freelance,category,degree,website,description}).pipe(
             map(response => this.extractResponse(response as User))
@@ -63,14 +69,33 @@ export class UserService {
       )
     }
 
+
     putPassword(id:string,password:string):Observable<User> {
       return this.httpClient.put("/api/users/"+id,{password}).pipe(
           map(response => this.extractResponse(response as User))
       )
     }
 
+    deleteUser(userId: string){
+        return this.httpClient.delete("/api/users/"+userId).pipe(
+            map(response => this.extractResponse(response as User))
+        )
+    }
+
     activateTemplate(userId:string, templateId:number):Observable<Template> {
       return this.httpClient.put("/api/users/"+userId+"/activeTemplate/"+templateId, {}).pipe(
+          map(response => this.extractResponse(response as Template))
+      )
+    }
+
+    purchaseTemplate(userId:string, templateId:number):Observable<Template> {
+      return this.httpClient.put("/api/users/"+userId+"/templateList/"+templateId, {}).pipe(
+          map(response => this.extractResponse(response as Template))
+      )
+    }
+
+    recommendTemplate(userId:string):Observable<Template> {
+      return this.httpClient.get("/api/users/"+userId+"/recommendedTemplate/", {}).pipe(
           map(response => this.extractResponse(response as Template))
       )
     }

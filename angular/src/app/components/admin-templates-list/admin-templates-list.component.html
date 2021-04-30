@@ -53,28 +53,42 @@
                                 <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
                                      data-partial-height="40" data-toggle="popover" data-trigger="click">
 
-                                    <a href="#" class="js-image" data-position="center">
-                                        <img class="img-fluid" src="/assets/images/people/256/portfolioPremium.PNG"
-                                             alt="course">
-                                        <span class="overlay__content">
-                                                <span class="overlay__action d-flex flex-column text-center">
+                                    <div *ngIf="templateIsFree(template); else notFree">
+                                        <a [routerLink]="['/free-template']" class="js-image" data-position="center" (click)="seeTemplate(templateID.value)">
+                                            <img class="img-fluid" src="/assets/images/people/256/portfolioPremium.PNG"
+                                                 alt="course">
+                                        </a>
+                                        <input type="hidden" #templateID value="{{template.id}}">
 
-                                                </span>
-                                            </span>
-                                    </a>
-
-                                    <input type="hidden" value="{{template.id}}">
-
-                                    <div class="mdk-reveal__content">
-                                        <div class="card-body">
-                                            <div class="d-flex">
-                                                <div class="flex">
-                                                    <a class="card-title" (click)="seeTemplate()">{{template.name}}</a>
+                                        <div>
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex">
+                                                        <a class="card-title" [routerLink]="['/free-template']" (click)="seeTemplate(templateID.value)">{{template.name}}</a>
+                                                    </div>
                                                 </div>
-                                            </div>
 
+                                            </div>
                                         </div>
                                     </div>
+                                    <ng-template #notFree>
+                                        <a [routerLink]="['/free-template']" class="js-image" data-position="center" (click)="seeTemplate(templateID.value)">
+                                            <img class="img-fluid" src="/assets/images/people/256/portfolioPremium.PNG"
+                                                 alt="course">
+                                        </a>
+                                        <input type="hidden" #templateID value="{{template.id}}">
+
+                                        <div>
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex">
+                                                        <a class="card-title" [routerLink]="['/free-template']" (click)="seeTemplate(templateID.value)">{{template.name}}</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </ng-template>                                    
                                 </div>
                             </div>
 

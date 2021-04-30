@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { IndexComponent } from '../app/components/index/index.component'
@@ -17,17 +17,31 @@ import { SettingsEditAccountPasswordComponent } from '../app/components/settings
 import { SettingsEditAccountPortfolioitemsComponent } from '../app/components/settings-edit-account-portfolioitems/settings-edit-account-portfolioitems.component';
 import { LoginComponent } from '../app/components/login/login.component';
 import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
+import { ConversationComponent } from './components/conversation/conversation.component';
+import { FreeTemplateComponent } from './components/free-template/free-template.component';
+import {PortfolioItemComponent } from './components/portfolio-item/portfolio-item.component'
+
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'search/:id', component: SearchComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'chat', component: ChatComponent },
   { path: 'admin', component: AdminComponent, 
     canActivate: [AuthGuard],
     data: {
       role: 'USER'
     } },
+  { path: 'chats', component: ChatComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'USER'
+    } },
+  { path: 'conversations/:id', component: ConversationComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'USER'
+    }  },
   { path: 'admin/app/graphics', component: AdminAppGraphicsComponent},
   { path: 'admin/templates/list', component: AdminTemplatesListComponent},
   { path: 'settings-edit-account', component: SettingsEditAccountComponent, 
@@ -62,6 +76,8 @@ const routes: Routes = [
     } },
   { path: 'login', component: LoginComponent},
   { path: 'shop', component: ShopComponent},
+  { path: 'free-template', component: FreeTemplateComponent},
+  { path: 'portfolio-item/:id', component: PortfolioItemComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);

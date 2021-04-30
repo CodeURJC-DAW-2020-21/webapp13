@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import {LoginService} from '../../services/login.service'
 import { UserService } from '../../services/user.service'
@@ -10,9 +11,12 @@ import { UserService } from '../../services/user.service'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public loginService: LoginService, private userService: UserService) { }
+  constructor(private router:Router, public loginService: LoginService, private userService: UserService) { }
+
+ 
 
   ngOnInit(): void {
+    
   }
 
   /*logOut() {
@@ -37,9 +41,17 @@ export class HeaderComponent implements OnInit {
 
   search(user:string): void{
     this.userService.getUser(user).subscribe(
-      user => console.log(user),
+      user => {
+        if(user.template.name === "Free"){
+          this.router.navigate(['/free-template',user.id])
+        } else {
+          this.router.navigate(['/premiun-template',user.id])
+        }
+        
+      } ,
       error => console.log("error")
     )
   }
+
 
 }

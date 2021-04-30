@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TemplateService } from '../../services/template.service'
-import { Observable } from 'rxjs';
-import { error } from 'selenium-webdriver';
 import { Template } from '../../models/template.model';
 
 
@@ -50,6 +48,10 @@ export class AdminTemplatesListComponent implements OnInit {
       },
       error => console.error("Error")
     )
+  }
+
+  templateIsFree(template: Template){
+    return template.isFree
   }
 
 }

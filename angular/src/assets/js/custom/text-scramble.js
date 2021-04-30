@@ -54,7 +54,7 @@ class TextScramble {
     randomChar() {
       return this.chars[Math.floor(Math.random() * this.chars.length)]
     }
-  }
+}
   
   // ——————————————————————————————————————————————————
   // Example
@@ -80,3 +80,4 @@ class TextScramble {
   }
   
   next()
+  

@@ -18,9 +18,9 @@ export class PortfolioitemService {
         )
     }
 
-    getPortfolioItem(id:string):Observable<any[]> {
+    getPortfolioItem(id:string):Observable<Portfolioitem> {
         return this.httpClient.get("/api/portfolioItems/"+id).pipe(
-            map(response => this.extractResponse(response as any))
+            map(response => this.extractResponse(response as Portfolioitem))
         )
     }
 

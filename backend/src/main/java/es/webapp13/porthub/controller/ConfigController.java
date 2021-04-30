@@ -127,8 +127,10 @@ public class ConfigController {
     }
 
     @GetMapping("/settings/edit/account/my-templates")
-    public String userTemplatesLink(Model model) {
-        model.addAttribute("templates", activeTemplateService.findAll());
+    public String userTemplatesLink(Model model, HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findById(principal.getName()).orElseThrow();
+        model.addAttribute("templates", activeTemplateService.findByUserId(user.getId()));
         return "settings-edit-account-mytemplates";
     }
 
@@ -137,7 +139,7 @@ public class ConfigController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findById(principal.getName()).orElseThrow();
         long oldId = user.getActiveTemplate().getId();
-        activeTemplateService.update(oldId, id);
+        activeTemplateService.update(user.getId(), oldId, id);
         Template activeTemplate = templateService.findById(id).orElseThrow();
         user.setActiveTemplate(activeTemplate);
         userService.save(user);

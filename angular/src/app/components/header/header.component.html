@@ -24,12 +24,19 @@
         <li class="nav-item">
           <a [routerLink]="['/search']" class="nav-link"><i class="fas fa-search fa-sm mr-4pt d-flex align-items-center"></i>Explorar</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="imLogged()" class="nav-item">
+          <a [routerLink]="['/free-template']" class="nav-link"><i
+            class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
+        </li>
+        <li *ngIf="!imLogged()" class="nav-item">
           <a [routerLink]="['/login']" class="nav-link"><i
             class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
         </li>
         <li class="nav-item">
           <a [routerLink]="['/shop']" class="nav-link"><i class="fas fa-shopping-bag mr-4pt d-flex align-items-center"></i>Tienda</a>
+        </li>
+        <li *ngIf="imLogged()" class="nav-item">
+          <a [routerLink]="['/chats']" class="nav-link"><i class="fas fa-comments mr-4pt d-flex align-items-center"></i>Conversaciones</a>
         </li>
       </ul>
 
@@ -41,15 +48,15 @@
       <!-- Main Navigation -->
       <ul class="nav navbar-nav ml-auto flex-nowrap" style="white-space: nowrap;">
 
-        <li *ngIf="imAdmin()" class="d-none d-sm-flex nav-item text-white">
-          <button type="button" class="btn btn-success" [routerLink]="['/admin']">Administrador</button>
-        </li>
-
         <li *ngIf="imLogged()" class="nav-item">
           <a [routerLink]="['/settings-edit-account']" class="nav-link">
             <i class="material-icons">settings</i>
             <span class="sr-only">Settings</span>
           </a>
+        </li>
+
+        <li *ngIf="imAdmin()" class="d-none d-sm-flex nav-item text-white">
+          <button type="button" class="btn btn-success" [routerLink]="['/admin']">Administrador</button>
         </li>
 
         <li *ngIf="!imLogged()" class="d-none d-sm-flex nav-item">
