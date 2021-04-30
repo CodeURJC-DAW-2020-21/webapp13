@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { IndexComponent } from '../app/components/index/index.component'
@@ -17,6 +17,8 @@ import { SettingsEditAccountPasswordComponent } from '../app/components/settings
 import { SettingsEditAccountPortfolioitemsComponent } from '../app/components/settings-edit-account-portfolioitems/settings-edit-account-portfolioitems.component';
 import { LoginComponent } from '../app/components/login/login.component';
 import { ConversationComponent } from './components/conversation/conversation.component';
+import { FreeTemplateComponent } from './components/free-template/free-template.component';
+
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -35,6 +37,7 @@ const routes: Routes = [
   { path: 'settings-edit-account-portfolioitems', component: SettingsEditAccountPortfolioitemsComponent},
   { path: 'login', component: LoginComponent},
   { path: 'shop', component: ShopComponent},
+  { path: 'free-template', component: FreeTemplateComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);
