@@ -29,16 +29,7 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/vendor/jquery.min.js",
-              "src/assets/vendor/popper.min.js",
-              "src/assets/vendor/bootstrap.min.js",
-              "src/assets/vendor/perfect-scrollbar.min.js",
-              "src/assets/vendor/dom-factory.js",
-              "src/assets/vendor/material-design-kit.js",
-              "src/assets/vendor/fix-footer.js",
-              "src/assets/js/app.js",
-              "src/assets/js/custom/text-scramble.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
               ]
           },
           "configurations": {

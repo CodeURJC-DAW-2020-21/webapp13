@@ -50,4 +50,8 @@ export class AdminTemplatesListComponent implements OnInit {
     )
   }
 
+  templateIsFree(template: Template){
+    return template.isFree
+  }
+
 }

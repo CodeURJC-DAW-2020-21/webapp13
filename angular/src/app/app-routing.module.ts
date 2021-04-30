@@ -24,6 +24,7 @@ import { PremiumTemplateComponent } from './components/premium-template/premium-
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'search/:id', component: SearchComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'chats', component: ChatComponent },
   { path: 'conversations/:id', component: ConversationComponent },
