@@ -22,6 +22,10 @@ export class ShopComponent implements OnInit {
 
   recommendedTemplate: Template
 
+  contentToRecommend: boolean
+
+  contentToShop: boolean
+
   ngOnInit(): void {
 
     this.user = this.loginService.refreshUser()
@@ -44,7 +48,11 @@ export class ShopComponent implements OnInit {
       error => console.log("error")
     )
 
-    this.recommendedTemplate = null
+    this.recommendedTemplate = undefined
+
+    this.contentToRecommend = false
+
+    this.contentToShop = true
 
   }
 
@@ -66,14 +74,18 @@ export class ShopComponent implements OnInit {
   recommendTemplate(){
     this.userService.recommendTemplate(this.user.content.id).subscribe(
       template => {
+        this.contentToShop = false
         this.recommendedTemplate = template
         console.log(this.recommendedTemplate)
+        if (this.recommendedTemplate==null){
+          this.contentToRecommend = false
+        }else{
+          this.contentToRecommend = true
+        }
+        console.log(this.contentToRecommend)
       },
       error => console.log("error")
     )
   }
-
-
-
 
 }
