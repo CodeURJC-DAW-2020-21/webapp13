@@ -4,6 +4,7 @@ import { UserService } from './../../services/user.service';
 import { Template } from './../../models/template.model';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -12,7 +13,7 @@ import { User } from '../../models/user.model';
 })
 export class ShopComponent implements OnInit {
 
-  constructor(private userService:UserService, private loginService:LoginService, private templateService:TemplateService) { }
+  constructor(private userService:UserService, private loginService:LoginService, private templateService:TemplateService, private router: Router) { }
 
   user: User
 
@@ -40,6 +41,8 @@ export class ShopComponent implements OnInit {
       )
     }
 
+    console.log(this.purchasedTemplates)
+
     this.templateService.getTemplates().subscribe(
       templates => {
         templates.map(template => this.notPurchasedTemplates.push(template))
@@ -66,6 +69,7 @@ export class ShopComponent implements OnInit {
     this.userService.purchaseTemplate(this.user.content.id, templateId).subscribe(
       template => {
         console.log("Comprada")
+        this.router.navigate(["/settings-edit-account-mytemplates"])
       },
       error => console.log("error")
     )
