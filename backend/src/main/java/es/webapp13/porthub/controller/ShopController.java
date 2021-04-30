@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -43,19 +44,21 @@ public class ShopController {
         if (principal == null) {
             model.addAttribute("templates", templateService.findAll());
         } else {
-            model.addAttribute("templates", purchasedTemplateService.findAll());
+            Optional<User> activeUser = userService.findById(principal.getName());
+            Collection<PurchasedTemplate> purchasedTemplates = purchasedTemplateService.findByUserId(activeUser.get().getId());
+            model.addAttribute("templates", purchasedTemplates);
         }
         return "shop";
     }
 
     @GetMapping("/purchase/confirmation")
     public String purchaseConfirmationLink(HttpServletRequest request, @RequestParam long id) {
-        purchasedTemplateService.purchase(id);
         Template template = templateService.findById(id).orElseThrow();
         Principal principal = request.getUserPrincipal();
         User user = userService.findById(principal.getName()).orElseThrow();
         user.getTemplates().add(template);
-        activeTemplateService.add(template);
+        purchasedTemplateService.purchase(user.getId(), id);
+        activeTemplateService.add(user.getId(), template);
         return "purchase-confirmation";
     }
 

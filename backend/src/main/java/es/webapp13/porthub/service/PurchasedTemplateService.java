@@ -5,17 +5,14 @@ import es.webapp13.porthub.model.PurchasedTemplate;
 import es.webapp13.porthub.model.Template;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class PurchasedTemplateService {
 
     private final TemplateService templateService;
 
-    private Map<Long, PurchasedTemplate> purchasedTemplateMap;
+    private final Map<String, Map<Long, PurchasedTemplate>> purchasedTemplateMap = new HashMap<>();
 
     public PurchasedTemplateService(TemplateService templateService) {
         this.templateService = templateService;
@@ -26,17 +23,17 @@ public class PurchasedTemplateService {
      *
      * @param purchasedTemplates List of purchased templates
      */
-    public void create(List<Template> purchasedTemplates) {
-        purchasedTemplateMap = new HashMap<>();
+    public void init(String userId, List<Template> purchasedTemplates) {
+        Map<Long, PurchasedTemplate> userPurchasedTemplateMap = new HashMap<>();
         for (Template template : templateService.findAll()) {
-            long id = template.getId();
-            setInfo(id, template);
+            PurchasedTemplate purchasedTemplate = setInfo(template);
+            userPurchasedTemplateMap.put(purchasedTemplate.getId(), purchasedTemplate);
         }
         for (Template template : purchasedTemplates) {
             long id = template.getId();
-            PurchasedTemplate purchasedTemplate = purchasedTemplateMap.get(id);
-            purchasedTemplate.setPurchased(true);
+            userPurchasedTemplateMap.get(id).setPurchased(true);
         }
+        this.purchasedTemplateMap.put(userId, userPurchasedTemplateMap);
     }
 
     /**
@@ -46,32 +43,34 @@ public class PurchasedTemplateService {
      */
     public void add(long id) {
         Template template = templateService.findById(id).orElseThrow();
-        setInfo(id, template);
+        PurchasedTemplate purchasedTemplate = setInfo(template);
+        for (String userId: this.purchasedTemplateMap.keySet()){
+            this.purchasedTemplateMap.get(userId).put(purchasedTemplate.getId(), purchasedTemplate);
+        }
     }
 
     /**
      * Set info about a purchased template
      *
-     * @param id       Id of the template
      * @param template A template with the info to be set
      */
-    private void setInfo(long id, Template template) {
+    private PurchasedTemplate setInfo(Template template) {
+        Long id = template.getId();
         String name = template.getName();
         String htmlPath = template.getHtmlPath();
         String description = template.getDescription();
         int price = template.getPrice();
         boolean isFree = template.isFree();
         PurchasedTemplate purchasedTemplate = new PurchasedTemplate(id, htmlPath, name, false, price, isFree, description);
-        purchasedTemplateMap.put(id, purchasedTemplate);
+        return purchasedTemplate;
     }
 
     /**
      * Buy a template
      *
-     * @param id Template id
      */
-    public void purchase(long id) {
-        purchasedTemplateMap.get(id).setPurchased(true);
+    public void purchase(String userId, long templateId) {
+        purchasedTemplateMap.get(userId).get(templateId).setPurchased(true);
     }
 
 
@@ -80,18 +79,17 @@ public class PurchasedTemplateService {
      *
      * @return List with the purchased templates
      */
-    public Collection<PurchasedTemplate> findAll() {
-        return purchasedTemplateMap.values();
+    public Collection<PurchasedTemplate> findByUserId(String userId) {
+        return purchasedTemplateMap.get(userId).values();
     }
 
     /**
      * Get a purchased template by a given id
      *
-     * @param id Template id
      * @return A purchased template
      */
-    public PurchasedTemplate findById(long id) {
-        return purchasedTemplateMap.get(id);
+    public PurchasedTemplate findPurchasedTemplate(String userId, long templateId) {
+        return purchasedTemplateMap.get(userId).get(templateId);
     }
 
 

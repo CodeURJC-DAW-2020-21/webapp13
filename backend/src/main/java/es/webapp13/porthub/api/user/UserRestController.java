@@ -1,10 +1,9 @@
 package es.webapp13.porthub.api.user;
 
+import es.webapp13.porthub.model.PurchasedTemplate;
 import es.webapp13.porthub.model.Template;
 import es.webapp13.porthub.model.User;
-import es.webapp13.porthub.service.SearchService;
-import es.webapp13.porthub.service.TemplateService;
-import es.webapp13.porthub.service.UserService;
+import es.webapp13.porthub.service.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Page;
@@ -37,11 +36,17 @@ public class UserRestController {
 
     private final TemplateService templateService;
 
-    public UserRestController(UserService userService, ModelMapper modelMapper, SearchService searchService, TemplateService templateService) {
+    private final PurchasedTemplateService purchasedTemplateService;
+
+    private final ActiveTemplateService activeTemplateService;
+
+    public UserRestController(UserService userService, ModelMapper modelMapper, SearchService searchService, TemplateService templateService, PurchasedTemplateService purchasedTemplateService1, ActiveTemplateService activeTemplateService) {
         this.userService = userService;
         this.modelMapper = modelMapper;
         this.searchService = searchService;
         this.templateService = templateService;
+        this.purchasedTemplateService = purchasedTemplateService1;
+        this.activeTemplateService = activeTemplateService;
     }
 
     @GetMapping("/")
@@ -84,6 +89,23 @@ public class UserRestController {
         if (user.isPresent()){
             Template activeTemplate = user.get().getActiveTemplate();
             return ResponseEntity.ok(activeTemplate);
+        }
+        else
+            return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/{id}/recommendedTemplate")
+    public ResponseEntity<Template> getUserRecommendedTemplate(@PathVariable String id) {
+
+        Optional<User> user = userService.findById(id);
+
+        if (user.isPresent()){
+            Optional<PurchasedTemplate> purchasedTemplate = userService.findPopularTemplate(id);
+            Template recommendedTemplate = null;
+            if (purchasedTemplate.isPresent()){
+                recommendedTemplate = templateService.findById(purchasedTemplate.get().getId()).get();
+            }
+            return ResponseEntity.ok(recommendedTemplate);
         }
         else
             return ResponseEntity.notFound().build();
@@ -285,6 +307,9 @@ public class UserRestController {
                     List<Template> templateList = user.get().getTemplates();
                     templateList.add(template.get());
                     user.get().setTemplates(templateList);
+                    purchasedTemplateService.purchase(user.get().getId(), templateId);
+                    activeTemplateService.add(user.get().getId(), template.get());
+                    userService.save(user.get());
                     return ResponseEntity.ok(templateList);
                 }
                 return ResponseEntity.notFound().build();

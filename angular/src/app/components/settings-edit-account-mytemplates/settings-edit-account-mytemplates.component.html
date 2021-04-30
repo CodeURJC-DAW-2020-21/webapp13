@@ -42,12 +42,12 @@
                       <h4>Mis templates</h4>
                   </div>
 
-                  <div class="row">
+                  <div class="card-group">
                       <!--SINGLE RESULT CARD-->
 
-                    <div *ngFor="let template of this.userTemplates">
-                      <div class="col-6">
-                        <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
+                    <div >
+
+                        <div *ngFor="let template of this.userTemplates" class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
                              data-partial-height="80" data-toggle="popover" data-trigger="click">
                             <a [routerLink]="['template.htmlPath']" class="js-image" data-position="center">
                                 <!--PROFILE IMAGE GOES HERE-->
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                         </div>
-                      </div>
+                     
                     </div>
 
 

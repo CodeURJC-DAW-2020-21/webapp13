@@ -23,7 +23,11 @@ import { ShopComponent } from './components/shop/shop.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { InfoComponent} from './components/info/info.component';
-import { FooterComponent} from './components/footer/footer.component'
+import { FooterComponent} from './components/footer/footer.component';
+import { ConversationComponent } from './components/conversation/conversation.component';
+import { FreeTemplateComponent } from './components/free-template/free-template.component';
+import { PremiumTemplateComponent } from './components/premium-template/premium-template.component';
+import { PortfolioItemComponent } from './components/portfolio-item/portfolio-item.component'
 
 @NgModule({
   declarations: [AppComponent,
@@ -45,7 +49,11 @@ import { FooterComponent} from './components/footer/footer.component'
     RegisterComponent,
     ChatComponent,
     InfoComponent,
-    FooterComponent
+    FooterComponent,
+    ConversationComponent,
+    FreeTemplateComponent,
+    PremiumTemplateComponent,
+    PortfolioItemComponent
 
   ],
   imports: [

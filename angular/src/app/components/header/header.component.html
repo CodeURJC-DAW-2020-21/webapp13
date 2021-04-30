@@ -24,12 +24,19 @@
         <li class="nav-item">
           <a [routerLink]="['/search']" class="nav-link"><i class="fas fa-search fa-sm mr-4pt d-flex align-items-center"></i>Explorar</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="imLogged()" class="nav-item">
+          <a [routerLink]="['/free-template']" class="nav-link"><i
+            class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
+        </li>
+        <li *ngIf="!imLogged()" class="nav-item">
           <a [routerLink]="['/login']" class="nav-link"><i
             class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
         </li>
         <li class="nav-item">
           <a [routerLink]="['/shop']" class="nav-link"><i class="fas fa-shopping-bag mr-4pt d-flex align-items-center"></i>Tienda</a>
+        </li>
+        <li *ngIf="imLogged()" class="nav-item">
+          <a [routerLink]="['/chats']" class="nav-link"><i class="fas fa-comments mr-4pt d-flex align-items-center"></i>Conversaciones</a>
         </li>
       </ul>
 

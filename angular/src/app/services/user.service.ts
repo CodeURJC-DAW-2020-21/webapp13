@@ -81,9 +81,21 @@ export class UserService {
             map(response => this.extractResponse(response as User))
         )
     }
-    
+
     activateTemplate(userId:string, templateId:number):Observable<Template> {
       return this.httpClient.put("/api/users/"+userId+"/activeTemplate/"+templateId, {}).pipe(
+          map(response => this.extractResponse(response as Template))
+      )
+    }
+
+    purchaseTemplate(userId:string, templateId:number):Observable<Template> {
+      return this.httpClient.put("/api/users/"+userId+"/templateList/"+templateId, {}).pipe(
+          map(response => this.extractResponse(response as Template))
+      )
+    }
+
+    recommendTemplate(userId:string):Observable<Template> {
+      return this.httpClient.get("/api/users/"+userId+"/recommendedTemplate/", {}).pipe(
           map(response => this.extractResponse(response as Template))
       )
     }
