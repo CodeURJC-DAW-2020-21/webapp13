@@ -1,6 +1,6 @@
 <body>
 
-  
+
   <!--
   {{#logued}}
   {{#chat}}
@@ -46,14 +46,8 @@
             -->
 
               <h1 class="text-light"><a href="index.html">
-                <!--
-                  {{^external}}
-                  Nombre Apellidos
-                  {{/external}}
-                  {{#external}}
-                  {{#portfolioUser}}{{name}} {{surname}}{{/portfolioUser}}
-                  {{/external}}
-                -->
+                {{this.user.content.name}}
+                {{this.user.content.surname}}
               </a></h1>
               <div class="social-links mt-3 text-center">
                   <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -80,23 +74,13 @@
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
       <div class="hero-container" data-aos="fade-in">
           <h1>
-            <!--
-              {{#external}}
-              {{#portfolioUser}}{{name}} {{surname}}{{/portfolioUser}}
-              {{/external}}
-              {{^external}}
-              Nombre Apellidos
-              {{/external}}
-            -->
-
-
+            {{this.user.content.id}}
           </h1>
+
           <h2 id="user-id">
-              <!--
-              {{#portfolioUser}}{{id}}{{/portfolioUser}}
-              -->
+            {{this.user.content.name}}
+            {{this.user.content.surname}}
           </h2>
-          <p>Soy <span class="typed" data-typed-items="Diseñador, Fotografo, Ingeniero, Empresario"></span></p>
       </div>
   </section><!-- End Hero -->
 
@@ -109,15 +93,7 @@
               <div class="section-title">
                   <h2>Sobre mí</h2>
                   <p>
-                    <!--
-                      {{^external}}
-                      Descripción
-                      {{/external}}
-                      {{#external}}
-                      {{#portfolioUser}}{{description}}{{/portfolioUser}}
-                      {{/external}}
-                    -->
-
+                    {{this.user.content.description}}
                   </p>
               </div>
 
@@ -143,14 +119,7 @@
                   </div>
                   <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
                       <h3>
-                        <!--
-                          {{^external}}
-                          Trabajo
-                          {{/external}}
-                          {{#external}}
-                          {{#portfolioUser}}{{category}}{{/portfolioUser}}
-                          {{/external}}
-                        -->
+                        {{this.user.content.category}}
                       </h3>
                       <p class="font-italic">
                           A continuación puedes ver mis datos personales.
@@ -159,96 +128,41 @@
                           <div class="col-lg-6">
                               <ul>
                                   <li><i class="bi bi-chevron-right"></i> <strong>Fecha de nacimiento:</strong> <span>
-                                    <!--
-                                      {{^external}}
-                                        Fecha
-                                      {{/external}}
-                                      {{#external}}
-                                        {{#portfolioUser}}{{bornDate}}{{/portfolioUser}}
-                                      {{/external}}
-                                    -->
-                    </span></li>
+                                    {{this.user.content.bornDate}}
+                                    </span>
+                                  </li>
                                   <li><i class="bi bi-chevron-right"></i> <strong>Página web:</strong> <span>
-                      <!--
-                      {{^external}}
-                      Página web
-                      {{/external}}
-                      {{#external}}
-                      {{#portfolioUser}}{{website}}{{/portfolioUser}}
-                      {{/external}}>
-                      -->
-
-                    </span></li>
+                                    {{this.user.content.website}}
+                                    </span>
+                                  </li>
                                   <li><i class="bi bi-chevron-right"></i> <strong>Teléfono:</strong> <span>
-                                    <!--
-                      {{^external}}
-                      Telefono
-                      {{/external}}
-                      {{#external}}
-                      {{#portfolioUser}}{{phoneNumber}}{{/portfolioUser}}
-                      {{/external}}
-                                    -->
-
-                    </span></li>
+                                    {{this.user.content.phoneNumber}}
+                                    </span>
+                                  </li>
                                   <li><i class="bi bi-chevron-right"></i> <strong>Ciudad:</strong> <span>
-                                    <!--
-                      {{^external}}
-                      Ciudad
-                      {{/external}}
-                      {{#external}}
-                      {{#portfolioUser}}{{city}}{{/portfolioUser}}
-                      {{/external}}
-                                    -->
-
-                    </span></li>
+                                    {{this.user.content.city}}
+                                    </span>
+                                  </li>
                               </ul>
                           </div>
                           <div class="col-lg-6">
                               <ul>
                                   <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span>
-                                    <!--
-                      {{^external}}
-                      Edad
-                      {{/external}}
-                      {{#external}}
-                      {{#portfolioUser}}{{age}}{{/portfolioUser}}
-                      {{/external}}
-                                    -->
-
-                    </span></li>
+                                    {{this.user.content.age}}
+                                    </span>
+                                  </li>
                                   <li><i class="bi bi-chevron-right"></i> <strong>Educación:</strong> <span>
-                                    <!--
-                      {{^external}}
-                      Nivel
-                      {{/external}}
-                      {{#external}}
-                      {{#portfolioUser}}{{degree}}{{/portfolioUser}}
-                      {{/external}}
-                                    -->
-
-                    </span></li>
+                                    {{this.user.content.degree}}
+                                    </span>
+                                  </li>
                                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>
-                                    <!--
-                      {{^external}}
-                      Email
-                      {{/external}}
-                      {{#external}}
-                      {{#portfolioUser}}{{email}}{{/portfolioUser}}
-                      {{/external}}
-                                    -->
-
-                    </span></li>
+                                    {{this.user.content.email}}
+                                    </span>
+                                  </li>
                                   <li><i class="bi bi-chevron-right"></i> <strong>Disponibilidad:</strong> <span>
-                                    <!--
-                      {{^external}}
-                      Disponibilidad
-                      {{/external}}
-                      {{#external}}
-                      {{#portfolioUser}}{{freelance}}{{/portfolioUser}}
-                      {{/external}}
-                                    -->
-
-                    </span></li>
+                                    {{this.user.content.freelance}}
+                                    </span>
+                                  </li>
                               </ul>
                           </div>
                       </div>

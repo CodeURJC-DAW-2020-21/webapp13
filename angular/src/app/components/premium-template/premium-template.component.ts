@@ -1,4 +1,7 @@
+import { PortfolioitemService } from './../../services/portfolioitem.service';
+import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-premium-template',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PremiumTemplateComponent implements OnInit {
 
-  constructor() { }
+  user: User
+
+  constructor(private loginService:LoginService, private portfolioItemService: PortfolioitemService) { }
 
   ngOnInit(): void {
+    this.user = this.loginService.currentUser()
+    console.log(this.user)
   }
 
 }
