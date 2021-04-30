@@ -21,3 +21,11 @@
 .btn-accent{
   color: white !important;
 }
+
+.nothingToShow{
+  text-align: center;
+}
+
+.container{
+  min-height: 100vh;
+}
