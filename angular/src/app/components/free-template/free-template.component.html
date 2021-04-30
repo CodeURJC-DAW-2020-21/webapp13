@@ -28,6 +28,16 @@
           <div class="row justify-content-center">
               <div class="col-lg-8 text-center">
                   <h2 id="about-tittle" class="text-white mt-0">Sobre mí</h2>
+
+                  <div *ngIf="this.user == undefined; else otherCont">
+                    <h1>No conectado</h1>
+                  </div>
+                  <ng-template #otherCont>
+                    <div>
+                      <h1>Si conectado</h1>
+                    </div>
+                  </ng-template>
+
                   <hr class="divider light my-4"/>
                   <!--
                     {{#external}}
@@ -48,7 +58,7 @@
                   -->
 
                   <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
-                        alt="profile-img">
+                  src="/src/app/components/free-template/img/hero-bg.jpg" alt="profile-img">
                        <!--
                   {{/external}}
                   <p id="about-complete-name" class="text-white mt-0 text-uppercase h3">
@@ -221,6 +231,8 @@
       <div class="container-fluid p-0">
           <h2 id="about-tittle" class="text-white mt-0 text-center">Proyectos</h2>
           <hr class="divider light my-4"/>
+
+
           <!--
           {{^external}}
           <h4 id="about-tittle" class="text-white mt-0 text-center">No tiene proyectos todavia.</h4>

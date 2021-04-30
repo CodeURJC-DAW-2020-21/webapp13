@@ -13,21 +13,13 @@ export class FreeTemplateComponent implements OnInit {
 
   user: User
 
-  portfolioItems: Portfolioitem[] = []
-
   constructor(private loginService:LoginService, private portfolioItemService: PortfolioitemService) { }
 
   ngOnInit(): void {
-    this.user = this.loginService.refreshUser()
-
-    this.portfolioItemService.getPortfolioItems(this.loginService.currentUser().content.id, 0).subscribe(
-      portfolioItems => {
-        portfolioItems.map(portfolioitem => this.portfolioItems.push(portfolioitem))
-        console.log(this.portfolioItems)
-      },
-      error => console.log("error")
-    )
-
+    this.user = this.loginService.currentUser()
+    console.log(this.user)
   }
+
+
 
 }

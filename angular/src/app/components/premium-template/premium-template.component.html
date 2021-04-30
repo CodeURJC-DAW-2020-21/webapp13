@@ -1,1 +1,324 @@
-<p>premium-template works!</p>
+<body>
+
+  
+  <!--
+  {{#logued}}
+  {{#chat}}
+  {{#portfolioUser}}
+  <a href="/chat/{{id}}">
+      <button type="button" id="chat-button" class="btn btn-primary btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3"
+              style="position: fixed; bottom: 10%; right: 2%; background-color: #1695de; z-index : 99"><i
+              class="fas fa-comment"></i></i></button>
+  </a>
+  {{/portfolioUser}}
+  {{/chat}}
+  {{/logued}}
+  -->
+
+
+  <a href="/">
+      <button type="button" id="close-button" class="btn btn-warning btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="
+      position: fixed; right: 2%; z-index: 99; "><i class="fas fa-times"></i></button>
+  </a>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <div id="header">
+      <div class="d-flex flex-column">
+
+          <div class="profile">
+            <!--
+              {{^external}}
+              <img src="/app/assets/images/default-profile.jpg" alt="" class="img-fluid rounded-circle">
+              {{/external}}
+              {{#external}}
+              {{#portfolioUser}}
+              {{#profilePhoto}}
+              <img src="/profilePhoto/{{id}}" alt="" class="img-fluid rounded-circle">
+              {{/profilePhoto}}
+              {{^profilePhoto}}
+              <img src="/app/assets/images/default-profile.jpg" alt="" class="img-fluid rounded-circle">
+              {{/profilePhoto}}
+              {{/portfolioUser}}
+              {{/external}}
+            -->
+
+              <h1 class="text-light"><a href="index.html">
+                <!--
+                  {{^external}}
+                  Nombre Apellidos
+                  {{/external}}
+                  {{#external}}
+                  {{#portfolioUser}}{{name}} {{surname}}{{/portfolioUser}}
+                  {{/external}}
+                -->
+              </a></h1>
+              <div class="social-links mt-3 text-center">
+                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+          </div>
+
+          <nav id="navbar" class="nav-menu navbar">
+              <ul>
+                  <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Inicio</span></a>
+                  </li>
+                  <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Sobre mí</span></a></li>
+                  <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i>
+                      <span>Portfolio</span></a></li>
+              </ul>
+          </nav><!-- .nav-menu -->
+      </div>
+  </div><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+      <div class="hero-container" data-aos="fade-in">
+          <h1>
+            <!--
+              {{#external}}
+              {{#portfolioUser}}{{name}} {{surname}}{{/portfolioUser}}
+              {{/external}}
+              {{^external}}
+              Nombre Apellidos
+              {{/external}}
+            -->
+
+
+          </h1>
+          <h2 id="user-id">
+              <!--
+              {{#portfolioUser}}{{id}}{{/portfolioUser}}
+              -->
+          </h2>
+          <p>Soy <span class="typed" data-typed-items="Diseñador, Fotografo, Ingeniero, Empresario"></span></p>
+      </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+          <div class="container">
+
+              <div class="section-title">
+                  <h2>Sobre mí</h2>
+                  <p>
+                    <!--
+                      {{^external}}
+                      Descripción
+                      {{/external}}
+                      {{#external}}
+                      {{#portfolioUser}}{{description}}{{/portfolioUser}}
+                      {{/external}}
+                    -->
+
+                  </p>
+              </div>
+
+              <div class="row">
+                  <div class="col-lg-4" data-aos="fade-right">
+                    <!--
+                      {{^external}}
+                      <img src="/app/assets/images/default-profile.jpg" alt="" class="img-fluid rounded-circle">
+                      {{/external}}
+                      {{#external}}
+                      {{#portfolioUser}}
+                      {{#profilePhoto}}
+                      <img src="/profilePhoto/{{id}}" alt="" class="img-fluid rounded-circle">
+                      {{/profilePhoto}}
+                      {{^profilePhoto}}
+                      <img src="/app/assets/images/default-profile.jpg" alt=""
+                           class="img-fluid rounded-circle">
+                      {{/profilePhoto}}
+                      {{/portfolioUser}}
+                      {{/external}}
+                    -->
+
+                  </div>
+                  <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+                      <h3>
+                        <!--
+                          {{^external}}
+                          Trabajo
+                          {{/external}}
+                          {{#external}}
+                          {{#portfolioUser}}{{category}}{{/portfolioUser}}
+                          {{/external}}
+                        -->
+                      </h3>
+                      <p class="font-italic">
+                          A continuación puedes ver mis datos personales.
+                      </p>
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <ul>
+                                  <li><i class="bi bi-chevron-right"></i> <strong>Fecha de nacimiento:</strong> <span>
+                                    <!--
+                                      {{^external}}
+                                        Fecha
+                                      {{/external}}
+                                      {{#external}}
+                                        {{#portfolioUser}}{{bornDate}}{{/portfolioUser}}
+                                      {{/external}}
+                                    -->
+                    </span></li>
+                                  <li><i class="bi bi-chevron-right"></i> <strong>Página web:</strong> <span>
+                      <!--
+                      {{^external}}
+                      Página web
+                      {{/external}}
+                      {{#external}}
+                      {{#portfolioUser}}{{website}}{{/portfolioUser}}
+                      {{/external}}>
+                      -->
+
+                    </span></li>
+                                  <li><i class="bi bi-chevron-right"></i> <strong>Teléfono:</strong> <span>
+                                    <!--
+                      {{^external}}
+                      Telefono
+                      {{/external}}
+                      {{#external}}
+                      {{#portfolioUser}}{{phoneNumber}}{{/portfolioUser}}
+                      {{/external}}
+                                    -->
+
+                    </span></li>
+                                  <li><i class="bi bi-chevron-right"></i> <strong>Ciudad:</strong> <span>
+                                    <!--
+                      {{^external}}
+                      Ciudad
+                      {{/external}}
+                      {{#external}}
+                      {{#portfolioUser}}{{city}}{{/portfolioUser}}
+                      {{/external}}
+                                    -->
+
+                    </span></li>
+                              </ul>
+                          </div>
+                          <div class="col-lg-6">
+                              <ul>
+                                  <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span>
+                                    <!--
+                      {{^external}}
+                      Edad
+                      {{/external}}
+                      {{#external}}
+                      {{#portfolioUser}}{{age}}{{/portfolioUser}}
+                      {{/external}}
+                                    -->
+
+                    </span></li>
+                                  <li><i class="bi bi-chevron-right"></i> <strong>Educación:</strong> <span>
+                                    <!--
+                      {{^external}}
+                      Nivel
+                      {{/external}}
+                      {{#external}}
+                      {{#portfolioUser}}{{degree}}{{/portfolioUser}}
+                      {{/external}}
+                                    -->
+
+                    </span></li>
+                                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>
+                                    <!--
+                      {{^external}}
+                      Email
+                      {{/external}}
+                      {{#external}}
+                      {{#portfolioUser}}{{email}}{{/portfolioUser}}
+                      {{/external}}
+                                    -->
+
+                    </span></li>
+                                  <li><i class="bi bi-chevron-right"></i> <strong>Disponibilidad:</strong> <span>
+                                    <!--
+                      {{^external}}
+                      Disponibilidad
+                      {{/external}}
+                      {{#external}}
+                      {{#portfolioUser}}{{freelance}}{{/portfolioUser}}
+                      {{/external}}
+                                    -->
+
+                    </span></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section><!-- End About Section -->
+
+
+      <!-- ======= Portfolio Section ======= -->
+      <section id="portfolio" class="portfolio section-bg">
+          <div class="container">
+              <div class="section-title">
+                  <h2>Portfolio</h2>
+                  <div id="result">
+                      <div class="row no-gutters" id="users-to-load">
+                        <!--
+                          {{#portfolioItemsPage}}
+                          <div class="col-lg-4 col-sm-6 portfolioitem-item" id="portfolio-visual-item">
+                              <a class="portfolio-box" href="/template/free/{{portfolioUser.id}}/portfolioitem/{{id}}">
+                                  <img class="img-fluid" id="portfolio-visual-item-img"
+                                       src="/portfolioitems/{{id}}/image" alt=""/>
+                                  <div class="portfolio-box-caption">
+                                      <div class="project-name" id="portfolio-visual-item-name">{{name}}</div>
+                                  </div>
+                              </a>
+                          </div>
+                          {{/portfolioItemsPage}}
+
+                          {{^portfolioItemsPage}}
+                          <h4 id="about-tittle" class="text-black mt-0 text-center">No tiene proyectos todavia.</h4>
+                          {{/portfolioItemsPage}}
+                        -->
+                      </div>
+                  </div>
+
+                  <!-- PAGINATION -->
+                  <div id="hasNextPage">
+                      <ul class="pagination justify-content-center pagination-sm" id="button-replace">
+                        <!--
+                          {{#hasNext}}
+                          <button class="btn btn-accent" id="load-more2">Cargar más</button>
+                          {{/hasNext}}
+                        -->
+
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </section><!-- End Portfolio Section -->
+
+
+  </main><!-- End #main -->
+
+
+  <script src="/app/assets/vendor/jquery.min.js"></script>
+  <script src="/app/assets/js/custom/ajax.js"></script>
+
+  <!-- Vendor JS Files -->
+  <script src="/templates/premium/vendor/aos/aos.js"></script>
+  <script src="/templates/premium/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/templates/premium/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/templates/premium/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/templates/premium/vendor/php-email-form/validate.js"></script>
+  <script src="/templates/premium/vendor/purecounter/purecounter.js"></script>
+  <script src="/templates/premium/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/templates/premium/vendor/typed.js/typed.min.js"></script>
+  <script src="/templates/premium/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/templates/premium/js/main.js"></script>
+
+  </body>
