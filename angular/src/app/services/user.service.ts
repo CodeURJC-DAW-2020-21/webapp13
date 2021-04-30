@@ -42,6 +42,12 @@ export class UserService {
         )
     }
 
+    getUsersPerMonth(): Observable<any[]>{
+        return this.httpClient.get("/api/users/statistics").pipe(
+            map(response => this.extractResponse(response as any[]))
+        )
+    }
+
     postUser(id:string,email:string,name:string,surname:string,password:string,phoneNumber:string,bornDate:string,city:string,freelance:string,category:string,degree:string,website:string,description:string):Observable<User> {
         return this.httpClient.post("/api/users/",{id,name,surname,password,phoneNumber,bornDate,city,freelance,category,degree,website,description}).pipe(
             map(response => this.extractResponse(response as User))

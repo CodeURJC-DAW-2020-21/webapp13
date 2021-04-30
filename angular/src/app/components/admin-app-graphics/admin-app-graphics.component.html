@@ -39,7 +39,7 @@
 
 
     <div class="container page__container">
-        <div class="card mb-32pt">
+        <div class="mb-32pt"  style="width: 1300px;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-4">
@@ -47,13 +47,8 @@
                         <p class="text-70">Número de usuarios de Porthub dados de alta cada mes este año.</p>
                     </div>
                     <div class="col-lg-8">
-                        <div class="chart">
-                            <canvas id="ordersChart" class="chart-canvas"></canvas>
-                        </div>
+                        <div id="chartContainer" style="height: 370px; width: 700px;"></div>
                     </div>
-                </div>
-                <div class="row">
-                    <div style="font-size:25px; color: #ffffff">Este texto es de relleno para cuadrar el gráfico.</div>
                 </div>
             </div>
             <input type="hidden" value="usersPerMonth" id="usersPerMonth">
@@ -75,32 +70,3 @@
 <!-- Chart.js Wrapper -->
 <script src="/app/assets/js/chartjs-rounded-bar.js"></script>
 <script src="/app/assets/js/chartjs.js"></script>
-
-
-<script>
-    Charts.init()
-</script>
-
-<script>
-
-    const users = document.getElementById("usersPerMonth").value.match(/\d+/g).map(Number);
-
-    var options = {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-
-    var data = {
-        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
-        datasets: [{
-            label: "Sales",
-            data: users
-        }]
-    }
-
-    Charts.create('#ordersChart', 'roundedBar', options, data)
-
-</script>
