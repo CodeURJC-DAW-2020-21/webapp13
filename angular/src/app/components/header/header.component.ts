@@ -13,7 +13,10 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router:Router, public loginService: LoginService, private userService: UserService) { }
 
+ 
+
   ngOnInit(): void {
+    
   }
 
   /*logOut() {
@@ -49,5 +52,6 @@ export class HeaderComponent implements OnInit {
       error => console.log("error")
     )
   }
+
 
 }
