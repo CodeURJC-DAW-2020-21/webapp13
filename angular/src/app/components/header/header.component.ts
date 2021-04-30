@@ -50,13 +50,14 @@ export class HeaderComponent implements OnInit {
   }
 
   goToActiveTemplate(){
-    this.userService.getUserActiveTemplate(this.loginService.currentUser().content.id).subscribe(
+    const currentUser: User = this.loginService.currentUser()
+    this.userService.getUserActiveTemplate(currentUser.content.id).subscribe(
       template => {
         console.log(template)
         if (template.price==0){
-          this.router.navigate(["/free-template"])
+          this.router.navigate(['/free-template'])
         }else{
-          this.router.navigate(["/premium-template"])
+          this.router.navigate(['/premium-template'])
         }
       },
       error => console.log("error")

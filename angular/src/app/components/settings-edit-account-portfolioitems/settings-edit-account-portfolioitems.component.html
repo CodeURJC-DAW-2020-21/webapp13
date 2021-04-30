@@ -175,9 +175,7 @@
 
                 </div>
 
-                <!--
-              {{> settings-edit-account-panel}}
-              -->
+                
                 <app-settings-edit-account-panel></app-settings-edit-account-panel>
 
             </div>
@@ -188,14 +186,14 @@
                 <h4>Listado de proyectos</h4>
                 <div class="row" id="users-to-load">
 
-                    
+
                     <div *ngIf="noItems">
                         <p>No tienes proyectos</p>
                     </div>
 
 
                     <div *ngFor="let item of portfolioItems" class="card-group">
-                        
+
                         <div class="card" style="width: 18rem;">
                             <a [routerLink]="['/settings-edit-account-edit-portfolioitem',item.content['id']]"> <img class="card-img-top" src={{item.previewImg}} alt="Card image cap"> </a>
                             <div class="card-body">

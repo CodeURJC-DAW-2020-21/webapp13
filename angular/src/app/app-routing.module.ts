@@ -20,14 +20,14 @@ import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.servic
 import { ConversationComponent } from './components/conversation/conversation.component';
 import { FreeTemplateComponent } from './components/free-template/free-template.component';
 import { PremiumTemplateComponent } from './components/premium-template/premium-template.component';
-
+import { PortfolioItemComponent } from './components/portfolio-item/portfolio-item.component'
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'search', component: SearchComponent },
   { path: 'search/:id', component: SearchComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'admin', component: AdminComponent, 
+  { path: 'admin', component: AdminComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'USER'
@@ -44,32 +44,32 @@ const routes: Routes = [
     }  },
   { path: 'admin/app/graphics', component: AdminAppGraphicsComponent},
   { path: 'admin/templates/list', component: AdminTemplatesListComponent},
-  { path: 'settings-edit-account', component: SettingsEditAccountComponent, 
+  { path: 'settings-edit-account', component: SettingsEditAccountComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'USER'
     } },
-  { path: 'settings-edit-account-edit-portfolioitem/:id', component: SettingsEditAccountEditPortfolioitemComponent, 
+  { path: 'settings-edit-account-edit-portfolioitem/:id', component: SettingsEditAccountEditPortfolioitemComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'USER'
     } },
-  { path: 'settings-edit-account-mytemplates', component: SettingsEditAccountMytemplatesComponent, 
+  { path: 'settings-edit-account-mytemplates', component: SettingsEditAccountMytemplatesComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'USER'
     } },
-  { path: 'settings-edit-account-panel', component: SettingsEditAccountPanelComponent, 
+  { path: 'settings-edit-account-panel', component: SettingsEditAccountPanelComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'USER'
     } },
-  { path: 'settings-edit-account-password', component: SettingsEditAccountPasswordComponent, 
+  { path: 'settings-edit-account-password', component: SettingsEditAccountPasswordComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'USER'
     } },
-  { path: 'settings-edit-account-portfolioitems', component: SettingsEditAccountPortfolioitemsComponent, 
+  { path: 'settings-edit-account-portfolioitems', component: SettingsEditAccountPortfolioitemsComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'USER'
@@ -77,7 +77,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'shop', component: ShopComponent},
   { path: 'free-template', component: FreeTemplateComponent},
-  { path: 'premium-template', component: PremiumTemplateComponent}
+  { path: 'premium-template', component: PremiumTemplateComponent},
+  { path: 'portfolio-item/:id', component: PortfolioItemComponent}
 
 ];
 

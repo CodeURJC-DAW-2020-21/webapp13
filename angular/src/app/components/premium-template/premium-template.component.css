@@ -1108,3 +1108,8 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+#users-to-load{
+  display: flex;
+  justify-content: center;
+}
