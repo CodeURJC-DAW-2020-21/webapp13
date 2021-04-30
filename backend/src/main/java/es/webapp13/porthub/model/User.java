@@ -47,7 +47,6 @@ public class User {
     private Blob profilePhoto;
 
     @OneToOne
-    @JsonIgnore
     private Template activeTemplate;
 
     @ManyToMany

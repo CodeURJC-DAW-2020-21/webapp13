@@ -18,11 +18,13 @@ import { SettingsEditAccountPortfolioitemsComponent } from '../app/components/se
 import { LoginComponent } from '../app/components/login/login.component';
 import { ConversationComponent } from './components/conversation/conversation.component';
 import { FreeTemplateComponent } from './components/free-template/free-template.component';
+import {PortfolioItemComponent } from './components/portfolio-item/portfolio-item.component'
 
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'search/:id', component: SearchComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'chats', component: ChatComponent },
   { path: 'conversations/:id', component: ConversationComponent },
@@ -37,7 +39,8 @@ const routes: Routes = [
   { path: 'settings-edit-account-portfolioitems', component: SettingsEditAccountPortfolioitemsComponent},
   { path: 'login', component: LoginComponent},
   { path: 'shop', component: ShopComponent},
-  { path: 'free-template', component: FreeTemplateComponent}
+  { path: 'free-template', component: FreeTemplateComponent},
+  { path: 'portfolio-item/:id', component: PortfolioItemComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);
