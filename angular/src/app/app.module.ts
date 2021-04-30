@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
 
 import { AppRoutingModule } from '../app/app-routing.module'
 import { AppComponent } from './app.component';
@@ -55,7 +56,7 @@ import { FooterComponent} from './components/footer/footer.component'
     NgbModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
