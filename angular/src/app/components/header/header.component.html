@@ -24,10 +24,12 @@
         <li class="nav-item">
           <a [routerLink]="['/search']" class="nav-link"><i class="fas fa-search fa-sm mr-4pt d-flex align-items-center"></i>Explorar</a>
         </li>
+
         <li *ngIf="imLogged()" class="nav-item">
-          <a [routerLink]="['/premium-template']" class="nav-link"><i
+          <a (click)="this.goToActiveTemplate()" class="nav-link"><i
             class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
         </li>
+
         <li *ngIf="!imLogged()" class="nav-item">
           <a [routerLink]="['/login']" class="nav-link"><i
             class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
