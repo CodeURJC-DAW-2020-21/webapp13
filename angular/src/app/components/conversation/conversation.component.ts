@@ -22,7 +22,7 @@ export class ConversationComponent implements OnInit {
     this.receiver = this.loginService.currentUser().content.id
     this.chatService.getMessages(this.receiver, this.sender).subscribe(
       messages => this.messages = messages,
-      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
+      error => console.log("No messages")
     )
   }
 
