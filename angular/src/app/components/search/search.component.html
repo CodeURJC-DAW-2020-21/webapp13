@@ -30,7 +30,7 @@
                                     data-partial-height="40" data-toggle="popover" data-trigger="click">
 
 
-                                    <a href="#" data-position="center">
+                                    <a (click)="this.search(user.content.id)" data-position="center">
                                         <!--PROFILE IMAGE GOES HERE /portfolioitems/{{id}}}/image-->
                                         <img class="img-fluid" src={{user.photo}} alt="course" style="height: 256px;">
                                         <span class="overlay__content">
@@ -45,9 +45,9 @@
                                         <div class="card-body">
                                             <div class="d-flex">
                                                 <div class="flex">
-                                                    <a class="card-title" href="#">{{user.content.name}}</a>
+                                                    <a class="card-title" (click)="this.search(user.content.id)">{{user.content.name}}</a>
                                                 </div>
-                                                <a href="#"
+                                                <a (click)="this.search(user.content.id)"
                                                     class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
                                             </div>
 

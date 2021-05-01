@@ -1113,3 +1113,12 @@ section {
   display: flex;
   justify-content: center;
 }
+
+.pt-column{
+  padding-top: 5em;
+}
+
+.text-width{
+  max-width: 75%;
+  text-align: center;
+}

@@ -287,6 +287,7 @@ First of all you need to clone the repository, you can do it with `git clone htt
 Once you have the repository on your local machine, you need to go to the working directory `$ cd webapp13`, then go to `$ cd docker`. Once here, you need to execute the script that you will find in this folder, you can do it with `$ ./create_image.sh`. Maybe you need to give execution permissions, you can do it by this way `$ sudo chmod +x create_image.sh`.
 
 Keep in mind that the app won't run properly if there is no database configured previously.
+
 ### Participation
 
 #### Cristian
@@ -365,6 +366,81 @@ there are some methods available only for administrators.
 5. __UserRepository__
 
 ## Phase 4
- 
+
+### Preparing the development environment
+
+### SPA class diagram and templates
+
+### Participation
+
+#### Cristian
+##### Description
+
+##### Top 5 commits
+1. 
+2. 
+3. 
+4. 
+5. 
+
+##### Top 5 files
+1. 
+2. 
+3. 
+4. 
+5. 
+
+#### José Manuel
+##### Description
+
+##### Top 5 commits
+1. 
+2. 
+3. 
+4. 
+5. 
+
+##### Top 5 files
+1. 
+2. 
+3. 
+4. 
+5. 
+
+#### José Justo 
+##### Description
+
+##### Top 5 commits
+1. 
+2. 
+3. 
+4. 
+5. 
+
+##### Top 5 files
+1. 
+2. 
+3. 
+4. 
+5. 
+
+#### Aitor
+##### Description
+
+##### Top 5 commits
+1. 
+2. 
+3. 
+4. 
+5. 
+
+##### Top 5 files
+1. 
+2. 
+3. 
+4. 
+5. 
+
+### Video Demo
 
 

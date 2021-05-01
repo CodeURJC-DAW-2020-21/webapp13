@@ -25,15 +25,25 @@ export class FreeTemplateComponent implements OnInit {
   actualElements: number = 0
   noItems: boolean = false
 
-  constructor(private userService:UserService,private loginService:LoginService, private portfolioitemService: PortfolioitemService, private router: Router, activatedRoute: ActivatedRoute) {
+  canChat: boolean
 
+  constructor(private userService:UserService,private loginService:LoginService, private portfolioitemService: PortfolioitemService, private router: Router,activatedRoute: ActivatedRoute) {
 
     const id = activatedRoute.snapshot.params['id'];
     this.userService.getUser(id).subscribe(
       user => {
         this.user = new User(user)
+        console.log(this.user)
         this.getPortfolioItems(this.page)
         console.log(this.portfolioItems)
+        const currentUser:User = this.loginService.currentUser()
+        console.log(currentUser)
+        if (currentUser == undefined){
+          this.canChat = false
+        }else{
+          this.canChat = (this.user.content.id != currentUser.content.id)
+        }
+        console.log(this.canChat)
       },
       error => {
         this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
