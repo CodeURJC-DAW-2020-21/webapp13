@@ -110,8 +110,8 @@
 
           <div class="row no-gutters d-flex justify-content-center" id="result">
             <div class="row no-gutters d-flex justify-content-center" id="result">
-              <div *ngFor="let item of portfolioItems" class="card-group">
-                <div class="card" style="width: 18rem;">
+              <div *ngFor="let item of portfolioItems" class="card-group col-3 w-100 mx-3">
+                <div class="card">
                     <a [routerLink]="['/portfolio-item',item.content['id']]"> <img class="card-img-top" src={{item.previewImg}} alt="Card image cap"> </a>
                     <div class="card-body">
                         <a [routerLink]="['/portfolio-item',item.content['id']]">
