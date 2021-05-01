@@ -14,6 +14,7 @@ export class AuthGuardService implements CanActivate {
             let userRole: String = "USER"
             if (this.loginService.checkAdmin()){
                 userRole = "ADMIN"
+                return true
             }
             if(route.data.role && route.data.role.indexOf(userRole) !== -1)
                 return true
