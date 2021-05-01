@@ -55,9 +55,9 @@ export class HeaderComponent implements OnInit {
       template => {
         console.log(template)
         if (template.price==0){
-          this.router.navigate(['/free-template'])
+          this.router.navigate(['/free-template', currentUser.content.id])
         }else{
-          this.router.navigate(['/premium-template'])
+          this.router.navigate(['/premium-template', currentUser.content.id])
         }
       },
       error => console.log("error")

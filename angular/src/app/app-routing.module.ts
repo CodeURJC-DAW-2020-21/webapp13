@@ -76,9 +76,10 @@ const routes: Routes = [
     } },
   { path: 'login', component: LoginComponent},
   { path: 'shop', component: ShopComponent},
-  { path: 'free-template', component: FreeTemplateComponent},
-  { path: 'premium-template', component: PremiumTemplateComponent},
-  { path: 'portfolio-item/:id', component: PortfolioItemComponent}
+  { path: 'free-template/:id', component: FreeTemplateComponent},
+  { path: 'premium-template/:id', component: PremiumTemplateComponent},
+  { path: 'portfolio-item/:id', component: PortfolioItemComponent},
+
 
 ];
 

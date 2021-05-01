@@ -29,17 +29,16 @@ export class PremiumTemplateComponent implements OnInit {
     const id = activatedRoute.snapshot.params['id'];
     this.userService.getUser(id).subscribe(
       user => {
-        console.log("Coger de aqui la id")
+        this.user = new User(user)
+        this.getPortfolioItems(this.page)
+        console.log(this.portfolioItems)
       },
       error => console.log("error")
     )
   }
 
   ngOnInit(): void {
-    this.user = this.loginService.currentUser()
-    console.log(this.user)
-    this.getPortfolioItems(this.page)
-    console.log(this.portfolioItems)
+
   }
 
   loadMore(): void {
