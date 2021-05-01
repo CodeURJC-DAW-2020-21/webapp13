@@ -43,8 +43,6 @@ export class FreeTemplateComponent implements OnInit {
     this.user = this.loginService.currentUser();
     this.getPortfolioItems(this.page)
     console.log(this.portfolioItems)
-    this.user = this.loginService.currentUser()
-
   }
 
   loadMore(): void {
