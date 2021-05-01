@@ -1,8 +1,8 @@
 <body>
 
   <div *ngIf="this.canChat">
-    <a href="#">
-      <button type="button" id="chat-button" class="btn btn-primary btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="position: fixed; bottom: 10%; right: 0; background-color: #1695de;"><class class="fas fa-comment"></class></button>
+    <a [routerLink]="['/conversations', user.content.id]">
+      <button type="button" id="chat-button" class="btn btn-primary btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="position: fixed; bottom: 15%; right: 2%; background-color: #1695de; z-index: 99;"><class class="fas fa-comment"></class></button>
     </a>
   </div>
 
@@ -144,7 +144,7 @@
 
 
             <div *ngIf="noItems">
-              <h4 id="about-tittle" class="text-white mt-0 text-center">No tiene proyectos todavia.</h4>
+              <h4 id="about-tittle" class="text-black mt-0 text-center">No tiene proyectos todavia.</h4>
             </div>
 
             <div class="row no-gutters d-flex justify-content-center" id="result">
