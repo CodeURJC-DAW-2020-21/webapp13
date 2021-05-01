@@ -28,7 +28,8 @@ import { FooterComponent} from './components/footer/footer.component';
 import { ConversationComponent } from './components/conversation/conversation.component';
 import { FreeTemplateComponent } from './components/free-template/free-template.component';
 import { PremiumTemplateComponent } from './components/premium-template/premium-template.component';
-import { PortfolioItemComponent } from './components/portfolio-item/portfolio-item.component'
+import { PortfolioItemComponent } from './components/portfolio-item/portfolio-item.component';
+import { ErrorComponent } from './error/error.component'
 
 @NgModule({
   declarations: [AppComponent,
@@ -54,7 +55,8 @@ import { PortfolioItemComponent } from './components/portfolio-item/portfolio-it
     ConversationComponent,
     FreeTemplateComponent,
     PremiumTemplateComponent,
-    PortfolioItemComponent
+    PortfolioItemComponent,
+    ErrorComponent
 
   ],
   imports: [
