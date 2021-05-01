@@ -22,9 +22,9 @@ export class InfoComponent implements OnInit {
       template => {
         console.log(template)
         if (template.price==0){
-          this.router.navigate(["/free-template"])
+          this.router.navigate(["/free-template", this.loginService.currentUser().getId()])
         }else{
-          this.router.navigate(["/premium-template"])
+          this.router.navigate(["/premium-template", this.loginService.currentUser().getId()])
         }
       },
       error => console.log("error")

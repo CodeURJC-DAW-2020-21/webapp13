@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 import { User } from '../../models/user.model';
 
@@ -20,8 +22,8 @@ export class SearchComponent implements OnInit {
   eng: boolean = false
   bus: boolean = false
   pho: boolean = false
-   
-  constructor(private userService: UserService) {
+
+  constructor(private router:Router, private userService: UserService, activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class SearchComponent implements OnInit {
   }
 
   loadMore(): void {
-    this.getUsersPage() 
+    this.getUsersPage()
     this.page++
   }
 
@@ -101,6 +103,26 @@ export class SearchComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  search(user:string): void{
+    this.userService.getUser(user).subscribe(
+      user => {
+        const currentUser: User = new User(user)
+        this.userService.getUserActiveTemplate(currentUser.content.id).subscribe(
+          template => {
+          console.log(template)
+            if (template.price==0){
+              this.router.navigate(['/free-template', currentUser.content.id])
+            }else{
+              this.router.navigate(['/premium-template', currentUser.content.id])
+            }
+          },
+          error => console.log("error")
+        )
+      },
+      error => console.log("error")
+    )
   }
 
 }

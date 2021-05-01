@@ -2,18 +2,11 @@
 
   <div class="d-flex flex-row">
 
-    <!--
-      {{#logued}}
-      {{#chat}}
-      {{#portfolioUser}}
-      <a href="/chat/{{id}}">
-          <button type="button" id="chat-button" class="btn btn-primary btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="position: fixed; bottom: 10%; right: 0; background-color: #1695de;"><i class="fas fa-comment"></i></i></button>
+    <div *ngIf="this.canChat">
+      <a href="#">
+        <button type="button" id="chat-button" class="btn btn-primary btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="position: fixed; bottom: 10%; right: 0; background-color: #1695de;"><class class="fas fa-comment"></class></button>
       </a>
-      {{/portfolioUser}}
-      {{/chat}}
-      {{/logued}}
-
-    -->
+    </div>
 
       <a href="/">
           <button type="button" id="close-button" class="btn btn-warning btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="
@@ -32,7 +25,7 @@
                   <hr class="divider light my-4"/>
 
                   <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
-                  src="/src/app/components/free-template/img/hero-bg.jpg" alt="profile-img">
+                  src={{user.photo}} alt="profile-img">
 
                   <div class="row d-flex m-1">
                       <div class="col-lg-6 p-0">

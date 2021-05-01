@@ -25,6 +25,8 @@ export class PremiumTemplateComponent implements OnInit {
   actualElements: number = 0
   noItems: boolean = false
 
+  canChat: boolean
+
   constructor(private userService:UserService, private loginService:LoginService, private portfolioItemService: PortfolioitemService, activatedRoute: ActivatedRoute) {
     const id = activatedRoute.snapshot.params['id'];
     this.userService.getUser(id).subscribe(
@@ -32,6 +34,14 @@ export class PremiumTemplateComponent implements OnInit {
         this.user = new User(user)
         this.getPortfolioItems(this.page)
         console.log(this.portfolioItems)
+        const currentUser:User = this.loginService.currentUser()
+        console.log(currentUser)
+        if (currentUser == undefined){
+          this.canChat = false
+        }else{
+          this.canChat = (this.user.content.id != currentUser.content.id)
+        }
+        console.log(this.canChat)
       },
       error => console.log("error")
     )
