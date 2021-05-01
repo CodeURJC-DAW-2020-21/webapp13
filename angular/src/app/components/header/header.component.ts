@@ -1,3 +1,5 @@
+import { Template } from './../../models/template.model';
+import { TemplateService } from './../../services/template.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
@@ -11,18 +13,12 @@ import { UserService } from '../../services/user.service'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router, public loginService: LoginService, private userService: UserService) { }
-
- 
+  constructor(private router:Router, public loginService: LoginService, private userService: UserService, private templateService: TemplateService) { }
 
   ngOnInit(): void {
-    
+
   }
 
-  /*logOut() {
-    this.loginService.logOut();
-    console.log("Logging out")
-  }*/
 
   logOut() {
     this.loginService.logOut().subscribe(
@@ -31,7 +27,7 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  imLogged(){
+  imLogged(): boolean{
     return this.loginService.isLogged();
   }
 
@@ -42,13 +38,28 @@ export class HeaderComponent implements OnInit {
   search(user:string): void{
     this.userService.getUser(user).subscribe(
       user => {
-        if(user.template.name === "Free"){
+        if(user.template.price == 0){
           this.router.navigate(['/free-template',user.id])
         } else {
           this.router.navigate(['/premiun-template',user.id])
         }
-        
-      } ,
+
+      },
+      error => console.log("error")
+    )
+  }
+
+  goToActiveTemplate(){
+    const currentUser: User = this.loginService.currentUser()
+    this.userService.getUserActiveTemplate(currentUser.content.id).subscribe(
+      template => {
+        console.log(template)
+        if (template.price==0){
+          this.router.navigate(['/free-template'])
+        }else{
+          this.router.navigate(['/premium-template'])
+        }
+      },
       error => console.log("error")
     )
   }

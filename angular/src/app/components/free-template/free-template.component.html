@@ -28,120 +28,38 @@
           <div class="row justify-content-center">
               <div class="col-lg-8 text-center">
                   <h2 id="about-tittle" class="text-white mt-0">Sobre mí</h2>
+
                   <hr class="divider light my-4"/>
-                  <!--
-                    {{#external}}
-                      {{#portfolioUser}}
-
-                          {{#profilePhoto}}
-                          <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
-                               src="/profilePhoto/{{id}}" alt="profile-img">
-                          {{/profilePhoto}}
-                          {{^profilePhoto}}
-                          <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
-                               src="/app/assets/images/default-profile.jpg" alt="profile-img">
-                          {{/profilePhoto}}
-                      {{/portfolioUser}}
-                  {{/external}}
-
-                  {{^external}}
-                  -->
 
                   <img id="about-profile-img" class="img-thumbnail rounded mx-auto d-block mb-4 w-50 rounded-circle"
-                        alt="profile-img">
-                       <!--
-                  {{/external}}
-                  <p id="about-complete-name" class="text-white mt-0 text-uppercase h3">
-                      {{^external}}
-                          Nombre Apellidos
-                      {{/external}}
-                      {{#external}}
-                          {{#portfolioUser}}{{name}} {{surname}}{{/portfolioUser}}
-                      {{/external}}
-                  </p>
-                  <p id="user-id" class="text-white mt-0 text-uppercase h5">
-                      {{^external}}
-                      Nombre de usuario
-                      {{/external}}
-                      {{#external}}
-                      {{#portfolioUser}}{{id}}{{/portfolioUser}}
-                      {{/external}}
-                  </p>
-                  <p id="about-job" class="text-white mt-0 text-uppercase h5">
-                      {{^external}}
-                          Trabajo
-                      {{/external}}
-                      {{#external}}
-                          {{#portfolioUser}}{{category}}{{/portfolioUser}}
-                      {{/external}}
-                  </p>
-                  <p id="about-description" class="text-white-50 font-weight-light mb-4">
-                      {{^external}}
-                          Descripción
-                      {{/external}}
-                      {{#external}}
-                          {{#portfolioUser}}{{description}}{{/portfolioUser}}
-                      {{/external}}
-                  </p>
-                       -->
+                  src="/src/app/components/free-template/img/hero-bg.jpg" alt="profile-img">
 
                   <div class="row d-flex m-1">
                       <div class="col-lg-6 p-0">
                           <ul class="list-group border border-white rounded-0">
                               <li class="list-group-item border border-white active"><strong>Fecha de
                                   nacimiento:</strong> <span id="about-date" class="text-white mt-0">
-                                    </span>
+                                    {{this.user.content.bornDate}}
+                                  </span>
                               </li>
-                                  <!--
-                                    {{^external}}
-                                      Fecha
-                                  {{/external}}
-                                  {{#external}}
-                                      {{#portfolioUser}}{{bornDate}}{{/portfolioUser}}
-                                  {{/external}}
-                                  </span></li>
-                                -->
 
                               <li class="list-group-item border border-white"><strong>Página web:</strong>
                                 <span id="about-website">
+                                  {{this.user.content.website}}
                                 </span>
                               </li>
-                                <!--
-                                  {{^external}}
-                                      Página web
-                                  {{/external}}
-                                  {{#external}}
-                                      {{#portfolioUser}}{{website}}{{/portfolioUser}}
-                                  {{/external}}
-                                  </span></li>
-                                -->
+
                               <li class="list-group-item border border-white active"><strong>Teléfono:</strong>
                                 <span id="about-phone">
+                                  {{this.user.content.phoneNumber}}
                                   </span>
                               </li>
-                                  <!--
 
-                                  {{^external}}
-                                      Telefono
-                                  {{/external}}
-                                  {{#external}}
-                                      {{#portfolioUser}}{{phoneNumber}}{{/portfolioUser}}
-                                  {{/external}}
-                                  </span></li>
-                                -->
                               <li class="list-group-item border border-white"><strong>Ciudad:</strong>
                                 <span id="about-city">
+                                  {{this.user.content.city}}
                                 </span>
                                 </li>
-                                  <!--
-                                  {{^external}}
-                                      Ciudad
-                                  {{/external}}
-                                  {{#external}}
-                                      {{#portfolioUser}}{{city}}{{/portfolioUser}}
-                                  {{/external}}
-                                  </span></li>
-                                  -->
 
                           </ul>
                       </div>
@@ -149,57 +67,28 @@
                           <ul class="list-group border border-white rounded-0">
                               <li class="list-group-item border border-white"><strong>Edad:</strong>
                                     <span id="about-age">
+                                      {{this.user.content.age}}
                                     </span>
                               </li>
-                                      <!--
-                                    {{^external}}
-                                      Edad
-                                  {{/external}}
-                                  {{#external}}
-                                      {{#portfolioUser}}{{age}}{{/portfolioUser}}
-                                  {{/external}}
-                                  </span></li>
-                                -->
+
                               <li class="list-group-item border border-white active"><strong>Educación:</strong>
                                   <span id="about-degree">
+                                    {{this.user.content.degree}}
                                     </span>
                               </li>
-                              <!--
-                                  {{^external}}
-                                      Nivel
-                                  {{/external}}
-                                  {{#external}}
-                                      {{#portfolioUser}}{{degree}}{{/portfolioUser}}
-                                  {{/external}}
-                                  </span></li>
-                                -->
-                              <li class="list-group-item border border-white"><strong>Email:</strong> <span
-                                      id="about-email">
-                                      </span>
-                                      </li>
-                                <!--
 
-                                      {{^external}}
-                                      Email
-                                  {{/external}}
-                                  {{#external}}
-                                      {{#portfolioUser}}{{email}}{{/portfolioUser}}
-                                  {{/external}}
-                                  </span></li>
-                                -->
+                              <li class="list-group-item border border-white"><strong>Email:</strong>
+                                <span id="about-email">
+                                  {{this.user.content.email}}
+                                </span>
+                              </li>
+
                               <li class="list-group-item border border-white active"><strong>Disponibilidad:</strong>
                                   <span id="about-freelance">
-                                    </span>
-                                    </li>
-                                    <!--
-                                  {{^external}}
-                                      Disponibilidad
-                                  {{/external}}
-                                  {{#external}}
-                                      {{#portfolioUser}}{{freelance}}{{/portfolioUser}}
-                                  {{/external}}
-                                  </span></li>
-                                      -->
+                                    {{this.user.content.freelance}}
+                                  </span>
+                              </li>
+
                           </ul>
                       </div>
                   </div>
@@ -221,47 +110,36 @@
       <div class="container-fluid p-0">
           <h2 id="about-tittle" class="text-white mt-0 text-center">Proyectos</h2>
           <hr class="divider light my-4"/>
-          <!--
-          {{^external}}
-          <h4 id="about-tittle" class="text-white mt-0 text-center">No tiene proyectos todavia.</h4>
-          {{/external}}
-          {{#external}}
-                  <div class="row no-gutters d-flex justify-content-center" id="result">
-                      <div class="row no-gutters w-100 h-100" id="users-to-load">
 
-                          {{#portfolioItemsPage}}
-                          <div class="col-lg-4 col-sm-6 portfolioitem-item" id="portfolio-visual-item">
-                              <a class="portfolio-box" href="/template/free/{{portfolioUser.id}}/portfolioitem/{{id}}">
-                                  <img class="img-fluid" id="portfolio-visual-item-img"
-                                       src="/portfolioitems/{{id}}/image" alt=""/>
-                                  <div class="portfolio-box-caption">
-                                      <div class="project-name" id="portfolio-visual-item-name">{{name}}</div>
-                                  </div>
-                              </a>
-                          </div>
-                          {{/portfolioItemsPage}}
+          <div *ngIf="noItems">
+            <h4 id="about-tittle" class="text-white mt-0 text-center">No tiene proyectos todavia.</h4>
+          </div>
 
-                          {{^portfolioItemsPage}}
-                          <div class="d-flex justify-content-center">
-                          <h4 id="about-tittle" class="text-white mt-0 text-center">No tiene proyectos todavia.</h4>
-                          </div>
-                          {{/portfolioItemsPage}}
+          <div class="row no-gutters d-flex justify-content-center" id="result">
+            <div class="row no-gutters d-flex justify-content-center" id="result">
+              <div *ngFor="let item of portfolioItems" class="card-group">
+                <div class="card" style="width: 18rem;">
+                    <a [routerLink]="['/portfolio-item',item.content['id']]"> <img class="card-img-top" src={{item.previewImg}} alt="Card image cap"> </a>
+                    <div class="card-body">
+                        <a [routerLink]="['/portfolio-item',item.content['id']]">
+                            <h5 class="card-title">{{item.content.name}}</h5>
+                        </a>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
 
-                      </div>
-                  </div>
 
-              // PAGINATION
-              <div id="hasNextPage">
+          <div class="col-lg-9">
+            <!--LOAD MORE-->
+            <div id="hasNextPage">
                 <ul class="pagination justify-content-center pagination-sm" id="button-replace">
-                    {{#hasNext}}
-                    <button class="btn btn-accent" id="load-more2">Cargar más</button>
-                    {{/hasNext}}
+                    <button *ngIf="totalElements != actualElements" (click)="loadMore()" class="btn btn-accent"
+                        id="load-more">Cargar más</button>
                 </ul>
             </div>
-        {{/external}}
-          -->
-
-
+          </div>
 
       </div>
   </section>
