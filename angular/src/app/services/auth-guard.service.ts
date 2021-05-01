@@ -6,20 +6,11 @@ import { LoginService } from './login.service';
 export class AuthGuardService implements CanActivate {
   constructor(public loginService: LoginService, public router: Router) {}
 
-  /*canActivate(): boolean {
-    if (!this.loginService.isLogged()) {
-      this.router.navigate(['/login']);
-      return false;
-    }
-    return true;
-  }*/
-
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
     ): boolean {
         if (this.loginService.isLogged()){
-            console.log("He entrado")
             let userRole: String = "USER"
             if (this.loginService.checkAdmin()){
                 userRole = "ADMIN"

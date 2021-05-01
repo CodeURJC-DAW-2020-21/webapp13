@@ -37,7 +37,7 @@ export class ShopComponent implements OnInit {
           templates.map(template => this.purchasedTemplates.push(template))
           console.log(this.purchasedTemplates)
         },
-        error => console.log("error")
+        error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
       )
     }
 
@@ -48,7 +48,7 @@ export class ShopComponent implements OnInit {
         templates.map(template => this.notPurchasedTemplates.push(template))
         console.log(this.notPurchasedTemplates)
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
 
     this.recommendedTemplate = undefined
@@ -71,7 +71,7 @@ export class ShopComponent implements OnInit {
         console.log("Comprada")
         this.router.navigate(["/settings-edit-account-mytemplates"])
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
@@ -88,7 +88,7 @@ export class ShopComponent implements OnInit {
         }
         console.log(this.contentToRecommend)
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 

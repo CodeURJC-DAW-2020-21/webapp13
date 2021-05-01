@@ -1,5 +1,5 @@
 import { UserService } from './../../services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PortfolioitemService } from './../../services/portfolioitem.service';
 import { LoginService } from './../../services/login.service';
 import { Portfolioitem } from './../../models/portfolioitem.model';
@@ -25,7 +25,7 @@ export class FreeTemplateComponent implements OnInit {
   actualElements: number = 0
   noItems: boolean = false
 
-  constructor(private userService:UserService,private loginService:LoginService, private portfolioitemService: PortfolioitemService, activatedRoute: ActivatedRoute) {
+  constructor(private userService:UserService,private loginService:LoginService, private portfolioitemService: PortfolioitemService, private router: Router, activatedRoute: ActivatedRoute) {
 
 
     const id = activatedRoute.snapshot.params['id'];
@@ -35,7 +35,9 @@ export class FreeTemplateComponent implements OnInit {
         this.getPortfolioItems(this.page)
         console.log(this.portfolioItems)
       },
-      error => console.log("error")
+      error => {
+        this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
+      }
     )
 
   }
@@ -75,7 +77,7 @@ export class FreeTemplateComponent implements OnInit {
           })
         }
       },
-      error => this.page == 0 ? this.noItems = true : console.log("error")
+      error => this.page == 0 ? this.noItems = true : this.router.navigate(['/error'])
     )
   }
 

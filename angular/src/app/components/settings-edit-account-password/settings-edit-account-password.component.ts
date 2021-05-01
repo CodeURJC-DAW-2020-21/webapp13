@@ -2,6 +2,7 @@ import { LoginService } from './../../services/login.service';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings-edit-account-password',
@@ -10,7 +11,7 @@ import { User } from '../../models/user.model';
 })
 export class SettingsEditAccountPasswordComponent implements OnInit {
 
-  constructor(private userService: UserService, private loginService:LoginService) { }
+  constructor(private userService: UserService, private loginService:LoginService, private router: Router) { }
 
   user: User;
 
@@ -22,7 +23,7 @@ export class SettingsEditAccountPasswordComponent implements OnInit {
     console.log(userId)
     this.userService.getUser(userId).subscribe(
       item => this.user = new User(item),
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
     console.log(this.user.content.name)
   }
@@ -33,10 +34,10 @@ export class SettingsEditAccountPasswordComponent implements OnInit {
         user => {
           console.log(user)
         },
-        error => console.log("error")
+        error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
       )
     }else{
-      console.log("error")
+      alert("Las contraseñas no coinciden")
     }
 
   }

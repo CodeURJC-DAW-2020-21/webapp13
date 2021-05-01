@@ -2,7 +2,7 @@ import { LoginService } from './../../services/login.service';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings-edit-account',
@@ -13,7 +13,7 @@ export class SettingsEditAccountComponent implements OnInit {
 
   public user: User;
 
-  constructor(private userService: UserService, public loginService:LoginService) { }
+  constructor(private userService: UserService, public loginService:LoginService, private router: Router) { }
 
   ngOnInit(): void {
     //this.user = this.loginService.currentUser()
@@ -25,7 +25,7 @@ export class SettingsEditAccountComponent implements OnInit {
     console.log(userId)
     this.userService.getUser(userId).subscribe(
       item => this.user = new User(item),
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
     console.log(this.user.content.name)
   }
@@ -39,10 +39,10 @@ export class SettingsEditAccountComponent implements OnInit {
               console.log("ok")
               this.user = this.loginService.refreshUser();
           },
-          error => console.log(error)
+          error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
         )
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 

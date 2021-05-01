@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TemplateService } from '../../services/template.service'
 import { Template } from '../../models/template.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class AdminTemplatesListComponent implements OnInit {
 
   templates: any[] = []
 
-  constructor(private templateService: TemplateService) { }
+  constructor(private templateService: TemplateService, private router: Router) { }
 
   ngOnInit(): void {
     this.templateService.getTemplates().subscribe(
@@ -37,7 +38,7 @@ export class AdminTemplatesListComponent implements OnInit {
         this.templates.push(new Template(id, htmlPath, name, price, isFree, description))
         console.log(template)
       },
-      error => console.error(error)
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
@@ -46,7 +47,7 @@ export class AdminTemplatesListComponent implements OnInit {
       template => {
         console.log(template)
       },
-      error => console.error("Error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 

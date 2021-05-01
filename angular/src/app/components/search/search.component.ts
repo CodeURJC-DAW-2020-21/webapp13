@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
 import { User } from '../../models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'search',
@@ -21,7 +22,7 @@ export class SearchComponent implements OnInit {
   bus: boolean = false
   pho: boolean = false
    
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -55,7 +56,7 @@ export class SearchComponent implements OnInit {
   private setTotalUsers(category: string) {
     this.userService.getTotalElements("/api/users/" + category + "?page=" + this.page).subscribe(
       totalElements => this.totalElements = totalElements,
-      error => console.log("error getting total elements")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
@@ -66,7 +67,7 @@ export class SearchComponent implements OnInit {
         this.actualElements += users.length
 
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 

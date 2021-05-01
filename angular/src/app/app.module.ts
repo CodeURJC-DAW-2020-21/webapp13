@@ -29,7 +29,7 @@ import { ConversationComponent } from './components/conversation/conversation.co
 import { FreeTemplateComponent } from './components/free-template/free-template.component';
 import { PremiumTemplateComponent } from './components/premium-template/premium-template.component';
 import { PortfolioItemComponent } from './components/portfolio-item/portfolio-item.component';
-import { ErrorComponent } from './error/error.component'
+import { ErrorComponent } from './components/error/error.component'
 
 @NgModule({
   declarations: [AppComponent,
@@ -56,7 +56,7 @@ import { ErrorComponent } from './error/error.component'
     FreeTemplateComponent,
     PremiumTemplateComponent,
     PortfolioItemComponent,
-    ErrorComponent
+    ErrorComponent,
 
   ],
   imports: [

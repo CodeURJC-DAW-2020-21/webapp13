@@ -27,7 +27,7 @@ export class InfoComponent implements OnInit {
           this.router.navigate(["/premium-template"])
         }
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 

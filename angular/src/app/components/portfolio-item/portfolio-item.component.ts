@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Portfolioitem } from '../../models/portfolioitem.model';
 import { LoginService } from '../../services/login.service';
 import { PortfolioitemService } from '../../services/portfolioitem.service';
@@ -14,12 +14,12 @@ export class PortfolioItemComponent implements OnInit {
   id:string
   portfolioItem: Portfolioitem
 
-  constructor(private loginService:LoginService, private portfolioItemService: PortfolioitemService, private activatedRoute: ActivatedRoute) {
+  constructor(private loginService:LoginService, private portfolioItemService: PortfolioitemService, private activatedRoute: ActivatedRoute, private router: Router) {
     const id = activatedRoute.snapshot.params['id'];
     this.id = id
     this.portfolioItemService.getPortfolioItem(id).subscribe(
       portfolioItem => this.portfolioItem = portfolioItem,
-      error => console.log(error)
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 

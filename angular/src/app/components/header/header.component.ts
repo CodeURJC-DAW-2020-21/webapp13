@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
         }
 
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
@@ -60,7 +60,7 @@ export class HeaderComponent implements OnInit {
           this.router.navigate(['/premium-template', currentUser.content.id])
         }
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import * as CanvasJS from '../../../assets/js/canvasjs.min'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-app-graphics',
@@ -11,7 +12,7 @@ export class AdminAppGraphicsComponent implements OnInit {
 
   usersPerMonth: any[] = []
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.userService.getUsersPerMonth().subscribe(
@@ -31,7 +32,7 @@ export class AdminAppGraphicsComponent implements OnInit {
         console.log(this.usersPerMonth)
         this.createChart(this.usersPerMonth)
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )    
   }
 

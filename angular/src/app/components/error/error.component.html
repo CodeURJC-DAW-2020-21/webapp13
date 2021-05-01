@@ -1,9 +1,9 @@
 <!--Main part-->
-<div class="mdk-header-layout__content page-content pb-0">
+<div class="mdk-header-layout__content page-content pb-0 pt-5">
     <div class="bg-gradient-primary py-32pt">
         <div class="container d-flex flex-column flex-sm-row align-items-sm-center">
             <div class="flex">
-                <h1 class="text-white flex mb-0">Vaya, ha ocurrido un error.</h1>
+                <h1 class="text-white flex mb-0">Error: {{errorStatus}}, {{errorStatusText}}. </h1>
             </div>
         </div>
     </div>
@@ -18,8 +18,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="text-70">Algo ha salido mal, pero siempre puedes volver a la página de inicio.</p>
-                        <a href="/" class="btn btn-accent">Volver a inicio</a>
+                        <p class="text-70">Descripción del error: {{errorName}}.  {{errorMessage}}</p>
+                        <a [routerLink]="['']" class="btn btn-accent">Volver a inicio</a>
 
                     </div>
                 </div>

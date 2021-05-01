@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChatService } from '../../services/chat.service';
 import { LoginService } from '../../services/login.service';
 
@@ -17,12 +17,12 @@ export class ConversationComponent implements OnInit {
   messages: Message[] = []
   reset:string = ""
 
-  constructor(activatedRoute: ActivatedRoute, public loginService: LoginService, private chatService: ChatService) {
+  constructor(activatedRoute: ActivatedRoute, public loginService: LoginService, private chatService: ChatService, private router: Router) {
     this.sender = activatedRoute.snapshot.params['id'];
     this.receiver = this.loginService.currentUser().content.id
     this.chatService.getMessages(this.receiver, this.sender).subscribe(
       messages => this.messages = messages,
-      error => console.log(error)
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
@@ -33,7 +33,7 @@ export class ConversationComponent implements OnInit {
   sendMessage(content:string){
     this.chatService.postMessage(this.sender,this.receiver,content).subscribe(
       message => this.messages.push(message),
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
 
     this.reset = ""

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class AdminComponent implements OnInit {
   totalElements: number = 0
   actualElements: number = 0
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.getUsersPage()
@@ -37,7 +38,7 @@ export class AdminComponent implements OnInit {
   private setTotalUsers() {
     this.userService.getTotalElements("/api/users/" +"?page=" + this.page).subscribe(
       totalElements => this.totalElements = totalElements,
-      error => console.log("error getting total elements")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
@@ -48,7 +49,7 @@ export class AdminComponent implements OnInit {
         this.actualElements += users.length
 
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
@@ -62,7 +63,7 @@ export class AdminComponent implements OnInit {
         this.actualElements -= 1
         this.getUsersPage()
       },
-      error => console.error(error) 
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 

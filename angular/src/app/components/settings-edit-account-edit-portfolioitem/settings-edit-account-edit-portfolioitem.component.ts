@@ -17,7 +17,7 @@ export class SettingsEditAccountEditPortfolioitemComponent implements OnInit {
     const id = activatedRoute.snapshot.params['id'];
     this.portfolioitemService.getPortfolioItem(id).subscribe(
       item => this.portfolioItem = new Portfolioitem(item),
-      error => console.log(error)
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
@@ -45,7 +45,7 @@ export class SettingsEditAccountEditPortfolioitemComponent implements OnInit {
   delete(){
     this.portfolioitemService.delete(this.portfolioItem.content["userId"],this.portfolioItem.content["id"]).subscribe(
       response => this.router.navigate(['/settings-edit-account-portfolioitems']),
-      error => console.log(error)
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 

@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from './../../services/user.service';
 import { PortfolioitemService } from './../../services/portfolioitem.service';
 import { LoginService } from './../../services/login.service';
@@ -25,7 +25,7 @@ export class PremiumTemplateComponent implements OnInit {
   actualElements: number = 0
   noItems: boolean = false
 
-  constructor(private userService:UserService, private loginService:LoginService, private portfolioItemService: PortfolioitemService, activatedRoute: ActivatedRoute) {
+  constructor(private userService:UserService, private loginService:LoginService, private portfolioItemService: PortfolioitemService, private router: Router,activatedRoute: ActivatedRoute) {
     const id = activatedRoute.snapshot.params['id'];
     this.userService.getUser(id).subscribe(
       user => {
@@ -33,7 +33,7 @@ export class PremiumTemplateComponent implements OnInit {
         this.getPortfolioItems(this.page)
         console.log(this.portfolioItems)
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
@@ -72,7 +72,7 @@ export class PremiumTemplateComponent implements OnInit {
           })
         }
       },
-      error => this.page == 0 ? this.noItems = true : console.log("error")
+      error => this.page == 0 ? this.noItems = true : this.router.navigate(['/error'])
     )
   }
 

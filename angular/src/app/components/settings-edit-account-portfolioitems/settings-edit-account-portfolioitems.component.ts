@@ -4,6 +4,7 @@ import { LoginService } from '../../services/login.service';
 
 import { Portfolioitem } from '../../models/portfolioitem.model';
 import { User } from '../../models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings-edit-account-portfolioitems',
@@ -24,7 +25,7 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
   noItems: boolean = false
 
 
-  constructor(private portfolioitemService: PortfolioitemService, public loginService: LoginService) { }
+  constructor(private portfolioitemService: PortfolioitemService, public loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
     this.getPortfolioItems(this.page)
@@ -51,21 +52,21 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
                       ok => {
                         console.log("ok")
                       },
-                      error => console.log(error)
+                      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
                     )
                   },
-                  error => console.log(error)
+                  error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
                 )
               },
-              error => console.log(error)
+              error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
             )
           },
-          error => console.log(error)
+          error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
         )
 
 
       },
-      error => console.log("Error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
 
 
@@ -98,7 +99,7 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
           })
         }
       },
-      error => this.page == 0 ? this.noItems = true : console.log("error")
+      error => this.page == 0 ? this.noItems = true : this.router.navigate(['/error'])
 
 
     )

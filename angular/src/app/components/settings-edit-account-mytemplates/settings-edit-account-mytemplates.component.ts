@@ -3,6 +3,7 @@ import { IndexComponent } from './../index/index.component';
 import { Template } from './../../models/template.model';
 import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings-edit-account-mytemplates',
@@ -11,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsEditAccountMytemplatesComponent implements OnInit {
 
-  constructor(private userService:UserService, public loginService:LoginService) { }
+  constructor(private userService:UserService, public loginService:LoginService, private router: Router) { }
 
   userTemplates: Template[] = []
 
@@ -22,7 +23,7 @@ export class SettingsEditAccountMytemplatesComponent implements OnInit {
       template => {
         this.activeTemplate = template
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
 
     //this.userTemplates = this.loginService.currentUser().content.templates.map(template => this.userTemplates.push(template))
@@ -31,7 +32,7 @@ export class SettingsEditAccountMytemplatesComponent implements OnInit {
         templates.map(template => this.userTemplates.push(template))
         console.log(this.userTemplates)
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
 
   }
@@ -41,7 +42,7 @@ export class SettingsEditAccountMytemplatesComponent implements OnInit {
       template => {
         this.activeTemplate = template
       },
-      error => console.log("error")
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
