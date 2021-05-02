@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { TemplateService } from '../../services/template.service'
 import { Template } from '../../models/template.model';
 import { Router } from '@angular/router';
+import { User } from '../../models/user.model';
+import { LoginService} from '../../services/login.service'
+
 
 
 @Component({
@@ -13,7 +16,7 @@ export class AdminTemplatesListComponent implements OnInit {
 
   templates: any[] = []
 
-  constructor(private templateService: TemplateService, private router: Router) { }
+  constructor(private templateService: TemplateService, private router: Router, public loginService: LoginService) { }
 
   ngOnInit(): void {
     this.templateService.getTemplates().subscribe(
@@ -43,10 +46,15 @@ export class AdminTemplatesListComponent implements OnInit {
   }
 
   seeTemplate(id: number){
+    const currentUser: User = this.loginService.currentUser()
     this.templateService.getTemplate(id).subscribe(
       template => {
         console.log(template)
-      },
+        if (template.price==0){
+          this.router.navigate(['/free-template', currentUser.content.id])
+        }else{
+          this.router.navigate(['/premium-template', currentUser.content.id])
+        }      },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }

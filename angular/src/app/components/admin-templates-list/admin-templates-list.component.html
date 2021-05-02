@@ -54,7 +54,7 @@
                                      data-partial-height="40" data-toggle="popover" data-trigger="click">
 
                                     <div *ngIf="templateIsFree(template); else notFree">
-                                        <a [routerLink]="['/free-template']" class="js-image" data-position="center" (click)="seeTemplate(templateID.value)">
+                                        <a class="js-image" data-position="center" (click)="seeTemplate(templateID.value)">
                                             <img class="img-fluid" src="/assets/images/people/256/portfolioPremium.PNG"
                                                  alt="course">
                                         </a>
@@ -64,7 +64,7 @@
                                             <div class="card-body">
                                                 <div class="d-flex">
                                                     <div class="flex">
-                                                        <a class="card-title" [routerLink]="['/free-template']" (click)="seeTemplate(templateID.value)">{{template.name}}</a>
+                                                        <a class="card-title" (click)="seeTemplate(templateID.value)">{{template.name}}</a>
                                                     </div>
                                                 </div>
 
@@ -72,7 +72,7 @@
                                         </div>
                                     </div>
                                     <ng-template #notFree>
-                                        <a [routerLink]="['/free-template']" class="js-image" data-position="center" (click)="seeTemplate(templateID.value)">
+                                        <a class="js-image" data-position="center" (click)="seeTemplate(templateID.value)">
                                             <img class="img-fluid" src="/assets/images/people/256/portfolioPremium.PNG"
                                                  alt="course">
                                         </a>
@@ -82,7 +82,7 @@
                                             <div class="card-body">
                                                 <div class="d-flex">
                                                     <div class="flex">
-                                                        <a class="card-title" [routerLink]="['/free-template']" (click)="seeTemplate(templateID.value)">{{template.name}}</a>
+                                                        <a class="card-title" (click)="seeTemplate(templateID.value)">{{template.name}}</a>
                                                     </div>
                                                 </div>
 
