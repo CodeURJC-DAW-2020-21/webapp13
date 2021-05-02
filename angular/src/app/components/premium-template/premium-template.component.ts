@@ -29,22 +29,30 @@ export class PremiumTemplateComponent implements OnInit {
 
   constructor(private userService:UserService, private loginService:LoginService, private portfolioItemService: PortfolioitemService, private router: Router,activatedRoute: ActivatedRoute) {
     const id = activatedRoute.snapshot.params['id'];
-    this.userService.getUser(id).subscribe(
-      user => {
-        this.user = new User(user)
-        this.getPortfolioItems(this.page)
-        console.log(this.portfolioItems)
-        const currentUser:User = this.loginService.currentUser()
-        console.log(currentUser)
-        if (currentUser == undefined){
-          this.canChat = false
-        }else{
-          this.canChat = (this.user.content.id != currentUser.content.id)
+    if (id == "userNotLogued"){
+      this.user = new User("userNotLogued")
+      console.log(this.user)
+    }else{
+      this.userService.getUser(id).subscribe(
+        user => {
+          this.user = new User(user)
+          console.log(this.user)
+          this.getPortfolioItems(this.page)
+          console.log(this.portfolioItems)
+          const currentUser:User = this.loginService.currentUser()
+          console.log(currentUser)
+          if (currentUser == undefined){
+            this.canChat = false
+          }else{
+            this.canChat = (this.user.content.id != currentUser.content.id)
+          }
+          console.log(this.canChat)
+        },
+        error => {
+          this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
         }
-        console.log(this.canChat)
-      },
-      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
-    )
+      )
+    }
   }
 
   ngOnInit(): void {

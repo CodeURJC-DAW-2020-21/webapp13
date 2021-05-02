@@ -46,14 +46,31 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
       <div class="hero-container" data-aos="fade-in">
+
+        <div *ngIf=" this.user.content.id == undefined; else userIsLogued">
           <h1>
-            {{this.user.content.id}}
+            Nombre de usuario
           </h1>
 
           <h2 id="user-id">
-            {{this.user.content.name}}
-            {{this.user.content.surname}}
+            Nombre
+            Apellidos
           </h2>
+        </div>
+        <ng-template #userIsLogued>
+          <div>
+            <h1>
+              {{this.user.content.id}}
+            </h1>
+
+            <h2 id="user-id">
+              {{this.user.content.name}}
+              {{this.user.content.surname}}
+            </h2>
+          </div>
+        </ng-template>
+
+
       </div>
   </section><!-- End Hero -->
 
@@ -163,7 +180,7 @@
         </div>
 
 
-            <div class="col-lg-9">
+            <div class="col-lg-12">
               <!--LOAD MORE-->
               <div id="hasNextPage">
                   <ul class="pagination justify-content-center pagination-sm" id="button-replace">

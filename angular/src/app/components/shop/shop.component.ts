@@ -1,9 +1,9 @@
+import { User } from './../../models/user.model';
 import { TemplateService } from './../../services/template.service';
 import { LoginService } from './../../services/login.service';
 import { UserService } from './../../services/user.service';
 import { Template } from './../../models/template.model';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -90,6 +90,22 @@ export class ShopComponent implements OnInit {
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
+  }
+
+  previewTemplate(price: number){
+    if (this.user == undefined){
+      if (price==0){
+        this.router.navigate(['/free-template', "userNotLogued"])
+      }else{
+        this.router.navigate(['/premium-template', "userNotLogued"])
+      }
+    }else{
+      if (price==0){
+        this.router.navigate(['/free-template', this.user.content.id])
+      }else{
+        this.router.navigate(['/premium-template', this.user.content.id])
+      }
+    }
   }
 
 }
