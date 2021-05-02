@@ -370,6 +370,7 @@ there are some methods available only for administrators.
 ### Preparing the development environment
 
 ### SPA class diagram and templates
+![Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/diagrams/SPA.svg)
 
 ### Participation
 
