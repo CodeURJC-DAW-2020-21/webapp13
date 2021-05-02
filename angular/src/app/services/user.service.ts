@@ -11,15 +11,15 @@ export class UserService {
     constructor(private httpClient: HttpClient) {
     }
 
-    getUser(user:string):Observable<any> {
+    getUser(user:string):Observable<User> {
         return this.httpClient.get("/api/users/"+user).pipe(
-            map(response => this.extractResponse(response as any))
+            map(response => this.extractResponse(response as User))
         )
     }
 
-    getUsers(url:string):Observable<any[]> {
+    getUsers(url:string):Observable<User[]> {
         return this.httpClient.get(url).pipe(
-            map(response => this.extractUsers(response as any))
+            map(response => this.extractUsers(response as User))
         )
     }
 

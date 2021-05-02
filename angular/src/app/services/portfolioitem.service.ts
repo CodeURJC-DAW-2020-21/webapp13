@@ -12,9 +12,9 @@ export class PortfolioitemService {
 
     }
 
-    getPortfolioItems(user: string,page: number):Observable<any[]> {
+    getPortfolioItems(user: string,page: number):Observable<Portfolioitem[]> {
         return this.httpClient.get("/api/portfolioItems/users/"+user+"/?page="+page).pipe(
-            map(response => this.extractResponse(response as any))
+            map(response => this.extractResponse(response as Portfolioitem))
         )
     }
 
