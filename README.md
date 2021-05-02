@@ -376,13 +376,14 @@ there are some methods available only for administrators.
 
 #### Cristian
 ##### Description
+In this final stage, I started the angular project due to I'm an active linux user, so I didn't had to handle some difficulties that my team mates had on Windows. I also implemented 4 app components, the search page, the portfolio items creation page, the page where you can update portfolio items, and fianlly the chat. The first 2 components implements ajax in a native way, thanks to Angular in this phase. I also fixed a lot of css in other components and helped my team mates whenever I could.
 
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [Base Angular Project](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/9a80e3201ab109cb0b79edd248d7c0db22fa00a5)
+2. [User service implements search component ](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/e6bd67db6cd667648aee760b76c1a5fb2130d4a7)
+3. [Dinamically add portfolioItems ](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/0dfb84d83b1293b7eaabb425e0b46ebe3ede7ac8)
+4. [Add delete and modify portfolioitems ](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/32fde56f0bacafbbb3ee9a5d1f4a84618774e882)
+5. [Chat implemented](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/f88ad024b9747ea7a923146b348ff680a6945c07)
 
 ##### Top 5 files
 1. 
