@@ -10,25 +10,21 @@ export class TemplateService{
     constructor(private httpClient: HttpClient) { 
     }
 
-    getTemplates():Observable<any[]>{
+    getTemplates():Observable<Template[]>{
         return this.httpClient.get("/api/templates/").pipe(
-            map(response => this.extractTemplates(response as any))
+            map(response => this.extractTemplates(response as Template[]))
         )
     }
 
-    getTemplate(id:number):Observable<any> {
+    getTemplate(id:number):Observable<Template> {
         return this.httpClient.get("/api/templates/"+String(id)).pipe(
-            map(response => this.extractResponse(response as any))
+            map(response => this.extractResponse(response as Template))
         )
     }
 
     postTemplate(htmlPath: string, name: string, price: number, description: string, free:boolean){
         return this.httpClient.post("/api/templates/", {htmlPath, name, price, description, free}).pipe(
-            map(response => {
-                this.extractTemplate(response as Template)
-                console.log(response)
-            }),
-            
+            map(response => {this.extractTemplate(response as Template)}), 
         )    
     }
 
