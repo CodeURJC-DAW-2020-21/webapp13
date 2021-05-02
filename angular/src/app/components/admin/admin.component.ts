@@ -56,9 +56,7 @@ export class AdminComponent implements OnInit {
   delete(id:string){
     return this.userService.deleteUser(id).subscribe(
       user => {
-        console.log(user)
-        user = this.userService.getUser(id)
-        let index = this.users.indexOf(user)
+        let index = this.users.findIndex(u => u.content["id"] === user.id)
         this.users.splice(index, 1)
         this.actualElements -= 1
         this.getUsersPage()
