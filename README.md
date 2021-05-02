@@ -411,20 +411,22 @@ In this final stage, I started the angular project due to I'm an active linux us
 
 #### José Justo 
 ##### Description
+In this phase I have worked in several components such as user's configuration and the ones related to the use of templates from the shop page or the selection template page to the profile page, allowing users to se other other user profiles.
+Also I have tried to help my team mates in every possible situation.
 
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [Completed user settings functionality](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/7075494d4fcd6fc7d2d611343006cafea5537d2d)
+2. [Implemented shop fuctionality](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/91488319509e6a2c1d9ad2d7b60541939165db42)
+3. [Profile templates implemented](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/86df29be9712891302725ee5a8c77363b70d0534)
+4. [Variable paths for profile templates](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/c17afca84937afb37956d6c3c321dcae5f470e45)
+5. [Preview template implemented](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/392c2ce7169da8193680930a490225732d9e6f32)
 
 ##### Top 5 files
-1. 
-2. 
-3. 
-4. 
-5. 
+1. __free-template.component.ts__
+2. __premium-template.component.ts__
+3. __shop.component.ts__
+4. __settings-edit-account-mytemplates.component.ts__
+5. __settings-edit-account.component.ts__
 
 #### Aitor
 ##### Description
