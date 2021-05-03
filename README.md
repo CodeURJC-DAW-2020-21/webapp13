@@ -376,13 +376,14 @@ there are some methods available only for administrators.
 
 #### Cristian
 ##### Description
+In this final stage, I started the angular project due to I'm an active linux user, so I didn't had to handle some difficulties that my team mates had on Windows. I also implemented 4 app components, the search page, the portfolio items creation page, the page where you can update portfolio items, and fianlly the chat. The first 2 components implements ajax in a native way, thanks to Angular in this phase. I also fixed a lot of css in other components and helped my team mates whenever I could.
 
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [Base Angular Project](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/9a80e3201ab109cb0b79edd248d7c0db22fa00a5)
+2. [User service implements search component ](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/e6bd67db6cd667648aee760b76c1a5fb2130d4a7)
+3. [Dinamically add portfolioItems ](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/0dfb84d83b1293b7eaabb425e0b46ebe3ede7ac8)
+4. [Add delete and modify portfolioitems ](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/32fde56f0bacafbbb3ee9a5d1f4a84618774e882)
+5. [Chat implemented](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/f88ad024b9747ea7a923146b348ff680a6945c07)
 
 ##### Top 5 files
 1. 
@@ -393,37 +394,40 @@ there are some methods available only for administrators.
 
 #### José Manuel
 ##### Description
+In this phase, I've been mainly working in all the stuff related with the security part. This includes the login functionality and authentication guards for routes. Also, I developed a dynamic error page, designed some other components and helped my teammates solving some errors that came up.
 
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [Dynamic error pages](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/f9f50e7f8cdb16f86ea3eec2885e240463d7e4e4)
+2. [Authentication guards](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/d29acc79ba22e3679de7d9b20fc6e1d6390cc283)
+3. [Login functionality](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/86c7b60a36987dfb9f27e220fe7adfb928ab2ed6)
+4. [Shop component](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/413cfb61a33798134f88aaea1f508312776a9f5f)
+5. [Autologin and login improved](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/6a77a95d8a48e75ab702717f75cbb9174d8ded35)
 
 ##### Top 5 files
-1. 
-2. 
-3. 
-4. 
-5. 
+1. __auth-guard.service.ts__
+2. __login.service.ts__
+3. __shop.component.ts__
+4. __login.component.ts__
+5. __header.component.ts__ 
 
 #### José Justo 
 ##### Description
+In this phase I have worked in several components such as user's configuration and the ones related to the use of templates from the shop page or the selection template page to the profile page, allowing users to se other other user profiles.
+Also I have tried to help my team mates in every possible situation.
 
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [Completed user settings functionality](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/7075494d4fcd6fc7d2d611343006cafea5537d2d)
+2. [Implemented shop fuctionality](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/91488319509e6a2c1d9ad2d7b60541939165db42)
+3. [Profile templates implemented](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/86df29be9712891302725ee5a8c77363b70d0534)
+4. [Variable paths for profile templates](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/c17afca84937afb37956d6c3c321dcae5f470e45)
+5. [Preview template implemented](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/392c2ce7169da8193680930a490225732d9e6f32)
 
 ##### Top 5 files
-1. 
-2. 
-3. 
-4. 
-5. 
+1. __free-template.component.ts__
+2. __premium-template.component.ts__
+3. __shop.component.ts__
+4. __settings-edit-account-mytemplates.component.ts__
+5. __settings-edit-account.component.ts__
 
 #### Aitor
 ##### Description

@@ -98,7 +98,7 @@ public class DataBaseController implements CommandLineRunner {
         purchasedTemplateService.init(user.getId(), user.getTemplates());
         userService.save(user);
 
-        User user1 = new User("admin", "Roberto", "Fernánndez", "admin@gmail.com",passwordEncoder.encode("admin"), 51,"635 890 173",
+        User user1 = new User("admin", "Roberto", "Fernández", "admin@gmail.com",passwordEncoder.encode("admin"), 51,"635 890 173",
                 "www.admin.com", "admin", "admin", "admin", "admin", "Fotografo", premium, new Date(162598600),"USER", "ADMIN");
         String dateStr1 = "2021-02-1";
         Date date1 = Date.valueOf(dateStr1);
