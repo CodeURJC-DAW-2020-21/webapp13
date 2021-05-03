@@ -1,0 +1,40 @@
+<!-- Header Layout Content -->
+<div class="mdk-header-layout__content page-content pb-0">
+
+  <div class="bg-gradient-primary py-32pt">
+      <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left subheader">
+          <img src="assets/images/illustration/student/128/white.svg" class="mr-md-32pt mb-32pt mb-md-0"
+               alt="student">
+          <div class="flex mb-32pt mb-md-0">
+              <h1 class="text-white mb-0">Inicio de sesión</h1>
+              <p class="lead measure-lead text-white-50">Administración de cuenta</p>
+          </div>
+          <a [routerLink]="['/register']" class="btn btn-outline-white flex-column">
+              ¿No tiene cuenta?
+              <span class="btn__secondary-text">Crear cuenta</span>
+          </a>
+      </div>
+  </div>
+  <div class="bg-white pt-32pt pt-sm-64pt pb-64pt">
+      <div class="container page__container">
+          <form *ngIf="!loginService.isLogged()" class="col-md-5 p-0 mx-auto">
+              <div class="form-group">
+                  <label for="id">Nombre de usuario:</label>
+                  <input #user id="id" name="id" type="text" class="form-control" placeholder="Introduzca su nombre de usuario">
+              </div>
+              
+              <div class="form-group">
+                  <label for="password">Contraseña:</label>
+                  <input #pass id="password" name="password" type="password" class="form-control" placeholder="Introduzca su contraseña">
+              </div>
+
+              <div class="text-center">
+                  <button class="btn btn-accent" type="submit" (click)="logIn($event, user.value, pass.value)">Iniciar sesión</button>
+              </div>
+          </form>
+      </div>
+  </div>
+
+
+
+</div>

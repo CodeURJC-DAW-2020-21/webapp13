@@ -1,0 +1,148 @@
+<!-- Header Layout Content -->
+<div class="mdk-header-layout__content page-content ">
+
+    <div class="bg-gradient-primary border-bottom-white py-32pt">
+        <div class="subheader container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
+            <img src="/app/assets/images/illustration/student/128/white.svg" width="104"
+                 class="mr-md-32pt mb-32pt mb-md-0" alt="">
+            <div class="flex mb-32pt mb-md-0">
+                <h2 class="text-white mb-0">Administrador</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar navbar-expand-sm navbar-dark-white bg-gradient-primary p-sm-0 mb-0">
+        <div class="container page__container">
+
+            <!-- Navbar toggler -->
+            <button class="navbar-toggler ml-n16pt" type="button" data-toggle="collapse" data-target="#navbar-submenu2">
+                <span class="material-icons">people_outline</span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar-submenu2">
+                <div class="navbar-collapse__content pb-16pt pb-sm-0">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <a [routerLink]="['/admin']" class="nav-link">Lista de usuarios</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a [routerLink]="['/admin/templates/list']" class="nav-link">Templates disponibles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a [routerLink]="['/admin/app/graphics']" class="nav-link">Información general</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container page__container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="page-section">
+                    <div class="container page__container">
+                        <div class="page-heading">
+                            <h4>Templates disponibles en toda la aplicación</h4>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-6" *ngFor="let template of templates">
+                                <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
+                                     data-partial-height="40" data-toggle="popover" data-trigger="click">
+
+                                    <div *ngIf="templateIsFree(template); else notFree">
+                                        <a class="js-image" data-position="center" (click)="seeTemplate(templateID.value)">
+                                            <img class="img-fluid" src="assets/images/people/256/portfolioPremium.PNG"
+                                                 alt="course">
+                                        </a>
+                                        <input type="hidden" #templateID value="{{template.id}}">
+
+                                        <div>
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex">
+                                                        <a class="card-title" (click)="seeTemplate(templateID.value)">{{template.name}}</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ng-template #notFree>
+                                        <a class="js-image" data-position="center" (click)="seeTemplate(templateID.value)">
+                                            <img class="img-fluid" src="assets/images/people/256/portfolioPremium.PNG"
+                                                 alt="course">
+                                        </a>
+                                        <input type="hidden" #templateID value="{{template.id}}">
+
+                                        <div>
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex">
+                                                        <a class="card-title" (click)="seeTemplate(templateID.value)">{{template.name}}</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </ng-template>                                    
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- ADD NEW TEMPLATE -->
+                    <div>
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="page-section">
+                                    <h4>Añadir template</h4>
+                                    <div class="list-group list-group-form">
+
+                                        <div class="list-group-item">
+                                            <div class="form-group row mb-0">
+                                                <label class="col-form-label col-sm-3">Nombre</label>
+                                                <div class="col-sm-9">
+                                                    <input #name id="name" name="name" type="text" class="form-control"
+                                                           placeholder="Escriba un nombre para el template...">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="list-group-item">
+                                            <div class="form-group row mb-0">
+                                                <label class="col-form-label col-sm-3">Descripción</label>
+                                                <div class="col-sm-9">
+                                                    <textarea #description id="description" name="description" rows="3"
+                                                              class="form-control"
+                                                              placeholder="Escriba la descripción del template..."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="list-group-item">
+                                            <div class="form-group row mb-0">
+                                                <label class="col-form-label col-sm-3">Precio</label>
+                                                <div class="col-sm-9">
+                                                    <input #price id="price" name="price" type="number" class="form-control"
+                                                           placeholder="Escriba un precio para el template...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-accent" (click)="addNewTemplate(name.value, price.value, description.value)">Añadir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+</div>
+-->
