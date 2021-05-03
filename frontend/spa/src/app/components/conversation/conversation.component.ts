@@ -26,7 +26,6 @@ export class ConversationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   sendMessage(content:string):void{
