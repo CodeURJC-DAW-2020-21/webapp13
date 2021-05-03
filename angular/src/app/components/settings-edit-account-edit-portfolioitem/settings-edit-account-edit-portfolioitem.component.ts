@@ -26,8 +26,6 @@ export class SettingsEditAccountEditPortfolioitemComponent implements OnInit {
   }
 
   async update(previewImg, image1, image2, image3, name: string, category: string, client: string, date: string, url: string, description: string) {
-    console.log(this.portfolioItem.content["userId"])
-    console.log(this.portfolioItem.content["id"])
 
     await this.portfolioitemService.putText(this.portfolioItem.content["userId"], this.portfolioItem.content["id"], { name, category, client, date, url, description }).toPromise()
 
@@ -48,7 +46,7 @@ export class SettingsEditAccountEditPortfolioitemComponent implements OnInit {
     }
 
     this.router.navigate(['/settings-edit-account-portfolioitems'])
-   
+
   }
 
   delete() {

@@ -35,18 +35,14 @@ export class ShopComponent implements OnInit {
       this.userService.getUserTemplates(this.user.content.id).subscribe(
         templates => {
           templates.map(template => this.purchasedTemplates.push(template))
-          console.log(this.purchasedTemplates)
         },
         error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
       )
     }
 
-    console.log(this.purchasedTemplates)
-
     this.templateService.getTemplates().subscribe(
       templates => {
         templates.map(template => this.notPurchasedTemplates.push(template))
-        console.log(this.notPurchasedTemplates)
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
@@ -68,7 +64,6 @@ export class ShopComponent implements OnInit {
   purchaseTemplate(templateId:number){
     this.userService.purchaseTemplate(this.user.content.id, templateId).subscribe(
       template => {
-        console.log("Comprada")
         this.router.navigate(["/settings-edit-account-mytemplates"])
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
@@ -80,13 +75,11 @@ export class ShopComponent implements OnInit {
       template => {
         this.contentToShop = false
         this.recommendedTemplate = template
-        console.log(this.recommendedTemplate)
         if (this.recommendedTemplate==null){
           this.contentToRecommend = false
         }else{
           this.contentToRecommend = true
         }
-        console.log(this.contentToRecommend)
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )

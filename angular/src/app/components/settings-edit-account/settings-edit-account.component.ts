@@ -22,23 +22,18 @@ export class SettingsEditAccountComponent implements OnInit {
   }
 
   getUser(userId: string, page:number){
-    console.log(userId)
     this.userService.getUser(userId).subscribe(
       item => this.user = new User(item),
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
-    console.log(this.user.content.name)
   }
 
   update(photo,id:string,name:string,surname:string,email:string,phoneNumber:string,city:string,degree:string,freelance:string,category:string,description:string){
     this.userService.putUser(id,name,surname,email,phoneNumber,city,degree,freelance,category,description).subscribe(
       user => {
-        console.log(user)
-        console.log(photo.value)
         if (photo.value != ""){
           this.userService.putImage(this.user.getId(), photo.files[0]).subscribe(
             ok => {
-                console.log("ok")
                 this.user = this.loginService.refreshUser();
             },
             error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])

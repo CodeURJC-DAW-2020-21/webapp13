@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioitemService } from '../../services/portfolioitem.service';
 import { LoginService } from '../../services/login.service';
-
 import { Portfolioitem } from '../../models/portfolioitem.model';
-import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -50,7 +48,6 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
                   ok => {
                     this.portfolioitemService.putImage(this.user, item["id"], "image3", image3.files[0]).subscribe(
                       ok => {
-                        console.log("ok")
                       },
                       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
                     )

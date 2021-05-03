@@ -1,5 +1,4 @@
 import { UserService } from './../../services/user.service';
-import { IndexComponent } from './../index/index.component';
 import { Template } from './../../models/template.model';
 import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
@@ -30,7 +29,6 @@ export class SettingsEditAccountMytemplatesComponent implements OnInit {
     this.userService.getUserTemplates(this.loginService.currentUser().content.id).subscribe(
       templates => {
         templates.map(template => this.userTemplates.push(template))
-        console.log(this.userTemplates)
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )

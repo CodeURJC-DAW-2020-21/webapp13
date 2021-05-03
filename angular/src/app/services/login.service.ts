@@ -17,7 +17,6 @@ export class LoginService {
     }
 
     reqIsLogged() {
-
         this.httpClient.get('/api/users/me', { withCredentials: true }).subscribe(
             response => {
                 this.user = new User(response);
@@ -29,11 +28,9 @@ export class LoginService {
                 this.user = undefined;
             }
         );
-
     }
 
     logIn(user: string, pass: string) {
-
         this.httpClient.post("/api/auth/login", { username: user, password: pass }, { withCredentials: true })
             .subscribe(
                 (response) => {
@@ -42,34 +39,13 @@ export class LoginService {
                 },
                 (error) => alert("Wrong credentials")
             );
-
-        /*this.httpClient.post("/api/auth/login", { username: user, password: pass }, { withCredentials: true }).pipe(
-            map(_ => this.reqIsLogged()),
-            catchError(error => throwError('Server error'))
-        );*/
-
     }
 
     logOut() {
-
-        /*return this.httpClient.post("/api/auth/logout", { withCredentials: true })
-            .subscribe((resp: any) => {
-                console.log("LOGOUT: Successfully");
-                this.logged = false;
-                this.user = undefined;
-            },
-            error => {
-                console.log("LOGOUT: failed");
-            }
-        );*/
-
-
        return this.httpClient.post("/api/auth/logout", { withCredentials: true }).pipe(
             map(_ => this.logOutConfirmed()),
             catchError(error => throwError('Server error'))
         );
-
-
     }
 
     logOutConfirmed(){
@@ -84,12 +60,6 @@ export class LoginService {
     }
 
     private isAdmin() {
-        /*return this.httpClient.get('/api/users/me/admin', { withCredentials: true }).subscribe(
-            response => {
-                response
-            }
-        );*/
-
         return this.httpClient.get('/api/users/me/admin', { withCredentials: true }).pipe();
     }
 
