@@ -106,4 +106,9 @@ export class LoginService {
         return this.user;
     }
 
+    isUserAdmin(userId: String) {
+      return this.httpClient.get('/api/users/'+userId+'/admin').pipe();
+    }
+
+
 }

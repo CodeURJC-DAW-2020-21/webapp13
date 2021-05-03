@@ -61,11 +61,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
 
-                    <button *ngIf="totalElements != actualElements" (click)="loadMore()" class="btn btn-accent loadMore"
-                                id="load-more">Cargar más</button>
+                  
+                      <button *ngIf="!this.noItems" (click)="loadMore()" class="btn btn-accent loadMore"
+                      id="load-more">Cargar más</button>
+
+
                 </div>
             </div>
     </div>

@@ -136,6 +136,17 @@ public class UserRestController {
         return ResponseEntity.ok(false);
     }
 
+    @GetMapping("/{userId}/admin")
+    public ResponseEntity<Boolean> isUserAdmin(@PathVariable String userId,HttpServletRequest request) {
+
+        Optional<User> user = userService.findById(userId);
+
+        if(user.get().getRoles().contains("ADMIN"))
+            return ResponseEntity.ok(true);
+
+        return ResponseEntity.ok(false);
+    }
+
     @GetMapping("/{id}/image")
     public ResponseEntity<Object> getImage(@PathVariable String id) throws SQLException {
 
