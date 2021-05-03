@@ -394,20 +394,21 @@ In this final stage, I started the angular project due to I'm an active linux us
 
 #### José Manuel
 ##### Description
+In this phase, I've been mainly working in all the stuff related with the security part. This includes the login functionality and authentication guards for routes. Also, I developed a dynamic error page, designed some other components and helped my teammates solving some errors that came up.
 
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [Dynamic error pages](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/f9f50e7f8cdb16f86ea3eec2885e240463d7e4e4)
+2. [Authentication guards](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/d29acc79ba22e3679de7d9b20fc6e1d6390cc283)
+3. [Login functionality](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/86c7b60a36987dfb9f27e220fe7adfb928ab2ed6)
+4. [Shop component](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/413cfb61a33798134f88aaea1f508312776a9f5f)
+5. [Autologin and login improved](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/6a77a95d8a48e75ab702717f75cbb9174d8ded35)
 
 ##### Top 5 files
-1. 
-2. 
-3. 
-4. 
-5. 
+1. __auth-guard.service.ts__
+2. __login.service.ts__
+3. __shop.component.ts__
+4. __login.component.ts__
+5. __header.component.ts__ 
 
 #### José Justo 
 ##### Description
