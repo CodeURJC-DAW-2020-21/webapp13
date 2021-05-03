@@ -386,11 +386,11 @@ In this final stage, I started the angular project due to I'm an active linux us
 5. [Chat implemented](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/f88ad024b9747ea7a923146b348ff680a6945c07)
 
 ##### Top 5 files
-1. 
-2. 
-3. 
-4. 
-5. 
+1. __user.sercice.ts__
+2. __search.component.ts__
+3. __settings-edit-account-portfolioitems.component.ts__
+4. __settings-edit-account-edit-portfolioitem.component.ts__
+5. __portfolioitem.service.ts__
 
 #### José Manuel
 ##### Description
