@@ -34,7 +34,7 @@ export class SettingsEditAccountComponent implements OnInit {
     this.userService.putUser(id,name,surname,email,phoneNumber,city,degree,freelance,category,description).subscribe(
       user => {
         console.log(user)
-        this.userService.putImage(this.user.getId(), "profilePhoto", photo.files[0]).subscribe(
+        this.userService.putImage(this.user.getId(), photo.files[0]).subscribe(
           ok => {
               console.log("ok")
               this.user = this.loginService.refreshUser();
