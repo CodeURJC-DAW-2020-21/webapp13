@@ -197,7 +197,7 @@
                         <div class="card" style="width: 18rem;">
                             <a [routerLink]="['/settings-edit-account-edit-portfolioitem',item.content['id']]"> <img class="card-img-top" src={{item.previewImg}} alt="Card image cap"> </a>
                             <div class="card-body">
-                                <a href="#">
+                                <a [routerLink]="['/settings-edit-account-edit-portfolioitem',item.content['id']]">
                                     <h5 class="card-title">{{item.content.name}}</h5>
                                 </a>
                             </div>

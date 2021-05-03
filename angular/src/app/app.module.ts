@@ -24,7 +24,6 @@ import { ShopComponent } from './components/shop/shop.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { InfoComponent} from './components/info/info.component';
-import { FooterComponent} from './components/footer/footer.component';
 import { ConversationComponent } from './components/conversation/conversation.component';
 import { FreeTemplateComponent } from './components/free-template/free-template.component';
 import { PremiumTemplateComponent } from './components/premium-template/premium-template.component';
@@ -51,7 +50,6 @@ import { ErrorComponent } from './components/error/error.component'
     RegisterComponent,
     ChatComponent,
     InfoComponent,
-    FooterComponent,
     ConversationComponent,
     FreeTemplateComponent,
     PremiumTemplateComponent,
