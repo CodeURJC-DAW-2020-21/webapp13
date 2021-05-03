@@ -368,6 +368,15 @@ there are some methods available only for administrators.
 ## Phase 4
 
 ### Preparing the development environment
+Follow the next instructions
+1. Clone the repository 
+`git clone https://github.com/CodeURJC-DAW-2020-21/webapp13.git`
+2. Go to the angular folder
+`cd webapp13/frontend/spa`
+3. Install dependecies
+`npm install`
+4. Execute the app
+`npm start`
 
 ### SPA class diagram and templates
 ![Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp13/blob/main/diagrams/SPA.svg)
