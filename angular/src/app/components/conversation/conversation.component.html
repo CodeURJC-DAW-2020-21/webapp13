@@ -21,8 +21,8 @@
                 <tbody  *ngFor="let message of messages" id="conversation">
 
              
-                <tr><td *ngIf="message.sender.id == sender"  class="message-sender"> <img  class="img-fluid rounded-circle" src="https://localhost:8443/api/users/{{sender}}/image" alt="user">  {{message.text}}</td></tr>
-                <tr><td *ngIf="message.sender.id == receiver"  class="message-receiver"> {{message.text}} <img  class="img-fluid rounded-circle" src="https://localhost:8443/api/users/{{receiver}}/image" alt="user"> </td></tr>
+                <tr><td *ngIf="message.sender.id == sender"  class="message-sender"> <img  class="img-fluid rounded-circle" src="/api/users/{{sender}}/image" alt="user">  {{message.text}}</td></tr>
+                <tr><td *ngIf="message.sender.id == receiver"  class="message-receiver"> {{message.text}} <img  class="img-fluid rounded-circle" src="/api/users/{{receiver}}/image" alt="user"> </td></tr>
 
 
                 </tbody>

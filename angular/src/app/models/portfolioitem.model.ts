@@ -6,9 +6,9 @@ export class Portfolioitem{
     content: any
     constructor(content){
         this.content = content
-        this.previewImg = "https://localhost:8443/api/portfolioItems/"+content.id+"/previewImage"
-        this.image1 = "https://localhost:8443/api/portfolioItems/"+content.id+"/image1"
-        this.image2 = "https://localhost:8443/api/portfolioItems/"+content.id+"/image2"
-        this.image3 = "https://localhost:8443/api/portfolioItems/"+content.id+"/image3"
+        this.previewImg = "/api/portfolioItems/"+content.id+"/previewImage"
+        this.image1 = "/api/portfolioItems/"+content.id+"/image1"
+        this.image2 = "/api/portfolioItems/"+content.id+"/image2"
+        this.image3 = "/api/portfolioItems/"+content.id+"/image3"
     }
 }

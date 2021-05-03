@@ -28,19 +28,19 @@ export class SettingsEditAccountEditPortfolioitemComponent implements OnInit {
 
     await this.portfolioitemService.putText(this.portfolioItem.content["userId"], this.portfolioItem.content["id"], { name, category, client, date, url, description }).toPromise()
 
-    if (previewImg != "") {
+    if (previewImg.value != "") {
       await this.portfolioitemService.putImage(this.portfolioItem.content["userId"], this.portfolioItem.content["id"], "previewImage", previewImg.files[0]).toPromise()
     }
 
-    if (image1 != "") {
+    if (image1.value != "") {
       await this.portfolioitemService.putImage(this.portfolioItem.content["userId"], this.portfolioItem.content["id"], "image1", image1.files[0]).toPromise()
     }
 
-    if (image2 != "") {
+    if (image2.value!= "") {
       await this.portfolioitemService.putImage(this.portfolioItem.content["userId"], this.portfolioItem.content["id"], "image2", image2.files[0]).toPromise()
     }
 
-    if (image3 != "") {
+    if (image3.value != "") {
       await this.portfolioitemService.putImage(this.portfolioItem.content["userId"], this.portfolioItem.content["id"], "image3", image3.files[0]).toPromise()
     }
 
