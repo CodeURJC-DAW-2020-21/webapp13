@@ -23,8 +23,20 @@ fi
 
 echo
 
+echo "Compiling Angular frontend"
+cd ../frontend/spa
+sudo docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app node:16.0.0 /bin/bash -c "npm install && npm run build --prod --base-href='/new/'"
+mkdir ../../backend/src/main/resources/public
+cd ../../backend/src/main/resources/public
+rm -rf new
+mkdir new
+cd new
+cp -r ../../../../../../frontend/spa/dist/angular/* .
+
+echo
+
 echo "Compiling Maven project"
-cd ../backend
+cd ../../../../..
 sudo docker run --rm -v "$PWD":/data -w /data maven mvn package
 echo "Maven project compiled"
 
