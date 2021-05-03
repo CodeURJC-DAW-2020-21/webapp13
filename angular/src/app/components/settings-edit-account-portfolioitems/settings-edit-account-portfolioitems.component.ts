@@ -3,6 +3,7 @@ import { PortfolioitemService } from '../../services/portfolioitem.service';
 import { LoginService } from '../../services/login.service';
 import { Portfolioitem } from '../../models/portfolioitem.model';
 import { Router } from '@angular/router';
+import { PortfolioItemComponent } from '../portfolio-item/portfolio-item.component';
 
 @Component({
   selector: 'app-settings-edit-account-portfolioitems',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
 
-  portfolioItemsMap: any = new Map()
+  portfolioItemsMap: Map<String, Portfolioitem> = new Map()
   portfolioItems: Portfolioitem[] = []
   user: string = this.loginService.currentUser().content.id
   last: boolean = false
@@ -36,10 +37,7 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
   create(previewImg, image1, image2, image3, name: string, category: string, client: string, date: string, url: string, description: string) {
     this.portfolioitemService.post({ "userId": this.user, name, description, category, client, url, date }).subscribe(
       item => {
-
         this.totalElements++
-
-        // Need to try promises
         this.portfolioitemService.putImage(this.user, item["id"], "previewImage", previewImg.files[0]).subscribe(
           ok => {
             this.portfolioitemService.putImage(this.user, item["id"], "image1", image1.files[0]).subscribe(
@@ -61,12 +59,9 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
           error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
         )
 
-
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
-
-
   }
 
   private getPortfolioItems(page: number) {
@@ -98,8 +93,6 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
         }
       },
       error => this.page == 0 ? this.noItems = true : this.router.navigate(['/error'])
-
-
     )
   }
 }

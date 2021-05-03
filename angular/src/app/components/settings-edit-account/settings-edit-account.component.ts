@@ -16,9 +16,7 @@ export class SettingsEditAccountComponent implements OnInit {
   constructor(private userService: UserService, public loginService:LoginService, private router: Router) { }
 
   ngOnInit(): void {
-    //this.user = this.loginService.currentUser()
     this.user = this.loginService.refreshUser();
-    //this.getUser("id", 0)
   }
 
   getUser(userId: string, page:number){

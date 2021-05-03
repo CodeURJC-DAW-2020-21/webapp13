@@ -51,7 +51,6 @@ export class PremiumTemplateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   loadMore(): void {
