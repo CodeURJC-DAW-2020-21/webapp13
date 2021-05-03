@@ -111,7 +111,6 @@ export class SearchComponent implements OnInit {
         const currentUser: User = new User(user)
         this.userService.getUserActiveTemplate(currentUser.content.id).subscribe(
           template => {
-          console.log(template)
             if (template.price==0){
               this.router.navigate(['/free-template', currentUser.content.id])
             }else{

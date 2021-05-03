@@ -7,7 +7,7 @@ import { Template } from "../models/template.model"
 @Injectable({ providedIn: 'root' })
 export class TemplateService{
 
-    constructor(private httpClient: HttpClient) { 
+    constructor(private httpClient: HttpClient) {
     }
 
     getTemplates():Observable<Template[]>{
@@ -24,8 +24,8 @@ export class TemplateService{
 
     postTemplate(htmlPath: string, name: string, price: number, description: string, free:boolean){
         return this.httpClient.post("/api/templates/", {htmlPath, name, price, description, free}).pipe(
-            map(response => {this.extractTemplate(response as Template)}), 
-        )    
+            map(response => {this.extractTemplate(response as Template)}),
+        )
     }
 
     private extractTemplates(response){

@@ -20,19 +20,16 @@ export class SettingsEditAccountPasswordComponent implements OnInit {
   }
 
   getUser(userId: string, page:number){
-    console.log(userId)
     this.userService.getUser(userId).subscribe(
       item => this.user = new User(item),
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
-    console.log(this.user.content.name)
   }
 
   update(password1:string,password2:string){
     if (password1 == password2){
       this.userService.putPassword(this.user.content.id,password1).subscribe(
         user => {
-          console.log(user)
         },
         error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
       )
