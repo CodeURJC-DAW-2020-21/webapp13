@@ -6,29 +6,29 @@ import { LoginService } from './login.service';
 export class AuthGuardService implements CanActivate {
   constructor(public loginService: LoginService, public router: Router) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-    ): boolean {
-        if (this.loginService.isLogged()){
-            let userRole: String = "USER"
-            if (this.loginService.checkAdmin()){
-                userRole = "ADMIN"
-                return true
+    canActivate(route: ActivatedRouteSnapshot,state: RouterStateSnapshot):boolean { 
+            
+            if (localStorage.getItem('logged')==='true'){
+                console.log("Estoy logueado")
+                let userRole: String = "USER"
+                if (this.loginService.checkAdmin()){
+                    userRole = "ADMIN"
+                    return true
+                }
+                if(route.data.role && route.data.role.indexOf(userRole) !== -1)
+                    return true
+    
+                this.router.navigate([''])
+                return false
             }
-            if(route.data.role && route.data.role.indexOf(userRole) !== -1)
-                return true
-
-            this.router.navigate([''])
+            if(localStorage.getItem('logged')===undefined){
+                console.log("No estoy logueado ni definido")
+                this.router.navigate([''])
+                return false
+            }
+            this.router.navigate(['login'])
             return false
         }
-        if(this.loginService.isLogged()===undefined){
-            this.router.navigate([''])
-            return false
-        }
-        this.router.navigate(['login'])
-        return false
-    }
 
  
 }
