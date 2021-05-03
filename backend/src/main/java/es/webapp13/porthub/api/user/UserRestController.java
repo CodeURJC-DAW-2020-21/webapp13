@@ -259,7 +259,6 @@ public class UserRestController {
             return ResponseEntity.status(403).build();
         }
         return ResponseEntity.notFound().build();
-
     }
 
     @PutMapping("/{id}/image")
@@ -279,6 +278,25 @@ public class UserRestController {
                     return ResponseEntity.ok(location);
                 } else
                     return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.status(403).build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}/password")
+    public ResponseEntity<User> putPassword(@PathVariable String id, @RequestBody UserDTO userDTO, HttpServletRequest request) throws SQLException, IOException {
+
+        Principal principal = request.getUserPrincipal();
+        Optional<User> me = userService.findById(principal.getName());
+
+        Optional<User> optionalUser = userService.findById(id);
+        User user = modelMapper.map(userDTO, User.class);
+
+        if (optionalUser.isPresent() && me.isPresent()) {
+            if (optionalUser.get().getId().equals(me.get().getId())) {
+                userService.updatePassword(optionalUser.get(), userDTO.getPassword());
+                return ResponseEntity.ok(optionalUser.get());
             }
             return ResponseEntity.status(403).build();
         }

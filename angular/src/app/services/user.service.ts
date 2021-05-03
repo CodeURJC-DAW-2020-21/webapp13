@@ -76,7 +76,7 @@ export class UserService {
 
 
     putPassword(id:string,password:string):Observable<User> {
-      return this.httpClient.put("/api/users/"+id,{password}).pipe(
+      return this.httpClient.put("/api/users/"+id+"/password",{password}).pipe(
           map(response => this.extractResponse(response as User))
       )
     }

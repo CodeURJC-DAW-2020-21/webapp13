@@ -206,6 +206,8 @@ public class UserService {
         updateInfo(newUser, user);
     }
 
+
+
     /**
      * Update info
      *
@@ -251,9 +253,6 @@ public class UserService {
         }
         if (newUser.getAge() != 0){
             user.setAge(newUser.getAge());
-        }
-        if (newUser.getPassword() != null){
-            user.setPassword(passwordEncoder.encode(newUser.getPassword()));
         }
         userRepository.save(user);
     }
