@@ -12,6 +12,7 @@ export class UserService {
     }
 
     getUser(user:string):Observable<User> {
+        //
         return this.httpClient.get("/api/users/"+user).pipe(
             map(response => this.extractResponse(response as User))
         )
