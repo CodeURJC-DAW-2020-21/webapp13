@@ -388,9 +388,9 @@ In this final stage, I started the angular project due to I'm an active linux us
 ##### Top 5 files
 1. __user.sercice.ts__
 2. __search.component.ts__
-3. __settings-edit-account-portfolioitems__
-4. __settings-edit-account-edit-portfolioitem__
-5. __portfolioitem-service.ts__
+3. __settings-edit-account-portfolioitems.component.ts__
+4. __settings-edit-account-edit-portfolioitem.component.ts__
+5. __portfolioitem.service.ts__
 
 #### José Manuel
 ##### Description
