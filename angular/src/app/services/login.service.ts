@@ -52,7 +52,6 @@ export class LoginService {
         this.logged = false;
         this.user = undefined;
         this.admin = false;
-        console.log("LOGOUT: Successfully");
     }
 
     isLogged() {

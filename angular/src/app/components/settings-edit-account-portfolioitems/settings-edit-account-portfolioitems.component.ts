@@ -21,6 +21,7 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
   totalElements: number = 0
   actualElements: number = 0
   noItems: boolean = false
+  badArguments: boolean = false
 
 
   constructor(private portfolioitemService: PortfolioitemService, public loginService: LoginService, private router: Router) { }
@@ -34,37 +35,31 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
   }
 
   create(previewImg, image1, image2, image3, name: string, category: string, client: string, date: string, url: string, description: string) {
-    this.portfolioitemService.post({ "userId": this.user, name, description, category, client, url, date }).subscribe(
-      item => {
 
+    for (const value of arguments) {
+      if(value == ""){
+        this.badArguments = true
+      }
+    }
+
+    if(this.badArguments){
+      alert("Rellene bien los campos del formulario")
+      return
+    }
+
+    this.portfolioitemService.post({ "userId": this.user, name, description, category, client, url, date }).subscribe(
+      
+      async item => {
         this.totalElements++
 
-        // Need to try promises
-        this.portfolioitemService.putImage(this.user, item["id"], "previewImage", previewImg.files[0]).subscribe(
-          ok => {
-            this.portfolioitemService.putImage(this.user, item["id"], "image1", image1.files[0]).subscribe(
-              ok => {
-                this.portfolioitemService.putImage(this.user, item["id"], "image2", image2.files[0]).subscribe(
-                  ok => {
-                    this.portfolioitemService.putImage(this.user, item["id"], "image3", image3.files[0]).subscribe(
-                      ok => {
-                      },
-                      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
-                    )
-                  },
-                  error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
-                )
-              },
-              error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
-            )
-          },
-          error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
-        )
-
-
+        await this.portfolioitemService.putImage(this.user, item["id"], "previewImage", previewImg.files[0]).toPromise()
+        await this.portfolioitemService.putImage(this.user, item["id"], "image1", image1.files[0]).toPromise()
+        await this.portfolioitemService.putImage(this.user, item["id"], "image2", image2.files[0]).toPromise()
+        await this.portfolioitemService.putImage(this.user, item["id"], "image3", image3.files[0]).toPromise()
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
+    
 
 
   }

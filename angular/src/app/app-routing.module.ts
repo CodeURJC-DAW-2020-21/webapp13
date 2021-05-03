@@ -23,6 +23,8 @@ import { PremiumTemplateComponent } from './components/premium-template/premium-
 import { PortfolioItemComponent } from './components/portfolio-item/portfolio-item.component';
 import { ErrorComponent } from './components/error/error.component';
 
+
+
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'error/:errorStatus/:errorStatusText/:errorName/:errorMessage', component: ErrorComponent },
@@ -100,6 +102,7 @@ export const routing = RouterModule.forRoot(routes);
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
+
 })
 export class AppRoutingModule { }
 
