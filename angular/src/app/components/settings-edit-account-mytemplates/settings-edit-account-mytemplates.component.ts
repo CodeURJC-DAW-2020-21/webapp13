@@ -25,7 +25,6 @@ export class SettingsEditAccountMytemplatesComponent implements OnInit {
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
 
-    //this.userTemplates = this.loginService.currentUser().content.templates.map(template => this.userTemplates.push(template))
     this.userService.getUserTemplates(this.loginService.currentUser().content.id).subscribe(
       templates => {
         templates.map(template => this.userTemplates.push(template))
@@ -43,6 +42,5 @@ export class SettingsEditAccountMytemplatesComponent implements OnInit {
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
-
 
 }

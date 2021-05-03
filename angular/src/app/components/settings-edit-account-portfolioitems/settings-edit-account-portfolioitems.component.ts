@@ -3,6 +3,7 @@ import { PortfolioitemService } from '../../services/portfolioitem.service';
 import { LoginService } from '../../services/login.service';
 import { Portfolioitem } from '../../models/portfolioitem.model';
 import { Router } from '@angular/router';
+import { PortfolioItemComponent } from '../portfolio-item/portfolio-item.component';
 
 @Component({
   selector: 'app-settings-edit-account-portfolioitems',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
 
-  portfolioItemsMap: any = new Map()
+  portfolioItemsMap: Map<String, Portfolioitem> = new Map()
   portfolioItems: Portfolioitem[] = []
   user: string = this.loginService.currentUser().content.id
   last: boolean = false
@@ -93,8 +94,6 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
         }
       },
       error => this.page == 0 ? this.noItems = true : this.router.navigate(['/error'])
-
-
     )
   }
 }

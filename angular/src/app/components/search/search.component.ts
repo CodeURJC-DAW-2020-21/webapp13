@@ -12,7 +12,7 @@ import { User } from '../../models/user.model';
 })
 export class SearchComponent implements OnInit {
 
-  users: any[] = []
+  users: User[] = []
   page: number = 0
   totalElements: number = 0
   actualElements: number = 0

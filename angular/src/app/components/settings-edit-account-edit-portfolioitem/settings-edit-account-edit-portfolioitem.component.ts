@@ -22,7 +22,6 @@ export class SettingsEditAccountEditPortfolioitemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   async update(previewImg, image1, image2, image3, name: string, category: string, client: string, date: string, url: string, description: string) {
@@ -55,7 +54,5 @@ export class SettingsEditAccountEditPortfolioitemComponent implements OnInit {
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
-
-
 
 }
