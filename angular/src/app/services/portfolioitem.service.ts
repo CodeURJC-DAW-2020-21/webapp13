@@ -35,6 +35,7 @@ export class PortfolioitemService {
     }
 
     putImage(user:string,item:string,type:string,image:File):Observable<string> {
+        console.log(image)
         const formData = new FormData();
         formData.append(type, image);
 

@@ -76,6 +76,7 @@ export class SettingsEditAccountPortfolioitemsComponent implements OnInit {
     this.portfolioitemService.getPortfolioItems(this.user, page).subscribe(
       page => {
         this.totalElements = page["totalElements"]
+        this.noItems = this.totalElements == 0
         if (page["last"]) {
           page["content"].map(item => {
             let newItem = new Portfolioitem(item)
