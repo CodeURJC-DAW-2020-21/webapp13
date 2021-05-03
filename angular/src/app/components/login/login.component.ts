@@ -14,10 +14,8 @@ export class LoginComponent implements OnInit {
   }
 
   
-  logIn(event: any, user: string, pass: string) {
-
+  logIn(event: any, user: string, pass: string):void {
     event.preventDefault();
-
     this.loginService.logIn(user, pass);
 
   }

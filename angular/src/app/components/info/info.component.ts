@@ -17,10 +17,9 @@ export class InfoComponent implements OnInit {
 
   }
 
-  goToActiveTemplate(){
+  goToActiveTemplate():void{
     this.userService.getUserActiveTemplate(this.loginService.currentUser().content.id).subscribe(
       template => {
-        console.log(template)
         if (template.price==0){
           this.router.navigate(["/free-template", this.loginService.currentUser().getId()])
         }else{

@@ -29,25 +29,20 @@ export class FreeTemplateComponent implements OnInit {
 
   constructor(private userService:UserService,private loginService:LoginService, private portfolioitemService: PortfolioitemService, private router: Router,activatedRoute: ActivatedRoute) {
 
-    const id = activatedRoute.snapshot.params['id'];
+    const id:string = activatedRoute.snapshot.params['id'];
     if (id == "userNotLogued"){
       this.user = new User("userNotLogued")
-      console.log(this.user)
     }else{
       this.userService.getUser(id).subscribe(
         user => {
           this.user = new User(user)
-          console.log(this.user)
           this.getPortfolioItems(this.page)
-          console.log(this.portfolioItems)
           const currentUser:User = this.loginService.currentUser()
-          console.log(currentUser)
           if (currentUser == undefined){
             this.canChat = false
           }else{
             this.canChat = (this.user.content.id != currentUser.content.id)
           }
-          console.log(this.canChat)
         },
         error => {
           this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
@@ -65,7 +60,7 @@ export class FreeTemplateComponent implements OnInit {
     this.getPortfolioItems(this.page)
   }
 
-  private getPortfolioItems(page: number) {
+  private getPortfolioItems(page: number):void {
     this.portfolioitemService.getPortfolioItems(this.user.content.id, page).subscribe(
       page => {
         this.totalElements = page["totalElements"]

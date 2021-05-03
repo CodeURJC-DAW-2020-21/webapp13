@@ -15,7 +15,6 @@ export class ErrorComponent implements OnInit {
   errorMessage: string
 
   constructor(activatedRoute: ActivatedRoute) { 
-    console.log(activatedRoute.snapshot.url.length)
     if(activatedRoute.snapshot.params!==undefined && activatedRoute.snapshot.url.length > 2){
       this.errorStatus = activatedRoute.snapshot.params['errorStatus']
       this.errorStatusText = activatedRoute.snapshot.params['errorStatusText']

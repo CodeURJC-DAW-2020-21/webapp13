@@ -21,8 +21,7 @@ export class ConversationComponent implements OnInit {
     this.sender = activatedRoute.snapshot.params['id'];
     this.receiver = this.loginService.currentUser().content.id
     this.chatService.getMessages(this.receiver, this.sender).subscribe(
-      messages => this.messages = messages,
-      error => console.log("No messages")
+      messages => this.messages = messages
     )
   }
 
@@ -30,7 +29,7 @@ export class ConversationComponent implements OnInit {
 
   }
 
-  sendMessage(content:string){
+  sendMessage(content:string):void{
     this.chatService.postMessage(this.sender,this.receiver,content).subscribe(
       message => this.messages.push(message),
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
@@ -40,7 +39,7 @@ export class ConversationComponent implements OnInit {
   }
 
 
-  goToBottom(){
+  goToBottom():void{
     window.scrollTo(0,document.body.scrollHeight);
   }
 }

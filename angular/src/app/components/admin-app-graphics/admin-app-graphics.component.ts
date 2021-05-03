@@ -17,26 +17,17 @@ export class AdminAppGraphicsComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsersPerMonth().subscribe(
       usersPerMonth => {
-        this.usersPerMonth.push(usersPerMonth[0])
-        this.usersPerMonth.push(usersPerMonth[1])
-        this.usersPerMonth.push(usersPerMonth[2])
-        this.usersPerMonth.push(usersPerMonth[3])
-        this.usersPerMonth.push(usersPerMonth[4])
-        this.usersPerMonth.push(usersPerMonth[5])
-        this.usersPerMonth.push(usersPerMonth[6])
-        this.usersPerMonth.push(usersPerMonth[7])
-        this.usersPerMonth.push(usersPerMonth[8])
-        this.usersPerMonth.push(usersPerMonth[9])
-        this.usersPerMonth.push(usersPerMonth[10])
-        this.usersPerMonth.push(usersPerMonth[11])
-        console.log(this.usersPerMonth)
+        for (let i = 0; i < 12; i++) {
+          this.usersPerMonth.push(usersPerMonth[i])
+
+        }
         this.createChart(this.usersPerMonth)
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
-    )    
+    )
   }
 
-  private createChart(usersPerMonth: any[]){
+  private createChart(usersPerMonth: any[]): void {
     let chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
       exportEnabled: true,
@@ -57,11 +48,11 @@ export class AdminAppGraphicsComponent implements OnInit {
           { y: usersPerMonth[8], label: "Septiembre" },
           { y: usersPerMonth[9], label: "Octubre" },
           { y: usersPerMonth[10], label: "Noviembre" },
-          { y:usersPerMonth[11], label: "Diciembre" }
+          { y: usersPerMonth[11], label: "Diciembre" }
         ]
       }]
     });
-      
+
     chart.render();
   }
 

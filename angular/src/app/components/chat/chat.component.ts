@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user.model';
 import { ChatService } from '../../services/chat.service'
 import { LoginService } from '../../services/login.service';
 
@@ -19,8 +18,7 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.loginService.currentUser().content.id
     this.chatService.getChats(this.user).subscribe(
-      chats =>this.chats = chats,
-      error =>console.log("error")
+      chats =>this.chats = chats
     )
   }
 

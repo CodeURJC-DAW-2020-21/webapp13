@@ -17,10 +17,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  logOut() {
-    this.loginService.logOut().subscribe(
-      response => console.log("Logging out")
-    );
+  logOut():void {
+    this.loginService.logOut()
 
   }
 
@@ -28,7 +26,7 @@ export class HeaderComponent implements OnInit {
     return this.loginService.isLogged();
   }
 
-  imAdmin(){
+  imAdmin():boolean{
     return this.loginService.checkAdmin();
   }
 
@@ -38,25 +36,22 @@ export class HeaderComponent implements OnInit {
         const currentUser: User = new User(user)
         this.userService.getUserActiveTemplate(currentUser.content.id).subscribe(
           template => {
-          console.log(template)
             if (template.price==0){
               this.router.navigate(['/free-template', currentUser.content.id])
             }else{
               this.router.navigate(['/premium-template', currentUser.content.id])
             }
           },
-          error => console.log("error")
         )
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
-  goToActiveTemplate(){
+  goToActiveTemplate():void{
     const currentUser: User = this.loginService.currentUser()
     this.userService.getUserActiveTemplate(currentUser.content.id).subscribe(
       template => {
-        console.log(template)
         if (template.price==0){
           this.router.navigate(['/free-template', currentUser.content.id])
         }else{

@@ -3,7 +3,7 @@ import { TemplateService } from '../../services/template.service'
 import { Template } from '../../models/template.model';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
-import { LoginService} from '../../services/login.service'
+import { LoginService } from '../../services/login.service'
 
 
 
@@ -26,12 +26,12 @@ export class AdminTemplatesListComponent implements OnInit {
     )
   }
 
-  addNewTemplate(name: string, price: number, description: string){
+  addNewTemplate(name: string, price: number, description: string):void {
     let isFree: boolean = false
     if (price == 0) {
       isFree = true
     }
-    else{
+    else {
       isFree == false
     }
     let htmlPath: string = "/templates/" + name
@@ -39,27 +39,26 @@ export class AdminTemplatesListComponent implements OnInit {
     this.templateService.postTemplate(htmlPath, name, price, description, isFree).subscribe(
       template => {
         this.templates.push(new Template(id, htmlPath, name, price, isFree, description))
-        console.log(template)
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
-  seeTemplate(id: number){
+  seeTemplate(id: number):void {
     const currentUser: User = this.loginService.currentUser()
     this.templateService.getTemplate(id).subscribe(
       template => {
-        console.log(template)
-        if (template.price==0){
+        if (template.price == 0) {
           this.router.navigate(['/free-template', currentUser.content.id])
-        }else{
+        } else {
           this.router.navigate(['/premium-template', currentUser.content.id])
-        }      },
+        }
+      },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
-  templateIsFree(template: Template){
+  templateIsFree(template: Template):boolean {
     return template.isFree
   }
 
