@@ -431,20 +431,22 @@ Also I have tried to help my team mates in every possible situation.
 
 #### Aitor
 ##### Description
+In this phase, I have worked in all the components related with the Admin: the user list where you can delete a user, the Templates List where you can create a new template, and the App graphics 
+done with the Angular chart
 
 ##### Top 5 commits
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [Done the Admin Components](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/f63c902b5cebe8664d9ebb30d7dcd89e0bdfb551)
+2. [Done the Delete user in Admin component and user service angular, need to fix the pageable](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/14786f3b91f740e55a26c5ef48d8ab34465678f0)
+3. [Done the add new template function and fixed little error in template model](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/50585884d69d56133de2c72282088626bcdf0481)
+4. [Done thetemplateListComponent, template model and template service, need to fix some methods](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/20b5165cdebe46dd40399b9bd0b54940fdd22252)
+5. [Done the method to set the user active Template and added method to API collection](https://github.com/CodeURJC-DAW-2020-21/webapp13/commit/f7b1817d1c82611c9fe45adfa51e94331dd153dc)
 
 ##### Top 5 files
-1. 
-2. 
-3. 
-4. 
-5. 
+1. __admin.component.ts__
+2. __admin-template-list.component.ts__
+3. __admin-app-graphics.component.ts__
+4. __UserRestController.java__
+5. __admin-templates-list.component.html __
 
 ### Video Demo
 
