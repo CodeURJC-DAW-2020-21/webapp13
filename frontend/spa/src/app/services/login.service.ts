@@ -20,14 +20,11 @@ export class LoginService {
             }else{
                 this.admin = false
             }
-            this.user = new User(localStorage.getItem('user'));
+            this.user = new User(JSON.parse(localStorage.getItem('user')).content);
         }else{
           this.reqIsLogged()  
         }
 
-        if(this.logged===false){
-            this.reqIsLogged
-        }
     }
 
     reqIsLogged() {
@@ -35,16 +32,15 @@ export class LoginService {
             response => {
                 this.user = new User(response);
                 localStorage.setItem('user', JSON.stringify(this.user))
-                console.log(JSON.stringify(this.user))
                 this.logged = true;
                 localStorage.setItem('logged', 'true')
                 this.isAdmin().subscribe(response => {
-                    this.admin = response as boolean
-                    if(this.admin===true){
-                        localStorage.setItem('isAdmin', 'true')
-                    }else{
-                        localStorage.setItem('isAdmin', 'false')
-                    }
+                        this.admin = response as boolean
+                        if(this.admin===true){
+                            localStorage.setItem('isAdmin', 'true')
+                        }else{
+                            localStorage.setItem('isAdmin', 'false')
+                        }
                     }
                 );
             },
