@@ -8,24 +8,51 @@ import { User } from "../models/user.model";
 @Injectable({ providedIn: 'root' })
 export class LoginService {
 
-    logged: boolean;
-    admin: boolean;
-    user: User;
+    logged: boolean 
+    admin: boolean
+    user: User
 
     constructor(private httpClient: HttpClient, private router: Router) {
-        this.reqIsLogged();
+        if(localStorage.getItem('logged')==='true'){
+            this.logged = true
+            if(localStorage.getItem('isAdmin')==='true'){
+                this.admin = true
+            }else{
+                this.admin = false
+            }
+            this.user = new User(localStorage.getItem('user'));
+        }else{
+          this.reqIsLogged()  
+        }
+
+        if(this.logged===false){
+            this.reqIsLogged
+        }
     }
 
     reqIsLogged() {
         this.httpClient.get('/api/users/me', { withCredentials: true }).subscribe(
             response => {
                 this.user = new User(response);
+                localStorage.setItem('user', JSON.stringify(this.user))
+                console.log(JSON.stringify(this.user))
                 this.logged = true;
-                this.isAdmin().subscribe(response => this.admin = response as boolean);
+                localStorage.setItem('logged', 'true')
+                this.isAdmin().subscribe(response => {
+                    this.admin = response as boolean
+                    if(this.admin===true){
+                        localStorage.setItem('isAdmin', 'true')
+                    }else{
+                        localStorage.setItem('isAdmin', 'false')
+                    }
+                    }
+                );
             },
             error => {
-                this.logged = false;
-                this.user = undefined;
+                console.log("reqIsLogged ha devuelto error")
+                this.admin = false
+                this.logged = false
+                this.user = undefined
             }
         );
     }
@@ -52,6 +79,9 @@ export class LoginService {
         this.logged = false;
         this.user = undefined;
         this.admin = false;
+        localStorage.setItem('user', undefined)
+        localStorage.setItem('logged', 'false')
+        localStorage.setItem('isAdmin', 'false')
     }
 
     isLogged() {
