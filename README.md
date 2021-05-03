@@ -446,7 +446,7 @@ done with the Angular chart
 2. __admin-template-list.component.ts__
 3. __admin-app-graphics.component.ts__
 4. __UserRestController.java__
-5. __admin-templates-list.component.html __
+5. __admin-templates-list.component.html__
 
 ### Video Demo
 
