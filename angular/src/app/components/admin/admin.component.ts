@@ -19,35 +19,44 @@ export class AdminComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getUsersPage()
     this.setTotalUsers()
+    this.getUsersPage()
     this.page++
   }
 
   loadMore(): void {
-    this.getUsersPage() 
+    if (this.actualElements !== (this.page + 1) * 8) {
+      this.page--
+      this.getUsersPage()
+      this.page++
+    }
+    this.getUsersPage()
     this.page++
   }
 
   loadUsers(): void {
     this.setTotalUsers()
+    this.deleteDuplicated()
     this.getUsersPage()
-    this.page++
   }
 
   private setTotalUsers() {
     this.userService.getTotalElements("/api/users/" +"?page=" + this.page).subscribe(
-      totalElements => this.totalElements = totalElements,
+      totalElements => {
+        this.totalElements = totalElements
+      },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
   }
 
   private getUsersPage() {
-    this.userService.getUsers("/api/users/" + "?page=" + this.page).subscribe(
+    this.userService.getUsersPage("/api/users/" + "?page=" + this.page).subscribe(
       users => {
-        users.map( user => this.users.push(new User(user)))
-        this.actualElements += users.length
-
+        users.content.map( user => this.users.push(new User(user)))
+        this.deleteDuplicated()
+        this.actualElements += users.content.length
+        console.log(this.actualElements)
+        console.log(users)
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
@@ -58,11 +67,28 @@ export class AdminComponent implements OnInit {
       user => {
         let index = this.users.findIndex(u => u.content["id"] === user.id)
         this.users.splice(index, 1)
+        this.loadUsers()
+        console.log(this.totalElements)
+        this.totalElements -= 1
         this.actualElements -= 1
-        this.getUsersPage()
+        console.log(this.totalElements)
+        console.log("Elementos actuales:", this.actualElements)
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
+  }
+
+  private deleteDuplicated(){
+    for(var i = this.users.length -1; i >=0; i--){
+      if(this.users.indexOf(this.users[i]) !== i){
+        this.users.splice(i,1)
+        console.log("He borrado un duplicado")
+
+      }
+    }
+  }
+  isAdmin(id:string){
+    return id="admin"
   }
 
 }

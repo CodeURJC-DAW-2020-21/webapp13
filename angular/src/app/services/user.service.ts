@@ -35,6 +35,11 @@ export class UserService {
       )
     }
 
+    getUsersPage(url:string):Observable<any> {
+        return this.httpClient.get(url).pipe(
+            map(response => this.extractResponse(response as any))
+        )
+    }
 
     getTotalElements(url:string): Observable<number> {
         return this.httpClient.get(url).pipe(
