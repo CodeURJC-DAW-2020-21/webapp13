@@ -1,0 +1,947 @@
+{
+	"info": {
+		"_postman_id": "45e3340b-a9c8-4251-90d7-7c964cde6faf",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/anitarom56",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"anitarom56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}/image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/anitarom56/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"anitarom56",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/statistics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/statistics",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"statistics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/engineers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/engineers",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"engineers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/designers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/designers",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"designers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/photographer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/photographer",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"photographer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/businessman",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/businessman",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"businessman"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"criss00_2820\",\n    \"name\":\"Cristian\",\n    \"surname\":\"De Gracia Nuero\",\n    \"bornDate\":\"2000-07-28\",\n    \"email\":\"cristian@gmail.com\",\n    \"password\":\"1234\",\n    \"phoneNumber\":\"666 555 444\",\n    \"website\":\"www.porthub.com\",\n    \"city\":\"Torrijos\",\n    \"category\":\"Ingeniero\",\n    \"freelance\":\"Disponible\",\n    \"description\":\"Soy estudiante del doble grado en ingeniería de software e ingeniería informatica. Cuando acabe la carrera me gustaría dedicarme profesionalmente al desarrollo web.\",\n    \"degree\":\"Ingeniería Informática + Ingeniería de Software\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/criss00_2820",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"criss00_2820"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"criss00_2820\",\n    \"name\":\"Christian\",\n    \"surname\":\"De Gracia Nuero\",\n    \"bornDate\":\"1998-07-28\",\n    \"email\":\"cristian@hotmail.com\",\n    \"password\":\"4321\",\n    \"phoneNumber\":\"666 888 498\",\n    \"website\":\"www.porthub.es\",\n    \"city\":\"Novés\",\n    \"category\":\"Ingeniero\",\n    \"freelance\":\"Ocupado\",\n    \"description\":\"Soy estudiante del doble grado en ingeniería de software e ingeniería informatica. Cuando acabe la carrera me gustaría dedicarme profesionalmente al desarrollo web.\",\n    \"degree\":\"Ingeniería Informática + Ingeniería de Software\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/criss00_2820",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"criss00_2820"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}/image",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePhoto",
+									"type": "file",
+									"src": "256_rsz_90-jiang-640827-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/criss00_2820/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"criss00_2820",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}/activeTemplate/{templateId}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/id/activeTemplate/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"id",
+								"activeTemplate",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This collection is divided in folders by the main app entities. The way to use the queries that has { xxx } is to set a variable in place of xxx."
+		},
+		{
+			"name": "Portfolio Items",
+			"item": [
+				{
+					"name": "/users/{userId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"users",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{portfolioItemId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{portfolioItemId}/previewImage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/3/previewImage",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"3",
+								"previewImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{portfolioItemId}/image1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/3/image1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"3",
+								"image1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{portfolioItemId}/image2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/3/image2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"3",
+								"image2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{portfolioItemId}/image3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/3/image3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"3",
+								"image3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":10,\n    \"userId\":\"id\",\n    \"name\":\"Fotos en el zoo\",\n    \"description\":\"Una sesión de fotos de lo más salvaje\",\n    \"category\":\"Fotografía\",\n    \"client\":\"Zoo de Madrid\",\n    \"url\":\"https://www.zoomadrid.com/\",\n    \"date\":\"2000-07-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"users",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"users",
+								"id",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":10,\n    \"userId\":\"id\",\n    \"name\":\"Fotos en el parque de atracciones\",\n    \"description\":\"Una sesión de fotos de lo más divertida\",\n    \"category\":\"Fotografía\",\n    \"client\":\"Parque de atracciones de Madrid\",\n    \"url\":\"https://www.parquedeatracciones.es/\",\n    \"date\":\"2000-10-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"users",
+								"id",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/previewImage",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "previewImg",
+									"type": "file",
+									"src": "265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/previewImage",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"users",
+								"id",
+								"10",
+								"previewImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/image1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image1",
+									"type": "file",
+									"src": "265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"users",
+								"id",
+								"10",
+								"image1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/image2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image2",
+									"type": "file",
+									"src": "265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"users",
+								"id",
+								"10",
+								"image2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{userId}/{portfolioItemId}/image3",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image3",
+									"type": "file",
+									"src": "265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/portfolioItems/users/id/10/image3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"portfolioItems",
+								"users",
+								"id",
+								"10",
+								"image3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Templates",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/templates/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"templates",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/templates/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"templates",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"htmlPath\": \"/templates/prueba/index\",\r\n    \"name\": \"Prueba\",\r\n    \"price\": 0,\r\n    \"description\": \"Un diseño orientado a una clara visualización de tu trabajo, hecho para ti\",\r\n    \"free\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/templates/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"templates",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "Post a message",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "id",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"adios hola adios\",\r\n    \"sender\": \"id\",\r\n    \"receiver\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/messages/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"messages",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/messages/id/admin",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"messages",
+								"id",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Portfolio Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"id\",\r\n    \"password\": \"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"criss00_2820\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/auth/logout",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

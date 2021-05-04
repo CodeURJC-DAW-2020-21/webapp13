@@ -1,0 +1,157 @@
+{{> header}}
+
+<!-- Header Layout Content -->
+<div class="mdk-header-layout__content page-content pb-0">
+
+    <!--SUBNAVBAR FOR SEARCHING FILTERS-->
+    <div class="navbar navbar-expand-sm navbar-list navbar-submenu navbar-light p-0 m-0">
+        <div class="container-fluid align-items-start align-items-sm-center">
+            <div class="navbar-list__item">
+                <nav class="nav nav-links nav--flush">
+                    <a data-toggle="sidebar" data-target="#filters-drawer"
+                       class="active nav-link d-flex align-items-center">Filtros</a>
+                </nav>
+            </div>
+
+            <div class="navbar-list__item d-flex align-items-center" style="display: none !important;">
+                <!--PROBABLY DELETED IN THE FUTURE-->
+                <div class="ml-auto custom-select-icon">
+                    <select name="sort" class="custom-select custom-select-sm custom-select-icon__select">
+                        <option>Nuevos primero</option>
+                        <option>Antiguos primero</option>
+                        <option>Nombre (a-z)</option>
+                        <option>Nombre (z-a)</option>
+                    </select>
+                    <span class="material-icons custom-select-icon__icon">sort</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdk-drawer-layout js-mdk-drawer-layout" data-responsive-width="768px" data-push>
+
+        <!-- MAIN CONTENT -->
+        <div class="mdk-drawer-layout__content">
+            <div class="page-section">
+                <div class="container page__container">
+
+
+                    <div class="page-heading">
+                        <h4>Resultados</h4>
+                        <p class="ml-sm-auto text-70 mb-0"><strong id="total">8</strong> resultados en {{category}}</p>
+                    </div>
+
+
+                    <div id="result">
+                        <div class="row" id="users-to-load">
+                            {{#users}}
+                            <div class="col-lg-6 col-xl-3 col-sm-6 user-item">
+                                <div>
+
+                                    <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal "
+                                         data-partial-height="40" data-toggle="popover" data-trigger="click">
+
+
+                                        <a href="/template/{{id}}" data-position="center">
+                                            <!--PROFILE IMAGE GOES HERE /portfolioitems/{{id}}}/image-->
+                                            <img class="img-fluid" src="{{#profilePhoto}}/users/{{id}}/image{{/profilePhoto}} {{^profilePhoto}} /app/assets/images/people/256/256_rsz_florian-perennes-594195-unsplash.jpg {{/profilePhoto}}"
+                                                 alt="course" style="height: 256px;">
+                                            <span class="overlay__content">
+                                                <span class="overlay__action d-flex flex-column text-center">
+    
+                                                </span>
+                                            </span>
+                                        </a>
+
+
+                                        <div class="mdk-reveal__content">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="flex">
+                                                        <a class="card-title" href="#">{{name}}</a>
+                                                    </div>
+                                                    <a href="#"
+                                                       class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            {{/users}}
+
+                            {{^users}}
+                            <p class="text-black-50 lead measure-hero-lead mx-auto mb-64pt" style="margin-bottom: 200px !important;">No hay nada todavia.</p>
+                            {{/users}}
+
+
+                        </div>
+                    </div>
+
+
+                    <!-- PAGINATION -->
+                    <div id="hasNextPage">
+                        <ul class="pagination justify-content-center pagination-sm" id="button-replace">
+                            {{#hasNext}}
+                            <button class="btn btn-accent" id="load-more">Cargar más</button>
+                            {{/hasNext}}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- DRAWER (FILTERS) -->
+        <div class="mdk-drawer js-mdk-drawer" id="filters-drawer">
+            <div class="mdk-drawer__content">
+                <div class="mdk-drawer__inner" data-perfect-scrollbar data-perfect-scrollbar-wheel-propagation="true">
+                    <div class="pt-md-32pt pt-lg-64pt">
+                        <div class="px-24pt mb-24pt mb-md-48pt filter-section">
+                            <ul class="accordion js-accordion m-0" id="library-category">
+                                <li class="accordion__item open">
+
+                                    <a class="accordion__toggle" data-toggle="collapse" data-parent="#library-category"
+                                       href="#library-all">
+                                        <span class="flex">Profesión</span>
+                                        <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
+                                    </a>
+
+                                    <nav class="accordion__menu" id="library-all">
+                                        <a class="accordion__menu-link {{#active_all}}active{{/active_all}}"
+                                           href="/search">Todas</a>
+
+                                        <a class="accordion__menu-link {{#active_engineer}}active{{/active_engineer}}"
+                                           href="/search/ingenieria">Ingeniería</a>
+                                        <a class="accordion__menu-link {{#active_designer}}active{{/active_designer}}"
+                                           href="/search/diseño">Diseño</a>
+                                        <a class="accordion__menu-link {{#active_photographer}}active{{/active_photographer}}"
+                                           href="/search/fotografia">Fotografía</a>
+                                        <a class="accordion__menu-link {{#active_businessman}}active{{/active_businessman}}"
+                                           href="/search/empresa">Empresa</a>
+
+                                    </nav>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- // END drawer-layout -->
+
+
+</div>
+<!-- // END Header Layout Content -->
+
+</div>
+<!-- // END Header Layout -->
+
+{{>footer}}

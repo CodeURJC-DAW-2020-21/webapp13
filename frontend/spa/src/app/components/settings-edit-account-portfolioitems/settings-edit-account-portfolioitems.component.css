@@ -1,0 +1,9 @@
+.card{
+    width: 15rem !important;
+    margin: 1rem;
+}
+
+#users-to-load{
+    display: flex;
+    justify-content: center;
+}

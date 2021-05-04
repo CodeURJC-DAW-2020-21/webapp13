@@ -1,0 +1,86 @@
+        {{> header}}
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content page-content ">
+
+            {{#user}}
+
+            {{> info}}
+
+
+
+            <div class="container page__container">
+                <form action="/settings/edit/account/set/new/info">
+                    <div class="row">
+                        <div class="col-lg-9">
+
+                            <div class="page-section">
+                                <h4>Información avanzada</h4>
+                                <div class="list-group list-group-form">
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Tu foto</label>
+                                            <div class="col-sm-9 media align-items-center">
+                                                <a href="" class="media-left mr-16pt">
+                                                    <img src="/app/assets/images/people/110/guy-3.jpg" alt="people" width="56" class="rounded-circle" />
+                                                </a>
+                                                <div class="media-body">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                                        <label class="custom-file-label" for="inputGroupFile01">Elige un archivo</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Nombre de usuario de PortHub</label>
+                                            <div class="col-sm-9">
+                                                {{#logued}}
+                                                <input id="id" name="id" type="text" class="form-control" value="PortHub.com/{{#user}}{{id}}{{/user}}" placeholder="Tu nombre de perfil ...">
+                                                <small class="form-text text-muted">Tu nombre de perfil será usado como parte de la dirección URL pública de tu perfil.</small>
+                                                {{/logued}}
+                                                {{^logued}}
+                                                <input type="text" class="form-control" value="PortHub.com/" placeholder="Tu nombre de perfil ...">
+                                                <small class="form-text text-muted">Tu nombre de perfil será usado como parte de la dirección URL pública de tu perfil.</small>
+                                                {{/logued}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-3">Descríbete</label>
+                                            <div class="col-sm-9">
+                                                {{#logued}}
+                                                <textarea id="description" name="description" rows="3" class="form-control" placeholder="{{#user}}{{description}}{{/user}}"></textarea>
+                                                {{/logued}}
+                                                {{^logued}}                                               <textarea rows="3" class="form-control" placeholder="Habla sobre ti..."></textarea>
+                                                {{/logued}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-accent">Guardar cambios</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <input type="hidden" name="_csrf" value="{{token}}"/>
+
+                        {{> settings-edit-account-panel}}
+
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+        <!-- // END Header Layout Content -->
+
+    </div>
+    <!-- // END Header Layout -->
+        {{/user}}
+        {{> footer}}
+
+

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Portfolio Details - iPortfolio Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="../../../../templates/free/img/favicon.png" rel="icon">
+    <link href="../../../../templates/free/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../../../../templates/free/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../../../../templates/free/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../templates/free/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../../../templates/free/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../../../../templates/free/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../../../../templates/free/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../../../../templates/free/css/portfolio-item.css" rel="stylesheet">
+    <link href="../../../../templates/free/css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<main id="main ml-0">
+
+    {{#logued}}
+    {{#chat}}
+    {{#portfolioUser}}}
+    <a href="/chat/{{id}}">
+        <button type="button" id="chat-button" class="btn btn-primary btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="position: fixed; bottom: 10%; right: 0; background-color: #1695de;"><i class="fas fa-comment"></i></i></button>
+    </a>
+    {{/portfolioUser}}
+    {{/chat}}
+    {{/logued}}
+
+    <a href="/">
+        <button type="button" id="close-button" class="btn btn-warning btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3"
+                style="
+    z-index: 99;"><i class="fas fa-times"></i></button>
+    </a>
+
+
+    <!-- ======= Breadcrumbs ======= -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-dark pt-64" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger text-light" href="/template/{{portfolioUser.id}}">Inicio</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/template/{{portfolioUser.id}}">Sobre mí</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Proyectos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {{#portfolioItem}}
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-8">
+                    <div class="portfolio-details-slider swiper-container">
+                        <div class="swiper-wrapper align-items-center">
+
+                            <div class="swiper-slide">
+                                <img src="/portfolioitems/{{id}}/image1" alt="">
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="/portfolioitems/{{id}}/image2" alt="">
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="/portfolioitems/{{id}}/image3" alt="">
+                            </div>
+
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="portfolio-info">
+                        <h3 id="portfolio-item-name">{{name}}</h3>
+                        <ul>
+                            <li><strong>Categoría</strong id="portfolio-item-category">: {{category}}</li>
+                            <li><strong>Client</strong id="portfolio-item-company">: {{client}}</li>
+                            <li><strong>Project date</strong id="portfolio-item-date">: {{date}}</li>
+                            <li><strong>Project URL</strong id="portfolio-item-url-">: <a href="/{{url}}">{{url}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-description">
+                        <h4>Descripción: </h4>
+                        <p id="portolio-item-description">
+                            {{description}}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Portfolio Details Section -->
+    {{/portfolioItem}}
+
+</main><!-- End #main -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="../../../../templates/free/vendor/aos/aos.js"></script>
+<script src="../../../../templates/free/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../../templates/free/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="../../../../templates/free/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../../../../templates/free/vendor/php-email-form/validate.js"></script>
+<script src="../../../../templates/free/vendor/purecounter/purecounter.js"></script>
+<script src="../../../../templates/free/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="../../../../templates/free/vendor/typed.js/typed.min.js"></script>
+<script src="../../../../templates/free/vendor/waypoints/noframework.waypoints.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../../../../templates/free/js/main.js"></script>
+<!-- Bootstrap core JS-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<!-- Core theme JS-->
+<script src="../../../../templates/free/js/scripts.js"></script>
+
+</body>
+
+</html>

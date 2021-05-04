@@ -1,0 +1,180 @@
+<div class="mdk-header-layout__content page-content ">
+
+  <div class="container page__container">
+
+      <div >
+          <div class="row">
+              <div class="col-lg-9">
+      
+                  <!--Edit portfolio item-->
+                  <div class="page-section pb-0 mb-4">
+                    <h4>Edita un proyecto de tu portfolio</h4>
+
+                    <button (click)="delete()" class="delete btn btn-accent">Eliminar</button>
+                    <div class="list-group list-group-form">
+
+                        <!--Preview Image-->
+                        <div class="list-group-item">
+                            <div class="form-group row mb-0">
+                                <label class="col-form-label col-sm-3">Miniatura de tu trabajo</label>
+                                <div class="col-sm-9 media align-items-center">
+                                    <a href="" class="media-left mr-16pt">
+                                        <img src="assets/images/people/110/bg-masthead.jpg" alt="people" width="56"
+                                            class="rounded-circle" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="custom-file">
+                                            <input #previewImage type="file" class="custom-file-input" id="preImg"
+                                                name="preImg" accept=".jpg, .jpeg, .svg, .png" >
+                                            <label class="custom-file-label" for="image1">Elige un archivo</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Image1-->
+                        <div class="list-group-item">
+                            <div class="form-group row mb-0">
+                                <label class="col-form-label col-sm-3">Primera foto de tu trabajo</label>
+                                <div class="col-sm-9 media align-items-center">
+                                    <a href="" class="media-left mr-16pt">
+                                        <img src="assets/images/people/110/portfolio-2.jpg" alt="people" width="56"
+                                            class="rounded-circle" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="custom-file">
+                                            <input #image1 type="file" class="custom-file-input" id="img1"
+                                                name="img1" accept=".jpg, .jpeg, .svg, .png" >
+                                            <label class="custom-file-label" for="image1">Elige un archivo</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Image 2-->
+                        <div class="list-group-item">
+                            <div class="form-group row mb-0">
+                                <label class="col-form-label col-sm-3">Segunda foto de tu trabajo</label>
+                                <div class="col-sm-9 media align-items-center">
+                                    <a href="" class="media-left mr-16pt">
+                                        <img src="assets/images/people/110/portfolio-2.jpg" alt="people" width="56"
+                                            class="rounded-circle" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="custom-file">
+                                            <input #image2 type="file" class="custom-file-input" id="img2"
+                                                name="img2" accept=".jpg, .jpeg, .svg, .png" >
+                                            <label class="custom-file-label" for="image2">Elige un archivo</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Image 3-->
+                        <div class="list-group-item">
+                            <div class="form-group row mb-0">
+                                <label class="col-form-label col-sm-3">Tercera foto de tu trabajo</label>
+                                <div class="col-sm-9 media align-items-center">
+                                    <a href="" class="media-left mr-16pt">
+                                        <img src="assets/images/people/110/portfolio-2.jpg" alt="people" width="56"
+                                            class="rounded-circle" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="custom-file">
+                                            <input #image3 type="file" class="custom-file-input" id="img3"
+                                                name="img3" accept=".jpg, .jpeg, .svg, .png" >
+                                            <label class="custom-file-label" for="image3">Elige un archivo</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Name-->
+                        <div class="list-group-item">
+                            <div class="form-group row mb-0">
+                                <label class="col-form-label col-sm-3">Título del trabajo</label>
+                                <div class="col-sm-9">
+                                    <input #name type="text" class="form-control"
+                                        placeholder="Nombre de tu proyecto" name="name" [value]="portfolioItem.content['name']" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Cateogry-->
+                        <div class="list-group-item" style="background-color:#e9eef2;">
+                            <h4>Información del proyecto</h4>
+                            <div class="list-group list-group-form">
+                                <div class="list-group-item">
+                                    <div class="form-group row mb-0">
+                                        <label class="col-form-label col-sm-3">Categoría</label>
+                                        <div class="col-sm-9">
+                                            <input #category type="text" class="form-control"
+                                                placeholder="Categoría de tu proyecto" name="category" [value]="portfolioItem.content['category']" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="form-group row mb-0">
+                                        <label class="col-form-label col-sm-3">Cliente</label>
+                                        <div class="col-sm-9">
+                                            <input #client type="text" class="form-control"
+                                                placeholder="Cliente de tu proyecto" name="client" [value]="portfolioItem.content['client']" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="form-group row mb-0">
+                                        <label class="col-form-label col-sm-3">Fecha</label>
+                                        <div class="col-sm-9">
+                                            <input #date type="date" class="form-control"
+                                                placeholder="Fecha de tu proyecto" name="date" [value]="portfolioItem.content['date']" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="form-group row mb-0">
+                                        <label class="col-form-label col-sm-3">URL</label>
+                                        <div class="col-sm-9">
+                                            <input #url type="text" class="form-control"
+                                                placeholder="Dirección de tu proyecto" name="url"  [value]="portfolioItem.content['url']" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Description-->
+                        <div class="list-group-item">
+                            <div class="form-group row mb-0">
+                                <label class="col-form-label col-sm-3">Describe tu trabajo</label>
+                                <div class="col-sm-9">
+                                    <textarea #description rows="3" class="form-control"
+                                        placeholder="Habla sobre tu proyecto ..." name="description" [value]="portfolioItem.content['description']"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" (click)="update(previewImage,image1,image2,image3,name.value,category.value,client.value,date.value,url.value,description.value)">Guardar</button>
+
+                    </div>
+
+
+
+
+                </div>
+
+              </div>
+          </div>
+        </div>
+
+      <div class="col-lg-9 d-flex justify-content-center mb-3 p-0">
+
+      </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="page-section mt-5 mr-4 ml-4">
+
+    <h4>Conversaciones</h4>
+    <div class="card">
+
+        <div class="list-group list-group-flush">
+
+            <div *ngFor="let chat of chats" class="list-group-item p-3">
+                <div  class="row align-items-center">
+
+
+                    <div *ngIf="chats.length != 0" class="col-md-3 mb-8pt mb-md-0">
+                        <div class="media">
+                            <div class="media-left mr-16pt">
+                                <img class="img-fluid rounded-circle" src="/api/users/{{chat}}/image" alt="user">
+                            </div>
+                            <div class="media-body media-middle">
+                                <p class="m-0"><a href="" class="text-body"><b>{{chat}}</b></a></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col mb-8pt mb-md-0">
+
+                    </div>
+
+
+                    <div class="col-auto d-flex flex-column align-items-center justify-content-center">
+                        <a [routerLink]="['/conversations',chat]" class="btn btn-primary">Ver mensajes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="chats.length == 0" class="card-body text-center">
+                <p class="text-black-50 lead measure-hero-lead mx-auto">No has hablado con nadie todavia</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

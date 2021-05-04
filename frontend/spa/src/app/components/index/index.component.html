@@ -1,0 +1,85 @@
+<div class="mdk-header-layout js-mdk-header-layout">
+
+  <!-- Header Layout Content -->
+  <div class="mdk-header-layout__content page-content ">
+
+    <!--First view-->
+    <div class="mdk-box mdk-box--bg-gradient-primary bg-dark js-mdk-box position-relative overflow-hidden mb-0"
+         data-effects="parallax-background blend-background">
+      <div class="mdk-box__bg">
+        <div class="mdk-box__bg-front"
+             style="background-image: url(assets/images/1280_work-station-straight-on-view.jpg);"></div>
+      </div>
+      <div class="mdk-box__content">
+        <div class="container page__container py-64pt py-md-112pt">
+          <div class="row align-items-center text-center text-md-left">
+            <div class="col-md-6 col-lg-5 order-1 order-md-0">
+              <h1 class="text-white">Encuentra <br> Profesionales
+
+                <span class="d-block d-md-inline-block text"></span>
+              </h1>
+              <p class="lead mb-32pt mb-lg-48pt text-white">Desarrolladores, diseñadores, fotógrafos y
+                amantes de la tecnología han decidido unirse a PortHub para darse a
+                conocer y mostrar al mundo de lo que son capaces de hacer.</p>
+              <a [routerLink]="['/search']" class="btn btn-lg btn-white btn--raised mb-16pt">Echa un
+                vistazo</a>
+            </div>
+            <div class="col-md-6 col-lg-7 order-0 order-md-1 text-center mb-32pt mb-md-0">
+              <img src="assets/images/macbook.png" alt="macbook" class="home-macbook">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Main categories-->
+    <div class="page-section bg-white border-bottom-2">
+      <div class="container page__container">
+
+        <div class="page-headline text-center">
+          <h2>Categorias</h2>
+          <p class="lead text-black-70 measure-lead mx-auto">Encuentra a cientos de profesionales de un
+            area específica de una forma más sencilla en función de su trabajo</p>
+        </div>
+
+        <!--Most popular categories-->
+        <div class="row d-block js-mdk-carousel">
+          <div class="mdk-carousel__content">
+          
+            <div class="card-group">
+              <div class="card mb-3">
+                <a [routerLink]="['/search']">
+                  <img class="card-img-top" src="assets/images/1280_derxvssqndm-artem-sapegin.jpg" alt="Card image cap">
+                </a>
+                
+              </div>
+              <div class="card mb-3">
+                <a [routerLink]="['/search']">
+                  <img class="card-img-top" src="assets/images/1280_work-station-straight-on-view.jpg" alt="Card image cap">
+                </a>
+                
+              </div>
+              <div class="card mb-3">
+                <a [routerLink]="['/search']">
+                  <img class="card-img-top" src="assets/images/1280_writing-down-goals_4460x4460.jpg" alt="Card image cap">
+                </a>
+              </div>
+            </div>
+            
+
+          </div>
+        </div>
+
+        <div class="pt-8pt pt-md-32pt text-center">
+          <a [routerLink]="['/search']" class="btn btn-outline-secondary">Ver más</a>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+

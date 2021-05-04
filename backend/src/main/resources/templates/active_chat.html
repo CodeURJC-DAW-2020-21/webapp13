@@ -1,0 +1,46 @@
+{{> header}}
+
+<div class="page-section mt-5 mr-4 ml-4">
+
+    <h4>Conversaciones</h4>
+    <div class="card">
+
+        <div class="list-group list-group-flush">
+
+            {{#users}}
+            <div class="list-group-item p-3">
+                <div class="row align-items-center">
+                    <div class="col-md-3 mb-8pt mb-md-0">
+                        <div class="media">
+                            <div class="media-left mr-16pt">
+                                <a href="student-profile.html"><img src="{{#profilePhoto}}/users/{{id}}/image{{/profilePhoto}} {{^profilePhoto}} /app/assets/images/people/256/256_rsz_florian-perennes-594195-unsplash.jpg {{/profilePhoto}}" width="40" alt="avatar" class="rounded-circle"></a>
+                            </div>
+                            <div class="media-body media-middle">
+                                <p class="m-0"><a href="/chat/{{id}}" class="text-body"><b>Conversación con el usuario: </b>{{id}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-8pt mb-md-0">
+
+                    </div>
+                    <div class="col-auto d-flex flex-column align-items-center justify-content-center">
+                        <a href="/chat/{{id}}" class="btn btn-primary">Ver mensajes</a>
+                    </div>
+                </div>
+            </div>
+            {{/users}}
+
+            {{^users}}
+            <div class="card-body text-center">
+                <p class="text-black-50 lead measure-hero-lead mx-auto">No has hablado con nadie todavia</p>
+            </div>
+            {{/users}}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{{> footer}}

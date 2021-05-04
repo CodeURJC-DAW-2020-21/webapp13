@@ -1,0 +1,17 @@
+.container{
+    margin-top: 0 !important;
+}
+
+.message-receiver{
+    text-align: right;
+}
+
+.rounded-circle{
+    width: 44px;
+    height: 44px;
+}
+
+#readMore {
+    margin-top: 10% !important;
+    color: white;
+}

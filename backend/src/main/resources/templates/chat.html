@@ -1,0 +1,182 @@
+{{> header}}
+
+<noscript>
+    <h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+        enabled. Please enable
+        Javascript and reload this page!</h2>
+</noscript>
+
+
+<div id="main-content messages" class="container" style="margin-top: 5%">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <a href="#send" class="btn-primary btn w-100 mt-2 mb-2">Leer mensajes mas recientes</a>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Conversación con <p id="receiver-id">{{receiver.id}}</p></th>
+                </tr>
+                </thead>
+                <tbody id="conversation">
+
+                {{#messages}}
+                <tr><td class="message"> <b class="sender-id">{{sender.id}}</b>: {{text}}</td></tr>
+                {{/messages}}
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row mb-5">
+
+        <div class="col-md-12 mt-2 mb-2" id="sendDiv">
+            <form id="sendForm"  class="form-inline">
+                <div class="form-group w-75">
+                    <input type="text" id="name" class="form-control w-100" placeholder="Escribe un mensaje a tu amigo">
+                </div>
+                <button id="send" class="btn btn-accent w-25" type="submit">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<!--Footer-->
+
+</div>
+
+</div>
+
+<!-- DRAWER (MOBILE NAVBAR) -->
+<div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+    <div class="mdk-drawer__content">
+        <div class="sidebar sidebar-dark sidebar-left" data-perfect-scrollbar>
+            <div class="sidebar-p-a sidebar-b-b sidebar-m-b pt-0">
+
+                <!-- Brand -->
+                <a href="/" class="sidebar-brand">
+                    <img class="sidebar-brand-icon" src="/app/assets/images/logo/logo.png" width="30" alt="Tutorio">
+                    <span>PortHub</span>
+                </a>
+                <!-- // END Brand -->
+
+                <!-- Search -->
+                <form action="/searchbar" method="post" class="search-form search-form--black">
+                    <input type="text" class="form-control" placeholder="Busca un usuario">
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                    <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
+                </form>
+
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/">Inicio</a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/search">Explorar</a>
+                </li>
+
+                {{#logued}}
+                {{#user}}
+                <li class="sidebar-menu-item {{#active_profile}}active{{/active_profile}}">
+                    <a href="/template/{{id}}" class="sidebar-menu-button">Perfil</a>
+                </li>
+                {{/user}}
+                {{/logued}}
+                {{^logued}}
+                <li class="sidebar-menu-item {{#active_profile}}active{{/active_profile}}">
+                    <a href="/login" class="sidebar-menu-button">Perfil</a>
+                </li>
+                {{/logued}}
+
+
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/shop">Tienda</a>
+                </li>
+                {{#logued}}
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/active_chats">Conversaciones</a>
+                </li>
+                {{/logued}}
+
+                {{#logued}}
+                {{#admin}}
+                <li class="sidebar-menu-item mb-3">
+                    <form action="/admin" method="post">
+                        <button type="submit" class="btn btn-outline-success ml-3">Administración</button>
+                        <input type="hidden" name="_csrf" value="{{token}}" />
+                    </form>
+                </li>
+                {{/admin}}
+                <li class="sidebar-menu-item">
+                    <form action="/logout" method="post">
+                        <button type="submit" class="btn btn-accent ml-3">Logout</button>
+                        <input type="hidden" name="_csrf" value="{{token}}" />
+                    </form>
+                </li>
+                {{/logued}}
+
+                {{^logued}}
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/login">Iniciar sesión</a>
+                </li>
+                {{/logued}}
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- // END drawer -->
+
+<script src="/app/assets/vendor/jquery.min.js"></script>
+
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script src="/app/assets/js/custom/chat.js"></script>
+<script src="/app/assets/js/custom/ajax.js"></script>
+
+<!-- Bootstrap -->
+<script src="/app/assets/vendor/popper.min.js"></script>
+<script src="/app/assets/vendor/bootstrap.min.js"></script>
+
+<!-- Perfect Scrollbar -->
+<script src="/app/assets/vendor/perfect-scrollbar.min.js"></script>
+
+<!-- DOM Factory -->
+<script src="/app/assets/vendor/dom-factory.js"></script>
+
+<!-- MDK -->
+<script src="/app/assets/vendor/material-design-kit.js"></script>
+
+<!-- Fix Footer -->
+<script src="/app/assets/vendor/fix-footer.js"></script>
+
+<!-- App JS -->
+<script src="/app/assets/js/app.js"></script>
+
+<!--Custom text scramble-->
+<script src="/app/assets/js/custom/text-scramble.js"></script>
+
+</body>
+
+</html>

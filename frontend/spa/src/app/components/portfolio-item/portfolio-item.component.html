@@ -1,0 +1,71 @@
+<main id="main ml-0">
+
+    <!--{{#logued}}
+    {{#chat}}
+    {{#portfolioUser}}}
+    <a href="/chat/{{id}}">
+        <button type="button" id="chat-button" class="btn btn-primary btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3" style="position: fixed; bottom: 10%; right: 0; background-color: #1695de;"><i class="fas fa-comment"></i></i></button>
+    </a>
+    {{/portfolioUser}}
+    {{/chat}}
+    {{/logued}}-->
+
+    <a href="/">
+        <button type="button" id="close-button" class="btn btn-warning btn-circle btn-xl mr-md-5 mb-md-5 mr-3 mb-3"
+            style="
+    z-index: 99;"><i class="fas fa-times"></i></button>
+    </a>
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-8">
+                    <ngb-carousel>
+                        <ng-template ngbSlide>
+                            <div class="picsum-img-wrapper">
+                                <img src="/api/portfolioItems/{{id}}/image1" alt="Random first slide">
+                            </div>
+                        </ng-template>
+
+                        <ng-template ngbSlide>
+                            <div class="picsum-img-wrapper">
+                                <img src="/api/portfolioItems/{{id}}/image2" alt="Random first slide">
+                            </div>
+                        </ng-template>
+
+                        <ng-template ngbSlide>
+                            <div class="picsum-img-wrapper">
+                                <img src="/api/portfolioItems/{{id}}/image3" alt="Random first slide">
+                            </div>
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="portfolio-info">
+                        <h3 id="portfolio-item-name">{{portfolioItem["name"]}}</h3>
+                        <ul>
+                            <li><strong id="portfolio-item-category">Categoría</strong>: {{portfolioItem["category"]}}</li>
+                            <li><strong id="portfolio-item-company">Client</strong>: {{portfolioItem["client"]}}</li>
+                            <li><strong id="portfolio-item-date">Project date</strong>: {{portfolioItem["date"]}}</li>
+                            <li><strong id="portfolio-item-url-">Project URL</strong>: <a href="{{portfolioItem['name']}}">{{portfolioItem["url"]}}</a></li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-description">
+                        <h4>Descripción: </h4>
+                        <p id="portolio-item-description">
+                            Descripción
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Portfolio Details Section -->
+
+
+</main><!-- End #main -->

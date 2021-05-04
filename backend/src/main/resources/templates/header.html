@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" style="scroll-behavior: smooth">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PortHub</title>
+
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="/app/assets/vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Fix Footer CSS -->
+    <link type="text/css" href="/app/assets/vendor/fix-footer.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="/app/assets/css/material-icons.css" rel="stylesheet">
+    <link type="text/css" href="/app/assets/css/material-icons.rtl.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="/app/assets/css/fontawesome.css" rel="stylesheet">
+    <link type="text/css" href="/app/assets/css/fontawesome.rtl.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="/app/assets/css/preloader.css" rel="stylesheet">
+    <link type="text/css" href="/app/assets/css/preloader.rtl.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="/app/assets/css/app.css" rel="stylesheet">
+    <link type="text/css" href="/app/assets/css/app.rtl.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link href="/app/assets/images/logo/logo-icon.png" rel="icon">
+
+
+
+</head>
+
+<body class="layout-navbar-mini">
+
+<!--Preloader-->
+<div class="preloader">
+    <div class="sk-double-bounce">
+        <div class="sk-child sk-double-bounce1"></div>
+        <div class="sk-child sk-double-bounce2"></div>
+    </div>
+</div>
+
+<!-- Header Layout -->
+<div class="mdk-header-layout js-mdk-header-layout">
+
+    <!-- Header -->
+    <div id="header" class="mdk-header bg-dark js-mdk-header mb-0" data-effects="waterfall blend-background"
+         data-fixed data-condenses>
+        <div class="mdk-header__content">
+
+            <!--Navbar-->
+            <div class="navbar navbar-expand-sm navbar-dark bg-dark pr-0 pr-md-16pt" id="default-navbar"
+                 data-primary>
+
+                <!-- Navbar toggler -->
+                <button class="navbar-toggler navbar-toggler-right d-block d-md-none" type="button"
+                        data-toggle="sidebar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar Brand -->
+                <a href="/" class="navbar-brand">
+                    <img class="navbar-brand-icon mr-0 mr-md-8pt" src="/app/assets/images/logo/logo.png"
+                         width="30" alt="Tutorio">
+                    <span class="d-none d-md-block">PortHub</span>
+                </a>
+
+                <ul class="nav navbar-nav mr-16pt d-none d-md-flex">
+                    <li class="nav-item {{#active_search}}active{{/active_search}}">
+                        <a href="/search" class="nav-link "><i class="fas fa-search fa-sm mr-4pt d-flex align-items-center"></i>Explorar</a>
+                    </li>
+                    {{#logued}}
+                    {{#user}}
+                    <li class="nav-item {{#active_profile}}active{{/active_profile}}">
+                        <a href="/template/{{id}}" class="nav-link"><i class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
+                    </li>
+                    {{/user}}
+                    {{/logued}}
+                    {{^logued}}
+                    <li class="nav-item {{#active_profile}}active{{/active_profile}}">
+                        <a href="/login" class="nav-link"><i class="fas fa-user fa-sm mr-4pt d-flex align-items-center"></i>Perfil</a>
+                    </li>
+                    {{/logued}}
+                    <li class="nav-item {{#active_shop}}active{{/active_shop}}">
+                        <a href="/shop" class="nav-link"><i class="fas fa-shopping-bag mr-4pt d-flex align-items-center"></i>Tienda</a>
+                    </li>
+
+                    {{#logued}}
+                    <li class="nav-item {{#active_chat}}active{{/active_chat}}">
+                        <a href="/active_chats" class="nav-link"><i class="fas fa-comments mr-4pt d-flex align-items-center"></i>Conversaciones</a>
+                    </li>
+                    {{/logued}}
+                </ul>
+
+                <form class="search-form search-form--black search-form-courses d-none d-md-flex"
+                      action="/searchbar" method="post">
+                    <input type="text" class="form-control" name="search" placeholder="Descubre un nuevo portfolio">
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                    <button class="btn" type="submit" role="button"><i class="material-icons">search</i></button>
+                </form>
+
+                <!-- Main Navigation -->
+                <ul class="nav navbar-nav ml-auto flex-nowrap flex-row" style="white-space: nowrap;">
+
+                    {{#logued}}
+                    <li class="nav-item text-white mr-3 mr-md-0"><p>Hola, <span id="user-id">{{#user}}{{id}}{{/user}}</span></p></li>
+                    <li class="nav-item">
+                        <a href="/settings/edit/account" class="nav-link">
+                            <i class="material-icons">settings</i>
+                            <span class="sr-only">Settings</span>
+                        </a>
+                    </li>
+                    {{#admin}}
+                    <li class="d-none d-sm-flex nav-item">
+                        <form action="/admin" method="post">
+                            <button type="submit" class="btn btn-outline-success">Administración</button>
+                            <input type="hidden" name="_csrf" value="{{token}}" />
+                        </form>
+                    </li>
+                    {{/admin}}
+                    <li class="d-none d-sm-flex nav-item">
+                        <form action="/logout" method="post">
+                            <button type="submit" class="btn btn-accent">Logout</button>
+                            <input type="hidden" name="_csrf" value="{{token}}" />
+                        </form>
+                    </li>
+                    {{/logued}}
+                    {{^logued}}
+                    {{^loginProcess}}
+
+                    <li class="d-none d-sm-flex nav-item">
+                        <a href="/login" class="btn btn-accent">Login</a>
+                    </li>
+                    {{/loginProcess}}
+                    {{/logued}}
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
