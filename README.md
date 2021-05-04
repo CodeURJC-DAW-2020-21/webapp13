@@ -449,5 +449,6 @@ done with the Angular chart
 5. __admin-templates-list.component.html __
 
 ### Video Demo
+[YouTube video demo](https://youtu.be/YmOSoP1raKA)
 
 
